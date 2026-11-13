@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8">
+  <title>MESS TECH | شاشة الموبايل - إتمام الطلب COD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --navy-950: #070d18;
+  --navy-900: #0b1120;
+  --navy-850: #0f172a;
+  --navy-800: #172136;
+  --navy-700: #1e293b;
+  --navy-600: #334155;
+  --cyan-500: #0099e5;
+  --cyan-400: #38bdf8;
+  --cyan-600: #0284c7;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --amber-500: #f59e0b;
+  --rose-500: #ef4444;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --bg-page: #f8fafc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+body {
+  background: radial-gradient(circle at 50% 20%, #172a4d 0%, #070d18 80%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  min-height: 100vh;
+}
+.mono { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; }
+
+.phone-device-container {
+  width: 420px;
+  background: #000;
+  border: 10px solid #1e293b;
+  border-radius: 46px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.65), 0 0 0 2px rgba(255,255,255,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  direction: rtl;
+  text-align: right;
+  background-color: var(--bg-page);
+}
+
+.phone-status-bar {
+  background: var(--navy-900);
+  padding: 10px 20px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #fff;
+  position: relative;
+  z-index: 50;
+  direction: ltr;
+}
+.phone-dynamic-island {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 22px;
+  background: #000;
+  border-radius: 20px;
+}
+
+.device-header-title {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  max-width: 500px;
+}
+.device-header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 153, 229, 0.15);
+  border: 1px solid rgba(0, 153, 229, 0.4);
+  color: var(--cyan-400);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.device-header-title h2 {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+}
+.device-header-title p {
+  font-size: 12.5px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+</style>
+</head>
+<body>
+  <div class="device-header-title">
+    <div class="device-header-tag">Mobile UI/UX Experience</div>
+    <h2>04. السلة وإتمام الطلب في خطوة واحدة <span dir="ltr" class="mono" style="color:var(--cyan-400);">(Mobile Checkout COD)</span></h2>
+    <p>شراء سريع كضيف بدون تعقيد، مع حساب آلي للشحن حسب المحافظة وتأكيد الدفع كاش عند الاستلام</p>
+  </div>
+
+  <div class="phone-device-container">
+    <div class="phone-status-bar">
+      <span style="font-weight:700;">9:41</span>
+      <div class="phone-dynamic-island"></div>
+      <span style="font-size:10px;">5G 100%</span>
+    </div>
+
+    <div style="background:var(--navy-900); color:#fff; padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+      <span style="font-size:12px; color:#cbd5e1;">← السلة</span>
+      <span style="font-size:13px; font-weight:800;">إتمام الطلب في خطوة واحدة</span>
+      <span style="font-size:10px; color:#34d399;">🔒 آمن</span>
+    </div>
+
+    <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:8px; padding:10px 12px; margin:10px; font-size:11.5px; color:#14532d;">
+      <b>الدفع نقداً عند الاستلام (COD) فقط</b>
+      <div style="font-size:10px; margin-top:2px;">لا حاجة لكروت بنكية. استلم شحنتك وافحص الأجهزة أولاً ثم ادفع كاش للمندوب.</div>
+    </div>
+
+    <!-- Step 1: Customer Contact -->
+    <div style="background:#fff; border:1px solid var(--slate-200); border-radius:10px; padding:12px; margin:0 10px 10px;">
+      <div style="display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:800; margin-bottom:8px; border-bottom:1px solid var(--slate-100); padding-bottom:6px;">
+        <span style="background:var(--navy-900); color:var(--cyan-400); width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; font-size:10px;">1</span>
+        <span>بيانات العميل (شراء كضيف)</span>
+      </div>
+      <input type="text" style="width:100%; background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:6px; padding:7px 10px; font-size:12px; margin-bottom:6px;" value="م. أحمد فتحي (شركة دلتا)">
+      <input type="text" class="mono" style="width:100%; background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:6px; padding:7px 10px; font-size:12px; margin-bottom:6px;" value="0100 234 5678">
+      <input type="email" class="mono" style="width:100%; background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:6px; padding:7px 10px; font-size:12px;" value="ahmed.fathi@deltatech.com">
+    </div>
+
+    <!-- Step 2: Shipping & Address -->
+    <div style="background:#fff; border:1px solid var(--slate-200); border-radius:10px; padding:12px; margin:0 10px 10px;">
+      <div style="display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:800; margin-bottom:8px; border-bottom:1px solid var(--slate-100); padding-bottom:6px;">
+        <span style="background:var(--navy-900); color:var(--cyan-400); width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; font-size:10px;">2</span>
+        <span>عنوان التوصيل وحساب الشحن</span>
+      </div>
+      <div style="display:flex; gap:6px; margin-bottom:8px;">
+        <div style="flex:1; border:1.5px solid var(--cyan-500); background:#f0f9ff; color:var(--cyan-600); border-radius:6px; padding:6px; text-align:center; font-size:11px; font-weight:700;">
+          توصيل لمقر الشركة
+        </div>
+        <div style="flex:1; border:1.5px solid var(--slate-200); background:#f8fafc; color:#64748b; border-radius:6px; padding:6px; text-align:center; font-size:11px; font-weight:700;">
+          استلام من الفرع (مجاناً)
+        </div>
+      </div>
+      <select style="width:100%; background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:6px; padding:7px 10px; font-size:12px; font-weight:700; margin-bottom:6px;">
+        <option selected>القاهرة (شحن مجاني فوق 20,000 ج.م)</option>
+        <option>الجيزة (شحن مجاني)</option>
+        <option>الإسكندرية والوجه البحري</option>
+      </select>
+      <input type="text" style="width:100%; background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:6px; padding:7px 10px; font-size:12px;" value="المعادي الجديدة، شارع النصر، عمارة 14">
+    </div>
+
+    <!-- Step 3: Order Totals -->
+    <div style="background:#fff; border:1px solid var(--slate-200); border-radius:10px; padding:12px; margin:0 10px 12px; font-size:11.5px; color:#475569;">
+      <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+        <span>سويتش سيسكو 2960X (x2):</span>
+        <b>39,700 ج.م</b>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+        <span>كابينة راك 9U جداري (x1):</span>
+        <b>3,500 ج.م</b>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:4px; color:#059669;">
+        <span>الشحن (القاهرة):</span>
+        <b>مجاني (0 ج.م)</b>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:6px; color:#ef4444;">
+        <span>خصم الكوبون (MESS2026):</span>
+        <b>- 1,000 ج.م</b>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--navy-900); border-top:1px solid var(--slate-100); padding-top:6px;">
+        <span>المستحق نقدياً عند الاستلام:</span>
+        <span style="color:var(--cyan-600);">42,200 ج.م</span>
+      </div>
+    </div>
+
+    <!-- Sticky Confirm Order Button -->
+    <div style="background:#fff; border-top:1px solid var(--slate-200); padding:10px 12px 14px;">
+      <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:12px; border-radius:8px; font-size:13.5px; font-weight:900; cursor:pointer;">
+        تأكيد الطلب الآن - الدفع عند الاستلام (COD) ✓
+      </button>
+    </div>
+  </div>
+</body>
+</html>

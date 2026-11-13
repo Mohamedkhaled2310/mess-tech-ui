@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8">
+  <title>MESS TECH | العرض التقديمي لتصميمات واجهات المستخدم UI/UX (موبايل وكمبيوتر)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #0b1120;
+      --secondary-navy: #131d33;
+      --accent-cyan: #0099e5;
+      --accent-cyan-light: #38bdf8;
+      --text-white: #f8fafc;
+      --text-muted: #94a3b8;
+      --card-bg: #1e293b;
+      --border-dark: #334155;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+    body {
+      background: #070d18;
+      color: var(--text-white);
+      direction: rtl;
+      text-align: right;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Executive Top Bar */
+    .exec-header {
+      background: var(--primary-navy);
+      border-bottom: 2px solid var(--card-bg);
+      padding: 16px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .exec-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .exec-logo-wrap img {
+      height: 42px;
+      width: auto;
+    }
+    .exec-title-block h1 {
+      font-size: 17px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .exec-title-block p {
+      font-size: 12px;
+      color: var(--accent-cyan-light);
+    }
+    .exec-badges {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .exec-badge {
+      background: rgba(0, 153, 229, 0.15);
+      border: 1px solid rgba(0, 153, 229, 0.4);
+      color: var(--accent-cyan-light);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+    .exec-badge.green {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #34d399;
+    }
+
+    /* Subheader Filters bar (Switch Desktop / Mobile) */
+    .mode-switch-bar {
+      background: #0d1527;
+      padding: 10px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .btn-mode-toggle {
+      background: #1e293b;
+      border: 1px solid var(--border-dark);
+      color: #cbd5e1;
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-mode-toggle.active {
+      background: var(--accent-cyan);
+      color: #fff;
+      border-color: var(--accent-cyan);
+    }
+
+    /* Navigation Tabs */
+    .tabs-nav-bar {
+      background: #0f172a;
+      border-bottom: 1px solid var(--border-dark);
+      padding: 0 36px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .tab-item-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab-item-btn:hover { color: #fff; background: rgba(255,255,255,0.03); }
+    .tab-item-btn.active {
+      color: var(--accent-cyan-light);
+      border-bottom-color: var(--accent-cyan-light);
+      background: rgba(0, 153, 229, 0.08);
+    }
+    .tab-num {
+      width: 20px;
+      height: 20px;
+      background: #1e293b;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10.5px;
+      font-weight: 800;
+    }
+    .tab-item-btn.active .tab-num {
+      background: var(--accent-cyan);
+      color: #fff;
+    }
+
+    /* Main Display Area */
+    .presentation-body {
+      flex: 1;
+      padding: 28px 36px;
+      max-width: 1480px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .screen-panel {
+      display: none;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+    .screen-panel.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .screen-meta-box {
+      background: #131d33;
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .screen-meta-info h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .screen-meta-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .screen-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-download-img {
+      background: var(--accent-cyan);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-open-original {
+      background: #1e293b;
+      border: 1px solid var(--border-dark);
+      color: #cbd5e1;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .image-preview-frame {
+      background: #000;
+      border: 2px solid var(--border-dark);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      text-align: center;
+      position: relative;
+    }
+    .image-preview-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .image-preview-frame.phone-frame-center {
+      background: radial-gradient(circle at 50% 20%, #172a4d 0%, #070d18 80%);
+      padding: 30px;
+    }
+    .image-preview-frame.phone-frame-center img {
+      max-width: 540px;
+      border-radius: 36px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+
+    /* Footer */
+    .exec-footer {
+      background: #050912;
+      border-top: 1px solid #1e293b;
+      padding: 20px 36px;
+      text-align: center;
+      font-size: 12.5px;
+      color: #64748b;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Executive Bar -->
+  <header class="exec-header">
+    <div class="exec-logo-wrap">
+      <img src="assets/logo_white.png" alt="MESS TECH Logo">
+      <div class="exec-title-block">
+        <h1>عرض تصميمات واجهات المستخدم UI/UX (موبايل وكمبيوتر)</h1>
+        <p>متجر MESS TECH — حلول الشبكات والبنية التحتية وأمن المعلومات</p>
+      </div>
+    </div>
+    <div class="exec-badges">
+      <span class="exec-badge green">✓ الدفع نقداً عند الاستلام COD فقط</span>
+      <span class="exec-badge">✓ محادثة واتساب مبيعات مباشرة</span>
+      <span class="exec-badge">✓ تصميم متجاوب Mobile First</span>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tabs-nav-bar">
+    <!-- Desktop Screens -->
+    <button class="tab-item-btn active" onclick="showTab(1)">
+      <span class="tab-num">💻 1</span>
+      <span>الرئيسية (Desktop)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(2)">
+      <span class="tab-num">💻 2</span>
+      <span>صفحة المنتج (Desktop)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(3)">
+      <span class="tab-num">💻 3</span>
+      <span>الفلاتر والبحث (Desktop)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(4)">
+      <span class="tab-num">💻 4</span>
+      <span>المقارنة (Desktop)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(5)">
+      <span class="tab-num">💻 5</span>
+      <span>السلة والـ Checkout COD</span>
+    </button>
+    
+    <!-- Mobile Screens -->
+    <button class="tab-item-btn" onclick="showTab(6)" style="color:#38bdf8;">
+      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 6</span>
+      <span>الرئيسية (موبايل)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(7)" style="color:#38bdf8;">
+      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 7</span>
+      <span>صفحة المنتج (موبايل)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(8)" style="color:#38bdf8;">
+      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 8</span>
+      <span>الفلاتر (موبايل)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(9)" style="color:#38bdf8;">
+      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 9</span>
+      <span>إتمام الطلب COD (موبايل)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(10)" style="color:#38bdf8;">
+      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 10</span>
+      <span>المقارنة (موبايل)</span>
+    </button>
+
+    <!-- Showcase & Dashboard -->
+    <button class="tab-item-btn" onclick="showTab(11)">
+      <span class="tab-num">📱 11</span>
+      <span>تجميعة الموبايل (Showcase)</span>
+    </button>
+    <button class="tab-item-btn" onclick="showTab(12)">
+      <span class="tab-num">📊 12</span>
+      <span>لوحة التحكم (Dashboard)</span>
+    </button>
+  </nav>
+
+  <!-- Presentation Main Body -->
+  <main class="presentation-body">
+
+    <!-- Screen 1: Desktop Homepage -->
+    <div id="panel-1" class="screen-panel active">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>01. الصفحة الرئيسية للكمبيوتر (Desktop Storefront Homepage)</h2>
+          <p>
+            • هيدر بهوية MESS TECH وبحث فوري برقم الموديل (Model/SKU).<br>
+            • شريط الماركات المعتمدة، عروض الأسبوع بمؤقت تنازلي، وشبكة أقسام التجهيزات والشبكات.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame">
+        <img src="01_الصفحة_الرئيسية_Desktop_Homepage.png" alt="Desktop Homepage">
+      </div>
+    </div>
+
+    <!-- Screen 2: Desktop Product Details -->
+    <div id="panel-2" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>02. صفحة تفاصيل المنتج والمواصفات (Desktop Product Details)</h2>
+          <p>
+            • إبراز رقم الموديل، معرض صور المنافذ، زر تحميل الـ **Datasheet PDF** الرسمي بضغطة واحدة.<br>
+            • زر محادثة واتساب مباشر للمبيعات، جدول مواصفات هندسي كامل، وباقة المنتجات المكملة.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame">
+        <img src="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" alt="Desktop Product Details">
+      </div>
+    </div>
+
+    <!-- Screen 3: Desktop Catalog & Filters -->
+    <div id="panel-3" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>03. صفحة الفلاتر والبحث التقني (Desktop Catalog & Filters)</h2>
+          <p>
+            • فلاتر فنية تتكيف مع كل قسم (عدد البورتات، PoE 370W/740W، سرعات 10G SFP+).<br>
+            • بطاقات منتجات فنية تعرض مواصفات المنافذ ومستوى الإدارة والأسعار.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame">
+        <img src="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" alt="Desktop Catalog Filters">
+      </div>
+    </div>
+
+    <!-- Screen 4: Desktop Comparison -->
+    <div id="panel-4" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>04. صفحة مقارنة 4 موديلات (Desktop Comparison Matrix)</h2>
+          <p>
+            • جدول تفصيلي يقارن 4 سويتشات معتمدة (Cisco vs MikroTik vs Ubiquiti vs Fortinet).<br>
+            • ميزة تمييز الفروق التلقائي (Highlight Differences) بلون هادئ لتسهيل المقارنة.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame">
+        <img src="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" alt="Desktop Comparison Matrix">
+      </div>
+    </div>
+
+    <!-- Screen 5: Desktop Checkout -->
+    <div id="panel-5" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>05. السلة وإتمام الطلب في خطوة واحدة (One-Step Checkout - COD Only)</h2>
+          <p>
+            • خطوة واحدة: بيانات العميل (كضيف أو بحساب)، حساب آلي للشحن حسب المحافظة.<br>
+            • الدفع نقداً عند الاستلام (COD) فقط مع خيار استلام مجاني من فرع الشركة بالمعادي.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame">
+        <img src="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" alt="Desktop Cart Checkout">
+      </div>
+    </div>
+
+    <!-- Screen 6: Mobile Homepage -->
+    <div id="panel-6" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>06. الصفحة الرئيسية للموبايل (Mobile Homepage)</h2>
+          <p>
+            • واجهة متجاوبة في إطار هاتف حديث مع شريط ملاحة سفلي ثابت وبحث سريع بالموديلات.<br>
+            • عروض الأسبوع الحصرية بمؤقت وأقسام الشبكات بلمسة واحدة.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame phone-frame-center">
+        <img src="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" alt="Mobile Homepage">
+      </div>
+    </div>
+
+    <!-- Screen 7: Mobile Product Details -->
+    <div id="panel-7" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>07. صفحة المنتج والمواصفات للموبايل (Mobile Product Details)</h2>
+          <p>
+            • بطاقة المنتج مع معرض المنافذ، زر تحميل الداتاشيت، وزر عائم للشراء المباشر عبر COD وواتساب.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame phone-frame-center">
+        <img src="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" alt="Mobile Product Details">
+      </div>
+    </div>
+
+    <!-- Screen 8: Mobile Catalog Filters -->
+    <div id="panel-8" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>08. الفلاتر والبحث التقني للموبايل (Mobile Catalog & Filters)</h2>
+          <p>
+            • تصفية السويتشات مع درج فلاتر سفلي متجاوب للمواصفات الفنية وبطاقات منتجات مدمجة.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame phone-frame-center">
+        <img src="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" alt="Mobile Catalog Filters">
+      </div>
+    </div>
+
+    <!-- Screen 9: Mobile Checkout COD -->
+    <div id="panel-9" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>09. السلة وإتمام الطلب خطوة واحدة للموبايل (Mobile Checkout COD)</h2>
+          <p>
+            • نموذج سريع كضيف، حساب فوري للشحن حسب المحافظة، وزر تأكيد واضح للدفع عند الاستلام.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame phone-frame-center">
+        <img src="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" alt="Mobile Checkout COD">
+      </div>
+    </div>
+
+    <!-- Screen 10: Mobile Comparison -->
+    <div id="panel-10" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>10. مقارنة الموديلات للموبايل (Mobile Product Comparison)</h2>
+          <p>
+            • مقارنة الموديلات بالسحب الأفقي السلس مع إبراز الفروق في البورتات وطاقة الـ PoE.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame phone-frame-center">
+        <img src="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" alt="Mobile Product Comparison">
+      </div>
+    </div>
+
+    <!-- Screen 11: Mobile Showcase (3 in 1) -->
+    <div id="panel-11" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>11. تجميعة شاشات الموبايل (Mobile Screens Showcase)</h2>
+          <p>
+            • لوحة مجمعة تضم 3 هواتف iPhone 15 Pro تعرض تجربة المستخدم المتكاملة عبر الهاتف.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame">
+        <img src="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" alt="Mobile Showcase">
+      </div>
+    </div>
+
+    <!-- Screen 12: Admin Dashboard -->
+    <div id="panel-12" class="screen-panel">
+      <div class="screen-meta-box">
+        <div class="screen-meta-info">
+          <h2>12. لوحة تحكم الإدارة (Admin Dashboard Overview)</h2>
+          <p>
+            • متابعة أوردرات الدفع عند الاستلام وحالاتها الخمس مع خيارات رفع Excel/CSV وأسعار الشحن.
+          </p>
+        </div>
+        <div class="screen-actions">
+          <a href="07_لوحة_التحكم_Admin_Dashboard_Overview.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
+          <a href="07_لوحة_التحكم_Admin_Dashboard_Overview.png" download class="btn-download-img">تحميل PNG</a>
+        </div>
+      </div>
+      <div class="image-preview-frame">
+        <img src="07_لوحة_التحكم_Admin_Dashboard_Overview.png" alt="Admin Dashboard Overview">
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="exec-footer">
+    تم إعداد وتصميم هذه النماذج بالكامل وفقاً لوثيقة المواصفات الفنية لمتجر <b>MESS TECH</b> — Tech Solutions Global.
+  </footer>
+
+  <script>
+    function showTab(num) {
+      document.querySelectorAll('.tab-item-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', (idx + 1) === num);
+      });
+      document.querySelectorAll('.screen-panel').forEach((panel, idx) => {
+        panel.classList.toggle('active', (idx + 1) === num);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

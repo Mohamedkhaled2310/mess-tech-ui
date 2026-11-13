@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8">
+  <title>MESS TECH | صفحة المنتج للموبايل (Mobile Product Details)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    
+:root {
+  --navy-950: #070d18;
+  --navy-900: #0b1120;
+  --navy-850: #0f172a;
+  --navy-800: #172136;
+  --navy-700: #1e293b;
+  --navy-600: #334155;
+  --cyan-500: #0099e5;
+  --cyan-400: #38bdf8;
+  --cyan-600: #0284c7;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --amber-500: #f59e0b;
+  --rose-500: #ef4444;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --bg-page: #f8fafc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; -webkit-tap-highlight-color: transparent; }
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body {
+  background: var(--bg-page);
+  color: var(--navy-900);
+  direction: rtl;
+  text-align: right;
+  position: relative;
+  min-height: 100vh;
+}
+.mono { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; }
+
+/* Mobile Top Announcement */
+.m-top-announcement {
+  background: var(--navy-950);
+  color: #34d399;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 7px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Mobile Header */
+.m-navbar {
+  background: var(--navy-900);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--navy-700);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.m-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.m-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+.m-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.m-btn-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--navy-800);
+  border: 1px solid var(--navy-700);
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+}
+.m-pill-num {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  background: var(--cyan-500);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 999px;
+}
+.m-pill-num.green { background: var(--emerald-500); }
+
+/* Mobile Sticky Bottom Nav */
+.m-bottom-nav-bar {
+  background: #0b1120;
+  border-top: 1px solid #1e293b;
+  padding: 8px 10px 14px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  z-index: 60;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.25);
+}
+.m-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+}
+.m-bottom-nav-item.active { color: var(--cyan-400); }
+.m-bottom-nav-item svg { width: 19px; height: 19px; }
+.bottom-badge {
+  position: absolute;
+  top: -2px;
+  left: 6px;
+  background: var(--emerald-500);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 0 4px;
+  border-radius: 999px;
+}
+
+/* Mobile Search Box */
+.m-search-container {
+  background: var(--navy-900);
+  padding: 0 14px 12px;
+  border-bottom: 1px solid var(--navy-700);
+}
+.m-search-input-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--navy-800);
+  border: 1.5px solid #2d3b55;
+  border-radius: 10px;
+  padding: 2px 6px;
+}
+.m-search-input-field {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 8px 10px;
+  color: #fff;
+  font-size: 12.5px;
+  outline: none;
+}
+.m-search-input-field::placeholder { color: var(--slate-500); font-size: 12px; }
+.m-search-btn-icon {
+  background: var(--cyan-500);
+  color: #fff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Quick Categories Horizontal Scroll */
+.m-cats-scroller {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  background: #fff;
+  border-bottom: 1px solid var(--slate-200);
+  scrollbar-width: none;
+}
+.m-cats-scroller::-webkit-scrollbar { display: none; }
+.m-cat-tag {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #334155;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.m-cat-tag.active {
+  background: var(--cyan-500);
+  color: #fff;
+  border-color: var(--cyan-500);
+}
+
+    .m-top-back-bar {
+      background: var(--navy-900); color: #fff; padding: 12px 14px;
+      display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--navy-700);
+    }
+    .m-gallery-card {
+      background: #fff; border: 1px solid var(--slate-200); border-radius: 12px;
+      padding: 16px; margin: 12px; text-align: center;
+    }
+    .m-gallery-img-box { height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .m-thumbs-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .m-thumb {
+      border: 1.5px solid var(--slate-200); border-radius: 6px; padding: 4px 8px; font-size: 10px; font-weight: 700; color: #64748b; background: #f8fafc;
+    }
+    .m-thumb.active { border-color: var(--cyan-500); color: var(--cyan-600); background: #f0f9ff; }
+    .m-info-block { padding: 0 14px 20px; }
+    .m-price-box {
+      background: #fff; border: 1px solid var(--slate-200); border-radius: 12px;
+      padding: 14px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .m-cod-pill {
+      background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px;
+      padding: 10px 12px; margin-bottom: 12px; font-size: 11.5px; color: #166534; display: flex; align-items: center; gap: 8px;
+    }
+    .m-datasheet-card {
+      background: #0f172a; color: #fff; padding: 12px 14px; border-radius: 10px;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;
+    }
+    .m-specs-table-mini {
+      width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--slate-200);
+      border-radius: 10px; overflow: hidden; margin-bottom: 14px; font-size: 12px;
+    }
+    .m-specs-table-mini td { padding: 10px 12px; border-bottom: 1px solid var(--slate-100); }
+    .m-specs-table-mini td.label { background: #f8fafc; font-weight: 700; color: #334155; width: 40%; }
+    
+    /* Fixed Sticky Bottom Action Bar */
+    .m-sticky-cta-bar {
+      position: sticky; bottom: 0; background: #fff; border-top: 1px solid var(--slate-200);
+      padding: 10px 14px 14px; display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.08); z-index: 100;
+    }
+    .btn-m-cta-cart {
+      flex: 1; background: var(--cyan-500); color: #fff; border: none; padding: 12px 14px;
+      border-radius: 10px; font-size: 13.5px; font-weight: 800; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-m-cta-whatsapp {
+      width: 44px; height: 44px; background: #22c55e; color: #fff; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; text-decoration: none; border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="m-top-back-bar">
+    <a href="#" style="color:#cbd5e1; text-decoration:none; font-size:12px; font-weight:700;">← رجوع للسويتشات</a>
+    <span style="font-size:13px; font-weight:800;">سيسكو كاتاليست 2960X</span>
+    <span style="font-size:12px; color:var(--cyan-400);">مشاركة ↗</span>
+  </div>
+
+  <!-- Gallery -->
+  <div class="m-gallery-card">
+    <div class="m-gallery-img-box">
+<svg viewBox="0 0 400 160" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sw-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d3748"/>
+      <stop offset="50%" stop-color="#1a202c"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+  </defs>
+  <!-- 1U Chassis -->
+  <rect x="20" y="35" width="360" height="90" rx="4" fill="url(#sw-body)" stroke="#475569" stroke-width="1.5"/>
+  <!-- Rack Ears -->
+  <rect x="8" y="35" width="12" height="90" rx="2" fill="url(#metal)"/>
+  <circle cx="14" cy="45" r="2.5" fill="#1e293b"/>
+  <circle cx="14" cy="115" r="2.5" fill="#1e293b"/>
+  <rect x="380" y="35" width="12" height="90" rx="2" fill="url(#metal)"/>
+  <circle cx="386" cy="45" r="2.5" fill="#1e293b"/>
+  <circle cx="386" cy="115" r="2.5" fill="#1e293b"/>
+  <!-- Cisco Badge & Model -->
+  <rect x="35" y="48" width="50" height="14" rx="2" fill="#0284c7" opacity="0.8"/>
+  <text x="60" y="58" font-size="8" font-family="sans-serif" font-weight="900" fill="#ffffff" text-anchor="middle">CISCO</text>
+  <text x="35" y="72" font-size="7" font-family="monospace" fill="#94a3b8">WS-C2960X-24TD-L</text>
+  <!-- System LEDs -->
+  <circle cx="38" cy="88" r="2" fill="#10b981"/>
+  <circle cx="46" cy="88" r="2" fill="#10b981"/>
+  <circle cx="54" cy="88" r="2" fill="#10b981"/>
+  <circle cx="62" cy="88" r="2" fill="#38bdf8"/>
+  <text x="35" y="98" font-size="6" font-family="monospace" fill="#64748b">STAT  RPS  MAST  PoE</text>
+  <!-- 24 Ports Grid (2 rows of 12) -->
+  <g transform="translate(105, 52)">
+    <rect x="-4" y="-4" width="205" height="52" rx="3" fill="#0f172a" stroke="#334155"/>
+
+    <rect x="0" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="2" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="6" cy="21" r="1.5" fill="#10b981"/>
+    <rect x="0" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="2" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="6" cy="47" r="1.5" fill="#10b981"/>
+
+    <rect x="16" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="18" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="22" cy="21" r="1.5" fill="#0284c7"/>
+    <rect x="16" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="18" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="22" cy="47" r="1.5" fill="#10b981"/>
+
+    <rect x="32" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="34" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="38" cy="21" r="1.5" fill="#10b981"/>
+    <rect x="32" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="34" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="38" cy="47" r="1.5" fill="#64748b"/>
+
+    <rect x="48" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="50" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="54" cy="21" r="1.5" fill="#0284c7"/>
+    <rect x="48" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="50" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="54" cy="47" r="1.5" fill="#10b981"/>
+
+    <rect x="64" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="66" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="70" cy="21" r="1.5" fill="#10b981"/>
+    <rect x="64" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="66" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="70" cy="47" r="1.5" fill="#10b981"/>
+
+    <rect x="80" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="82" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="86" cy="21" r="1.5" fill="#0284c7"/>
+    <rect x="80" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="82" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="86" cy="47" r="1.5" fill="#64748b"/>
+
+    <rect x="96" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="98" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="102" cy="21" r="1.5" fill="#10b981"/>
+    <rect x="96" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="98" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="102" cy="47" r="1.5" fill="#10b981"/>
+
+    <rect x="112" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="114" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="118" cy="21" r="1.5" fill="#0284c7"/>
+    <rect x="112" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="114" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="118" cy="47" r="1.5" fill="#10b981"/>
+
+    <rect x="128" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="130" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="134" cy="21" r="1.5" fill="#10b981"/>
+    <rect x="128" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="130" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="134" cy="47" r="1.5" fill="#64748b"/>
+
+    <rect x="144" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="146" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="150" cy="21" r="1.5" fill="#0284c7"/>
+    <rect x="144" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="146" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="150" cy="47" r="1.5" fill="#10b981"/>
+
+    <rect x="160" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="162" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="166" cy="21" r="1.5" fill="#10b981"/>
+    <rect x="160" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="162" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="166" cy="47" r="1.5" fill="#10b981"/>
+
+    <rect x="176" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="178" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="182" cy="21" r="1.5" fill="#0284c7"/>
+    <rect x="176" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <rect x="178" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
+    <circle cx="182" cy="47" r="1.5" fill="#64748b"/>
+
+  </g>
+  <!-- 2x 10G SFP+ Uplink Slots -->
+  <g transform="translate(322, 54)">
+    <rect x="-4" y="-4" width="45" height="48" rx="3" fill="#0f172a" stroke="#334155"/>
+    <rect x="0" y="2" width="16" height="38" rx="2" fill="#334155" stroke="#94a3b8"/>
+    <rect x="20" y="2" width="16" height="38" rx="2" fill="#334155" stroke="#94a3b8"/>
+    <circle cx="8" cy="44" r="1.5" fill="#38bdf8"/>
+    <circle cx="28" cy="44" r="1.5" fill="#38bdf8"/>
+    <text x="18" y="-7" font-size="6" font-family="monospace" fill="#38bdf8" text-anchor="middle">10G SFP+</text>
+  </g>
+</svg>
+</div>
+    <div class="m-thumbs-strip">
+      <span class="m-thumb active">واجهة البورتات</span>
+      <span class="m-thumb">منافذ 10G SFP+</span>
+      <span class="m-thumb">الباور الخلفي</span>
+      <span class="m-thumb">طقم الراك 1U</span>
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="m-info-block">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+      <span style="background:#e0f2fe; color:var(--cyan-600); font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">CISCO SYSTEMS</span>
+      <span class="mono" style="font-size:12px; font-weight:700; background:#f1f5f9; padding:2px 8px; border-radius:4px;">WS-C2960X-24TD-L</span>
+    </div>
+
+    <h1 style="font-size:17px; font-weight:900; line-height:1.4; color:var(--navy-900); margin-bottom:10px;">
+      سويتش سيسكو كاتاليست 24 بورت جيجابت PoE+ مع منفذين 10G SFP+ فئة المؤسسات
+    </h1>
+
+    <div class="m-price-box">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
+        <div>
+          <span style="font-size:24px; font-weight:900; color:var(--navy-900);">19,850 <small style="font-size:13px; color:#64748b;">ج.م</small></span>
+          <span style="font-size:13px; color:#94a3b8; text-decoration:line-through; margin-right:6px;">23,200 ج.م</span>
+        </div>
+        <span style="background:#fef2f2; color:#ef4444; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">خصم 14%</span>
+      </div>
+      <div style="font-size:11.5px; color:#059669; font-weight:700;">● متوفر فوراً بالمخزون (متبقي 6 قطع في فرع القاهرة)</div>
+    </div>
+
+    <!-- COD Guarantee -->
+    <div class="m-cod-pill">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg>
+      <div>
+        <b>الدفع نقداً عند الاستلام (COD) فقط:</b>
+        <div style="font-size:10.5px; margin-top:1px;">عاين جهازك وافحص الفاتورة الضريبية مع المندوب قبل دفع أي مبلغ.</div>
+      </div>
+    </div>
+
+    <!-- Download Datasheet -->
+    <div class="m-datasheet-card">
+      <div>
+        <div style="font-size:12.5px; font-weight:800;">الداتاشيت الرسمية (Official Datasheet)</div>
+        <div style="font-size:10.5px; color:#94a3b8;">ملف المواصفات الفنية المعتمد من سيسكو • 3.4 MB</div>
+      </div>
+      <span style="background:var(--cyan-500); padding:4px 10px; border-radius:6px; font-size:11px; font-weight:800;">تحميل PDF</span>
+    </div>
+
+    <!-- Specs Table -->
+    <table class="m-specs-table-mini">
+      <tbody>
+        <tr><td class="label">إجمالي البورتات</td><td><b>24x 1GbE RJ45 Ports</b></td></tr>
+        <tr><td class="label">طاقة PoE Budget</td><td><b>370W PoE+ (802.3at)</b></td></tr>
+        <tr><td class="label">منافذ الـ Uplink</td><td><b>2x 10G SFP+ عالية السرعة</b></td></tr>
+        <tr><td class="label">سعة التبديل</td><td><b>216 Gbps Switching Capacity</b></td></tr>
+        <tr><td class="label">الطبقة والإدارة</td><td><b>Layer 2 / Layer 3 Lite Managed</b></td></tr>
+        <tr><td class="label">الضمان المحلي</td><td><b style="color:#059669;">سنتين استبدال معتمد</b></td></tr>
+      </tbody>
+    </table>
+
+    <!-- Direct WhatsApp Inquiry notice -->
+    <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:10px 12px; margin-bottom:14px; font-size:11.5px; color:#15803d;">
+      💬 <b>استفسار فوري عبر واتساب:</b> تواصل مباشرة مع مهندس المبيعات برقم الموديل بدون الحاجة لأي حساب تجاري معقد.
+    </div>
+  </div>
+
+  <!-- Sticky Bottom CTA -->
+  <div class="m-sticky-cta-bar">
+    <button class="btn-m-cta-cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      أضف للسلة (الدفع عند الاستلام)
+    </button>
+    <a href="https://wa.me/201000000000?text=استفسار%20عن%20سيسكو%20WS-C2960X-24TD-L" class="btn-m-cta-whatsapp" title="تواصل واتساب">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.029.575 1.748.817 2.806.817 3.181 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0 10.37c-.894 0-1.67-.238-2.427-.69l-.174-.103-1.802.472.48-1.758-.113-.181c-.504-.805-.77-1.524-.769-2.544 0-2.535 2.062-4.597 4.597-4.597 2.536 0 4.598 2.063 4.598 4.598 0 2.535-2.063 4.597-4.597 4.597z"/></svg>
+    </a>
+  </div>
+</body>
+</html>
