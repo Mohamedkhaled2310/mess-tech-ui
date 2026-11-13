@@ -48,17 +48,18 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
   align-items: center;
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
-.badge-cod-header {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  padding: 3px 10px;
+.badge-notice-header {
+  background: rgba(0, 153, 229, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(0, 153, 229, 0.35);
+  padding: 3px 12px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 11.5px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 /* Main Navbar */
@@ -199,40 +200,56 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
 /* Category Subnav */
 .subnav-bar {
   background: var(--navy-850);
-  padding: 0 48px;
+  padding: 0 40px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--navy-700);
+  white-space: nowrap;
+  overflow-x: hidden;
+  flex-wrap: nowrap;
 }
 .all-departments-pill {
   background: var(--cyan-600);
   color: #fff;
-  padding: 12px 20px;
-  font-size: 13.5px;
+  padding: 10px 18px;
+  font-size: 13px;
   font-weight: 700;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-left: 20px;
+  margin-left: 14px;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-radius: 6px;
 }
 .subnav-links {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   list-style: none;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+}
+.subnav-links li {
+  display: inline-block;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .subnav-links a {
   color: #cbd5e1;
-  padding: 14px 16px;
-  font-size: 13.5px;
+  padding: 13px 12px;
+  font-size: 12.5px;
   font-weight: 600;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   border-bottom: 2px solid transparent;
   transition: all 0.15s;
+  white-space: nowrap;
 }
 .subnav-links a:hover, .subnav-links a.active {
   color: var(--cyan-400);
@@ -291,12 +308,12 @@ def get_header_html(active_cat=""):
     <!-- Top utility bar -->
     <div class="top-notice-bar">
       <div style="display:flex; align-items:center; gap:16px;">
-        <span class="badge-cod-header">
+        <span class="badge-notice-header">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          الدفع كاش عند الاستلام (COD) فقط لجميع أنحاء مصر
+          توريد وشحن سريع لكافة محافظات مصر
         </span>
         <span style="color:var(--slate-400);">|</span>
-        <span>مقر الشركة متاح للاستلام المباشر ومعاينة الأجهزة مجاناً</span>
+        <span>أجهزة أصلية معتمدة | دعم فني هندسي مخصص للمشروعات</span>
       </div>
       <div style="display:flex; align-items:center; gap:20px;">
         <span>هاتف المبيعات: <b class="mono" style="color:#fff;">0100-MESS-TECH</b></span>
@@ -351,7 +368,7 @@ def get_header_html(active_cat=""):
         </a>
 
         <!-- Cart -->
-        <a href="#" class="nav-pill-btn" title="سلة المشتريات (COD)">
+        <a href="#" class="nav-pill-btn" title="سلة المشتريات">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <span>السلة</span>
           <span class="pill-counter green">2</span>
@@ -372,14 +389,14 @@ def get_header_html(active_cat=""):
         <span>جميع حلول الشبكات</span>
       </div>
       <ul class="subnav-links">
-        <li><a href="#" class="{ 'active' if active_cat=='switches' else '' }">سويتشات الشبكات (Switches)</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='routers' else '' }">راوترات وسيرفرات (Routers)</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='switches' else '' }">سويتشات (Switches)</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='routers' else '' }">راوترات وسيرفرات</a></li>
         <li><a href="#" class="{ 'active' if active_cat=='firewalls' else '' }">جدران الحماية (Firewalls)</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='wifi' else '' }">أكسس بوينت وواي فاي (Wi-Fi)</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='wifi' else '' }">أكسس بوينت (Wi-Fi)</a></li>
         <li><a href="#" class="{ 'active' if active_cat=='ups' else '' }">مغذيات الطاقة (UPS)</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='racks' else '' }">راكات وكبائن الخوادم (Racks)</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='cables' else '' }">كابلات وتوصيلات (Cabling)</a></li>
-        <li><a href="#" style="color:#f59e0b; font-weight:800;">🔥 عروض الأسبوع</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='racks' else '' }">راكات وكبائن (Racks)</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='cables' else '' }">كابلات وتوصيلات</a></li>
+        <li><a href="#" style="color:#38bdf8; font-weight:800;">🔥 العروض الحالية</a></li>
       </ul>
     </nav>
     """
@@ -391,10 +408,10 @@ def get_footer_html():
         <div class="footer-col">
           <img src="assets/logo_white.png" style="height:44px; margin-bottom:16px;" alt="MESS TECH">
           <p style="font-size:13.5px; line-height:1.8; color:var(--slate-400); margin-bottom:16px;">
-            شركة <b>MESS TECH</b> رائدة في توريد وتجهيز حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات المعتمدة مع خدمة الدفع عند الاستلام COD وضمان استبدال معتمد.
+            شركة <b>MESS TECH</b> رائدة في توريد وتجهيز حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات الأصلية المعتمدة بأسعار تنافسية ودعم فني هندسي متقدم.
           </p>
           <div style="display:flex; align-items:center; gap:12px;">
-            <span class="badge-cod-header" style="font-size:12px;">الدفع كاش عند الاستلام فقط</span>
+            <span class="badge-notice-header" style="font-size:12px;">أجهزة أصلية معتمدة 100%</span>
             <span style="color:#fff; font-size:13px;">تواصل مباشر: <b>sales@messtech.com</b></span>
           </div>
         </div>
@@ -414,12 +431,12 @@ def get_footer_html():
         <div class="footer-col">
           <h5>خدمات ومعلومات</h5>
           <ul class="footer-list">
-            <li><a href="#">سياسة الدفع عند الاستلام (COD)</a></li>
             <li><a href="#">الشحن والتوصيل لجميع المحافظات</a></li>
             <li><a href="#">الاستلام المباشر من مقر الشركة</a></li>
-            <li><a href="#">الضمان والاستبدال الرسمي</a></li>
-            <li><a href="#">طلب عروض أسعار للمشروعات (RFQ)</a></li>
+            <li><a href="#">الدعم الفني الهندسي والاستشارات</a></li>
             <li><a href="#">تحميل ملفات Datasheet المعتمدة</a></li>
+            <li><a href="#">مقارنة مواصفات الموديلات</a></li>
+            <li><a href="#">سياسة الإرجاع والاستبدال</a></li>
           </ul>
         </div>
 
@@ -441,9 +458,9 @@ def get_footer_html():
       <div class="footer-bottom-bar">
         <div>جميع الحقوق محفوظة © 2026 لشركة <b>MESS TECH</b> — Tech Solutions Global.</div>
         <div style="display:flex; gap:20px; align-items:center;">
-          <span style="color:#34d399;">✓ دفع كاش عند الاستلام فقط</span>
-          <span>✓ فحص ومطابقة الأجهزة قبل الاستلام</span>
-          <span>✓ ضمان محلي معتمد</span>
+          <span style="color:#38bdf8;">✓ أجهزة أصلية معتمدة</span>
+          <span>✓ فحص ومطابقة الأجهزة والمواصفات</span>
+          <span>✓ دعم فني هندسي مخصص</span>
         </div>
       </div>
     </footer>

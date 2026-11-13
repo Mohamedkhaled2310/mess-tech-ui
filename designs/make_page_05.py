@@ -316,10 +316,11 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       font-size: 16px;
       font-weight: 900;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      white-space: nowrap;
       box-shadow: 0 4px 20px rgba(0, 153, 229, 0.4);
     }}
     .trust-footer-strip {{
@@ -529,7 +530,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <div class="trust-footer-strip">
           <span>✓ فاتورة ضريبية رسمية</span>
           <span>✓ فحص ومعاينة قبل الدفع</span>
-          <span>✓ ضمان سنتين</span>
+          <span>✓ أجهزة أصلية معتمدة 100%</span>
         </div>
       </div>
     </aside>

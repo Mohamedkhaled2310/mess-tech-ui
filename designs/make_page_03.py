@@ -304,9 +304,12 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       font-size: 12.5px;
       font-weight: 700;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }}
   </style>
 </head>
@@ -543,7 +546,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <!-- 1. Cisco 2960X 24TD -->
         <div class="cat-product-card">
           <div class="card-top-badges">
-            <span class="badge-cod-mini">دفع COD</span>
             <span class="badge-stock-dot"><span class="dot-green"></span> متاح فوراً</span>
           </div>
           <div class="cat-img-box">{SVG_CISCO_SWITCH}</div>
@@ -571,7 +573,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <!-- 2. MikroTik CRS328 -->
         <div class="cat-product-card">
           <div class="card-top-badges">
-            <span class="badge-cod-mini">دفع COD</span>
             <span class="badge-stock-dot"><span class="dot-green"></span> متاح فوراً</span>
           </div>
           <div class="cat-img-box">{SVG_MIKROTIK}</div>
@@ -599,7 +600,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <!-- 3. Cisco Catalyst 9200L -->
         <div class="cat-product-card">
           <div class="card-top-badges">
-            <span class="badge-cod-mini">دفع COD</span>
             <span class="badge-stock-dot"><span class="dot-green"></span> متاح فوراً</span>
           </div>
           <div class="cat-img-box">{SVG_CISCO_SWITCH}</div>
@@ -627,7 +627,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <!-- 4. Ubiquiti UniFi Pro 24 PoE -->
         <div class="cat-product-card">
           <div class="card-top-badges">
-            <span class="badge-cod-mini">دفع COD</span>
             <span class="badge-stock-dot"><span class="dot-green"></span> متاح فوراً</span>
           </div>
           <div class="cat-img-box">{SVG_CISCO_SWITCH}</div>
@@ -655,7 +654,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <!-- 5. Fortinet FortiSwitch 124E-POE -->
         <div class="cat-product-card">
           <div class="card-top-badges">
-            <span class="badge-cod-mini">دفع COD</span>
             <span class="badge-stock-dot"><span class="dot-green"></span> متاح فوراً</span>
           </div>
           <div class="cat-img-box">{SVG_FORTINET}</div>
@@ -683,7 +681,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <!-- 6. Cisco Catalyst 48 Port (Demonstrating Strikethrough or Custom RFQ) -->
         <div class="cat-product-card">
           <div class="card-top-badges">
-            <span class="badge-cod-mini">دفع COD</span>
             <span class="badge-stock-dot" style="color:#f59e0b;"><span class="dot-green" style="background:#f59e0b;"></span> اطلب للتوريد</span>
           </div>
           <div class="cat-img-box">{SVG_CISCO_SWITCH}</div>
@@ -703,7 +700,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
             </div>
             <div class="cat-card-actions">
               <button class="btn-icon-compare" title="مقارنة"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></button>
-              <button class="btn-card-add-cart" style="background:#0f172a;">طلب عرض سعر</button>
+              <button class="btn-card-add-cart">أضف للسلة</button>
             </div>
           </div>
         </div>

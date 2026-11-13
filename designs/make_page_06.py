@@ -258,7 +258,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
     <div class="showcase-tag">Mobile-First Experience (تجربة الهواتف الذكية)</div>
     <h1 class="showcase-title">تصميم متجر <span>MESS TECH</span> المتجاوب مع الموبايل</h1>
     <p class="showcase-subtitle">
-      واجهات مهيأة بالكامل لمهندسي الشبكات ومسؤولي المشتريات أثناء العمل الميداني، مع شريط سفلي ثابت، بحث سريع بأرقام الموديلات، زر واتساب المباشر، والدفع كاش عند الاستلام (COD).
+      واجهات مهيأة بالكامل لمهندسي الشبكات ومسؤولي المشتريات أثناء العمل الميداني، مع شريط سفلي ثابت، بحث سريع بأرقام الموديلات، وزر واتساب المباشر للاستفسارات السريعة.
     </p>
   </div>
 
@@ -300,15 +300,15 @@ HTML_CONTENT = f"""<!DOCTYPE html>
 
           <!-- Hero Promo -->
           <div style="background:#0f172a; color:#fff; padding:16px; margin:12px; border-radius:12px; border:1px solid #1e293b;">
-            <span style="background:rgba(16,185,129,0.15); color:#34d399; font-size:10px; font-weight:700; padding:2px 8px; border-radius:999px;">دفع كاش عند الاستلام</span>
+            <span style="background:rgba(0,153,229,0.15); color:var(--cyan-400); font-size:10px; font-weight:700; padding:2px 8px; border-radius:999px;">أجهزة أصلية معتمدة</span>
             <h3 style="font-size:16px; font-weight:800; margin:6px 0 4px;">حلول وتجهيزات الشبكات للشركات</h3>
-            <p style="font-size:11.5px; color:#94a3b8; line-height:1.4;">توريد فوري مع فحص الشحنة والفاتورة قبل الدفع.</p>
+            <p style="font-size:11.5px; color:#94a3b8; line-height:1.4;">توريد فوري مع فحص ومطابقة المواصفات الهندسية.</p>
           </div>
 
           <!-- Weekly Deal Mini -->
           <div style="padding:0 12px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <b style="font-size:13px; color:var(--navy-900);">عروض الأسبوع بمؤقت ⚡</b>
+              <b style="font-size:13px; color:var(--navy-900);">العروض الحالية بمؤقت ⚡</b>
               <span class="mono" style="font-size:11px; color:#f59e0b; font-weight:700;">02d : 14h : 28m</span>
             </div>
             <div style="background:#fff; border:1px solid var(--slate-200); border-radius:10px; padding:12px;">
@@ -317,7 +317,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
               <div style="font-size:13px; font-weight:800; margin:3px 0;">سيسكو كاتاليست 24 بورت PoE+</div>
               <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
                 <span style="font-size:15px; font-weight:900; color:var(--navy-900);">19,850 ج.م</span>
-                <button style="background:var(--cyan-500); color:#fff; border:none; padding:5px 12px; border-radius:6px; font-size:11.5px; font-weight:700;">طلب COD</button>
+                <button style="background:var(--cyan-500); color:#fff; border:none; padding:6px 14px; border-radius:6px; font-size:11.5px; font-weight:700; white-space:nowrap; display:inline-flex;">أضف للسلة</button>
               </div>
             </div>
           </div>
@@ -394,7 +394,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
                 <div style="display:flex; justify-content:space-between;"><span>البورتات:</span><b>24x Gigabit RJ45</b></div>
                 <div style="display:flex; justify-content:space-between;"><span>طاقة الـ PoE:</span><b>370W PoE+ (802.3at)</b></div>
                 <div style="display:flex; justify-content:space-between;"><span>الأبلينك:</span><b>2x 10G SFP+</b></div>
-                <div style="display:flex; justify-content:space-between;"><span>الضمان:</span><b style="color:#059669;">سنتين محلي معتمد</b></div>
+                <div style="display:flex; justify-content:space-between;"><span>الحالة:</span><b style="color:#059669;">أصلي جديد بالكرتونة</b></div>
               </div>
             </div>
           </div>
@@ -402,9 +402,9 @@ HTML_CONTENT = f"""<!DOCTYPE html>
 
         <!-- Sticky Product Action Bar -->
         <div class="m-product-sticky-bar">
-          <button class="btn-m-cart">
+          <button class="btn-m-cart" style="white-space:nowrap; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            أضف للسلة (الدفع COD)
+            أضف للسلة
           </button>
           <a href="https://wa.me/201000000000" class="btn-m-whatsapp" title="واتساب المبيعات">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.029.575 1.748.817 2.806.817 3.181 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0 10.37c-.894 0-1.67-.238-2.427-.69l-.174-.103-1.802.472.48-1.758-.113-.181c-.504-.805-.77-1.524-.769-2.544 0-2.535 2.062-4.597 4.597-4.597 2.536 0 4.598 2.063 4.598 4.598 0 2.535-2.063 4.597-4.597 4.597z"/></svg>
@@ -469,8 +469,8 @@ HTML_CONTENT = f"""<!DOCTYPE html>
               </div>
             </div>
 
-            <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:13px; border-radius:10px; font-size:14px; font-weight:900; cursor:pointer;">
-              تأكيد الطلب الآن (COD) ✓
+            <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:13px; border-radius:10px; font-size:14px; font-weight:900; cursor:pointer; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center;">
+              تأكيد الطلب (الدفع عند الاستلام) ✓
             </button>
           </div>
         </div>

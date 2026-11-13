@@ -82,6 +82,8 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
       box-shadow: 0 4px 18px rgba(0, 153, 229, 0.35);
     }}
     .btn-secondary-hero {{
@@ -93,6 +95,11 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       padding: 13px 24px;
       border-radius: 10px;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }}
     .hero-trust-grid {{
       display: grid;
@@ -378,14 +385,16 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       background: var(--cyan-500);
       color: #fff;
       border: none;
-      padding: 8px 16px;
+      padding: 9px 16px;
       border-radius: 8px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }}
 
     /* Solution Categories Grid */
@@ -518,21 +527,18 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           بأعلى معايير <span>Enterprise المعتمدة</span>
         </h1>
         <p class="hero-subtitle">
-          نوفر أحدث أجهزة السويتشات، الفايروول، الراوترات وأكسس بوينت لأكبر الماركات العالمية (Cisco, Fortinet, MikroTik, Ubiquiti). توريد فوري مع الدفع كاش عند الاستلام (COD) وضمان استبدال معتمد.
+          نوفر أحدث أجهزة السويتشات، الفايروول، الراوترات وأكسس بوينت لأكبر الماركات العالمية (Cisco, Fortinet, MikroTik, Ubiquiti) بأسعار تنافسية وأجهزة أصلية 100% معتمدة.
         </p>
         <div class="hero-actions">
           <a href="#" class="btn-primary-hero">
             تصفح السويتشات والمعدات
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" class="btn-secondary-hero">
-            طلب عرض أسعار للشركات (RFQ)
-          </a>
         </div>
         <div class="hero-trust-grid">
           <div class="hero-trust-item">
             <div class="hero-trust-icon">✓</div>
-            <div class="hero-trust-text">دفع كاش عند الاستلام<br><span style="color:#94a3b8; font-weight:400;">معاينة الأجهزة أولاً</span></div>
+            <div class="hero-trust-text">أجهزة أصلية معتمدة<br><span style="color:#94a3b8; font-weight:400;">وكلاء وموزعون رسميون</span></div>
           </div>
           <div class="hero-trust-item">
             <div class="hero-trust-icon">PDF</div>
@@ -557,7 +563,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         </div>
         <div style="display:flex; justify-content:space-between; align-items:center; background:#172136; padding:12px 16px; border-radius:10px;">
           <div>
-            <div style="font-size:11px; color:#94a3b8;">سعر التوريد النقدي (COD)</div>
+            <div style="font-size:11px; color:#94a3b8;">سعر التوريد (شامل الضريبة)</div>
             <div style="font-size:18px; font-weight:800; color:#fff;">19,850 <small style="font-size:12px; color:#94a3b8;">ج.م</small></div>
           </div>
           <div style="display:flex; gap:8px;">
@@ -582,15 +588,15 @@ HTML_CONTENT = f"""<!DOCTYPE html>
     </div>
   </section>
 
-  <!-- Weekly Deals with Timer -->
+  <!-- Current Deals with Timer -->
   <section class="weekly-deals-section">
     <div class="deals-banner-header">
       <div class="deals-title-wrap">
         <h3>
           <span style="color:#f59e0b;">⚡</span>
-          عروض التوريد الأسبوعية الحصرية
+          العروض الحالية
         </h3>
-        <p style="font-size:13px; color:#94a3b8; margin-top:4px;">أسعار خاصة لفترة محدودة على معدات الشبكات الأصلية مع شحن سريع ودفع عند الاستلام</p>
+        <p style="font-size:13px; color:#94a3b8; margin-top:4px;">أسعار خاصة لفترة محدودة على معدات الشبكات الأصلية مع شحن سريع لكافة المحافظات</p>
       </div>
       <div class="deals-countdown-box">
         <span style="font-size:13px; font-weight:700; color:#cbd5e1; margin-left:8px;">ينتهي العرض خلال:</span>
@@ -618,7 +624,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       <!-- Card 1: Cisco Switch -->
       <div class="deal-card">
         <span class="badge-discount">-15%</span>
-        <span class="badge-cod-card">دفع عند الاستلام COD</span>
         <div class="card-img-wrap">
           {SVG_CISCO_SWITCH}
         </div>
@@ -655,7 +660,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       <!-- Card 2: MikroTik Router -->
       <div class="deal-card">
         <span class="badge-discount">-12%</span>
-        <span class="badge-cod-card">دفع عند الاستلام COD</span>
         <div class="card-img-wrap">
           {SVG_MIKROTIK}
         </div>
@@ -692,7 +696,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       <!-- Card 3: Fortinet Firewall -->
       <div class="deal-card">
         <span class="badge-discount">-10%</span>
-        <span class="badge-cod-card">دفع عند الاستلام COD</span>
         <div class="card-img-wrap">
           {SVG_FORTINET}
         </div>
@@ -797,8 +800,8 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg>
         </div>
         <div>
-          <h4>دفع كاش عند الاستلام (COD)</h4>
-          <p>أمان تام للشركات، استلم وافحص معداتك والفاتورة الضريبية ثم ادفع نقداً.</p>
+          <h4>أجهزة أصلية معتمدة</h4>
+          <p>أجهزة شبكات أصلية وجديدة بالكرتونة من الوكلاء والموزعين الرسميين.</p>
         </div>
       </div>
 
@@ -827,8 +830,8 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
         </div>
         <div>
-          <h4>ضمان استبدال معتمد</h4>
-          <p>ضمان رسمي حتى سنتين مع دعم فني هندسي متخصص لتشغيل وضبط الشبكات.</p>
+          <h4>دعم فني هندسي متقدم</h4>
+          <p>فريق مهندسي شبكات لمساعدتك في اختيار الموديل وضبط التكوينات والإعدادات.</p>
         </div>
       </div>
     </div>

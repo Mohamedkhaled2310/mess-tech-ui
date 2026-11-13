@@ -549,15 +549,6 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           <span style="font-size:12px; color:#64748b;">أو خيار "اطلب للتوريد" للكميات الكبيرة</span>
         </div>
 
-        <!-- COD Assurance Box -->
-        <div class="cod-reassurance-box">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg>
-          <div>
-            <b>الدفع نقداً عند الاستلام (COD) فقط:</b>
-            <div style="font-size:12px; color:#166534; margin-top:1px;">عاين جهازك وافحص كابلاتك والفاتورة الضريبية مع المندوب قبل الدفع كاش.</div>
-          </div>
-        </div>
-
         <!-- Key Specs Matrix -->
         <div class="key-specs-grid">
           <div class="key-spec-cell">
@@ -594,24 +585,24 @@ HTML_CONTENT = f"""<!DOCTYPE html>
               <div class="qty-display">1</div>
               <button class="qty-btn">+</button>
             </div>
-            <button class="btn-add-cart-primary">
+            <button class="btn-add-cart-primary" style="white-space:nowrap; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              أضف إلى السلة (الدفع عند الاستلام)
+              أضف للسلة
             </button>
           </div>
 
           <!-- Direct WhatsApp Button (No Business API) -->
-          <a href="https://wa.me/201000000000?text=استفسار%20عن%20سويتش%20سيسكو%20WS-C2960X-24TD-L" class="btn-whatsapp-direct">
+          <a href="https://wa.me/201000000000?text=استفسار%20عن%20سويتش%20سيسكو%20WS-C2960X-24TD-L" class="btn-whatsapp-direct" style="white-space:nowrap; display:inline-flex;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.029.575 1.748.817 2.806.817 3.181 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0 10.37c-.894 0-1.67-.238-2.427-.69l-.174-.103-1.802.472.48-1.758-.113-.181c-.504-.805-.77-1.524-.769-2.544 0-2.535 2.062-4.597 4.597-4.597 2.536 0 4.598 2.063 4.598 4.598 0 2.535-2.063 4.597-4.597 4.597z"/></svg>
             <span>تواصل مع مهندس المبيعات عبر واتساب (استفسار فوري عن الموديل)</span>
           </a>
 
           <div style="display:flex; gap:12px;">
-            <button class="btn-compare-action" style="flex:1;">
+            <button class="btn-compare-action" style="flex:1; white-space:nowrap; display:inline-flex;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
               إضافة إلى جدول المقارنة (Compare)
             </button>
-            <button class="btn-compare-action" style="flex:1;">
+            <button class="btn-compare-action" style="flex:1; white-space:nowrap; display:inline-flex;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
               حفظ في قائمة المفضلة
             </button>
@@ -626,7 +617,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
     <div class="tabs-header-bar">
       <a href="#" class="tab-btn active">المواصفات الفنية التفصيلية (Datasheet Specs)</a>
       <a href="#" class="tab-btn">نظرة عامة والبروتوكولات المدعومة</a>
-      <a href="#" class="tab-btn">الضمان والاستبدال وشروط الشحن COD</a>
+      <a href="#" class="tab-btn">الضمان وشروط الشحن والتوريد</a>
       <a href="#" class="tab-btn">تقييمات مهندسي المشروعات (24)</a>
     </div>
 
@@ -671,7 +662,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           </tr>
           <tr>
             <th>الضمان المحلي والدعم الفني</th>
-            <td>ضمان معتمد لمدة <b>سنتين</b> من تاريخ الاستلام + دعم فني هندسي من فريق MESS TECH</td>
+            <td>أجهزة أصلية معتمدة من الوكيل الرسمي مع دعم فني هندسي مخصص لتشغيل وضبط الشبكات</td>
           </tr>
         </tbody>
       </table>
@@ -706,8 +697,9 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       <div class="bundle-pricing-summary">
         <div style="font-size:12px; color:#64748b;">إجمالي الباقة المجمعة (3 منتجات):</div>
         <div style="font-size:24px; font-weight:900; color:var(--navy-900); margin:4px 0;">23,900 <small style="font-size:14px;">ج.م</small></div>
-        <button class="btn-add-cart-primary" style="width:100%; font-size:13.5px; padding:10px 16px; margin-top:8px;">
-          شراء الباقة كاملة بالدفع عند الاستلام
+        <button class="btn-add-cart-primary" style="width:100%; font-size:13.5px; padding:10px 16px; margin-top:8px; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center; gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          أضف الباقة كاملة للسلة
         </button>
       </div>
     </div>

@@ -148,10 +148,10 @@ def make_mob_01():
       <span style="font-size:10px;">5G 100%</span>
     </div>
 
-    <!-- COD Announcement -->
-    <div style="background:var(--navy-950); color:#34d399; font-size:11px; font-weight:700; padding:6px 14px; display:flex; justify-content:space-between;">
-      <span>✓ الدفع كاش عند الاستلام (COD) فقط</span>
-      <span style="color:#fff; font-size:10px;">استلام مجاني من الفرع</span>
+    <!-- Top Announcement -->
+    <div style="background:var(--navy-950); color:#38bdf8; font-size:11px; font-weight:700; padding:6px 14px; display:flex; justify-content:space-between;">
+      <span>✓ شحن وتوريد سريع لكافة محافظات مصر</span>
+      <span style="color:#fff; font-size:10px;">أجهزة أصلية معتمدة</span>
     </div>
 
     <!-- Header -->
@@ -162,7 +162,7 @@ def make_mob_01():
       </div>
       <div style="display:flex; gap:6px;">
         <span style="background:var(--navy-800); border:1px solid var(--navy-700); color:#fff; width:30px; height:30px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800;">3</span>
-        <span style="background:var(--navy-800); border:1px solid var(--navy-700); color:#34d399; width:30px; height:30px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800;">2</span>
+        <span style="background:var(--navy-800); border:1px solid var(--navy-700); color:#38bdf8; width:30px; height:30px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800;">2</span>
         <a href="https://wa.me/201000000000" style="background:#22c55e; color:#fff; width:30px; height:30px; border-radius:6px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:13px;">💬</a>
       </div>
     </div>
@@ -185,17 +185,16 @@ def make_mob_01():
     <div style="background:radial-gradient(circle at 80% 20%, #172a4d 0%, #0b1120 80%); color:#fff; padding:16px; margin:12px; border-radius:12px; border:1px solid #1e293b;">
       <span style="background:rgba(0,153,229,0.2); color:var(--cyan-400); font-size:10px; font-weight:700; padding:2px 8px; border-radius:999px;">● الموزع المعتمد</span>
       <h3 style="font-size:17px; font-weight:900; margin:6px 0 4px;">حلول وتجهيزات الشبكات للشركات</h3>
-      <p style="font-size:11px; color:#94a3b8; line-height:1.4; margin-bottom:10px;">نوفر أكبر البراندات (Cisco, Fortinet, MikroTik) مع الدفع كاش عند الاستلام COD وضمان سنتين.</p>
+      <p style="font-size:11px; color:#94a3b8; line-height:1.4; margin-bottom:10px;">نوفر أكبر البراندات العالمية (Cisco, Fortinet, MikroTik) بأجهزة أصلية 100% معتمدة وضمان التوريد.</p>
       <div style="display:flex; gap:8px;">
-        <span style="flex:1; background:var(--cyan-500); color:#fff; text-align:center; padding:7px; border-radius:6px; font-size:11.5px; font-weight:800;">تصفح المعدات</span>
-        <span style="background:rgba(255,255,255,0.1); color:#fff; padding:7px 12px; border-radius:6px; font-size:11px; font-weight:700;">طلب عرض سعر RFQ</span>
+        <span style="flex:1; background:var(--cyan-500); color:#fff; text-align:center; padding:8px; border-radius:6px; font-size:11.5px; font-weight:800; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center;">تصفح المعدات</span>
       </div>
     </div>
 
     <!-- Weekly Deal with Timer -->
     <div style="padding:0 12px; margin-bottom:12px;">
       <div style="background:#1e293b; color:#fff; padding:8px 12px; border-radius:10px 10px 0 0; display:flex; justify-content:space-between; align-items:center;">
-        <b style="font-size:12px;">⚡ عروض الأسبوع بمؤقت</b>
+        <b style="font-size:12px;">⚡ العروض الحالية بمؤقت</b>
         <span class="mono" style="font-size:11px; color:#f59e0b; font-weight:800;">02d : 14h : 28m : 45s</span>
       </div>
       <div style="background:#fff; border:1px solid var(--slate-200); border-top:none; border-radius:0 0 10px 10px; padding:12px;">
@@ -209,7 +208,7 @@ def make_mob_01():
             <div style="font-size:17px; font-weight:900; color:var(--navy-900);">19,850 ج.م</div>
             <div style="font-size:11px; color:#94a3b8; text-decoration:line-through;">23,200 ج.م</div>
           </div>
-          <button style="background:var(--cyan-500); color:#fff; border:none; padding:7px 14px; border-radius:6px; font-size:11.5px; font-weight:800; cursor:pointer;">طلب بالدفع COD</button>
+          <button style="background:var(--cyan-500); color:#fff; border:none; padding:7px 14px; border-radius:6px; font-size:11.5px; font-weight:800; cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; justify-content:center;">أضف للسلة</button>
         </div>
       </div>
     </div>
@@ -320,11 +319,6 @@ def make_mob_02():
         <div style="font-size:11px; color:#059669; font-weight:700; margin-top:2px;">● متوفر بالمخزون (متبقي 6 قطع في فرع القاهرة)</div>
       </div>
 
-      <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:8px; padding:8px 10px; margin-bottom:10px; font-size:11px; color:#14532d;">
-        <b>الدفع نقداً عند الاستلام (COD) فقط:</b>
-        <div style="font-size:10px; margin-top:1px;">عاين جهازك وافحص الفاتورة الضريبية مع المندوب قبل دفع أي مبالغ.</div>
-      </div>
-
       <div style="background:#0f172a; color:#fff; padding:10px 12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
         <div>
           <div style="font-size:12px; font-weight:800;">الداتاشيت الرسمية (Datasheet PDF)</div>
@@ -338,14 +332,14 @@ def make_mob_02():
         <tr><td style="background:#f8fafc; padding:6px 10px; font-weight:700;">طاقة PoE</td><td style="padding:6px 10px;"><b>370W PoE+ (802.3at)</b></td></tr>
         <tr><td style="background:#f8fafc; padding:6px 10px; font-weight:700;">منافذ الأبلينك</td><td style="padding:6px 10px;"><b>2x 10G SFP+ Uplinks</b></td></tr>
         <tr><td style="background:#f8fafc; padding:6px 10px; font-weight:700;">سعة التبديل</td><td style="padding:6px 10px;"><b>216 Gbps Capacity</b></td></tr>
-        <tr><td style="background:#f8fafc; padding:6px 10px; font-weight:700;">الضمان</td><td style="padding:6px 10px;"><b style="color:#059669;">سنتين استبدال معتمد</b></td></tr>
+        <tr><td style="background:#f8fafc; padding:6px 10px; font-weight:700;">الحالة</td><td style="padding:6px 10px;"><b style="color:#059669;">أصلي جديد بالكرتونة معتمد</b></td></tr>
       </table>
     </div>
 
     <!-- Fixed Bottom Sticky Bar -->
     <div style="background:#fff; border-top:1px solid var(--slate-200); padding:10px 14px 14px; display:flex; align-items:center; gap:8px;">
-      <button style="flex:1; background:var(--cyan-500); color:#fff; border:none; padding:11px; border-radius:8px; font-size:13px; font-weight:800; cursor:pointer;">
-        أضف للسلة (الدفع عند الاستلام)
+      <button style="flex:1; background:var(--cyan-500); color:#fff; border:none; padding:11px; border-radius:8px; font-size:13px; font-weight:800; cursor:pointer; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center;">
+        أضف للسلة
       </button>
       <a href="https://wa.me/201000000000?text=استفسار%20عن%20سيسكو%202960X" style="width:42px; height:42px; background:#22c55e; color:#fff; border-radius:8px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:18px;" title="واتساب المبيعات">
         💬
@@ -419,7 +413,7 @@ def make_mob_03():
         <div class="mono" style="font-size:10px; font-weight:700; color:var(--cyan-600);">WS-C2960X-24TD-L</div>
         <div style="font-size:11px; font-weight:800; line-height:1.3; height:28px; overflow:hidden; margin:2px 0;">سيسكو 24 بورت PoE+ 370W</div>
         <div style="font-size:13px; font-weight:900; color:var(--navy-900);">19,850 ج.م</div>
-        <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:5px; border-radius:4px; font-size:10.5px; font-weight:800; margin-top:4px;">طلب COD</button>
+        <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:6px; border-radius:4px; font-size:10.5px; font-weight:800; margin-top:4px; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center;">أضف للسلة</button>
       </div>
 
       <div style="background:#fff; border:1px solid var(--slate-200); border-radius:8px; padding:8px;">
@@ -429,7 +423,7 @@ def make_mob_03():
         <div class="mono" style="font-size:10px; font-weight:700; color:#0f172a;">CRS328-24P-4S+RM</div>
         <div style="font-size:11px; font-weight:800; line-height:1.3; height:28px; overflow:hidden; margin:2px 0;">مايكروتك 24 بورت ذكي 500W</div>
         <div style="font-size:13px; font-weight:900; color:var(--navy-900);">22,400 ج.م</div>
-        <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:5px; border-radius:4px; font-size:10.5px; font-weight:800; margin-top:4px;">طلب COD</button>
+        <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:6px; border-radius:4px; font-size:10.5px; font-weight:800; margin-top:4px; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center;">أضف للسلة</button>
       </div>
     </div>
 
@@ -563,8 +557,8 @@ def make_mob_04():
 
     <!-- Sticky Confirm Order Button -->
     <div style="background:#fff; border-top:1px solid var(--slate-200); padding:10px 12px 14px;">
-      <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:12px; border-radius:8px; font-size:13.5px; font-weight:900; cursor:pointer;">
-        تأكيد الطلب الآن - الدفع عند الاستلام (COD) ✓
+      <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:12px; border-radius:8px; font-size:13.5px; font-weight:900; cursor:pointer; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center;">
+        تأكيد الطلب - الدفع عند الاستلام ✓
       </button>
     </div>
   </div>
@@ -615,13 +609,13 @@ def make_mob_05():
           {SVG_CISCO_SWITCH}
         </div>
         <div style="font-size:16px; font-weight:900; color:var(--navy-900); margin-bottom:6px;">19,850 ج.م</div>
-        <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:6px; border-radius:6px; font-size:11px; font-weight:800; margin-bottom:8px;">طلب بالدفع COD</button>
+        <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:6px; border-radius:6px; font-size:11px; font-weight:800; margin-bottom:8px; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center;">أضف للسلة</button>
 
         <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0; border-bottom:1px solid var(--slate-100);"><span>البورتات:</span><b>24x 1GbE</b></div>
         <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0; border-bottom:1px solid var(--slate-100); background:#f0f9ff;"><span>الأبلينك:</span><b style="color:var(--cyan-600);">2x 10G SFP+</b></div>
         <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0; border-bottom:1px solid var(--slate-100);"><span>طاقة PoE:</span><b>370W PoE+</b></div>
         <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0; border-bottom:1px solid var(--slate-100); background:#f0f9ff;"><span>سعة التبديل:</span><b>216 Gbps</b></div>
-        <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0;"><span>الضمان:</span><b style="color:#059669;">سنتين معتمد</b></div>
+        <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0;"><span>الحالة:</span><b style="color:#059669;">أصلي جديد بالكرتونة</b></div>
       </div>
 
       <div style="width:240px; background:#fff; border:1.5px solid var(--slate-200); border-radius:10px; padding:10px; flex-shrink:0;">
@@ -631,13 +625,13 @@ def make_mob_05():
           {SVG_MIKROTIK}
         </div>
         <div style="font-size:16px; font-weight:900; color:var(--navy-900); margin-bottom:6px;">22,400 ج.م</div>
-        <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:6px; border-radius:6px; font-size:11px; font-weight:800; margin-bottom:8px;">طلب بالدفع COD</button>
+        <button style="width:100%; background:var(--cyan-500); color:#fff; border:none; padding:6px; border-radius:6px; font-size:11px; font-weight:800; margin-bottom:8px; white-space:nowrap; display:inline-flex; justify-content:center; align-items:center;">أضف للسلة</button>
 
         <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0; border-bottom:1px solid var(--slate-100);"><span>البورتات:</span><b>24x 1GbE</b></div>
         <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0; border-bottom:1px solid var(--slate-100); background:#f0f9ff;"><span>الأبلينك:</span><b style="color:var(--cyan-600);">4x 10G SFP+</b></div>
         <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0; border-bottom:1px solid var(--slate-100);"><span>طاقة PoE:</span><b style="color:#059669;">500W Dual</b></div>
         <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0; border-bottom:1px solid var(--slate-100); background:#f0f9ff;"><span>سعة التبديل:</span><b>128 Gbps</b></div>
-        <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0;"><span>الضمان:</span><b>سنة معتمدة</b></div>
+        <div style="display:flex; justify-content:space-between; font-size:11px; padding:4px 0;"><span>الحالة:</span><b style="color:#059669;">أصلي جديد بالكرتونة</b></div>
       </div>
     </div>
 

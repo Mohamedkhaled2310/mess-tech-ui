@@ -45,17 +45,18 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
   align-items: center;
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
-.badge-cod-header {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  padding: 3px 10px;
+.badge-notice-header {
+  background: rgba(0, 153, 229, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(0, 153, 229, 0.35);
+  padding: 3px 12px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 11.5px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 /* Main Navbar */
@@ -196,40 +197,56 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
 /* Category Subnav */
 .subnav-bar {
   background: var(--navy-850);
-  padding: 0 48px;
+  padding: 0 40px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--navy-700);
+  white-space: nowrap;
+  overflow-x: hidden;
+  flex-wrap: nowrap;
 }
 .all-departments-pill {
   background: var(--cyan-600);
   color: #fff;
-  padding: 12px 20px;
-  font-size: 13.5px;
+  padding: 10px 18px;
+  font-size: 13px;
   font-weight: 700;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-left: 20px;
+  margin-left: 14px;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-radius: 6px;
 }
 .subnav-links {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   list-style: none;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+}
+.subnav-links li {
+  display: inline-block;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .subnav-links a {
   color: #cbd5e1;
-  padding: 14px 16px;
-  font-size: 13.5px;
+  padding: 13px 12px;
+  font-size: 12.5px;
   font-weight: 600;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   border-bottom: 2px solid transparent;
   transition: all 0.15s;
+  white-space: nowrap;
 }
 .subnav-links a:hover, .subnav-links a.active {
   color: var(--cyan-400);
@@ -638,7 +655,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       <section class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-title-row">
-            <span>تحصيل مبيعات اليوم (COD)</span>
+            <span>إجمالي مبيعات اليوم</span>
             <span>💰</span>
           </div>
           <div class="kpi-value">128,450 <small style="font-size:14px; color:#64748b;">ج.م</small></div>
@@ -679,11 +696,10 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
         <div class="dashboard-card">
           <div class="card-header-bar">
             <div class="card-header-title">
-              <span>أحدث الطلبات وحالات التوريد والتحصيل (COD)</span>
+              <span>أحدث طلبات التوريد والعملاء</span>
             </div>
             <div style="display:flex; gap:8px;">
-              <button class="btn-action-secondary" style="font-size:12px; padding:6px 12px;">طباعة بوليصات الشحن</button>
-              <button class="btn-action-secondary" style="font-size:12px; padding:6px 12px;">تصدير Excel</button>
+              <button class="btn-action-secondary" style="font-size:12px; padding:6px 14px; white-space:nowrap; display:inline-flex;">تصدير Excel</button>
             </div>
           </div>
 
@@ -694,7 +710,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
                 <th>العميل والشركة</th>
                 <th>المحافظة</th>
                 <th>الموديل والكمية</th>
-                <th>المبلغ المطلوب (COD)</th>
+                <th>المبلغ الإجمالي</th>
                 <th>حالة الطلب</th>
                 <th>الإجراءات</th>
               </tr>
@@ -723,7 +739,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
                 <td><span class="mono">FortiGate FG-60F (x1)</span></td>
                 <td><b>28,900 ج.م</b></td>
                 <td><span class="status-badge status-confirmed">تم التأكيد هاتفياً</span></td>
-                <td><button style="background:none; border:none; color:var(--cyan-600); font-weight:700; cursor:pointer;">طباعة البوليصة</button></td>
+                <td><button style="background:none; border:none; color:var(--cyan-600); font-weight:700; cursor:pointer;">عرض التفاصيل</button></td>
               </tr>
 
               <tr>
@@ -748,7 +764,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
                 <td>القاهرة (التجمع الخامس)</td>
                 <td><span class="mono">UniFi U6-Pro (x4)</span></td>
                 <td><b>34,800 ج.م</b></td>
-                <td><span class="status-badge status-delivered">تم التسليم والتحصيل COD</span></td>
+                <td><span class="status-badge status-delivered">تم التسليم للعميل</span></td>
                 <td><span style="color:#059669; font-weight:800; font-size:12px;">تم التوريد ✓</span></td>
               </tr>
 

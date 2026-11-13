@@ -136,15 +136,17 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       background: var(--cyan-500);
       color: #fff;
       border: none;
-      padding: 8px 12px;
+      padding: 9px 12px;
       border-radius: 8px;
       font-size: 12.5px;
       font-weight: 700;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }}
 
     /* Table Rows */
@@ -225,7 +227,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
               <div class="prod-brand-pill" style="color:var(--cyan-600);">Cisco Systems</div>
               <span class="prod-model-num">WS-C2960X-24TD-L</span>
               <div class="prod-price-tag">19,850 <small style="font-size:12px; font-weight:600;">ج.م</small></div>
-              <button class="btn-matrix-add">أضف للسلة (COD)</button>
+              <button class="btn-matrix-add">أضف للسلة</button>
             </th>
 
             <!-- Model 2 -->
@@ -234,7 +236,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
               <div class="prod-brand-pill" style="color:var(--navy-900);">MikroTik</div>
               <span class="prod-model-num">CRS328-24P-4S+RM</span>
               <div class="prod-price-tag">22,400 <small style="font-size:12px; font-weight:600;">ج.م</small></div>
-              <button class="btn-matrix-add">أضف للسلة (COD)</button>
+              <button class="btn-matrix-add">أضف للسلة</button>
             </th>
 
             <!-- Model 3 -->
@@ -243,7 +245,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
               <div class="prod-brand-pill" style="color:var(--cyan-500);">Ubiquiti UniFi</div>
               <span class="prod-model-num">USW-Pro-24-PoE</span>
               <div class="prod-price-tag">26,800 <small style="font-size:12px; font-weight:600;">ج.م</small></div>
-              <button class="btn-matrix-add">أضف للسلة (COD)</button>
+              <button class="btn-matrix-add">أضف للسلة</button>
             </th>
 
             <!-- Model 4 -->
@@ -252,7 +254,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
               <div class="prod-brand-pill" style="color:var(--rose-500);">Fortinet</div>
               <span class="prod-model-num">FS-124E-POE</span>
               <div class="prod-price-tag">21,500 <small style="font-size:12px; font-weight:600;">ج.م</small></div>
-              <button class="btn-matrix-add">أضف للسلة (COD)</button>
+              <button class="btn-matrix-add">أضف للسلة</button>
             </th>
           </tr>
         </thead>
@@ -340,9 +342,9 @@ HTML_CONTENT = f"""<!DOCTYPE html>
             <td>Layer 2 / FortiLink Management</td>
           </tr>
 
-          <!-- Category 4: Specs & COD -->
+          <!-- Category 4: Specs & Datasheet -->
           <tr class="row-category-header">
-            <td colspan="5">4. الداتاشيت، الضمان، والدفع كاش عند الاستلام (COD)</td>
+            <td colspan="5">4. الداتاشيت والمواصفات الفنية المعتمدة</td>
           </tr>
           <tr>
             <td class="cell-label">تحميل الداتاشيت الرسمية</td>
@@ -352,16 +354,16 @@ HTML_CONTENT = f"""<!DOCTYPE html>
             <td><a href="#" style="color:var(--cyan-600); font-weight:700;">تحميل Datasheet PDF</a></td>
           </tr>
           <tr>
-            <td class="cell-label">فترة الضمان المحلي المعتمد</td>
-            <td>سنتين ضمان استبدال رسمي</td>
-            <td>سنة ضمان استبدال رسمي</td>
-            <td>سنتين ضمان استبدال رسمي</td>
-            <td>سنتين ضمان استبدال معتمد</td>
+            <td class="cell-label">حالة التوريد والاعتماد</td>
+            <td>أصلي جديد بالكرتونة (Sealed)</td>
+            <td>أصلي جديد بالكرتونة (Sealed)</td>
+            <td>أصلي جديد بالكرتونة (Sealed)</td>
+            <td>أصلي جديد بالكرتونة (Sealed)</td>
           </tr>
           <tr>
-            <td class="cell-label">طريقة الدفع ومعاينة الشحنة</td>
+            <td class="cell-label">حالة التوفر والتسليم</td>
             <td colspan="4" style="background:#f0fdf4; color:#166534; font-weight:700; text-align:center;">
-              ✓ الدفع نقداً عند الاستلام (COD) فقط لجميع الموديلات بعد فحص ومطابقة الأجهزة مع مندوب التوصيل
+              ✓ متوفر تسليم فوري من المخازن الرئيسية لكافة الموديلات مع إمكانية المعاينة وفحص السيريال
             </td>
           </tr>
         </tbody>

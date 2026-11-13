@@ -371,7 +371,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       <section class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-title-row">
-            <span>تحصيل مبيعات اليوم (COD)</span>
+            <span>إجمالي مبيعات اليوم</span>
             <span>💰</span>
           </div>
           <div class="kpi-value">128,450 <small style="font-size:14px; color:#64748b;">ج.م</small></div>
@@ -412,11 +412,10 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <div class="dashboard-card">
           <div class="card-header-bar">
             <div class="card-header-title">
-              <span>أحدث الطلبات وحالات التوريد والتحصيل (COD)</span>
+              <span>أحدث طلبات التوريد والعملاء</span>
             </div>
             <div style="display:flex; gap:8px;">
-              <button class="btn-action-secondary" style="font-size:12px; padding:6px 12px;">طباعة بوليصات الشحن</button>
-              <button class="btn-action-secondary" style="font-size:12px; padding:6px 12px;">تصدير Excel</button>
+              <button class="btn-action-secondary" style="font-size:12px; padding:6px 14px; white-space:nowrap; display:inline-flex;">تصدير Excel</button>
             </div>
           </div>
 
@@ -427,7 +426,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
                 <th>العميل والشركة</th>
                 <th>المحافظة</th>
                 <th>الموديل والكمية</th>
-                <th>المبلغ المطلوب (COD)</th>
+                <th>المبلغ الإجمالي</th>
                 <th>حالة الطلب</th>
                 <th>الإجراءات</th>
               </tr>
@@ -456,7 +455,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
                 <td><span class="mono">FortiGate FG-60F (x1)</span></td>
                 <td><b>28,900 ج.م</b></td>
                 <td><span class="status-badge status-confirmed">تم التأكيد هاتفياً</span></td>
-                <td><button style="background:none; border:none; color:var(--cyan-600); font-weight:700; cursor:pointer;">طباعة البوليصة</button></td>
+                <td><button style="background:none; border:none; color:var(--cyan-600); font-weight:700; cursor:pointer;">عرض التفاصيل</button></td>
               </tr>
 
               <tr>
@@ -481,7 +480,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
                 <td>القاهرة (التجمع الخامس)</td>
                 <td><span class="mono">UniFi U6-Pro (x4)</span></td>
                 <td><b>34,800 ج.م</b></td>
-                <td><span class="status-badge status-delivered">تم التسليم والتحصيل COD</span></td>
+                <td><span class="status-badge status-delivered">تم التسليم للعميل</span></td>
                 <td><span style="color:#059669; font-weight:800; font-size:12px;">تم التوريد ✓</span></td>
               </tr>
 
