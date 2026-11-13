@@ -2,593 +2,1403 @@
 <html dir="rtl" lang="ar">
 <head>
   <meta charset="utf-8">
-  <title>MESS TECH | العرض التقديمي لتصميمات واجهات المستخدم UI/UX (موبايل وكمبيوتر)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no">
+  <title>MESS TECH | Figma Interactive UI/UX Design Board</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --primary-navy: #0b1120;
-      --secondary-navy: #131d33;
-      --accent-cyan: #0099e5;
-      --accent-cyan-light: #38bdf8;
-      --text-white: #f8fafc;
-      --text-muted: #94a3b8;
-      --card-bg: #1e293b;
-      --border-dark: #334155;
+      --figma-bg: #1e1e1e;
+      --figma-canvas-dot: #333333;
+      --figma-panel-bg: #2c2c2c;
+      --figma-panel-border: #3c3c3c;
+      --figma-text-primary: #ffffff;
+      --figma-text-secondary: #999999;
+      --figma-text-muted: #666666;
+      --figma-blue: #0d99ff;
+      --figma-blue-hover: #007be5;
+      --figma-accent: #0099e5;
+      --figma-card-bg: #141414;
+      --figma-hover-bg: #383838;
+      --font-cairo: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
-    body {
-      background: #070d18;
-      color: var(--text-white);
-      direction: rtl;
-      text-align: right;
-      min-height: 100vh;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-cairo);
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--figma-bg);
+      color: var(--figma-text-primary);
+      position: relative;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      direction: ltr;
+      display: inline-block;
+    }
+
+    /* =========================================================
+       Figma Infinite Canvas & Workspace
+       ========================================================= */
+    #viewport {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: grab;
+      background-color: var(--figma-bg);
+      background-image: radial-gradient(var(--figma-canvas-dot) 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      background-position: 0 0;
+      touch-action: none;
+    }
+
+    #viewport.dragging {
+      cursor: grabbing !important;
+    }
+
+    #canvas-world {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: 0 0;
+      will-change: transform;
+      padding: 100px;
       display: flex;
       flex-direction: column;
+      gap: 90px;
     }
 
-    /* Executive Top Bar */
-    .exec-header {
-      background: var(--primary-navy);
-      border-bottom: 2px solid var(--card-bg);
-      padding: 16px 36px;
+    /* Canvas Sections (Desktop vs Mobile) */
+    .board-section {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-header-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(44, 44, 44, 0.85);
+      border: 1px solid var(--figma-panel-border);
+      backdrop-filter: blur(10px);
+      padding: 10px 22px;
+      border-radius: 12px;
+      width: fit-content;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .section-header-tag .title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .section-header-tag .meta {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--figma-blue);
+      background: rgba(13, 153, 255, 0.12);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .frames-row {
+      display: flex;
+      flex-direction: row;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    /* Individual Figma Frame */
+    .figma-frame {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+      transition: filter 0.2s ease;
+    }
+
+    /* Frame Top Label */
+    .frame-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--figma-text-secondary);
+      direction: rtl;
+      transition: color 0.15s ease;
+    }
+
+    .frame-label .frame-hash {
+      color: var(--figma-blue);
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .frame-label .frame-dims {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--figma-text-muted);
+      direction: ltr;
+      background: rgba(255,255,255,0.05);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .figma-frame:hover .frame-label {
+      color: #fff;
+    }
+
+    .figma-frame:hover .frame-dims {
+      color: var(--figma-blue);
+    }
+
+    /* Frame Card Container */
+    .frame-card {
+      background: var(--figma-card-bg);
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+      position: relative;
+      transition: border 0.15s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    .figma-frame:hover .frame-card {
+      border-color: rgba(13, 153, 255, 0.6);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.65), 0 0 0 1px rgba(13, 153, 255, 0.3);
+    }
+
+    /* Selected Frame State (Classic Figma Blue Outline + Handles) */
+    .figma-frame.selected .frame-card {
+      border: 2px solid var(--figma-blue) !important;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.7), 0 0 0 2px rgba(13, 153, 255, 0.4) !important;
+    }
+
+    .figma-frame.selected .frame-label {
+      color: var(--figma-blue) !important;
+    }
+
+    /* Selection corner handles */
+    .figma-frame.selected .handle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border: 1.5px solid var(--figma-blue);
+      border-radius: 1px;
+      z-index: 20;
+    }
+    .figma-frame.selected .handle.tl { top: -4px; right: -4px; }
+    .figma-frame.selected .handle.tr { top: -4px; left: -4px; }
+    .figma-frame.selected .handle.bl { bottom: -4px; right: -4px; }
+    .figma-frame.selected .handle.br { bottom: -4px; left: -4px; }
+
+    /* Frame Content Sizes */
+    .desktop-frame {
+      width: 1080px;
+    }
+
+    .desktop-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      pointer-events: none;
+    }
+
+    .mobile-frame {
+      width: 390px;
+    }
+
+    .mobile-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      pointer-events: none;
+    }
+
+    .showcase-frame {
+      width: 1080px;
+    }
+
+    .showcase-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Quick Action overlay on hover */
+    .frame-hover-actions {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      gap: 8px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 15;
+    }
+
+    .figma-frame:hover .frame-hover-actions {
+      opacity: 1;
+    }
+
+    .frame-btn {
+      background: rgba(30, 30, 30, 0.9);
+      border: 1px solid var(--figma-panel-border);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: background 0.15s;
+    }
+
+    .frame-btn:hover {
+      background: var(--figma-blue);
+      border-color: var(--figma-blue);
+    }
+
+    /* =========================================================
+       Figma Top Bar & Navigation Header
+       ========================================================= */
+    .figma-top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: var(--figma-panel-bg);
+      border-bottom: 1px solid var(--figma-panel-border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
+      padding: 0 16px;
       z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
     }
-    .exec-logo-wrap {
+
+    .top-left-brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
-    .exec-logo-wrap img {
-      height: 42px;
-      width: auto;
-    }
-    .exec-title-block h1 {
-      font-size: 17px;
-      font-weight: 900;
+
+    .figma-menu-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
       color: #fff;
+      cursor: pointer;
+      background: rgba(255,255,255,0.06);
+      transition: background 0.15s;
     }
-    .exec-title-block p {
-      font-size: 12px;
-      color: var(--accent-cyan-light);
+
+    .figma-menu-icon:hover {
+      background: var(--figma-hover-bg);
     }
-    .exec-badges {
+
+    .brand-title-wrap {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .exec-badge {
-      background: rgba(0, 153, 229, 0.15);
-      border: 1px solid rgba(0, 153, 229, 0.4);
-      color: var(--accent-cyan-light);
-      padding: 5px 12px;
-      border-radius: 999px;
-      font-size: 11.5px;
-      font-weight: 700;
-    }
-    .exec-badge.green {
-      background: rgba(16, 185, 129, 0.15);
-      border-color: rgba(16, 185, 129, 0.4);
-      color: #34d399;
+
+    .brand-logo-img {
+      height: 24px;
+      width: auto;
     }
 
-    /* Subheader Filters bar (Switch Desktop / Mobile) */
-    .mode-switch-bar {
-      background: #0d1527;
-      padding: 10px 36px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-dark);
-    }
-    .btn-mode-toggle {
-      background: #1e293b;
-      border: 1px solid var(--border-dark);
-      color: #cbd5e1;
-      padding: 6px 16px;
-      border-radius: 8px;
-      font-size: 13px;
+    .project-name {
+      font-size: 13.5px;
       font-weight: 700;
+      color: #fff;
+    }
+
+    .project-status {
+      font-size: 11px;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .canvas-hint-pill {
+      font-size: 12px;
+      color: var(--figma-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.04);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .canvas-hint-pill kbd {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--figma-text-primary);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-    }
-    .btn-mode-toggle.active {
-      background: var(--accent-cyan);
-      color: #fff;
-      border-color: var(--accent-cyan);
+      transition: all 0.15s;
     }
 
-    /* Navigation Tabs */
-    .tabs-nav-bar {
-      background: #0f172a;
-      border-bottom: 1px solid var(--border-dark);
-      padding: 0 36px;
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
+    .top-btn:hover {
+      background: var(--figma-hover-bg);
+      border-color: var(--figma-panel-border);
     }
-    .tab-item-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      padding: 12px 14px;
-      font-size: 13px;
+
+    .top-btn.primary {
+      background: var(--figma-blue);
+      color: #fff;
       font-weight: 700;
-      cursor: pointer;
+    }
+
+    .top-btn.primary:hover {
+      background: var(--figma-blue-hover);
+    }
+
+    /* =========================================================
+       Figma Left Sidebar (Layers / Frames Drawer)
+       ========================================================= */
+    .figma-sidebar {
+      position: fixed;
+      top: 48px;
+      right: 0;
+      width: 280px;
+      bottom: 0;
+      background: var(--figma-panel-bg);
+      border-left: 1px solid var(--figma-panel-border);
+      z-index: 90;
       display: flex;
-      align-items: center;
-      gap: 6px;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .tab-item-btn:hover { color: #fff; background: rgba(255,255,255,0.03); }
-    .tab-item-btn.active {
-      color: var(--accent-cyan-light);
-      border-bottom-color: var(--accent-cyan-light);
-      background: rgba(0, 153, 229, 0.08);
-    }
-    .tab-num {
-      width: 20px;
-      height: 20px;
-      background: #1e293b;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10.5px;
-      font-weight: 800;
-    }
-    .tab-item-btn.active .tab-num {
-      background: var(--accent-cyan);
-      color: #fff;
+      flex-direction: column;
+      transform: translateX(0);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -6px 0 24px rgba(0,0,0,0.3);
     }
 
-    /* Main Display Area */
-    .presentation-body {
-      flex: 1;
-      padding: 28px 36px;
-      max-width: 1480px;
-      margin: 0 auto;
-      width: 100%;
+    .figma-sidebar.collapsed {
+      transform: translateX(100%);
     }
 
-    .screen-panel {
-      display: none;
-      animation: fadeIn 0.25s ease-in-out;
-    }
-    .screen-panel.active { display: block; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .screen-meta-box {
-      background: #131d33;
-      border: 1px solid var(--border-dark);
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 18px;
+    .sidebar-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--figma-panel-border);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .screen-meta-info h2 {
-      font-size: 18px;
+
+    .sidebar-header h3 {
+      font-size: 13px;
       font-weight: 800;
       color: #fff;
-      margin-bottom: 4px;
+      letter-spacing: 0.3px;
     }
-    .screen-meta-info p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
+
+    .sidebar-header .count-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--figma-text-secondary);
+      background: rgba(255,255,255,0.06);
+      padding: 2px 7px;
+      border-radius: 4px;
     }
-    .screen-actions {
+
+    .sidebar-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px;
+      list-style: none;
       display: flex;
-      gap: 10px;
+      flex-direction: column;
+      gap: 2px;
     }
-    .btn-download-img {
-      background: var(--accent-cyan);
-      color: #fff;
-      padding: 8px 16px;
+
+    .sidebar-group-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--figma-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 10px 10px 4px;
+    }
+
+    .sidebar-item {
+      padding: 8px 10px;
       border-radius: 6px;
-      text-decoration: none;
       font-size: 12.5px;
-      font-weight: 700;
+      font-weight: 600;
+      color: var(--figma-text-secondary);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.12s;
     }
-    .btn-open-original {
-      background: #1e293b;
-      border: 1px solid var(--border-dark);
-      color: #cbd5e1;
-      padding: 8px 14px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 12.5px;
+
+    .sidebar-item:hover {
+      background: var(--figma-hover-bg);
+      color: #fff;
+    }
+
+    .sidebar-item.active {
+      background: rgba(13, 153, 255, 0.15);
+      color: var(--figma-blue);
       font-weight: 700;
     }
 
-    .image-preview-frame {
-      background: #000;
-      border: 2px solid var(--border-dark);
-      border-radius: 14px;
+    .sidebar-item .item-icon {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .sidebar-item .item-title {
+      flex: 1;
+      white-space: nowrap;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      text-align: center;
-      position: relative;
-    }
-    .image-preview-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+      text-overflow: ellipsis;
     }
 
-    .image-preview-frame.phone-frame-center {
-      background: radial-gradient(circle at 50% 20%, #172a4d 0%, #070d18 80%);
-      padding: 30px;
-    }
-    .image-preview-frame.phone-frame-center img {
-      max-width: 540px;
-      border-radius: 36px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-    }
-
-    /* Footer */
-    .exec-footer {
-      background: #050912;
-      border-top: 1px solid #1e293b;
-      padding: 20px 36px;
-      text-align: center;
+    /* Toggle Button to reopen sidebar when collapsed */
+    .sidebar-reopen-btn {
+      position: fixed;
+      top: 60px;
+      right: 16px;
+      background: var(--figma-panel-bg);
+      border: 1px solid var(--figma-panel-border);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
       font-size: 12.5px;
-      color: #64748b;
-      margin-top: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 85;
+      display: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-reopen-btn.visible {
+      display: inline-flex;
+    }
+
+    /* =========================================================
+       Figma Floating Bottom Toolbar (Controls Dock)
+       ========================================================= */
+    .figma-toolbar {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(44, 44, 44, 0.95);
+      border: 1px solid var(--figma-panel-border);
+      backdrop-filter: blur(16px);
+      border-radius: 12px;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .tool-btn {
+      background: transparent;
+      border: none;
+      color: var(--figma-text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.12s;
+    }
+
+    .tool-btn:hover {
+      background: var(--figma-hover-bg);
+    }
+
+    .tool-btn.active {
+      background: var(--figma-blue);
+      color: #fff;
+    }
+
+    .toolbar-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--figma-panel-border);
+      margin: 0 4px;
+    }
+
+    .zoom-readout {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--figma-text-primary);
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      min-width: 54px;
+      text-align: center;
+    }
+
+    .zoom-readout:hover {
+      background: var(--figma-hover-bg);
+    }
+
+    /* =========================================================
+       Full-Screen Inspection Modal
+       ========================================================= */
+    .inspect-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+    }
+
+    .inspect-modal.active {
+      display: flex;
+    }
+
+    .modal-top-bar {
+      height: 52px;
+      background: rgba(30, 30, 30, 0.9);
+      border-bottom: 1px solid var(--figma-panel-border);
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-title-box h2 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-body {
+      flex: 1;
+      overflow: auto;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      cursor: zoom-out;
+    }
+
+    .modal-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.8);
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: default;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .figma-sidebar {
+        width: 100%;
+        transform: translateX(100%);
+      }
+      .canvas-hint-pill {
+        display: none;
+      }
+      .figma-toolbar {
+        bottom: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Executive Bar -->
-  <header class="exec-header">
-    <div class="exec-logo-wrap">
-      <img src="assets/logo_white.png" alt="MESS TECH Logo">
-      <div class="exec-title-block">
-        <h1>عرض تصميمات واجهات المستخدم UI/UX (موبايل وكمبيوتر)</h1>
-        <p>متجر MESS TECH — حلول الشبكات والبنية التحتية وأمن المعلومات</p>
+  <!-- Top Navigation Bar -->
+  <header class="figma-top-bar">
+    <div class="top-left-brand">
+      <div class="figma-menu-icon" id="toggle-sidebar" title="الطبقات والشاشات (Layers)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </div>
+      <div class="brand-title-wrap">
+        <img src="assets/logo_white.png" class="brand-logo-img" alt="MESS TECH">
+        <span class="project-name">MESS TECH UI/UX Board</span>
+        <span class="project-status">12 Frames</span>
       </div>
     </div>
-    <div class="exec-badges">
-      <span class="exec-badge green">✓ أجهزة أصلية معتمدة 100%</span>
-      <span class="exec-badge">✓ محادثة واتساب مبيعات مباشرة</span>
-      <span class="exec-badge">✓ تصميم متجاوب Mobile First</span>
+
+    <div class="canvas-hint-pill">
+      <span>🖱️ اسحب بالماوس للتحريك (Pan)</span>
+      <span>•</span>
+      <span>بكرة الماوس للتكبير والتصغير (Zoom)</span>
+      <span>•</span>
+      <span><kbd>Space</kbd> + سحب</span>
+    </div>
+
+    <div class="top-actions">
+      <button class="top-btn" id="btn-fit-screen" title="احتواء كامل الشاشات في مساحة الرؤية">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        احتواء الكل
+      </button>
+      <button class="top-btn primary" id="btn-download-all" onclick="openFocusModal(activeFrameIdx)">
+        معاينة الشاشة بملء العرض ↗
+      </button>
     </div>
   </header>
 
-  <!-- Navigation Tabs -->
-  <nav class="tabs-nav-bar">
-    <!-- Desktop Screens -->
-    <button class="tab-item-btn active" onclick="showTab(1)">
-      <span class="tab-num">💻 1</span>
-      <span>الرئيسية (Desktop)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(2)">
-      <span class="tab-num">💻 2</span>
-      <span>صفحة المنتج (Desktop)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(3)">
-      <span class="tab-num">💻 3</span>
-      <span>الفلاتر والبحث (Desktop)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(4)">
-      <span class="tab-num">💻 4</span>
-      <span>المقارنة (Desktop)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(5)">
-      <span class="tab-num">💻 5</span>
-      <span>السلة والـ Checkout</span>
-    </button>
-    
-    <!-- Mobile Screens -->
-    <button class="tab-item-btn" onclick="showTab(6)" style="color:#38bdf8;">
-      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 6</span>
-      <span>الرئيسية (موبايل)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(7)" style="color:#38bdf8;">
-      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 7</span>
-      <span>صفحة المنتج (موبايل)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(8)" style="color:#38bdf8;">
-      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 8</span>
-      <span>الفلاتر (موبايل)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(9)" style="color:#38bdf8;">
-      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 9</span>
-      <span>إتمام الطلب (موبايل)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(10)" style="color:#38bdf8;">
-      <span class="tab-num" style="background:#0284c7; color:#fff;">📱 10</span>
-      <span>المقارنة (موبايل)</span>
-    </button>
+  <!-- Reopen Sidebar Pill (When Collapsed) -->
+  <button class="sidebar-reopen-btn" id="reopen-sidebar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <span>قائمة الشاشات (Layers)</span>
+  </button>
 
-    <!-- Showcase & Dashboard -->
-    <button class="tab-item-btn" onclick="showTab(11)">
-      <span class="tab-num">📱 11</span>
-      <span>تجميعة الموبايل (Showcase)</span>
-    </button>
-    <button class="tab-item-btn" onclick="showTab(12)">
-      <span class="tab-num">📊 12</span>
-      <span>لوحة التحكم (Dashboard)</span>
-    </button>
-  </nav>
-
-  <!-- Presentation Main Body -->
-  <main class="presentation-body">
-
-    <!-- Screen 1: Desktop Homepage -->
-    <div id="panel-1" class="screen-panel active">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>01. الصفحة الرئيسية للكمبيوتر (Desktop Storefront Homepage)</h2>
-          <p>
-            • هيدر بهوية MESS TECH وبحث فوري برقم الموديل (Model/SKU).<br>
-            • شريط الماركات المعتمدة، العروض الحالية بمؤقت تنازلي، وشبكة أقسام التجهيزات والشبكات.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame">
-        <img src="01_الصفحة_الرئيسية_Desktop_Homepage.png" alt="Desktop Homepage">
-      </div>
+  <!-- Left Sidebar (Layers Navigator) -->
+  <aside class="figma-sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>الطبقات والشاشات (Layers)</h3>
+      <span class="count-badge">12 Screens</span>
     </div>
 
-    <!-- Screen 2: Desktop Product Details -->
-    <div id="panel-2" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>02. صفحة تفاصيل المنتج والمواصفات (Desktop Product Details)</h2>
-          <p>
-            • إبراز رقم الموديل، معرض صور المنافذ، زر تحميل الـ **Datasheet PDF** الرسمي بضغطة واحدة.<br>
-            • زر محادثة واتساب مباشر للمبيعات، جدول مواصفات هندسي كامل، وباقة المنتجات المكملة.
-          </p>
+    <ul class="sidebar-list">
+      <div class="sidebar-group-title">💻 شاشات الكمبيوتر (Desktop)</div>
+      <li class="sidebar-item active" data-index="0">
+        <span class="item-icon">📄</span>
+        <span class="item-title">01 · الصفحة الرئيسية</span>
+      </li>
+      <li class="sidebar-item" data-index="1">
+        <span class="item-icon">📄</span>
+        <span class="item-title">02 · صفحة تفاصيل المنتج</span>
+      </li>
+      <li class="sidebar-item" data-index="2">
+        <span class="item-icon">📄</span>
+        <span class="item-title">03 · الفلاتر والبحث التقني</span>
+      </li>
+      <li class="sidebar-item" data-index="3">
+        <span class="item-icon">📄</span>
+        <span class="item-title">04 · جدول مقارنة المواصفات</span>
+      </li>
+      <li class="sidebar-item" data-index="4">
+        <span class="item-icon">📄</span>
+        <span class="item-title">05 · السلة والـ Checkout</span>
+      </li>
+      <li class="sidebar-item" data-index="5">
+        <span class="item-icon">📊</span>
+        <span class="item-title">06 · لوحة تحكم الإدارة</span>
+      </li>
+
+      <div class="sidebar-group-title">📱 شاشات الموبايل (iPhone 15 Pro)</div>
+      <li class="sidebar-item" data-index="6">
+        <span class="item-icon">📱</span>
+        <span class="item-title">M1 · الرئيسية بالموبايل</span>
+      </li>
+      <li class="sidebar-item" data-index="7">
+        <span class="item-icon">📱</span>
+        <span class="item-title">M2 · صفحة المنتج بالموبايل</span>
+      </li>
+      <li class="sidebar-item" data-index="8">
+        <span class="item-icon">📱</span>
+        <span class="item-title">M3 · الفلاتر والكتالوج بالموبايل</span>
+      </li>
+      <li class="sidebar-item" data-index="9">
+        <span class="item-icon">📱</span>
+        <span class="item-title">M4 · السلة وإتمام الطلب بالموبايل</span>
+      </li>
+      <li class="sidebar-item" data-index="10">
+        <span class="item-icon">📱</span>
+        <span class="item-title">M5 · مقارنة الموديلات بالموبايل</span>
+      </li>
+      <li class="sidebar-item" data-index="11">
+        <span class="item-icon">📱</span>
+        <span class="item-title">Showcase · بانوراما هواتف الموبايل</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Figma Infinite Viewport -->
+  <div id="viewport">
+    <div id="canvas-world">
+
+      <!-- SECTION 1: DESKTOP SCREENS -->
+      <section class="board-section" id="section-desktop">
+        <div class="section-header-tag">
+          <span style="font-size:20px;">💻</span>
+          <span class="title">شاشات سطح المكتب والكمبيوتر (Desktop Screens)</span>
+          <span class="meta">1440 × 2300 px</span>
         </div>
-        <div class="screen-actions">
-          <a href="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" download class="btn-download-img">تحميل PNG</a>
+
+        <div class="frames-row">
+          <!-- Frame 0: Desktop Homepage -->
+          <div class="figma-frame desktop-frame selected" data-frame-index="0" id="frame-0">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>01 · الصفحة الرئيسية (Desktop Storefront)</span>
+              <span class="frame-dims">1440 × 2300</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(0); event.stopPropagation();">👁️ تكبير</button>
+                <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="01_الصفحة_الرئيسية_Desktop_Homepage.png" alt="01 Desktop Homepage" loading="eager">
+            </div>
+          </div>
+
+          <!-- Frame 1: Desktop Product Details -->
+          <div class="figma-frame desktop-frame" data-frame-index="1" id="frame-1">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>02 · صفحة المنتج والمواصفات (Product Details)</span>
+              <span class="frame-dims">1440 × 2400</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(1); event.stopPropagation();">👁️ تكبير</button>
+                <a href="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" alt="02 Desktop Product Details" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 2: Desktop Catalog Filters -->
+          <div class="figma-frame desktop-frame" data-frame-index="2" id="frame-2">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>03 · الفلاتر والبحث التقني (Catalog & Filters)</span>
+              <span class="frame-dims">1440 × 2200</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(2); event.stopPropagation();">👁️ تكبير</button>
+                <a href="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" alt="03 Desktop Filters" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 3: Desktop Comparison -->
+          <div class="figma-frame desktop-frame" data-frame-index="3" id="frame-3">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>04 · مقارنة المواصفات (Comparison Matrix)</span>
+              <span class="frame-dims">1440 × 2200</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(3); event.stopPropagation();">👁️ تكبير</button>
+                <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" alt="04 Desktop Comparison" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 4: Desktop Cart & Checkout -->
+          <div class="figma-frame desktop-frame" data-frame-index="4" id="frame-4">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>05 · السلة وإتمام الطلب (One-Step Checkout)</span>
+              <span class="frame-dims">1440 × 2100</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(4); event.stopPropagation();">👁️ تكبير</button>
+                <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" alt="05 Desktop Checkout" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 5: Desktop Admin Dashboard -->
+          <div class="figma-frame desktop-frame" data-frame-index="5" id="frame-5">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>06 · لوحة تحكم الإدارة (Admin Dashboard)</span>
+              <span class="frame-dims">1440 × 1100</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(5); event.stopPropagation();">👁️ تكبير</button>
+                <a href="07_لوحة_التحكم_Admin_Dashboard_Overview.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="07_لوحة_التحكم_Admin_Dashboard_Overview.png" alt="06 Desktop Dashboard" loading="lazy">
+            </div>
+          </div>
         </div>
+      </section>
+
+      <!-- SECTION 2: MOBILE SCREENS -->
+      <section class="board-section" id="section-mobile">
+        <div class="section-header-tag">
+          <span style="font-size:20px;">📱</span>
+          <span class="title">شاشات وتجربة الهواتف الذكية (Mobile iOS Screens — iPhone 15 Pro)</span>
+          <span class="meta">390 × 844 px (Retina 3x)</span>
+        </div>
+
+        <div class="frames-row">
+          <!-- Frame 6: Mobile Homepage -->
+          <div class="figma-frame mobile-frame" data-frame-index="6" id="frame-6">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M1 · الرئيسية بالموبايل</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(6); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" alt="M1 Mobile Homepage" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 7: Mobile Product Details -->
+          <div class="figma-frame mobile-frame" data-frame-index="7" id="frame-7">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M2 · صفحة المنتج والمواصفات</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(7); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" alt="M2 Mobile Product" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 8: Mobile Catalog Filters -->
+          <div class="figma-frame mobile-frame" data-frame-index="8" id="frame-8">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M3 · الفلاتر وتصفح الكتالوج</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(8); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" alt="M3 Mobile Filters" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 9: Mobile Checkout -->
+          <div class="figma-frame mobile-frame" data-frame-index="9" id="frame-9">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M4 · السلة وإتمام الطلب</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(9); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" alt="M4 Mobile Checkout" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 10: Mobile Comparison -->
+          <div class="figma-frame mobile-frame" data-frame-index="10" id="frame-10">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M5 · مقارنة الموديلات بالسحب</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(10); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" alt="M5 Mobile Comparison" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Frame 11: Mobile Showcase Panorama -->
+          <div class="figma-frame showcase-frame" data-frame-index="11" id="frame-11">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>Showcase · بانوراما الهواتف المجمعة</span>
+              <span class="frame-dims">1440 × 1100</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(11); event.stopPropagation();">👁️ تكبير</button>
+                <a href="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" alt="Showcase Panorama" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Figma Floating Toolbar (Dock) -->
+  <div class="figma-toolbar">
+    <!-- Hand Tool -->
+    <button class="tool-btn active" id="tool-hand" title="أداة التحريك والسحب (Hand Tool - H)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8M6 14.5a4.5 4.5 0 0 0 9 0V11a2 2 0 0 1 2-2v0a2 2 0 0 1 2 2v3.5a8.5 8.5 0 0 1-17 0v-2"/></svg>
+    </button>
+
+    <div class="toolbar-divider"></div>
+
+    <!-- Zoom Controls -->
+    <button class="tool-btn" id="tool-zoom-out" title="تصغير (Zoom Out)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    </button>
+
+    <div class="zoom-readout mono" id="zoom-text" title="انقر لإعادة الضبط إلى 100%">25%</div>
+
+    <button class="tool-btn" id="tool-zoom-in" title="تكبير (Zoom In)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    </button>
+
+    <div class="toolbar-divider"></div>
+
+    <!-- Fit to screen -->
+    <button class="tool-btn" id="tool-fit" title="احتواء الكل في الشاشة (Fit All)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+    </button>
+
+    <!-- Reset 100% -->
+    <button class="tool-btn" id="tool-reset" title="حجم طبيعي 100% (Reset 100%)">
+      <span class="mono" style="font-size:11px; font-weight:800;">1:1</span>
+    </button>
+  </div>
+
+  <!-- Fullscreen Inspection Modal -->
+  <div class="inspect-modal" id="inspect-modal" onclick="closeFocusModal()">
+    <div class="modal-top-bar" onclick="event.stopPropagation()">
+      <div class="modal-title-box">
+        <span class="mono" style="color:var(--figma-blue); font-weight:800; font-size:16px;">#</span>
+        <h2 id="modal-frame-title">اسم الشاشة</h2>
       </div>
-      <div class="image-preview-frame">
-        <img src="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" alt="Desktop Product Details">
+      <div class="modal-actions">
+        <a id="modal-download-link" href="#" download class="top-btn primary">تحميل الصورة بدقة Full HD ⬇️</a>
+        <button class="top-btn" onclick="closeFocusModal()">إغلاق ✕</button>
       </div>
     </div>
-
-    <!-- Screen 3: Desktop Catalog & Filters -->
-    <div id="panel-3" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>03. صفحة الفلاتر والبحث التقني (Desktop Catalog & Filters)</h2>
-          <p>
-            • فلاتر فنية تتكيف مع كل قسم (عدد البورتات، PoE 370W/740W، سرعات 10G SFP+).<br>
-            • بطاقات منتجات فنية تعرض مواصفات المنافذ ومستوى الإدارة والأسعار.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame">
-        <img src="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" alt="Desktop Catalog Filters">
-      </div>
+    <div class="modal-body" id="modal-body">
+      <img id="modal-img" src="" alt="Full Preview" onclick="event.stopPropagation()">
     </div>
+  </div>
 
-    <!-- Screen 4: Desktop Comparison -->
-    <div id="panel-4" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>04. صفحة مقارنة 4 موديلات (Desktop Comparison Matrix)</h2>
-          <p>
-            • جدول تفصيلي يقارن 4 سويتشات معتمدة (Cisco vs MikroTik vs Ubiquiti vs Fortinet).<br>
-            • ميزة تمييز الفروق التلقائي (Highlight Differences) بلون هادئ لتسهيل المقارنة.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame">
-        <img src="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" alt="Desktop Comparison Matrix">
-      </div>
-    </div>
-
-    <!-- Screen 5: Desktop Checkout -->
-    <div id="panel-5" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>05. السلة وإتمام الطلب في خطوة واحدة (One-Step Checkout - COD Only)</h2>
-          <p>
-            • خطوة واحدة: بيانات العميل (كضيف أو بحساب)، حساب آلي للشحن حسب المحافظة.<br>
-            • الدفع نقداً عند الاستلام (COD) فقط مع خيار استلام مجاني من فرع الشركة بالمعادي.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame">
-        <img src="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" alt="Desktop Cart Checkout">
-      </div>
-    </div>
-
-    <!-- Screen 6: Mobile Homepage -->
-    <div id="panel-6" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>06. الصفحة الرئيسية للموبايل (Mobile Homepage)</h2>
-          <p>
-            • واجهة متجاوبة في إطار هاتف حديث مع شريط ملاحة سفلي ثابت وبحث سريع بالموديلات.<br>
-            • عروض الأسبوع الحصرية بمؤقت وأقسام الشبكات بلمسة واحدة.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame phone-frame-center">
-        <img src="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" alt="Mobile Homepage">
-      </div>
-    </div>
-
-    <!-- Screen 7: Mobile Product Details -->
-    <div id="panel-7" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>07. صفحة المنتج والمواصفات للموبايل (Mobile Product Details)</h2>
-          <p>
-            • بطاقة المنتج مع معرض المنافذ، زر تحميل الداتاشيت، وزر عائم للشراء المباشر وإضافة للسلة.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame phone-frame-center">
-        <img src="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" alt="Mobile Product Details">
-      </div>
-    </div>
-
-    <!-- Screen 8: Mobile Catalog Filters -->
-    <div id="panel-8" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>08. الفلاتر والبحث التقني للموبايل (Mobile Catalog & Filters)</h2>
-          <p>
-            • تصفية السويتشات مع درج فلاتر سفلي متجاوب للمواصفات الفنية وبطاقات منتجات مدمجة.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame phone-frame-center">
-        <img src="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" alt="Mobile Catalog Filters">
-      </div>
-    </div>
-
-    <!-- Screen 9: Mobile Checkout COD -->
-    <div id="panel-9" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>09. السلة وإتمام الطلب خطوة واحدة للموبايل (Mobile Checkout COD)</h2>
-          <p>
-            • نموذج سريع كضيف، حساب فوري للشحن حسب المحافظة، وزر تأكيد واضح للدفع عند الاستلام.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame phone-frame-center">
-        <img src="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" alt="Mobile Checkout COD">
-      </div>
-    </div>
-
-    <!-- Screen 10: Mobile Comparison -->
-    <div id="panel-10" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>10. مقارنة الموديلات للموبايل (Mobile Product Comparison)</h2>
-          <p>
-            • مقارنة الموديلات بالسحب الأفقي السلس مع إبراز الفروق في البورتات وطاقة الـ PoE.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame phone-frame-center">
-        <img src="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" alt="Mobile Product Comparison">
-      </div>
-    </div>
-
-    <!-- Screen 11: Mobile Showcase (3 in 1) -->
-    <div id="panel-11" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>11. تجميعة شاشات الموبايل (Mobile Screens Showcase)</h2>
-          <p>
-            • لوحة مجمعة تضم 3 هواتف iPhone 15 Pro تعرض تجربة المستخدم المتكاملة عبر الهاتف.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame">
-        <img src="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" alt="Mobile Showcase">
-      </div>
-    </div>
-
-    <!-- Screen 12: Admin Dashboard -->
-    <div id="panel-12" class="screen-panel">
-      <div class="screen-meta-box">
-        <div class="screen-meta-info">
-          <h2>12. لوحة تحكم الإدارة (Admin Dashboard Overview)</h2>
-          <p>
-            • متابعة أحدث طلبات التوريد وحالاتها الخمس مع خيارات تصدير Excel وإعدادات أسعار شحن المحافظات.
-          </p>
-        </div>
-        <div class="screen-actions">
-          <a href="07_لوحة_التحكم_Admin_Dashboard_Overview.png" target="_blank" class="btn-open-original">فتح الحجم الكامل ↗</a>
-          <a href="07_لوحة_التحكم_Admin_Dashboard_Overview.png" download class="btn-download-img">تحميل PNG</a>
-        </div>
-      </div>
-      <div class="image-preview-frame">
-        <img src="07_لوحة_التحكم_Admin_Dashboard_Overview.png" alt="Admin Dashboard Overview">
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="exec-footer">
-    تم إعداد وتصميم هذه النماذج بالكامل وفقاً لوثيقة المواصفات الفنية لمتجر <b>MESS TECH</b> — Tech Solutions Global.
-  </footer>
-
+  <!-- =========================================================
+       Figma Interactive Pan, Zoom & Navigation Script
+       ========================================================= -->
   <script>
-    function showTab(num) {
-      document.querySelectorAll('.tab-item-btn').forEach((btn, idx) => {
-        btn.classList.toggle('active', (idx + 1) === num);
-      });
-      document.querySelectorAll('.screen-panel').forEach((panel, idx) => {
-        panel.classList.toggle('active', (idx + 1) === num);
-      });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    // State
+    let panX = 60;
+    let panY = 70;
+    let scale = 0.22;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let activeFrameIdx = 0;
+
+    const viewport = document.getElementById('viewport');
+    const world = document.getElementById('canvas-world');
+    const zoomText = document.getElementById('zoom-text');
+    const sidebar = document.getElementById('sidebar');
+    const reopenBtn = document.getElementById('reopen-sidebar');
+    const frames = document.querySelectorAll('.figma-frame');
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+    // Frames metadata
+    const framesMeta = [
+      { id: 'frame-0', title: '01 · الصفحة الرئيسية (Desktop Storefront)', src: '01_الصفحة_الرئيسية_Desktop_Homepage.png' },
+      { id: 'frame-1', title: '02 · صفحة تفاصيل المنتج والمواصفات', src: '02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png' },
+      { id: 'frame-2', title: '03 · الفلاتر والبحث التقني', src: '03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png' },
+      { id: 'frame-3', title: '04 · جدول مقارنة المواصفات', src: '04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png' },
+      { id: 'frame-4', title: '05 · السلة وإتمام الطلب (Checkout)', src: '05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png' },
+      { id: 'frame-5', title: '06 · لوحة تحكم الإدارة (Dashboard)', src: '07_لوحة_التحكم_Admin_Dashboard_Overview.png' },
+      { id: 'frame-6', title: 'M1 · الرئيسية بالموبايل', src: 'Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png' },
+      { id: 'frame-7', title: 'M2 · صفحة المنتج بالموبايل', src: 'Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png' },
+      { id: 'frame-8', title: 'M3 · الفلاتر والكتالوج بالموبايل', src: 'Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png' },
+      { id: 'frame-9', title: 'M4 · السلة وإتمام الطلب بالموبايل', src: 'Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png' },
+      { id: 'frame-10', title: 'M5 · مقارنة الموديلات بالموبايل', src: 'Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png' },
+      { id: 'frame-11', title: 'Showcase · بانوراما الهواتف المجمعة', src: '06_نسخة_الموبايل_Mobile_Screens_Showcase.png' }
+    ];
+
+    function applyTransform() {
+      world.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+      zoomText.textContent = `${Math.round(scale * 100)}%`;
     }
+
+    // Initialize View
+    function initView() {
+      // Calculate responsive initial scale so first 3 frames are visible
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      if (vw < 768) {
+        scale = 0.12;
+        panX = 20;
+        panY = 60;
+      } else {
+        scale = 0.22;
+        panX = 70;
+        panY = 70;
+      }
+      applyTransform();
+    }
+    initView();
+
+    // -------------------------------------------------------------
+    // Mouse Dragging / Pan Interaction ("الشد والتحريك")
+    // -------------------------------------------------------------
+    viewport.addEventListener('mousedown', (e) => {
+      // Only drag with left mouse button (or middle button)
+      if (e.button !== 0 && e.button !== 1) return;
+      isDragging = true;
+      startX = e.clientX - panX;
+      startY = e.clientY - panY;
+      viewport.classList.add('dragging');
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      panX = e.clientX - startX;
+      panY = e.clientY - startY;
+      applyTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        viewport.classList.remove('dragging');
+      }
+    });
+
+    // -------------------------------------------------------------
+    // Mouse Wheel Zoom (Centered on Cursor)
+    // -------------------------------------------------------------
+    viewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+
+      const zoomFactor = e.deltaY < 0 ? 1.15 : 0.87;
+      const newScale = Math.min(Math.max(scale * zoomFactor, 0.05), 2.2);
+
+      // Zoom centered on cursor
+      const rect = viewport.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      panX = mouseX - (mouseX - panX) * (newScale / scale);
+      panY = mouseY - (mouseY - panY) * (newScale / scale);
+      scale = newScale;
+
+      applyTransform();
+    }, { passive: false });
+
+    // -------------------------------------------------------------
+    // Touch Interaction (One finger pan, Two fingers pinch to zoom)
+    // -------------------------------------------------------------
+    let touchStartDist = 0;
+    let touchStartScale = scale;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    viewport.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        touchStartX = e.touches[0].clientX - panX;
+        touchStartY = e.touches[0].clientY - panY;
+      } else if (e.touches.length === 2) {
+        isDragging = false;
+        touchStartDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        touchStartScale = scale;
+      }
+    }, { passive: false });
+
+    viewport.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      if (e.touches.length === 1 && isDragging) {
+        panX = e.touches[0].clientX - touchStartX;
+        panY = e.touches[0].clientY - touchStartY;
+        applyTransform();
+      } else if (e.touches.length === 2 && touchStartDist > 0) {
+        const currentDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const factor = currentDist / touchStartDist;
+        scale = Math.min(Math.max(touchStartScale * factor, 0.05), 2.2);
+        applyTransform();
+      }
+    }, { passive: false });
+
+    viewport.addEventListener('touchend', () => {
+      isDragging = false;
+      touchStartDist = 0;
+    });
+
+    // -------------------------------------------------------------
+    // Frame Selection & Smooth Fly-To Focus
+    // -------------------------------------------------------------
+    function selectFrame(index, smoothPan = false) {
+      activeFrameIdx = index;
+      frames.forEach((f, i) => {
+        if (i === index) f.classList.add('selected');
+        else f.classList.remove('selected');
+      });
+
+      sidebarItems.forEach((item, i) => {
+        if (i === index) item.classList.add('active');
+        else item.classList.remove('active');
+      });
+
+      if (smoothPan) {
+        flyToFrame(index);
+      }
+    }
+
+    function flyToFrame(index) {
+      const frameEl = document.getElementById(`frame-${index}`);
+      if (!frameEl) return;
+
+      const targetScale = frameEl.classList.contains('mobile-frame') ? 0.65 : 0.45;
+      const targetLeft = frameEl.offsetLeft + 100; // include canvas padding
+      const targetTop = frameEl.offsetTop + 100;
+      const targetWidth = frameEl.offsetWidth;
+      const targetHeight = frameEl.offsetHeight;
+
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      // Center frame in viewport (taking sidebar into account on desktop)
+      const sidebarOffset = (window.innerWidth > 768 && !sidebar.classList.contains('collapsed')) ? 140 : 0;
+      const centerX = (vw / 2) + sidebarOffset;
+      const centerY = (vh / 2) + 24;
+
+      const newPanX = centerX - (targetLeft + targetWidth / 2) * targetScale;
+      const newPanY = centerY - (targetTop + targetHeight / 2) * targetScale;
+
+      // Smooth animated transition
+      world.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+      scale = targetScale;
+      panX = newPanX;
+      panY = newPanY;
+      applyTransform();
+
+      setTimeout(() => {
+        world.style.transition = 'none';
+      }, 480);
+    }
+
+    // Attach click events on frames
+    frames.forEach((frame, idx) => {
+      frame.addEventListener('click', (e) => {
+        selectFrame(idx, false);
+      });
+
+      // Double click to open inspection modal
+      frame.addEventListener('dblclick', (e) => {
+        openFocusModal(idx);
+      });
+    });
+
+    // Attach click events on sidebar items
+    sidebarItems.forEach((item, idx) => {
+      item.addEventListener('click', () => {
+        selectFrame(idx, true);
+        if (window.innerWidth < 768) {
+          sidebar.classList.add('collapsed');
+          reopenBtn.classList.add('visible');
+        }
+      });
+    });
+
+    // -------------------------------------------------------------
+    // Toolbar Controls
+    // -------------------------------------------------------------
+    document.getElementById('tool-zoom-in').addEventListener('click', () => {
+      scale = Math.min(scale * 1.25, 2.2);
+      applyTransform();
+    });
+
+    document.getElementById('tool-zoom-out').addEventListener('click', () => {
+      scale = Math.max(scale * 0.8, 0.05);
+      applyTransform();
+    });
+
+    document.getElementById('tool-reset').addEventListener('click', () => {
+      scale = 1.0;
+      applyTransform();
+    });
+
+    document.getElementById('zoom-text').addEventListener('click', () => {
+      scale = (scale === 1.0) ? 0.25 : 1.0;
+      applyTransform();
+    });
+
+    function fitAll() {
+      world.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      
+      if (vw < 768) {
+        scale = 0.085;
+        panX = 10;
+        panY = 55;
+      } else {
+        scale = 0.16;
+        panX = 60;
+        panY = 70;
+      }
+      applyTransform();
+      setTimeout(() => { world.style.transition = 'none'; }, 420);
+    }
+
+    document.getElementById('btn-fit-screen').addEventListener('click', fitAll);
+    document.getElementById('tool-fit').addEventListener('click', fitAll);
+
+    // -------------------------------------------------------------
+    // Sidebar Toggle
+    // -------------------------------------------------------------
+    const toggleBtn = document.getElementById('toggle-sidebar');
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      if (sidebar.classList.contains('collapsed')) {
+        reopenBtn.classList.add('visible');
+      } else {
+        reopenBtn.classList.remove('visible');
+      }
+    });
+
+    reopenBtn.addEventListener('click', () => {
+      sidebar.classList.remove('collapsed');
+      reopenBtn.classList.remove('visible');
+    });
+
+    // -------------------------------------------------------------
+    // Fullscreen Inspect Modal
+    // -------------------------------------------------------------
+    const modal = document.getElementById('inspect-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-frame-title');
+    const modalDownload = document.getElementById('modal-download-link');
+
+    function openFocusModal(index) {
+      const meta = framesMeta[index];
+      if (!meta) return;
+      modalTitle.textContent = meta.title;
+      modalImg.src = meta.src;
+      modalDownload.href = meta.src;
+      modal.classList.add('active');
+    }
+
+    function closeFocusModal() {
+      modal.classList.remove('active');
+    }
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeFocusModal();
+      } else if (e.key === '1') {
+        fitAll();
+      } else if (e.key === '0') {
+        scale = 1.0;
+        applyTransform();
+      } else if (e.key === '+' || e.key === '=') {
+        scale = Math.min(scale * 1.2, 2.2);
+        applyTransform();
+      } else if (e.key === '-') {
+        scale = Math.max(scale * 0.8, 0.05);
+        applyTransform();
+      }
+    });
   </script>
 </body>
 </html>
