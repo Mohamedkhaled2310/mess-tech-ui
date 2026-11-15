@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no">
-  <title>MESS TECH | Figma Interactive UI/UX Design Board</title>
+  <title>MESS TECH | Figma Interactive UI/UX Design Board (25 Screens)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background-color: var(--figma-bg);
+      background: var(--figma-bg);
       color: var(--figma-text-primary);
       position: relative;
     }
@@ -51,21 +51,21 @@
     }
 
     /* =========================================================
-       Figma Infinite Canvas & Workspace
+       Figma Infinite Canvas & Viewport
        ========================================================= */
     #viewport {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
       position: absolute;
       top: 0;
       left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
       cursor: grab;
+      touch-action: none;
       background-color: var(--figma-bg);
       background-image: radial-gradient(var(--figma-canvas-dot) 1.2px, transparent 1.2px);
       background-size: 24px 24px;
-      background-position: 0 0;
-      touch-action: none;
+      z-index: 1;
     }
 
     #viewport.dragging {
@@ -77,14 +77,13 @@
       top: 0;
       left: 0;
       transform-origin: 0 0;
-      will-change: transform;
-      padding: 100px;
       display: flex;
       flex-direction: column;
-      gap: 90px;
+      gap: 120px;
+      padding: 140px 100px 300px 100px;
+      will-change: transform;
     }
 
-    /* Canvas Sections (Desktop vs Mobile) */
     .board-section {
       display: flex;
       flex-direction: column;
@@ -135,7 +134,6 @@
       transition: filter 0.2s ease;
     }
 
-    /* Frame Top Label */
     .frame-label {
       display: flex;
       align-items: center;
@@ -159,134 +157,95 @@
       font-family: var(--font-mono);
       font-size: 11.5px;
       color: var(--figma-text-muted);
-      direction: ltr;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
       padding: 2px 7px;
       border-radius: 4px;
     }
 
-    .figma-frame:hover .frame-label {
+    .figma-frame:hover .frame-label,
+    .figma-frame.selected .frame-label {
       color: #fff;
     }
 
-    .figma-frame:hover .frame-dims {
-      color: var(--figma-blue);
-    }
-
-    /* Frame Card Container */
     .frame-card {
-      background: var(--figma-card-bg);
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 16px 50px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.4);
-      overflow: hidden;
+      background: #000;
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
       position: relative;
-      transition: border 0.15s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      overflow: hidden;
     }
 
-    .figma-frame:hover .frame-card {
-      border-color: rgba(13, 153, 255, 0.6);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.65), 0 0 0 1px rgba(13, 153, 255, 0.3);
-    }
-
-    /* Selected Frame State (Classic Figma Blue Outline + Handles) */
     .figma-frame.selected .frame-card {
-      border: 2px solid var(--figma-blue) !important;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.7), 0 0 0 2px rgba(13, 153, 255, 0.4) !important;
+      box-shadow: 0 0 0 3px var(--figma-blue), 0 25px 60px rgba(0,0,0,0.8);
     }
 
-    .figma-frame.selected .frame-label {
-      color: var(--figma-blue) !important;
-    }
-
-    /* Selection corner handles */
-    .figma-frame.selected .handle {
+    /* Selection handles like Figma */
+    .handle {
       position: absolute;
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       background: #fff;
       border: 1.5px solid var(--figma-blue);
-      border-radius: 1px;
-      z-index: 20;
+      border-radius: 2px;
+      display: none;
+      z-index: 10;
     }
-    .figma-frame.selected .handle.tl { top: -4px; right: -4px; }
-    .figma-frame.selected .handle.tr { top: -4px; left: -4px; }
-    .figma-frame.selected .handle.bl { bottom: -4px; right: -4px; }
-    .figma-frame.selected .handle.br { bottom: -4px; left: -4px; }
+    .figma-frame.selected .handle { display: block; }
+    .handle.tl { top: -5px; left: -5px; }
+    .handle.tr { top: -5px; right: -5px; }
+    .handle.bl { bottom: -5px; left: -5px; }
+    .handle.br { bottom: -5px; right: -5px; }
 
-    /* Frame Content Sizes */
-    .desktop-frame {
-      width: 1080px;
-    }
+    /* Frame dimensions */
+    .figma-frame.desktop-frame { width: 1440px; }
+    .figma-frame.desktop-frame img { width: 1440px; height: auto; display: block; }
 
-    .desktop-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-      pointer-events: none;
-    }
+    .figma-frame.mobile-frame { width: 540px; }
+    .figma-frame.mobile-frame img { width: 540px; height: auto; display: block; }
 
-    .mobile-frame {
-      width: 390px;
-    }
+    .figma-frame.showcase-frame { width: 1440px; }
+    .figma-frame.showcase-frame img { width: 1440px; height: auto; display: block; }
 
-    .mobile-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-      pointer-events: none;
-    }
-
-    .showcase-frame {
-      width: 1080px;
-    }
-
-    .showcase-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-      pointer-events: none;
-    }
-
-    /* Quick Action overlay on hover */
     .frame-hover-actions {
       position: absolute;
       top: 14px;
-      left: 14px;
+      right: 14px;
       display: flex;
       gap: 8px;
       opacity: 0;
-      transition: opacity 0.2s ease;
-      z-index: 15;
+      transform: translateY(-6px);
+      transition: all 0.2s ease;
+      z-index: 20;
     }
-
     .figma-frame:hover .frame-hover-actions {
       opacity: 1;
+      transform: translateY(0);
     }
-
     .frame-btn {
       background: rgba(30, 30, 30, 0.9);
-      border: 1px solid var(--figma-panel-border);
       color: #fff;
-      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
       border-radius: 6px;
       font-size: 12px;
       font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       transition: background 0.15s;
     }
-
     .frame-btn:hover {
       background: var(--figma-blue);
       border-color: var(--figma-blue);
     }
 
     /* =========================================================
-       Figma Top Bar & Navigation Header
+       Figma Top Bar
        ========================================================= */
     .figma-top-bar {
       position: fixed;
@@ -322,7 +281,6 @@
       background: rgba(255,255,255,0.06);
       transition: background 0.15s;
     }
-
     .figma-menu-icon:hover {
       background: var(--figma-hover-bg);
     }
@@ -332,18 +290,15 @@
       align-items: center;
       gap: 10px;
     }
-
     .brand-logo-img {
       height: 24px;
       width: auto;
     }
-
     .project-name {
       font-size: 13.5px;
       font-weight: 700;
       color: #fff;
     }
-
     .project-status {
       font-size: 11px;
       font-weight: 700;
@@ -365,7 +320,6 @@
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.06);
     }
-
     .canvas-hint-pill kbd {
       background: rgba(255,255,255,0.12);
       color: #fff;
@@ -380,7 +334,6 @@
       align-items: center;
       gap: 8px;
     }
-
     .top-btn {
       background: transparent;
       border: 1px solid transparent;
@@ -395,18 +348,15 @@
       gap: 6px;
       transition: all 0.15s;
     }
-
     .top-btn:hover {
       background: var(--figma-hover-bg);
       border-color: var(--figma-panel-border);
     }
-
     .top-btn.primary {
       background: var(--figma-blue);
       color: #fff;
       font-weight: 700;
     }
-
     .top-btn.primary:hover {
       background: var(--figma-blue-hover);
     }
@@ -418,7 +368,7 @@
       position: fixed;
       top: 48px;
       right: 0;
-      width: 280px;
+      width: 320px;
       bottom: 0;
       background: var(--figma-panel-bg);
       border-left: 1px solid var(--figma-panel-border);
@@ -441,21 +391,19 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .sidebar-header h3 {
       font-size: 13px;
       font-weight: 800;
       color: #fff;
       letter-spacing: 0.3px;
     }
-
-    .sidebar-header .count-badge {
-      font-family: var(--font-mono);
+    .count-badge {
+      background: rgba(255,255,255,0.08);
       font-size: 11px;
-      color: var(--figma-text-secondary);
-      background: rgba(255,255,255,0.06);
+      font-family: var(--font-mono);
       padding: 2px 7px;
       border-radius: 4px;
+      color: var(--figma-text-secondary);
     }
 
     .sidebar-list {
@@ -463,150 +411,132 @@
       overflow-y: auto;
       padding: 8px;
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
     }
-
     .sidebar-group-title {
       font-size: 11px;
       font-weight: 800;
       color: var(--figma-text-muted);
       text-transform: uppercase;
+      padding: 12px 10px 6px;
       letter-spacing: 0.5px;
-      padding: 10px 10px 4px;
     }
-
     .sidebar-item {
-      padding: 8px 10px;
-      border-radius: 6px;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--figma-text-secondary);
       display: flex;
       align-items: center;
       gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
       cursor: pointer;
+      color: var(--figma-text-secondary);
+      font-size: 12.5px;
+      font-weight: 600;
       transition: all 0.12s;
     }
-
     .sidebar-item:hover {
       background: var(--figma-hover-bg);
       color: #fff;
     }
-
     .sidebar-item.active {
-      background: rgba(13, 153, 255, 0.15);
+      background: rgba(13, 153, 255, 0.18);
       color: var(--figma-blue);
       font-weight: 700;
     }
-
     .sidebar-item .item-icon {
       font-size: 14px;
       opacity: 0.8;
+      width: 18px;
+      text-align: center;
     }
-
     .sidebar-item .item-title {
-      flex: 1;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      flex: 1;
     }
 
-    /* Toggle Button to reopen sidebar when collapsed */
     .sidebar-reopen-btn {
       position: fixed;
       top: 60px;
       right: 16px;
+      z-index: 80;
       background: var(--figma-panel-bg);
-      border: 1px solid var(--figma-panel-border);
       color: #fff;
-      padding: 8px 14px;
+      border: 1px solid var(--figma-panel-border);
       border-radius: 8px;
+      padding: 8px 14px;
       font-size: 12.5px;
       font-weight: 700;
-      cursor: pointer;
-      z-index: 85;
       display: none;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
       align-items: center;
       gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
     }
-
-    .sidebar-reopen-btn.visible {
-      display: inline-flex;
+    .figma-sidebar.collapsed ~ .sidebar-reopen-btn {
+      display: flex;
     }
 
     /* =========================================================
-       Figma Floating Bottom Toolbar (Controls Dock)
+       Figma Bottom Toolbar (Dock)
        ========================================================= */
     .figma-toolbar {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(44, 44, 44, 0.95);
+      height: 48px;
+      background: var(--figma-panel-bg);
       border: 1px solid var(--figma-panel-border);
-      backdrop-filter: blur(16px);
-      border-radius: 12px;
-      padding: 6px;
+      border-radius: 24px;
+      padding: 0 8px;
       display: flex;
       align-items: center;
       gap: 4px;
       z-index: 100;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
-
     .tool-btn {
-      background: transparent;
-      border: none;
-      color: var(--figma-text-primary);
       width: 36px;
       height: 36px;
-      border-radius: 8px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      color: var(--figma-text-secondary);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 15px;
-      transition: all 0.12s;
+      transition: all 0.15s;
     }
-
     .tool-btn:hover {
       background: var(--figma-hover-bg);
+      color: #fff;
     }
-
     .tool-btn.active {
       background: var(--figma-blue);
       color: #fff;
     }
-
     .toolbar-divider {
       width: 1px;
       height: 20px;
       background: var(--figma-panel-border);
       margin: 0 4px;
     }
-
     .zoom-readout {
-      font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 700;
-      color: var(--figma-text-primary);
-      padding: 6px 10px;
-      border-radius: 6px;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
       cursor: pointer;
-      min-width: 54px;
+      min-width: 52px;
       text-align: center;
     }
-
     .zoom-readout:hover {
       background: var(--figma-hover-bg);
     }
 
-    /* =========================================================
-       Full-Screen Inspection Modal
-       ========================================================= */
+    /* Fullscreen Modal */
     .inspect-modal {
       position: fixed;
       top: 0;
@@ -619,11 +549,7 @@
       display: none;
       flex-direction: column;
     }
-
-    .inspect-modal.active {
-      display: flex;
-    }
-
+    .inspect-modal.active { display: flex; }
     .modal-top-bar {
       height: 52px;
       background: rgba(30, 30, 30, 0.9);
@@ -633,25 +559,21 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .modal-title-box {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .modal-title-box h2 {
       font-size: 15px;
       font-weight: 800;
       color: #fff;
     }
-
     .modal-actions {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
     .modal-body {
       flex: 1;
       overflow: auto;
@@ -661,7 +583,6 @@
       align-items: flex-start;
       cursor: zoom-out;
     }
-
     .modal-body img {
       max-width: 100%;
       height: auto;
@@ -671,7 +592,6 @@
       cursor: default;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       .figma-sidebar {
         width: 100%;
@@ -697,7 +617,7 @@
       <div class="brand-title-wrap">
         <img src="assets/logo_white.png" class="brand-logo-img" alt="MESS TECH">
         <span class="project-name">MESS TECH UI/UX Board</span>
-        <span class="project-status">12 Frames</span>
+        <span class="project-status">25 Frames</span>
       </div>
     </div>
 
@@ -730,61 +650,140 @@
   <aside class="figma-sidebar" id="sidebar">
     <div class="sidebar-header">
       <h3>الطبقات والشاشات (Layers)</h3>
-      <span class="count-badge">12 Screens</span>
+      <span class="count-badge">25 Screens</span>
     </div>
 
     <ul class="sidebar-list">
-      <div class="sidebar-group-title">💻 شاشات الكمبيوتر (Desktop)</div>
-      <li class="sidebar-item active" data-index="0">
-        <span class="item-icon">📄</span>
-        <span class="item-title">01 · الصفحة الرئيسية</span>
-      </li>
-      <li class="sidebar-item" data-index="1">
-        <span class="item-icon">📄</span>
-        <span class="item-title">02 · صفحة تفاصيل المنتج</span>
-      </li>
-      <li class="sidebar-item" data-index="2">
-        <span class="item-icon">📄</span>
-        <span class="item-title">03 · الفلاتر والبحث التقني</span>
-      </li>
-      <li class="sidebar-item" data-index="3">
-        <span class="item-icon">📄</span>
-        <span class="item-title">04 · جدول مقارنة المواصفات</span>
-      </li>
-      <li class="sidebar-item" data-index="4">
-        <span class="item-icon">📄</span>
-        <span class="item-title">05 · السلة والـ Checkout</span>
-      </li>
-      <li class="sidebar-item" data-index="5">
-        <span class="item-icon">📊</span>
-        <span class="item-title">06 · لوحة تحكم الإدارة</span>
-      </li>
+      <div class="sidebar-group-title">💻 شاشات سطح المكتب والكمبيوتر (Desktop - 13)</div>
+      
+          <li class="sidebar-item active" data-index="0">
+            <span class="item-icon">📄</span>
+            <span class="item-title">01 · الصفحة الرئيسية (Desktop Storefront)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="1">
+            <span class="item-icon">📄</span>
+            <span class="item-title">02 · صفحة تفاصيل المنتج والمواصفات (Product Details)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="2">
+            <span class="item-icon">📄</span>
+            <span class="item-title">03 · الفلاتر والبحث التقني (Catalog & Filters)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="3">
+            <span class="item-icon">📄</span>
+            <span class="item-title">04 · جدول مقارنة المواصفات (Comparison Matrix)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="4">
+            <span class="item-icon">📄</span>
+            <span class="item-title">05 · السلة وإتمام الطلب (One-Step Checkout COD)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="5">
+            <span class="item-icon">✓</span>
+            <span class="item-title">06 · صفحة نجاح الطلب (Order Success & Thank You)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="6">
+            <span class="item-icon">🚚</span>
+            <span class="item-title">07 · تتبع مسار وحالة الطلب (Live Order Tracking)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="7">
+            <span class="item-icon">🔑</span>
+            <span class="item-title">08 · تسجيل الدخول وبوابة الشركات (Auth & SMS OTP)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="8">
+            <span class="item-icon">👤</span>
+            <span class="item-title">09 · لوحة حسابي ودفتر العناوين (Customer Profile)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="9">
+            <span class="item-icon">📦</span>
+            <span class="item-title">10 · سجل الطلبات السابقة والفواتير (Order History)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="10">
+            <span class="item-icon">📊</span>
+            <span class="item-title">11 · لوحة تحكم الإدارة العامة (Admin Overview)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="11">
+            <span class="item-icon">⚙️</span>
+            <span class="item-title">12 · إضافة وتعديل منتج بالمستودع (Admin Add Product)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="12">
+            <span class="item-icon">📋</span>
+            <span class="item-title">13 · جدول ومتابعة الطلبات المباشرة (Admin Orders Table)</span>
+          </li>
+        
 
-      <div class="sidebar-group-title">📱 شاشات الموبايل (iPhone 15 Pro)</div>
-      <li class="sidebar-item" data-index="6">
-        <span class="item-icon">📱</span>
-        <span class="item-title">M1 · الرئيسية بالموبايل</span>
-      </li>
-      <li class="sidebar-item" data-index="7">
-        <span class="item-icon">📱</span>
-        <span class="item-title">M2 · صفحة المنتج بالموبايل</span>
-      </li>
-      <li class="sidebar-item" data-index="8">
-        <span class="item-icon">📱</span>
-        <span class="item-title">M3 · الفلاتر والكتالوج بالموبايل</span>
-      </li>
-      <li class="sidebar-item" data-index="9">
-        <span class="item-icon">📱</span>
-        <span class="item-title">M4 · السلة وإتمام الطلب بالموبايل</span>
-      </li>
-      <li class="sidebar-item" data-index="10">
-        <span class="item-icon">📱</span>
-        <span class="item-title">M5 · مقارنة الموديلات بالموبايل</span>
-      </li>
-      <li class="sidebar-item" data-index="11">
-        <span class="item-icon">📱</span>
-        <span class="item-title">Showcase · بانوراما هواتف الموبايل</span>
-      </li>
+      <div class="sidebar-group-title">📱 شاشات الهواتف الذكية (Mobile iOS - 12)</div>
+      
+          <li class="sidebar-item " data-index="13">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M01 · الرئيسية بالموبايل (Mobile Homepage)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="14">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M02 · صفحة تفاصيل المنتج بالموبايل</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="15">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M03 · الفلاتر وتصفح الكتالوج بالموبايل</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="16">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M04 · السلة وإتمام الطلب COD بالموبايل</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="17">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M05 · مقارنة الموديلات بالسحب بالموبايل</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="18">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M06 · نجاح وتأكيد الطلب بالموبايل (Thank You)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="19">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M07 · تتبع مسار الشحنة لحظياً بالموبايل</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="20">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M08 · تسجيل الدخول ورمز SMS OTP بالموبايل</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="21">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M09 · لوحة حسابي ودفتر العناوين بالموبايل</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="22">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M10 · سجل طلباتي السابقة والفواتير بالموبايل</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="23">
+            <span class="item-icon">📱</span>
+            <span class="item-title">M11 · إدارة الطلبات والمستودع السريع (Admin Mobile)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="24">
+            <span class="item-icon">🖼️</span>
+            <span class="item-title">Showcase · بانوراما هواتف الموبايل المجمعة</span>
+          </li>
+        
     </ul>
   </aside>
 
@@ -796,12 +795,13 @@
       <section class="board-section" id="section-desktop">
         <div class="section-header-tag">
           <span style="font-size:20px;">💻</span>
-          <span class="title">شاشات سطح المكتب والكمبيوتر (Desktop Screens)</span>
-          <span class="meta">1440 × 2300 px</span>
+          <span class="title">شاشات سطح المكتب والكمبيوتر (Desktop Screens — 13 شاشة)</span>
+          <span class="meta">1440px Grid</span>
         </div>
 
         <div class="frames-row">
-          <!-- Frame 0: Desktop Homepage -->
+          
+          <!-- Frame 0: 01 -->
           <div class="figma-frame desktop-frame selected" data-frame-index="0" id="frame-0">
             <div class="frame-label">
               <span class="frame-hash">#</span>
@@ -814,15 +814,15 @@
                 <button class="frame-btn" onclick="openFocusModal(0); event.stopPropagation();">👁️ تكبير</button>
                 <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="01_الصفحة_الرئيسية_Desktop_Homepage.png" alt="01 Desktop Homepage" loading="eager">
+              <img src="01_الصفحة_الرئيسية_Desktop_Homepage.png" alt="01 الصفحة الرئيسية (Desktop Storefront)" loading="eager">
             </div>
           </div>
-
-          <!-- Frame 1: Desktop Product Details -->
-          <div class="figma-frame desktop-frame" data-frame-index="1" id="frame-1">
+        
+          <!-- Frame 1: 02 -->
+          <div class="figma-frame desktop-frame " data-frame-index="1" id="frame-1">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>02 · صفحة المنتج والمواصفات (Product Details)</span>
+              <span>02 · صفحة تفاصيل المنتج والمواصفات (Product Details)</span>
               <span class="frame-dims">1440 × 2400</span>
             </div>
             <div class="frame-card">
@@ -831,12 +831,12 @@
                 <button class="frame-btn" onclick="openFocusModal(1); event.stopPropagation();">👁️ تكبير</button>
                 <a href="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" alt="02 Desktop Product Details" loading="lazy">
+              <img src="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" alt="02 صفحة تفاصيل المنتج والمواصفات (Product Details)" loading="eager">
             </div>
           </div>
-
-          <!-- Frame 2: Desktop Catalog Filters -->
-          <div class="figma-frame desktop-frame" data-frame-index="2" id="frame-2">
+        
+          <!-- Frame 2: 03 -->
+          <div class="figma-frame desktop-frame " data-frame-index="2" id="frame-2">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>03 · الفلاتر والبحث التقني (Catalog & Filters)</span>
@@ -848,15 +848,15 @@
                 <button class="frame-btn" onclick="openFocusModal(2); event.stopPropagation();">👁️ تكبير</button>
                 <a href="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" alt="03 Desktop Filters" loading="lazy">
+              <img src="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" alt="03 الفلاتر والبحث التقني (Catalog & Filters)" loading="eager">
             </div>
           </div>
-
-          <!-- Frame 3: Desktop Comparison -->
-          <div class="figma-frame desktop-frame" data-frame-index="3" id="frame-3">
+        
+          <!-- Frame 3: 04 -->
+          <div class="figma-frame desktop-frame " data-frame-index="3" id="frame-3">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>04 · مقارنة المواصفات (Comparison Matrix)</span>
+              <span>04 · جدول مقارنة المواصفات (Comparison Matrix)</span>
               <span class="frame-dims">1440 × 2200</span>
             </div>
             <div class="frame-card">
@@ -865,15 +865,15 @@
                 <button class="frame-btn" onclick="openFocusModal(3); event.stopPropagation();">👁️ تكبير</button>
                 <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" alt="04 Desktop Comparison" loading="lazy">
+              <img src="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" alt="04 جدول مقارنة المواصفات (Comparison Matrix)" loading="lazy">
             </div>
           </div>
-
-          <!-- Frame 4: Desktop Cart & Checkout -->
-          <div class="figma-frame desktop-frame" data-frame-index="4" id="frame-4">
+        
+          <!-- Frame 4: 05 -->
+          <div class="figma-frame desktop-frame " data-frame-index="4" id="frame-4">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>05 · السلة وإتمام الطلب (One-Step Checkout)</span>
+              <span>05 · السلة وإتمام الطلب (One-Step Checkout COD)</span>
               <span class="frame-dims">1440 × 2100</span>
             </div>
             <div class="frame-card">
@@ -882,26 +882,146 @@
                 <button class="frame-btn" onclick="openFocusModal(4); event.stopPropagation();">👁️ تكبير</button>
                 <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" alt="05 Desktop Checkout" loading="lazy">
+              <img src="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" alt="05 السلة وإتمام الطلب (One-Step Checkout COD)" loading="lazy">
             </div>
           </div>
-
-          <!-- Frame 5: Desktop Admin Dashboard -->
-          <div class="figma-frame desktop-frame" data-frame-index="5" id="frame-5">
+        
+          <!-- Frame 5: 06 -->
+          <div class="figma-frame desktop-frame " data-frame-index="5" id="frame-5">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>06 · لوحة تحكم الإدارة (Admin Dashboard)</span>
-              <span class="frame-dims">1440 × 1100</span>
+              <span>06 · صفحة نجاح الطلب (Order Success & Thank You)</span>
+              <span class="frame-dims">1440 × 1850</span>
             </div>
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
                 <button class="frame-btn" onclick="openFocusModal(5); event.stopPropagation();">👁️ تكبير</button>
-                <a href="07_لوحة_التحكم_Admin_Dashboard_Overview.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+                <a href="08_صفحة_نجاح_الطلب_Desktop_Order_Success.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="07_لوحة_التحكم_Admin_Dashboard_Overview.png" alt="06 Desktop Dashboard" loading="lazy">
+              <img src="08_صفحة_نجاح_الطلب_Desktop_Order_Success.png" alt="06 صفحة نجاح الطلب (Order Success & Thank You)" loading="lazy">
             </div>
           </div>
+        
+          <!-- Frame 6: 07 -->
+          <div class="figma-frame desktop-frame " data-frame-index="6" id="frame-6">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>07 · تتبع مسار وحالة الطلب (Live Order Tracking)</span>
+              <span class="frame-dims">1440 × 1700</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(6); event.stopPropagation();">👁️ تكبير</button>
+                <a href="09_صفحة_تتبع_الطلب_Desktop_Order_Tracking.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="09_صفحة_تتبع_الطلب_Desktop_Order_Tracking.png" alt="07 تتبع مسار وحالة الطلب (Live Order Tracking)" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 7: 08 -->
+          <div class="figma-frame desktop-frame " data-frame-index="7" id="frame-7">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>08 · تسجيل الدخول وبوابة الشركات (Auth & SMS OTP)</span>
+              <span class="frame-dims">1440 × 1400</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(7); event.stopPropagation();">👁️ تكبير</button>
+                <a href="10_تسجيل_الدخول_وإنشاء_حساب_Desktop_Auth_Login.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="10_تسجيل_الدخول_وإنشاء_حساب_Desktop_Auth_Login.png" alt="08 تسجيل الدخول وبوابة الشركات (Auth & SMS OTP)" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 8: 09 -->
+          <div class="figma-frame desktop-frame " data-frame-index="8" id="frame-8">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>09 · لوحة حسابي ودفتر العناوين (Customer Profile)</span>
+              <span class="frame-dims">1440 × 1550</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(8); event.stopPropagation();">👁️ تكبير</button>
+                <a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" alt="09 لوحة حسابي ودفتر العناوين (Customer Profile)" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 9: 10 -->
+          <div class="figma-frame desktop-frame " data-frame-index="9" id="frame-9">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>10 · سجل الطلبات السابقة والفواتير (Order History)</span>
+              <span class="frame-dims">1440 × 1500</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(9); event.stopPropagation();">👁️ تكبير</button>
+                <a href="12_سجل_الطلبات_السابقة_Desktop_Order_History.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="12_سجل_الطلبات_السابقة_Desktop_Order_History.png" alt="10 سجل الطلبات السابقة والفواتير (Order History)" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 10: 11 -->
+          <div class="figma-frame desktop-frame " data-frame-index="10" id="frame-10">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>11 · لوحة تحكم الإدارة العامة (Admin Overview)</span>
+              <span class="frame-dims">1440 × 1100</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(10); event.stopPropagation();">👁️ تكبير</button>
+                <a href="07_لوحة_التحكم_Admin_Dashboard_Overview.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="07_لوحة_التحكم_Admin_Dashboard_Overview.png" alt="11 لوحة تحكم الإدارة العامة (Admin Overview)" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 11: 12 -->
+          <div class="figma-frame desktop-frame " data-frame-index="11" id="frame-11">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>12 · إضافة وتعديل منتج بالمستودع (Admin Add Product)</span>
+              <span class="frame-dims">1440 × 1650</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(11); event.stopPropagation();">👁️ تكبير</button>
+                <a href="13_إضافة_وتعديل_منتج_Desktop_Admin_Add_Product.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="13_إضافة_وتعديل_منتج_Desktop_Admin_Add_Product.png" alt="12 إضافة وتعديل منتج بالمستودع (Admin Add Product)" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 12: 13 -->
+          <div class="figma-frame desktop-frame " data-frame-index="12" id="frame-12">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>13 · جدول ومتابعة الطلبات المباشرة (Admin Orders Table)</span>
+              <span class="frame-dims">1440 × 1400</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(12); event.stopPropagation();">👁️ تكبير</button>
+                <a href="14_جدول_إدارة_الطلبات_Desktop_Admin_Orders_Table.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="14_جدول_إدارة_الطلبات_Desktop_Admin_Orders_Table.png" alt="13 جدول ومتابعة الطلبات المباشرة (Admin Orders Table)" loading="lazy">
+            </div>
+          </div>
+        
         </div>
       </section>
 
@@ -909,112 +1029,216 @@
       <section class="board-section" id="section-mobile">
         <div class="section-header-tag">
           <span style="font-size:20px;">📱</span>
-          <span class="title">شاشات وتجربة الهواتف الذكية (Mobile iOS Screens — iPhone 15 Pro)</span>
+          <span class="title">شاشات وتجربة الهواتف الذكية (Mobile iOS Screens — iPhone 15 Pro — 12 شاشة)</span>
           <span class="meta">390 × 844 px (Retina 3x)</span>
         </div>
 
         <div class="frames-row">
-          <!-- Frame 6: Mobile Homepage -->
-          <div class="figma-frame mobile-frame" data-frame-index="6" id="frame-6">
+          
+          <!-- Frame 13: M01 -->
+          <div class="figma-frame mobile-frame " data-frame-index="13" id="frame-13">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>M1 · الرئيسية بالموبايل</span>
+              <span>M01 · الرئيسية بالموبايل (Mobile Homepage)</span>
               <span class="frame-dims">390 × 844</span>
             </div>
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(6); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(13); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" alt="M1 Mobile Homepage" loading="lazy">
+              <img src="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" alt="M01 الرئيسية بالموبايل (Mobile Homepage)" loading="lazy">
             </div>
           </div>
-
-          <!-- Frame 7: Mobile Product Details -->
-          <div class="figma-frame mobile-frame" data-frame-index="7" id="frame-7">
+        
+          <!-- Frame 14: M02 -->
+          <div class="figma-frame mobile-frame " data-frame-index="14" id="frame-14">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>M2 · صفحة المنتج والمواصفات</span>
+              <span>M02 · صفحة تفاصيل المنتج بالموبايل</span>
               <span class="frame-dims">390 × 844</span>
             </div>
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(7); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(14); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" alt="M2 Mobile Product" loading="lazy">
+              <img src="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" alt="M02 صفحة تفاصيل المنتج بالموبايل" loading="lazy">
             </div>
           </div>
-
-          <!-- Frame 8: Mobile Catalog Filters -->
-          <div class="figma-frame mobile-frame" data-frame-index="8" id="frame-8">
+        
+          <!-- Frame 15: M03 -->
+          <div class="figma-frame mobile-frame " data-frame-index="15" id="frame-15">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>M3 · الفلاتر وتصفح الكتالوج</span>
+              <span>M03 · الفلاتر وتصفح الكتالوج بالموبايل</span>
               <span class="frame-dims">390 × 844</span>
             </div>
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(8); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(15); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" alt="M3 Mobile Filters" loading="lazy">
+              <img src="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" alt="M03 الفلاتر وتصفح الكتالوج بالموبايل" loading="lazy">
             </div>
           </div>
-
-          <!-- Frame 9: Mobile Checkout -->
-          <div class="figma-frame mobile-frame" data-frame-index="9" id="frame-9">
+        
+          <!-- Frame 16: M04 -->
+          <div class="figma-frame mobile-frame " data-frame-index="16" id="frame-16">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>M4 · السلة وإتمام الطلب</span>
+              <span>M04 · السلة وإتمام الطلب COD بالموبايل</span>
               <span class="frame-dims">390 × 844</span>
             </div>
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(9); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(16); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" alt="M4 Mobile Checkout" loading="lazy">
+              <img src="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" alt="M04 السلة وإتمام الطلب COD بالموبايل" loading="lazy">
             </div>
           </div>
-
-          <!-- Frame 10: Mobile Comparison -->
-          <div class="figma-frame mobile-frame" data-frame-index="10" id="frame-10">
+        
+          <!-- Frame 17: M05 -->
+          <div class="figma-frame mobile-frame " data-frame-index="17" id="frame-17">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>M5 · مقارنة الموديلات بالسحب</span>
+              <span>M05 · مقارنة الموديلات بالسحب بالموبايل</span>
               <span class="frame-dims">390 × 844</span>
             </div>
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(10); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(17); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" alt="M5 Mobile Comparison" loading="lazy">
+              <img src="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" alt="M05 مقارنة الموديلات بالسحب بالموبايل" loading="lazy">
             </div>
           </div>
-
-          <!-- Frame 11: Mobile Showcase Panorama -->
-          <div class="figma-frame showcase-frame" data-frame-index="11" id="frame-11">
+        
+          <!-- Frame 18: M06 -->
+          <div class="figma-frame mobile-frame " data-frame-index="18" id="frame-18">
             <div class="frame-label">
               <span class="frame-hash">#</span>
-              <span>Showcase · بانوراما الهواتف المجمعة</span>
+              <span>M06 · نجاح وتأكيد الطلب بالموبايل (Thank You)</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(18); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_06_نجاح_الطلب_Mobile_Order_Success.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_06_نجاح_الطلب_Mobile_Order_Success.png" alt="M06 نجاح وتأكيد الطلب بالموبايل (Thank You)" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 19: M07 -->
+          <div class="figma-frame mobile-frame " data-frame-index="19" id="frame-19">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M07 · تتبع مسار الشحنة لحظياً بالموبايل</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(19); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_07_تتبع_مسار_الطلب_Mobile_Order_Tracking.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_07_تتبع_مسار_الطلب_Mobile_Order_Tracking.png" alt="M07 تتبع مسار الشحنة لحظياً بالموبايل" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 20: M08 -->
+          <div class="figma-frame mobile-frame " data-frame-index="20" id="frame-20">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M08 · تسجيل الدخول ورمز SMS OTP بالموبايل</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(20); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_08_تسجيل_الدخول_وحساب_جديد_Mobile_Auth_Login.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_08_تسجيل_الدخول_وحساب_جديد_Mobile_Auth_Login.png" alt="M08 تسجيل الدخول ورمز SMS OTP بالموبايل" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 21: M09 -->
+          <div class="figma-frame mobile-frame " data-frame-index="21" id="frame-21">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M09 · لوحة حسابي ودفتر العناوين بالموبايل</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(21); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_09_لوحة_حسابي_والعناوين_Mobile_Customer_Profile.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_09_لوحة_حسابي_والعناوين_Mobile_Customer_Profile.png" alt="M09 لوحة حسابي ودفتر العناوين بالموبايل" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 22: M10 -->
+          <div class="figma-frame mobile-frame " data-frame-index="22" id="frame-22">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M10 · سجل طلباتي السابقة والفواتير بالموبايل</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(22); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_10_سجل_طلباتي_السابقة_Mobile_Order_History.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_10_سجل_طلباتي_السابقة_Mobile_Order_History.png" alt="M10 سجل طلباتي السابقة والفواتير بالموبايل" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 23: M11 -->
+          <div class="figma-frame mobile-frame " data-frame-index="23" id="frame-23">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>M11 · إدارة الطلبات والمستودع السريع (Admin Mobile)</span>
+              <span class="frame-dims">390 × 844</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(23); event.stopPropagation();">👁️ تكبير</button>
+                <a href="Mobile_11_إدارة_الطلبات_والمنتجات_Mobile_Admin_Management.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="Mobile_11_إدارة_الطلبات_والمنتجات_Mobile_Admin_Management.png" alt="M11 إدارة الطلبات والمستودع السريع (Admin Mobile)" loading="lazy">
+            </div>
+          </div>
+        
+          <!-- Frame 24: Showcase -->
+          <div class="figma-frame showcase-frame " data-frame-index="24" id="frame-24">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>Showcase · بانوراما هواتف الموبايل المجمعة</span>
               <span class="frame-dims">1440 × 1100</span>
             </div>
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(11); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(24); event.stopPropagation();">👁️ تكبير</button>
                 <a href="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" alt="Showcase Panorama" loading="lazy">
+              <img src="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" alt="Showcase بانوراما هواتف الموبايل المجمعة" loading="lazy">
             </div>
           </div>
+        
         </div>
       </section>
 
@@ -1023,19 +1247,17 @@
 
   <!-- Figma Floating Toolbar (Dock) -->
   <div class="figma-toolbar">
-    <!-- Hand Tool -->
     <button class="tool-btn active" id="tool-hand" title="أداة التحريك والسحب (Hand Tool - H)">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8M6 14.5a4.5 4.5 0 0 0 9 0V11a2 2 0 0 1 2-2v0a2 2 0 0 1 2 2v3.5a8.5 8.5 0 0 1-17 0v-2"/></svg>
     </button>
 
     <div class="toolbar-divider"></div>
 
-    <!-- Zoom Controls -->
     <button class="tool-btn" id="tool-zoom-out" title="تصغير (Zoom Out)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
     </button>
 
-    <div class="zoom-readout mono" id="zoom-text" title="انقر لإعادة الضبط إلى 100%">25%</div>
+    <div class="zoom-readout mono" id="zoom-text" title="انقر لإعادة الضبط إلى 100%">22%</div>
 
     <button class="tool-btn" id="tool-zoom-in" title="تكبير (Zoom In)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -1043,12 +1265,10 @@
 
     <div class="toolbar-divider"></div>
 
-    <!-- Fit to screen -->
     <button class="tool-btn" id="tool-fit" title="احتواء الكل في الشاشة (Fit All)">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
     </button>
 
-    <!-- Reset 100% -->
     <button class="tool-btn" id="tool-reset" title="حجم طبيعي 100% (Reset 100%)">
       <span class="mono" style="font-size:11px; font-weight:800;">1:1</span>
     </button>
@@ -1071,14 +1291,11 @@
     </div>
   </div>
 
-  <!-- =========================================================
-       Figma Interactive Pan, Zoom & Navigation Script
-       ========================================================= -->
+  <!-- Figma Interactive Pan, Zoom & Navigation Script -->
   <script>
-    // State
     let panX = 60;
     let panY = 70;
-    let scale = 0.22;
+    let scale = 0.18;
     let isDragging = false;
     let startX = 0;
     let startY = 0;
@@ -1093,50 +1310,76 @@
     const sidebarItems = document.querySelectorAll('.sidebar-item');
 
     // Frames metadata
-    const framesMeta = [
-      { id: 'frame-0', title: '01 · الصفحة الرئيسية (Desktop Storefront)', src: '01_الصفحة_الرئيسية_Desktop_Homepage.png' },
-      { id: 'frame-1', title: '02 · صفحة تفاصيل المنتج والمواصفات', src: '02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png' },
-      { id: 'frame-2', title: '03 · الفلاتر والبحث التقني', src: '03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png' },
-      { id: 'frame-3', title: '04 · جدول مقارنة المواصفات', src: '04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png' },
-      { id: 'frame-4', title: '05 · السلة وإتمام الطلب (Checkout)', src: '05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png' },
-      { id: 'frame-5', title: '06 · لوحة تحكم الإدارة (Dashboard)', src: '07_لوحة_التحكم_Admin_Dashboard_Overview.png' },
-      { id: 'frame-6', title: 'M1 · الرئيسية بالموبايل', src: 'Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png' },
-      { id: 'frame-7', title: 'M2 · صفحة المنتج بالموبايل', src: 'Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png' },
-      { id: 'frame-8', title: 'M3 · الفلاتر والكتالوج بالموبايل', src: 'Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png' },
-      { id: 'frame-9', title: 'M4 · السلة وإتمام الطلب بالموبايل', src: 'Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png' },
-      { id: 'frame-10', title: 'M5 · مقارنة الموديلات بالموبايل', src: 'Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png' },
-      { id: 'frame-11', title: 'Showcase · بانوراما الهواتف المجمعة', src: '06_نسخة_الموبايل_Mobile_Screens_Showcase.png' }
-    ];
+    const framesMeta = [{'id': 'frame-0', 'title': '01 · الصفحة الرئيسية (Desktop Storefront)', 'src': '01_الصفحة_الرئيسية_Desktop_Homepage.png'}, {'id': 'frame-1', 'title': '02 · صفحة تفاصيل المنتج والمواصفات (Product Details)', 'src': '02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png'}, {'id': 'frame-2', 'title': '03 · الفلاتر والبحث التقني (Catalog & Filters)', 'src': '03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png'}, {'id': 'frame-3', 'title': '04 · جدول مقارنة المواصفات (Comparison Matrix)', 'src': '04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png'}, {'id': 'frame-4', 'title': '05 · السلة وإتمام الطلب (One-Step Checkout COD)', 'src': '05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png'}, {'id': 'frame-5', 'title': '06 · صفحة نجاح الطلب (Order Success & Thank You)', 'src': '08_صفحة_نجاح_الطلب_Desktop_Order_Success.png'}, {'id': 'frame-6', 'title': '07 · تتبع مسار وحالة الطلب (Live Order Tracking)', 'src': '09_صفحة_تتبع_الطلب_Desktop_Order_Tracking.png'}, {'id': 'frame-7', 'title': '08 · تسجيل الدخول وبوابة الشركات (Auth & SMS OTP)', 'src': '10_تسجيل_الدخول_وإنشاء_حساب_Desktop_Auth_Login.png'}, {'id': 'frame-8', 'title': '09 · لوحة حسابي ودفتر العناوين (Customer Profile)', 'src': '11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png'}, {'id': 'frame-9', 'title': '10 · سجل الطلبات السابقة والفواتير (Order History)', 'src': '12_سجل_الطلبات_السابقة_Desktop_Order_History.png'}, {'id': 'frame-10', 'title': '11 · لوحة تحكم الإدارة العامة (Admin Overview)', 'src': '07_لوحة_التحكم_Admin_Dashboard_Overview.png'}, {'id': 'frame-11', 'title': '12 · إضافة وتعديل منتج بالمستودع (Admin Add Product)', 'src': '13_إضافة_وتعديل_منتج_Desktop_Admin_Add_Product.png'}, {'id': 'frame-12', 'title': '13 · جدول ومتابعة الطلبات المباشرة (Admin Orders Table)', 'src': '14_جدول_إدارة_الطلبات_Desktop_Admin_Orders_Table.png'}, {'id': 'frame-13', 'title': 'M01 · الرئيسية بالموبايل (Mobile Homepage)', 'src': 'Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png'}, {'id': 'frame-14', 'title': 'M02 · صفحة تفاصيل المنتج بالموبايل', 'src': 'Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png'}, {'id': 'frame-15', 'title': 'M03 · الفلاتر وتصفح الكتالوج بالموبايل', 'src': 'Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png'}, {'id': 'frame-16', 'title': 'M04 · السلة وإتمام الطلب COD بالموبايل', 'src': 'Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png'}, {'id': 'frame-17', 'title': 'M05 · مقارنة الموديلات بالسحب بالموبايل', 'src': 'Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png'}, {'id': 'frame-18', 'title': 'M06 · نجاح وتأكيد الطلب بالموبايل (Thank You)', 'src': 'Mobile_06_نجاح_الطلب_Mobile_Order_Success.png'}, {'id': 'frame-19', 'title': 'M07 · تتبع مسار الشحنة لحظياً بالموبايل', 'src': 'Mobile_07_تتبع_مسار_الطلب_Mobile_Order_Tracking.png'}, {'id': 'frame-20', 'title': 'M08 · تسجيل الدخول ورمز SMS OTP بالموبايل', 'src': 'Mobile_08_تسجيل_الدخول_وحساب_جديد_Mobile_Auth_Login.png'}, {'id': 'frame-21', 'title': 'M09 · لوحة حسابي ودفتر العناوين بالموبايل', 'src': 'Mobile_09_لوحة_حسابي_والعناوين_Mobile_Customer_Profile.png'}, {'id': 'frame-22', 'title': 'M10 · سجل طلباتي السابقة والفواتير بالموبايل', 'src': 'Mobile_10_سجل_طلباتي_السابقة_Mobile_Order_History.png'}, {'id': 'frame-23', 'title': 'M11 · إدارة الطلبات والمستودع السريع (Admin Mobile)', 'src': 'Mobile_11_إدارة_الطلبات_والمنتجات_Mobile_Admin_Management.png'}, {'id': 'frame-24', 'title': 'Showcase · بانوراما هواتف الموبايل المجمعة', 'src': '06_نسخة_الموبايل_Mobile_Screens_Showcase.png'}];
 
     function applyTransform() {
+      scale = Math.min(Math.max(scale, 0.04), 2.2);
       world.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
       zoomText.textContent = `${Math.round(scale * 100)}%`;
     }
 
-    // Initialize View
-    function initView() {
-      // Calculate responsive initial scale so first 3 frames are visible
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      if (vw < 768) {
-        scale = 0.12;
-        panX = 20;
-        panY = 60;
-      } else {
-        scale = 0.22;
-        panX = 70;
-        panY = 70;
-      }
-      applyTransform();
-    }
-    initView();
+    function selectFrame(index, centerOnIt = true) {
+      activeFrameIdx = index;
+      frames.forEach((f, i) => {
+        f.classList.toggle('selected', i === index);
+      });
+      sidebarItems.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+      });
 
-    // -------------------------------------------------------------
-    // Mouse Dragging / Pan Interaction ("الشد والتحريك")
-    // -------------------------------------------------------------
+      if (centerOnIt) {
+        const targetFrame = frames[index];
+        if (targetFrame) {
+          const worldRect = world.getBoundingClientRect();
+          const frameRect = targetFrame.getBoundingClientRect();
+          
+          const frameWorldX = (frameRect.left - worldRect.left) / scale;
+          const frameWorldY = (frameRect.top - worldRect.top) / scale;
+          const frameW = frameRect.width / scale;
+          const frameH = frameRect.height / scale;
+
+          const viewW = window.innerWidth;
+          const viewH = window.innerHeight;
+
+          let targetScale = Math.min(
+            (viewW - 140) / frameW,
+            (viewH - 140) / frameH
+          );
+          targetScale = Math.min(Math.max(targetScale, 0.25), 0.75);
+
+          const targetPanX = (viewW / 2) - ((frameWorldX + frameW / 2) * targetScale);
+          const targetPanY = (viewH / 2) - ((frameWorldY + frameH / 2) * targetScale);
+
+          animateCamera(targetPanX, targetPanY, targetScale);
+        }
+      }
+    }
+
+    function animateCamera(targetX, targetY, targetScale, duration = 350) {
+      const startX = panX;
+      const startY = panY;
+      const startScale = scale;
+      const startTime = performance.now();
+
+      function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+
+        panX = startX + (targetX - startX) * ease;
+        panY = startY + (targetY - startY) * ease;
+        scale = startScale + (targetScale - startScale) * ease;
+        applyTransform();
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Mouse drag
     viewport.addEventListener('mousedown', (e) => {
-      // Only drag with left mouse button (or middle button)
-      if (e.button !== 0 && e.button !== 1) return;
+      if (e.target.closest('.frame-hover-actions') || e.target.closest('.figma-toolbar') || e.target.closest('.figma-sidebar') || e.target.closest('.figma-top-bar')) return;
       isDragging = true;
       startX = e.clientX - panX;
       startY = e.clientY - panY;
@@ -1151,46 +1394,34 @@
     });
 
     window.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        viewport.classList.remove('dragging');
-      }
+      isDragging = false;
+      viewport.classList.remove('dragging');
     });
 
-    // -------------------------------------------------------------
-    // Mouse Wheel Zoom (Centered on Cursor)
-    // -------------------------------------------------------------
+    // Wheel zoom
     viewport.addEventListener('wheel', (e) => {
       e.preventDefault();
+      const zoomFactor = e.ctrlKey ? 1.05 : 1.15;
+      const delta = e.deltaY > 0 ? (1 / zoomFactor) : zoomFactor;
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
 
-      const zoomFactor = e.deltaY < 0 ? 1.15 : 0.87;
-      const newScale = Math.min(Math.max(scale * zoomFactor, 0.05), 2.2);
-
-      // Zoom centered on cursor
-      const rect = viewport.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
+      const newScale = Math.min(Math.max(scale * delta, 0.04), 2.2);
 
       panX = mouseX - (mouseX - panX) * (newScale / scale);
       panY = mouseY - (mouseY - panY) * (newScale / scale);
       scale = newScale;
-
       applyTransform();
     }, { passive: false });
 
-    // -------------------------------------------------------------
-    // Touch Interaction (One finger pan, Two fingers pinch to zoom)
-    // -------------------------------------------------------------
+    // Touch support (pinch to zoom & drag)
     let touchStartDist = 0;
-    let touchStartScale = scale;
-    let touchStartX = 0;
-    let touchStartY = 0;
-
+    let touchStartScale = 1;
     viewport.addEventListener('touchstart', (e) => {
       if (e.touches.length === 1) {
         isDragging = true;
-        touchStartX = e.touches[0].clientX - panX;
-        touchStartY = e.touches[0].clientY - panY;
+        startX = e.touches[0].clientX - panX;
+        startY = e.touches[0].clientY - panY;
       } else if (e.touches.length === 2) {
         isDragging = false;
         touchStartDist = Math.hypot(
@@ -1199,206 +1430,140 @@
         );
         touchStartScale = scale;
       }
-    }, { passive: false });
+    }, { passive: true });
 
     viewport.addEventListener('touchmove', (e) => {
-      e.preventDefault();
       if (e.touches.length === 1 && isDragging) {
-        panX = e.touches[0].clientX - touchStartX;
-        panY = e.touches[0].clientY - touchStartY;
+        panX = e.touches[0].clientX - startX;
+        panY = e.touches[0].clientY - startY;
         applyTransform();
-      } else if (e.touches.length === 2 && touchStartDist > 0) {
-        const currentDist = Math.hypot(
+      } else if (e.touches.length === 2) {
+        const dist = Math.hypot(
           e.touches[0].clientX - e.touches[1].clientX,
           e.touches[0].clientY - e.touches[1].clientY
         );
-        const factor = currentDist / touchStartDist;
-        scale = Math.min(Math.max(touchStartScale * factor, 0.05), 2.2);
-        applyTransform();
+        if (touchStartDist > 0) {
+          const factor = dist / touchStartDist;
+          scale = Math.min(Math.max(touchStartScale * factor, 0.04), 2.2);
+          applyTransform();
+        }
       }
-    }, { passive: false });
+    }, { passive: true });
 
     viewport.addEventListener('touchend', () => {
       isDragging = false;
       touchStartDist = 0;
     });
 
-    // -------------------------------------------------------------
-    // Frame Selection & Smooth Fly-To Focus
-    // -------------------------------------------------------------
-    function selectFrame(index, smoothPan = false) {
-      activeFrameIdx = index;
-      frames.forEach((f, i) => {
-        if (i === index) f.classList.add('selected');
-        else f.classList.remove('selected');
-      });
-
-      sidebarItems.forEach((item, i) => {
-        if (i === index) item.classList.add('active');
-        else item.classList.remove('active');
-      });
-
-      if (smoothPan) {
-        flyToFrame(index);
-      }
-    }
-
-    function flyToFrame(index) {
-      const frameEl = document.getElementById(`frame-${index}`);
-      if (!frameEl) return;
-
-      const targetScale = frameEl.classList.contains('mobile-frame') ? 0.65 : 0.45;
-      const targetLeft = frameEl.offsetLeft + 100; // include canvas padding
-      const targetTop = frameEl.offsetTop + 100;
-      const targetWidth = frameEl.offsetWidth;
-      const targetHeight = frameEl.offsetHeight;
-
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-
-      // Center frame in viewport (taking sidebar into account on desktop)
-      const sidebarOffset = (window.innerWidth > 768 && !sidebar.classList.contains('collapsed')) ? 140 : 0;
-      const centerX = (vw / 2) + sidebarOffset;
-      const centerY = (vh / 2) + 24;
-
-      const newPanX = centerX - (targetLeft + targetWidth / 2) * targetScale;
-      const newPanY = centerY - (targetTop + targetHeight / 2) * targetScale;
-
-      // Smooth animated transition
-      world.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-      scale = targetScale;
-      panX = newPanX;
-      panY = newPanY;
-      applyTransform();
-
-      setTimeout(() => {
-        world.style.transition = 'none';
-      }, 480);
-    }
-
-    // Attach click events on frames
+    // Frame click
     frames.forEach((frame, idx) => {
       frame.addEventListener('click', (e) => {
         selectFrame(idx, false);
       });
-
-      // Double click to open inspection modal
       frame.addEventListener('dblclick', (e) => {
         openFocusModal(idx);
       });
     });
 
-    // Attach click events on sidebar items
-    sidebarItems.forEach((item, idx) => {
+    // Sidebar items click
+    sidebarItems.forEach((item) => {
       item.addEventListener('click', () => {
+        const idx = parseInt(item.getAttribute('data-index'), 10);
         selectFrame(idx, true);
         if (window.innerWidth < 768) {
           sidebar.classList.add('collapsed');
-          reopenBtn.classList.add('visible');
         }
       });
     });
 
-    // -------------------------------------------------------------
-    // Toolbar Controls
-    // -------------------------------------------------------------
+    // Toolbar actions
     document.getElementById('tool-zoom-in').addEventListener('click', () => {
-      scale = Math.min(scale * 1.25, 2.2);
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const newScale = Math.min(scale * 1.25, 2.2);
+      panX = cx - (cx - panX) * (newScale / scale);
+      panY = cy - (cy - panY) * (newScale / scale);
+      scale = newScale;
       applyTransform();
     });
 
     document.getElementById('tool-zoom-out').addEventListener('click', () => {
-      scale = Math.max(scale * 0.8, 0.05);
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const newScale = Math.max(scale / 1.25, 0.04);
+      panX = cx - (cx - panX) * (newScale / scale);
+      panY = cy - (cy - panY) * (newScale / scale);
+      scale = newScale;
       applyTransform();
     });
 
     document.getElementById('tool-reset').addEventListener('click', () => {
-      scale = 1.0;
-      applyTransform();
+      animateCamera((window.innerWidth - 1440) / 2, 100, 1.0);
     });
 
-    document.getElementById('zoom-text').addEventListener('click', () => {
-      scale = (scale === 1.0) ? 0.25 : 1.0;
-      applyTransform();
+    document.getElementById('tool-fit').addEventListener('click', () => {
+      fitAll();
+    });
+
+    document.getElementById('btn-fit-screen').addEventListener('click', () => {
+      fitAll();
     });
 
     function fitAll() {
-      world.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      
-      if (vw < 768) {
-        scale = 0.085;
-        panX = 10;
-        panY = 55;
-      } else {
-        scale = 0.16;
-        panX = 60;
-        panY = 70;
-      }
-      applyTransform();
-      setTimeout(() => { world.style.transition = 'none'; }, 420);
+      const viewW = window.innerWidth;
+      const viewH = window.innerHeight;
+      const worldW = 19500;
+      const worldH = 4500;
+
+      const fitScale = Math.min((viewW - 100) / worldW, (viewH - 120) / worldH);
+      const safeScale = Math.min(Math.max(fitScale, 0.05), 0.15);
+
+      animateCamera(40, 70, safeScale);
     }
 
-    document.getElementById('btn-fit-screen').addEventListener('click', fitAll);
-    document.getElementById('tool-fit').addEventListener('click', fitAll);
-
-    // -------------------------------------------------------------
-    // Sidebar Toggle
-    // -------------------------------------------------------------
-    const toggleBtn = document.getElementById('toggle-sidebar');
-    toggleBtn.addEventListener('click', () => {
+    // Toggle sidebar
+    const toggleSidebar = document.getElementById('toggle-sidebar');
+    toggleSidebar.addEventListener('click', () => {
       sidebar.classList.toggle('collapsed');
-      if (sidebar.classList.contains('collapsed')) {
-        reopenBtn.classList.add('visible');
-      } else {
-        reopenBtn.classList.remove('visible');
-      }
     });
-
     reopenBtn.addEventListener('click', () => {
       sidebar.classList.remove('collapsed');
-      reopenBtn.classList.remove('visible');
     });
 
-    // -------------------------------------------------------------
-    // Fullscreen Inspect Modal
-    // -------------------------------------------------------------
+    // Modal Inspection
     const modal = document.getElementById('inspect-modal');
     const modalImg = document.getElementById('modal-img');
     const modalTitle = document.getElementById('modal-frame-title');
     const modalDownload = document.getElementById('modal-download-link');
 
-    function openFocusModal(index) {
+    window.openFocusModal = function(index) {
       const meta = framesMeta[index];
       if (!meta) return;
       modalTitle.textContent = meta.title;
       modalImg.src = meta.src;
       modalDownload.href = meta.src;
+      modalDownload.setAttribute('download', meta.src);
       modal.classList.add('active');
-    }
+    };
 
-    function closeFocusModal() {
+    window.closeFocusModal = function() {
       modal.classList.remove('active');
-    }
+    };
 
-    // Keyboard Shortcuts
-    window.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeFocusModal();
-      } else if (e.key === '1') {
+      } else if (e.key === '0' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
         fitAll();
-      } else if (e.key === '0') {
-        scale = 1.0;
-        applyTransform();
-      } else if (e.key === '+' || e.key === '=') {
-        scale = Math.min(scale * 1.2, 2.2);
-        applyTransform();
-      } else if (e.key === '-') {
-        scale = Math.max(scale * 0.8, 0.05);
-        applyTransform();
+      } else if (e.key === '1' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        animateCamera((window.innerWidth - 1440) / 2, 100, 1.0);
       }
     });
+
+    // Initial positioning
+    applyTransform();
   </script>
 </body>
 </html>

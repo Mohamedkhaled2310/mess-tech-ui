@@ -1,0 +1,1318 @@
+# -*- coding: utf-8 -*-
+import os
+
+DESIGNS_DIR = r"E:\mess\designs"
+ROOT_DIR = r"E:\mess"
+
+# Full list of 25 frames
+FRAMES_DATA = [
+    # DESKTOP
+    {
+        "id": "frame-0",
+        "section": "desktop",
+        "num": "01",
+        "title": "الصفحة الرئيسية (Desktop Storefront)",
+        "dims": "1440 × 2300",
+        "src": "01_الصفحة_الرئيسية_Desktop_Homepage.png",
+        "icon": "📄"
+    },
+    {
+        "id": "frame-1",
+        "section": "desktop",
+        "num": "02",
+        "title": "صفحة تفاصيل المنتج والمواصفات (Product Details)",
+        "dims": "1440 × 2400",
+        "src": "02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png",
+        "icon": "📄"
+    },
+    {
+        "id": "frame-2",
+        "section": "desktop",
+        "num": "03",
+        "title": "الفلاتر والبحث التقني (Catalog & Filters)",
+        "dims": "1440 × 2200",
+        "src": "03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png",
+        "icon": "📄"
+    },
+    {
+        "id": "frame-3",
+        "section": "desktop",
+        "num": "04",
+        "title": "جدول مقارنة المواصفات (Comparison Matrix)",
+        "dims": "1440 × 2200",
+        "src": "04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png",
+        "icon": "📄"
+    },
+    {
+        "id": "frame-4",
+        "section": "desktop",
+        "num": "05",
+        "title": "السلة وإتمام الطلب (One-Step Checkout COD)",
+        "dims": "1440 × 2100",
+        "src": "05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png",
+        "icon": "📄"
+    },
+    {
+        "id": "frame-5",
+        "section": "desktop",
+        "num": "06",
+        "title": "صفحة نجاح الطلب (Order Success & Thank You)",
+        "dims": "1440 × 1850",
+        "src": "08_صفحة_نجاح_الطلب_Desktop_Order_Success.png",
+        "icon": "✓"
+    },
+    {
+        "id": "frame-6",
+        "section": "desktop",
+        "num": "07",
+        "title": "تتبع مسار وحالة الطلب (Live Order Tracking)",
+        "dims": "1440 × 1700",
+        "src": "09_صفحة_تتبع_الطلب_Desktop_Order_Tracking.png",
+        "icon": "🚚"
+    },
+    {
+        "id": "frame-7",
+        "section": "desktop",
+        "num": "08",
+        "title": "تسجيل الدخول وبوابة الشركات (Auth & SMS OTP)",
+        "dims": "1440 × 1400",
+        "src": "10_تسجيل_الدخول_وإنشاء_حساب_Desktop_Auth_Login.png",
+        "icon": "🔑"
+    },
+    {
+        "id": "frame-8",
+        "section": "desktop",
+        "num": "09",
+        "title": "لوحة حسابي ودفتر العناوين (Customer Profile)",
+        "dims": "1440 × 1550",
+        "src": "11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png",
+        "icon": "👤"
+    },
+    {
+        "id": "frame-9",
+        "section": "desktop",
+        "num": "10",
+        "title": "سجل الطلبات السابقة والفواتير (Order History)",
+        "dims": "1440 × 1500",
+        "src": "12_سجل_الطلبات_السابقة_Desktop_Order_History.png",
+        "icon": "📦"
+    },
+    {
+        "id": "frame-10",
+        "section": "desktop",
+        "num": "11",
+        "title": "لوحة تحكم الإدارة العامة (Admin Overview)",
+        "dims": "1440 × 1100",
+        "src": "07_لوحة_التحكم_Admin_Dashboard_Overview.png",
+        "icon": "📊"
+    },
+    {
+        "id": "frame-11",
+        "section": "desktop",
+        "num": "12",
+        "title": "إضافة وتعديل منتج بالمستودع (Admin Add Product)",
+        "dims": "1440 × 1650",
+        "src": "13_إضافة_وتعديل_منتج_Desktop_Admin_Add_Product.png",
+        "icon": "⚙️"
+    },
+    {
+        "id": "frame-12",
+        "section": "desktop",
+        "num": "13",
+        "title": "جدول ومتابعة الطلبات المباشرة (Admin Orders Table)",
+        "dims": "1440 × 1400",
+        "src": "14_جدول_إدارة_الطلبات_Desktop_Admin_Orders_Table.png",
+        "icon": "📋"
+    },
+
+    # MOBILE
+    {
+        "id": "frame-13",
+        "section": "mobile",
+        "num": "M01",
+        "title": "الرئيسية بالموبايل (Mobile Homepage)",
+        "dims": "390 × 844",
+        "src": "Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-14",
+        "section": "mobile",
+        "num": "M02",
+        "title": "صفحة تفاصيل المنتج بالموبايل",
+        "dims": "390 × 844",
+        "src": "Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-15",
+        "section": "mobile",
+        "num": "M03",
+        "title": "الفلاتر وتصفح الكتالوج بالموبايل",
+        "dims": "390 × 844",
+        "src": "Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-16",
+        "section": "mobile",
+        "num": "M04",
+        "title": "السلة وإتمام الطلب COD بالموبايل",
+        "dims": "390 × 844",
+        "src": "Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-17",
+        "section": "mobile",
+        "num": "M05",
+        "title": "مقارنة الموديلات بالسحب بالموبايل",
+        "dims": "390 × 844",
+        "src": "Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-18",
+        "section": "mobile",
+        "num": "M06",
+        "title": "نجاح وتأكيد الطلب بالموبايل (Thank You)",
+        "dims": "390 × 844",
+        "src": "Mobile_06_نجاح_الطلب_Mobile_Order_Success.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-19",
+        "section": "mobile",
+        "num": "M07",
+        "title": "تتبع مسار الشحنة لحظياً بالموبايل",
+        "dims": "390 × 844",
+        "src": "Mobile_07_تتبع_مسار_الطلب_Mobile_Order_Tracking.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-20",
+        "section": "mobile",
+        "num": "M08",
+        "title": "تسجيل الدخول ورمز SMS OTP بالموبايل",
+        "dims": "390 × 844",
+        "src": "Mobile_08_تسجيل_الدخول_وحساب_جديد_Mobile_Auth_Login.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-21",
+        "section": "mobile",
+        "num": "M09",
+        "title": "لوحة حسابي ودفتر العناوين بالموبايل",
+        "dims": "390 × 844",
+        "src": "Mobile_09_لوحة_حسابي_والعناوين_Mobile_Customer_Profile.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-22",
+        "section": "mobile",
+        "num": "M10",
+        "title": "سجل طلباتي السابقة والفواتير بالموبايل",
+        "dims": "390 × 844",
+        "src": "Mobile_10_سجل_طلباتي_السابقة_Mobile_Order_History.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-23",
+        "section": "mobile",
+        "num": "M11",
+        "title": "إدارة الطلبات والمستودع السريع (Admin Mobile)",
+        "dims": "390 × 844",
+        "src": "Mobile_11_إدارة_الطلبات_والمنتجات_Mobile_Admin_Management.png",
+        "icon": "📱"
+    },
+    {
+        "id": "frame-24",
+        "section": "mobile",
+        "num": "Showcase",
+        "title": "بانوراما هواتف الموبايل المجمعة",
+        "dims": "1440 × 1100",
+        "src": "06_نسخة_الموبايل_Mobile_Screens_Showcase.png",
+        "icon": "🖼️"
+    }
+]
+
+def build_index_html():
+    # Build desktop frames HTML
+    desktop_frames_html = ""
+    mobile_frames_html = ""
+    sidebar_desktop_html = ""
+    sidebar_mobile_html = ""
+    
+    for idx, item in enumerate(FRAMES_DATA):
+        is_desktop = item["section"] == "desktop"
+        frame_cls = "desktop-frame" if is_desktop else ("showcase-frame" if item["num"] == "Showcase" else "mobile-frame")
+        selected_cls = "selected" if idx == 0 else ""
+        active_sidebar = "active" if idx == 0 else ""
+        
+        frame_markup = f"""
+          <!-- Frame {idx}: {item['num']} -->
+          <div class="figma-frame {frame_cls} {selected_cls}" data-frame-index="{idx}" id="{item['id']}">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>{item['num']} · {item['title']}</span>
+              <span class="frame-dims">{item['dims']}</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal({idx}); event.stopPropagation();">👁️ تكبير</button>
+                <a href="{item['src']}" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="{item['src']}" alt="{item['num']} {item['title']}" loading="{'eager' if idx < 3 else 'lazy'}">
+            </div>
+          </div>
+        """
+        
+        sidebar_markup = f"""
+          <li class="sidebar-item {active_sidebar}" data-index="{idx}">
+            <span class="item-icon">{item['icon']}</span>
+            <span class="item-title">{item['num']} · {item['title']}</span>
+          </li>
+        """
+        
+        if is_desktop:
+            desktop_frames_html += frame_markup
+            sidebar_desktop_html += sidebar_markup
+        else:
+            mobile_frames_html += frame_markup
+            sidebar_mobile_html += sidebar_markup
+
+    html = f"""<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no">
+  <title>MESS TECH | Figma Interactive UI/UX Design Board (25 Screens)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {{
+      --figma-bg: #1e1e1e;
+      --figma-canvas-dot: #333333;
+      --figma-panel-bg: #2c2c2c;
+      --figma-panel-border: #3c3c3c;
+      --figma-text-primary: #ffffff;
+      --figma-text-secondary: #999999;
+      --figma-text-muted: #666666;
+      --figma-blue: #0d99ff;
+      --figma-blue-hover: #007be5;
+      --figma-accent: #0099e5;
+      --figma-card-bg: #141414;
+      --figma-hover-bg: #383838;
+      --font-cairo: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }}
+
+    * {{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-cairo);
+      -webkit-user-select: none;
+      user-select: none;
+    }}
+
+    html, body {{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--figma-bg);
+      color: var(--figma-text-primary);
+      position: relative;
+    }}
+
+    .mono {{
+      font-family: var(--font-mono);
+      direction: ltr;
+      display: inline-block;
+    }}
+
+    /* =========================================================
+       Figma Infinite Canvas & Viewport
+       ========================================================= */
+    #viewport {{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      cursor: grab;
+      touch-action: none;
+      background-color: var(--figma-bg);
+      background-image: radial-gradient(var(--figma-canvas-dot) 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      z-index: 1;
+    }}
+
+    #viewport.dragging {{
+      cursor: grabbing !important;
+    }}
+
+    #canvas-world {{
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+      padding: 140px 100px 300px 100px;
+      will-change: transform;
+    }}
+
+    .board-section {{
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }}
+
+    .section-header-tag {{
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(44, 44, 44, 0.85);
+      border: 1px solid var(--figma-panel-border);
+      backdrop-filter: blur(10px);
+      padding: 10px 22px;
+      border-radius: 12px;
+      width: fit-content;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }}
+
+    .section-header-tag .title {{
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }}
+
+    .section-header-tag .meta {{
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--figma-blue);
+      background: rgba(13, 153, 255, 0.12);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }}
+
+    .frames-row {{
+      display: flex;
+      flex-direction: row;
+      gap: 60px;
+      align-items: flex-start;
+    }}
+
+    /* Individual Figma Frame */
+    .figma-frame {{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+      transition: filter 0.2s ease;
+    }}
+
+    .frame-label {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--figma-text-secondary);
+      direction: rtl;
+      transition: color 0.15s ease;
+    }}
+
+    .frame-label .frame-hash {{
+      color: var(--figma-blue);
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 15px;
+    }}
+
+    .frame-label .frame-dims {{
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--figma-text-muted);
+      background: rgba(255,255,255,0.06);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }}
+
+    .figma-frame:hover .frame-label,
+    .figma-frame.selected .frame-label {{
+      color: #fff;
+    }}
+
+    .frame-card {{
+      background: #000;
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      position: relative;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      overflow: hidden;
+    }}
+
+    .figma-frame.selected .frame-card {{
+      box-shadow: 0 0 0 3px var(--figma-blue), 0 25px 60px rgba(0,0,0,0.8);
+    }}
+
+    /* Selection handles like Figma */
+    .handle {{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border: 1.5px solid var(--figma-blue);
+      border-radius: 2px;
+      display: none;
+      z-index: 10;
+    }}
+    .figma-frame.selected .handle {{ display: block; }}
+    .handle.tl {{ top: -5px; left: -5px; }}
+    .handle.tr {{ top: -5px; right: -5px; }}
+    .handle.bl {{ bottom: -5px; left: -5px; }}
+    .handle.br {{ bottom: -5px; right: -5px; }}
+
+    /* Frame dimensions */
+    .figma-frame.desktop-frame {{ width: 1440px; }}
+    .figma-frame.desktop-frame img {{ width: 1440px; height: auto; display: block; }}
+
+    .figma-frame.mobile-frame {{ width: 540px; }}
+    .figma-frame.mobile-frame img {{ width: 540px; height: auto; display: block; }}
+
+    .figma-frame.showcase-frame {{ width: 1440px; }}
+    .figma-frame.showcase-frame img {{ width: 1440px; height: auto; display: block; }}
+
+    .frame-hover-actions {{
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: all 0.2s ease;
+      z-index: 20;
+    }}
+    .figma-frame:hover .frame-hover-actions {{
+      opacity: 1;
+      transform: translateY(0);
+    }}
+    .frame-btn {{
+      background: rgba(30, 30, 30, 0.9);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: background 0.15s;
+    }}
+    .frame-btn:hover {{
+      background: var(--figma-blue);
+      border-color: var(--figma-blue);
+    }}
+
+    /* =========================================================
+       Figma Top Bar
+       ========================================================= */
+    .figma-top-bar {{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: var(--figma-panel-bg);
+      border-bottom: 1px solid var(--figma-panel-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      z-index: 100;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }}
+
+    .top-left-brand {{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }}
+
+    .figma-menu-icon {{
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      background: rgba(255,255,255,0.06);
+      transition: background 0.15s;
+    }}
+    .figma-menu-icon:hover {{
+      background: var(--figma-hover-bg);
+    }}
+
+    .brand-title-wrap {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }}
+    .brand-logo-img {{
+      height: 24px;
+      width: auto;
+    }}
+    .project-name {{
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+    }}
+    .project-status {{
+      font-size: 11px;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }}
+
+    .canvas-hint-pill {{
+      font-size: 12px;
+      color: var(--figma-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.04);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }}
+    .canvas-hint-pill kbd {{
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }}
+
+    .top-actions {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+    .top-btn {{
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--figma-text-primary);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }}
+    .top-btn:hover {{
+      background: var(--figma-hover-bg);
+      border-color: var(--figma-panel-border);
+    }}
+    .top-btn.primary {{
+      background: var(--figma-blue);
+      color: #fff;
+      font-weight: 700;
+    }}
+    .top-btn.primary:hover {{
+      background: var(--figma-blue-hover);
+    }}
+
+    /* =========================================================
+       Figma Left Sidebar (Layers / Frames Drawer)
+       ========================================================= */
+    .figma-sidebar {{
+      position: fixed;
+      top: 48px;
+      right: 0;
+      width: 320px;
+      bottom: 0;
+      background: var(--figma-panel-bg);
+      border-left: 1px solid var(--figma-panel-border);
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(0);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -6px 0 24px rgba(0,0,0,0.3);
+    }}
+
+    .figma-sidebar.collapsed {{
+      transform: translateX(100%);
+    }}
+
+    .sidebar-header {{
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--figma-panel-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }}
+    .sidebar-header h3 {{
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }}
+    .count-badge {{
+      background: rgba(255,255,255,0.08);
+      font-size: 11px;
+      font-family: var(--font-mono);
+      padding: 2px 7px;
+      border-radius: 4px;
+      color: var(--figma-text-secondary);
+    }}
+
+    .sidebar-list {{
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px;
+      list-style: none;
+    }}
+    .sidebar-group-title {{
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--figma-text-muted);
+      text-transform: uppercase;
+      padding: 12px 10px 6px;
+      letter-spacing: 0.5px;
+    }}
+    .sidebar-item {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--figma-text-secondary);
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: all 0.12s;
+    }}
+    .sidebar-item:hover {{
+      background: var(--figma-hover-bg);
+      color: #fff;
+    }}
+    .sidebar-item.active {{
+      background: rgba(13, 153, 255, 0.18);
+      color: var(--figma-blue);
+      font-weight: 700;
+    }}
+    .sidebar-item .item-icon {{
+      font-size: 14px;
+      opacity: 0.8;
+      width: 18px;
+      text-align: center;
+    }}
+    .sidebar-item .item-title {{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }}
+
+    .sidebar-reopen-btn {{
+      position: fixed;
+      top: 60px;
+      right: 16px;
+      z-index: 80;
+      background: var(--figma-panel-bg);
+      color: #fff;
+      border: 1px solid var(--figma-panel-border);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }}
+    .figma-sidebar.collapsed ~ .sidebar-reopen-btn {{
+      display: flex;
+    }}
+
+    /* =========================================================
+       Figma Bottom Toolbar (Dock)
+       ========================================================= */
+    .figma-toolbar {{
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 48px;
+      background: var(--figma-panel-bg);
+      border: 1px solid var(--figma-panel-border);
+      border-radius: 24px;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }}
+    .tool-btn {{
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      color: var(--figma-text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }}
+    .tool-btn:hover {{
+      background: var(--figma-hover-bg);
+      color: #fff;
+    }}
+    .tool-btn.active {{
+      background: var(--figma-blue);
+      color: #fff;
+    }}
+    .toolbar-divider {{
+      width: 1px;
+      height: 20px;
+      background: var(--figma-panel-border);
+      margin: 0 4px;
+    }}
+    .zoom-readout {{
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      min-width: 52px;
+      text-align: center;
+    }}
+    .zoom-readout:hover {{
+      background: var(--figma-hover-bg);
+    }}
+
+    /* Fullscreen Modal */
+    .inspect-modal {{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+    }}
+    .inspect-modal.active {{ display: flex; }}
+    .modal-top-bar {{
+      height: 52px;
+      background: rgba(30, 30, 30, 0.9);
+      border-bottom: 1px solid var(--figma-panel-border);
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }}
+    .modal-title-box {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }}
+    .modal-title-box h2 {{
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+    }}
+    .modal-actions {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }}
+    .modal-body {{
+      flex: 1;
+      overflow: auto;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      cursor: zoom-out;
+    }}
+    .modal-body img {{
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.8);
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: default;
+    }}
+
+    @media (max-width: 768px) {{
+      .figma-sidebar {{
+        width: 100%;
+        transform: translateX(100%);
+      }}
+      .canvas-hint-pill {{
+        display: none;
+      }}
+      .figma-toolbar {{
+        bottom: 16px;
+      }}
+    }}
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="figma-top-bar">
+    <div class="top-left-brand">
+      <div class="figma-menu-icon" id="toggle-sidebar" title="الطبقات والشاشات (Layers)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </div>
+      <div class="brand-title-wrap">
+        <img src="assets/logo_white.png" class="brand-logo-img" alt="MESS TECH">
+        <span class="project-name">MESS TECH UI/UX Board</span>
+        <span class="project-status">25 Frames</span>
+      </div>
+    </div>
+
+    <div class="canvas-hint-pill">
+      <span>🖱️ اسحب بالماوس للتحريك (Pan)</span>
+      <span>•</span>
+      <span>بكرة الماوس للتكبير والتصغير (Zoom)</span>
+      <span>•</span>
+      <span><kbd>Space</kbd> + سحب</span>
+    </div>
+
+    <div class="top-actions">
+      <button class="top-btn" id="btn-fit-screen" title="احتواء كامل الشاشات في مساحة الرؤية">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        احتواء الكل
+      </button>
+      <button class="top-btn primary" id="btn-download-all" onclick="openFocusModal(activeFrameIdx)">
+        معاينة الشاشة بملء العرض ↗
+      </button>
+    </div>
+  </header>
+
+  <!-- Reopen Sidebar Pill (When Collapsed) -->
+  <button class="sidebar-reopen-btn" id="reopen-sidebar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <span>قائمة الشاشات (Layers)</span>
+  </button>
+
+  <!-- Left Sidebar (Layers Navigator) -->
+  <aside class="figma-sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>الطبقات والشاشات (Layers)</h3>
+      <span class="count-badge">25 Screens</span>
+    </div>
+
+    <ul class="sidebar-list">
+      <div class="sidebar-group-title">💻 شاشات سطح المكتب والكمبيوتر (Desktop - 13)</div>
+      {sidebar_desktop_html}
+
+      <div class="sidebar-group-title">📱 شاشات الهواتف الذكية (Mobile iOS - 12)</div>
+      {sidebar_mobile_html}
+    </ul>
+  </aside>
+
+  <!-- Figma Infinite Viewport -->
+  <div id="viewport">
+    <div id="canvas-world">
+
+      <!-- SECTION 1: DESKTOP SCREENS -->
+      <section class="board-section" id="section-desktop">
+        <div class="section-header-tag">
+          <span style="font-size:20px;">💻</span>
+          <span class="title">شاشات سطح المكتب والكمبيوتر (Desktop Screens — 13 شاشة)</span>
+          <span class="meta">1440px Grid</span>
+        </div>
+
+        <div class="frames-row">
+          {desktop_frames_html}
+        </div>
+      </section>
+
+      <!-- SECTION 2: MOBILE SCREENS -->
+      <section class="board-section" id="section-mobile">
+        <div class="section-header-tag">
+          <span style="font-size:20px;">📱</span>
+          <span class="title">شاشات وتجربة الهواتف الذكية (Mobile iOS Screens — iPhone 15 Pro — 12 شاشة)</span>
+          <span class="meta">390 × 844 px (Retina 3x)</span>
+        </div>
+
+        <div class="frames-row">
+          {mobile_frames_html}
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Figma Floating Toolbar (Dock) -->
+  <div class="figma-toolbar">
+    <button class="tool-btn active" id="tool-hand" title="أداة التحريك والسحب (Hand Tool - H)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8M6 14.5a4.5 4.5 0 0 0 9 0V11a2 2 0 0 1 2-2v0a2 2 0 0 1 2 2v3.5a8.5 8.5 0 0 1-17 0v-2"/></svg>
+    </button>
+
+    <div class="toolbar-divider"></div>
+
+    <button class="tool-btn" id="tool-zoom-out" title="تصغير (Zoom Out)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    </button>
+
+    <div class="zoom-readout mono" id="zoom-text" title="انقر لإعادة الضبط إلى 100%">22%</div>
+
+    <button class="tool-btn" id="tool-zoom-in" title="تكبير (Zoom In)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    </button>
+
+    <div class="toolbar-divider"></div>
+
+    <button class="tool-btn" id="tool-fit" title="احتواء الكل في الشاشة (Fit All)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+    </button>
+
+    <button class="tool-btn" id="tool-reset" title="حجم طبيعي 100% (Reset 100%)">
+      <span class="mono" style="font-size:11px; font-weight:800;">1:1</span>
+    </button>
+  </div>
+
+  <!-- Fullscreen Inspection Modal -->
+  <div class="inspect-modal" id="inspect-modal" onclick="closeFocusModal()">
+    <div class="modal-top-bar" onclick="event.stopPropagation()">
+      <div class="modal-title-box">
+        <span class="mono" style="color:var(--figma-blue); font-weight:800; font-size:16px;">#</span>
+        <h2 id="modal-frame-title">اسم الشاشة</h2>
+      </div>
+      <div class="modal-actions">
+        <a id="modal-download-link" href="#" download class="top-btn primary">تحميل الصورة بدقة Full HD ⬇️</a>
+        <button class="top-btn" onclick="closeFocusModal()">إغلاق ✕</button>
+      </div>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <img id="modal-img" src="" alt="Full Preview" onclick="event.stopPropagation()">
+    </div>
+  </div>
+
+  <!-- Figma Interactive Pan, Zoom & Navigation Script -->
+  <script>
+    let panX = 60;
+    let panY = 70;
+    let scale = 0.18;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let activeFrameIdx = 0;
+
+    const viewport = document.getElementById('viewport');
+    const world = document.getElementById('canvas-world');
+    const zoomText = document.getElementById('zoom-text');
+    const sidebar = document.getElementById('sidebar');
+    const reopenBtn = document.getElementById('reopen-sidebar');
+    const frames = document.querySelectorAll('.figma-frame');
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+    // Frames metadata
+    const framesMeta = {str(list(map(lambda x: {"id": x["id"], "title": f"{x['num']} · {x['title']}", "src": x["src"]}, FRAMES_DATA)))};
+
+    function applyTransform() {{
+      scale = Math.min(Math.max(scale, 0.04), 2.2);
+      world.style.transform = `translate(${{panX}}px, ${{panY}}px) scale(${{scale}})`;
+      zoomText.textContent = `${{Math.round(scale * 100)}}%`;
+    }}
+
+    function selectFrame(index, centerOnIt = true) {{
+      activeFrameIdx = index;
+      frames.forEach((f, i) => {{
+        f.classList.toggle('selected', i === index);
+      }});
+      sidebarItems.forEach((item, i) => {{
+        item.classList.toggle('active', i === index);
+      }});
+
+      if (centerOnIt) {{
+        const targetFrame = frames[index];
+        if (targetFrame) {{
+          const worldRect = world.getBoundingClientRect();
+          const frameRect = targetFrame.getBoundingClientRect();
+          
+          const frameWorldX = (frameRect.left - worldRect.left) / scale;
+          const frameWorldY = (frameRect.top - worldRect.top) / scale;
+          const frameW = frameRect.width / scale;
+          const frameH = frameRect.height / scale;
+
+          const viewW = window.innerWidth;
+          const viewH = window.innerHeight;
+
+          let targetScale = Math.min(
+            (viewW - 140) / frameW,
+            (viewH - 140) / frameH
+          );
+          targetScale = Math.min(Math.max(targetScale, 0.25), 0.75);
+
+          const targetPanX = (viewW / 2) - ((frameWorldX + frameW / 2) * targetScale);
+          const targetPanY = (viewH / 2) - ((frameWorldY + frameH / 2) * targetScale);
+
+          animateCamera(targetPanX, targetPanY, targetScale);
+        }}
+      }}
+    }}
+
+    function animateCamera(targetX, targetY, targetScale, duration = 350) {{
+      const startX = panX;
+      const startY = panY;
+      const startScale = scale;
+      const startTime = performance.now();
+
+      function step(now) {{
+        const progress = Math.min((now - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+
+        panX = startX + (targetX - startX) * ease;
+        panY = startY + (targetY - startY) * ease;
+        scale = startScale + (targetScale - startScale) * ease;
+        applyTransform();
+
+        if (progress < 1) {{
+          requestAnimationFrame(step);
+        }}
+      }}
+      requestAnimationFrame(step);
+    }}
+
+    // Mouse drag
+    viewport.addEventListener('mousedown', (e) => {{
+      if (e.target.closest('.frame-hover-actions') || e.target.closest('.figma-toolbar') || e.target.closest('.figma-sidebar') || e.target.closest('.figma-top-bar')) return;
+      isDragging = true;
+      startX = e.clientX - panX;
+      startY = e.clientY - panY;
+      viewport.classList.add('dragging');
+    }});
+
+    window.addEventListener('mousemove', (e) => {{
+      if (!isDragging) return;
+      panX = e.clientX - startX;
+      panY = e.clientY - startY;
+      applyTransform();
+    }});
+
+    window.addEventListener('mouseup', () => {{
+      isDragging = false;
+      viewport.classList.remove('dragging');
+    }});
+
+    // Wheel zoom
+    viewport.addEventListener('wheel', (e) => {{
+      e.preventDefault();
+      const zoomFactor = e.ctrlKey ? 1.05 : 1.15;
+      const delta = e.deltaY > 0 ? (1 / zoomFactor) : zoomFactor;
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      const newScale = Math.min(Math.max(scale * delta, 0.04), 2.2);
+
+      panX = mouseX - (mouseX - panX) * (newScale / scale);
+      panY = mouseY - (mouseY - panY) * (newScale / scale);
+      scale = newScale;
+      applyTransform();
+    }}, {{ passive: false }});
+
+    // Touch support (pinch to zoom & drag)
+    let touchStartDist = 0;
+    let touchStartScale = 1;
+    viewport.addEventListener('touchstart', (e) => {{
+      if (e.touches.length === 1) {{
+        isDragging = true;
+        startX = e.touches[0].clientX - panX;
+        startY = e.touches[0].clientY - panY;
+      }} else if (e.touches.length === 2) {{
+        isDragging = false;
+        touchStartDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        touchStartScale = scale;
+      }}
+    }}, {{ passive: true }});
+
+    viewport.addEventListener('touchmove', (e) => {{
+      if (e.touches.length === 1 && isDragging) {{
+        panX = e.touches[0].clientX - startX;
+        panY = e.touches[0].clientY - startY;
+        applyTransform();
+      }} else if (e.touches.length === 2) {{
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        if (touchStartDist > 0) {{
+          const factor = dist / touchStartDist;
+          scale = Math.min(Math.max(touchStartScale * factor, 0.04), 2.2);
+          applyTransform();
+        }}
+      }}
+    }}, {{ passive: true }});
+
+    viewport.addEventListener('touchend', () => {{
+      isDragging = false;
+      touchStartDist = 0;
+    }});
+
+    // Frame click
+    frames.forEach((frame, idx) => {{
+      frame.addEventListener('click', (e) => {{
+        selectFrame(idx, false);
+      }});
+      frame.addEventListener('dblclick', (e) => {{
+        openFocusModal(idx);
+      }});
+    }});
+
+    // Sidebar items click
+    sidebarItems.forEach((item) => {{
+      item.addEventListener('click', () => {{
+        const idx = parseInt(item.getAttribute('data-index'), 10);
+        selectFrame(idx, true);
+        if (window.innerWidth < 768) {{
+          sidebar.classList.add('collapsed');
+        }}
+      }});
+    }});
+
+    // Toolbar actions
+    document.getElementById('tool-zoom-in').addEventListener('click', () => {{
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const newScale = Math.min(scale * 1.25, 2.2);
+      panX = cx - (cx - panX) * (newScale / scale);
+      panY = cy - (cy - panY) * (newScale / scale);
+      scale = newScale;
+      applyTransform();
+    }});
+
+    document.getElementById('tool-zoom-out').addEventListener('click', () => {{
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const newScale = Math.max(scale / 1.25, 0.04);
+      panX = cx - (cx - panX) * (newScale / scale);
+      panY = cy - (cy - panY) * (newScale / scale);
+      scale = newScale;
+      applyTransform();
+    }});
+
+    document.getElementById('tool-reset').addEventListener('click', () => {{
+      animateCamera((window.innerWidth - 1440) / 2, 100, 1.0);
+    }});
+
+    document.getElementById('tool-fit').addEventListener('click', () => {{
+      fitAll();
+    }});
+
+    document.getElementById('btn-fit-screen').addEventListener('click', () => {{
+      fitAll();
+    }});
+
+    function fitAll() {{
+      const viewW = window.innerWidth;
+      const viewH = window.innerHeight;
+      const worldW = 19500;
+      const worldH = 4500;
+
+      const fitScale = Math.min((viewW - 100) / worldW, (viewH - 120) / worldH);
+      const safeScale = Math.min(Math.max(fitScale, 0.05), 0.15);
+
+      animateCamera(40, 70, safeScale);
+    }}
+
+    // Toggle sidebar
+    const toggleSidebar = document.getElementById('toggle-sidebar');
+    toggleSidebar.addEventListener('click', () => {{
+      sidebar.classList.toggle('collapsed');
+    }});
+    reopenBtn.addEventListener('click', () => {{
+      sidebar.classList.remove('collapsed');
+    }});
+
+    // Modal Inspection
+    const modal = document.getElementById('inspect-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-frame-title');
+    const modalDownload = document.getElementById('modal-download-link');
+
+    window.openFocusModal = function(index) {{
+      const meta = framesMeta[index];
+      if (!meta) return;
+      modalTitle.textContent = meta.title;
+      modalImg.src = meta.src;
+      modalDownload.href = meta.src;
+      modalDownload.setAttribute('download', meta.src);
+      modal.classList.add('active');
+    }};
+
+    window.closeFocusModal = function() {{
+      modal.classList.remove('active');
+    }};
+
+    document.addEventListener('keydown', (e) => {{
+      if (e.key === 'Escape') {{
+        closeFocusModal();
+      }} else if (e.key === '0' && (e.ctrlKey || e.metaKey)) {{
+        e.preventDefault();
+        fitAll();
+      }} else if (e.key === '1' && (e.ctrlKey || e.metaKey)) {{
+        e.preventDefault();
+        animateCamera((window.innerWidth - 1440) / 2, 100, 1.0);
+      }}
+    }});
+
+    // Initial positioning
+    applyTransform();
+  </script>
+</body>
+</html>
+"""
+    # Write to root index.html
+    root_index = os.path.join(ROOT_DIR, "index.html")
+    with open(root_index, "w", encoding="utf-8") as f:
+        f.write(html)
+    print("Updated root index.html")
+
+    # Write to designs/index.html
+    designs_index = os.path.join(DESIGNS_DIR, "index.html")
+    with open(designs_index, "w", encoding="utf-8") as f:
+        f.write(html)
+    print("Updated designs/index.html")
+
+if __name__ == "__main__":
+    build_index_html()
