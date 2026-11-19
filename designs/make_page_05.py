@@ -394,21 +394,13 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           </div>
         </div>
 
-        <div class="delivery-options-grid">
+        <div class="delivery-options-grid" style="grid-template-columns:1fr;">
           <div class="delivery-radio-card active">
             <div class="delivery-title-row">
-              <span>توصيل للمقر أو الشركة</span>
-              <span style="color:#059669; font-size:12px;">شحن مؤمن</span>
+              <span>توصيل وشحن سريع للمقر أو العنوان</span>
+              <span style="color:#059669; font-size:12px;">شحن مؤمن ومضمون</span>
             </div>
-            <div class="delivery-desc">تسليم عبر مندوب MESS TECH خلال 24 إلى 48 ساعة لكافة محافظات مصر.</div>
-          </div>
-
-          <div class="delivery-radio-card">
-            <div class="delivery-title-row">
-              <span>استلام مباشر من الفرع</span>
-              <span style="color:var(--cyan-600); font-size:12px;">مجاناً (0 ج.م)</span>
-            </div>
-            <div class="delivery-desc">استلام فوري من مقر الشركة (فرع المعادي / القاهرة) ومعاينة الأجهزة فوراً.</div>
+            <div class="delivery-desc">تسليم عبر أسطول مندوبي MESS TECH خلال 24 إلى 48 ساعة لكافة محافظات مصر مع الفحص والمعاينة.</div>
           </div>
         </div>
 
@@ -528,7 +520,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         </button>
 
         <div class="trust-footer-strip">
-          <span>✓ فاتورة ضريبية رسمية</span>
+          <span>✓ إيصال استلام معتمد</span>
           <span>✓ فحص ومعاينة قبل الدفع</span>
           <span>✓ أجهزة أصلية معتمدة 100%</span>
         </div>

@@ -9,7 +9,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
   <meta charset="utf-8">
-  <title>MESS TECH | لوحة تحكم الإدارة (Admin Dashboard) - إدارة الأوردرات والمخزون والتوريد</title>
+  <title>MESS TECH | لوحة تحكم الإدارة (Admin Dashboard) - إدارة الطلبات والمخزون والمبيعات</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -412,7 +412,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <div class="dashboard-card">
           <div class="card-header-bar">
             <div class="card-header-title">
-              <span>أحدث طلبات التوريد والعملاء</span>
+              <span>أحدث الطلبات والعملاء</span>
             </div>
             <div style="display:flex; gap:8px;">
               <button class="btn-action-secondary" style="font-size:12px; padding:6px 14px; white-space:nowrap; display:inline-flex;">تصدير Excel</button>
@@ -481,7 +481,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
                 <td><span class="mono">UniFi U6-Pro (x4)</span></td>
                 <td><b>34,800 ج.م</b></td>
                 <td><span class="status-badge status-delivered">تم التسليم للعميل</span></td>
-                <td><span style="color:#059669; font-weight:800; font-size:12px;">تم التوريد ✓</span></td>
+                <td><span style="color:#059669; font-weight:800; font-size:12px;">تم التسليم ✓</span></td>
               </tr>
 
               <tr>
@@ -494,7 +494,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
                 <td><span class="mono">APC UPS 3000VA (x1)</span></td>
                 <td><b>31,000 ج.م</b></td>
                 <td><span class="status-badge status-delivered">تم الاستلام والتحصيل</span></td>
-                <td><span style="color:#059669; font-weight:800; font-size:12px;">تم التوريد ✓</span></td>
+                <td><span style="color:#059669; font-weight:800; font-size:12px;">تم التسليم ✓</span></td>
               </tr>
             </tbody>
           </table>

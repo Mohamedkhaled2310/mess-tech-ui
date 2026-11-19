@@ -2,7 +2,7 @@
 <html dir="rtl" lang="ar">
 <head>
   <meta charset="utf-8">
-  <title>MESS TECH | سجل الطلبات والتوريدات السابقة - فواتير وتتبع</title>
+  <title>MESS TECH | سجل الطلبات السابقة وإيصالات الاستلام</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -358,7 +358,6 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       color: var(--cyan-600);
     }
 
-    /* Filter Tabs */
     .filter-pills-bar {
       display: flex;
       gap: 12px;
@@ -380,7 +379,6 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       border-color: var(--navy-900);
     }
 
-    /* Order Card */
     .order-history-card {
       background: #fff;
       border: 1px solid var(--slate-200);
@@ -440,7 +438,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       <div style="display:flex; align-items:center; gap:16px;">
         <span class="badge-notice-header">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          توريد وشحن سريع لكافة محافظات مصر
+          شحن وتوصيل سريع لكافة محافظات مصر
         </span>
         <span style="color:var(--slate-400);">|</span>
         <span>أجهزة أصلية معتمدة | دعم فني هندسي مخصص للمشروعات</span>
@@ -450,7 +448,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
         <span>|</span>
         <a href="#" style="color:var(--cyan-400); text-decoration:none; font-weight:700;">English (LTR)</a>
         <span>|</span>
-        <a href="#" style="color:#fff; text-decoration:none;">حسابي / تتبع طلب</a>
+        <a href="#" style="color:#fff; text-decoration:none;">حسابي / طلباتي</a>
       </div>
     </div>
 
@@ -541,18 +539,17 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       </div>
 
       <ul class="portal-nav-list">
-        <li class="portal-nav-item"><a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png"><span>📊</span> نظرة عامة وبيانات الحساب</a></li>
+        <li class="portal-nav-item"><a href="08_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png"><span>📊</span> نظرة عامة وبيانات الحساب</a></li>
         <li class="portal-nav-item active"><a href="#"><span>📦</span> طلباتي السابقة (16)</a></li>
         <li class="portal-nav-item"><a href="#"><span>📍</span> دفتر العناوين المحفوظة</a></li>
-        <li class="portal-nav-item"><a href="#"><span>🔒</span> أجهزتي وسيريالات الضمان</a></li>
-        <li class="portal-nav-item"><a href="#"><span>📄</span> الفواتير الضريبية المعتمدة</a></li>
+        <li class="portal-nav-item"><a href="#"><span>⚙️</span> إعدادات الحساب وكلمة المرور</a></li>
       </ul>
     </aside>
 
     <!-- Main Content -->
     <main>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-        <h2 style="font-size:22px; font-weight:900; color:var(--navy-900);">سجل طلبات التوريد والشحنات</h2>
+        <h2 style="font-size:22px; font-weight:900; color:var(--navy-900);">سجل الطلبات السابقة</h2>
         <div style="font-size:13px; color:var(--slate-500);">إجمالي الطلبات المسجلة: <b>16 طلب</b></div>
       </div>
 
@@ -576,7 +573,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
           </div>
           <div style="text-align:left;">
             <div class="mono" style="font-size:18px; font-weight:900; color:var(--cyan-600);">37,950 ج.م</div>
-            <div style="font-size:11.5px; color:var(--slate-500);">شامل الشحن والضريبة</div>
+            <div style="font-size:11.5px; color:var(--slate-500);">شامل الشحن بالكامل</div>
           </div>
         </div>
 
@@ -815,9 +812,9 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
         </div>
 
         <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:16px; padding-top:14px; border-top:1px solid var(--slate-100);">
-          <a href="09_صفحة_تتبع_الطلب_Desktop_Order_Tracking.png" style="background:var(--cyan-500); color:#fff; border:none; padding:8px 18px; border-radius:8px; font-size:13px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
-            تتبع الشحنة لحظياً
-          </a>
+          <button style="background:var(--cyan-500); color:#fff; border:none; padding:8px 18px; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer;">
+            عرض تفاصيل الطلب
+          </button>
           <button style="background:#fff; border:1px solid var(--slate-300); color:var(--navy-900); padding:8px 16px; border-radius:8px; font-size:13px; font-weight:700;">
             تحميل إشعار الطلب PDF
           </button>
@@ -830,9 +827,9 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
           <div>
             <div style="display:flex; align-items:center; gap:12px;">
               <span class="mono" style="font-size:16px; font-weight:900; color:var(--navy-900);">#ORD-8910</span>
-              <span class="order-badge-status delivered">✓ تم التوصيل والتحصيل</span>
+              <span class="order-badge-status delivered">✓ تم التسليم والتحصيل</span>
             </div>
-            <div style="font-size:12px; color:var(--slate-500); margin-top:4px;">تاريخ الاستلام: 28 أكتوبر 2026 • الفاتورة الضريبية: <span class="mono">INV-2026-8910</span></div>
+            <div style="font-size:12px; color:var(--slate-500); margin-top:4px;">تاريخ الاستلام: 28 أكتوبر 2026 • إيصال الاستلام: <span class="mono">RCP-2026-8910</span></div>
           </div>
           <div style="text-align:left;">
             <div class="mono" style="font-size:18px; font-weight:900; color:var(--navy-900);">32,500 ج.م</div>
@@ -867,7 +864,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
 </div>
           <div style="flex:1;">
             <div style="font-size:13.5px; font-weight:800;">جدار حماية فورتينت Fortinet FortiGate 60F Next-Gen Firewall</div>
-            <div style="font-size:11.5px; color:#059669;">✓ السيريال: FG60FTK21049210 • الضمان ساري</div>
+            <div style="font-size:11.5px; color:#059669;">✓ جهاز أصلي معتمد 100%</div>
           </div>
           <div class="mono" style="font-weight:700;">32,500 ج.م</div>
         </div>
@@ -875,7 +872,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
         <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:16px; padding-top:14px; border-top:1px solid var(--slate-100);">
           <button style="background:var(--navy-900); color:#fff; border:none; padding:8px 18px; border-radius:8px; font-size:13px; font-weight:700; display:inline-flex; align-items:center; gap:6px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            تحميل الفاتورة الضريبية الرسمية (PDF)
+            تحميل إيصال الاستلام (PDF)
           </button>
           <button style="background:#fff; border:1px solid var(--slate-300); color:var(--navy-900); padding:8px 16px; border-radius:8px; font-size:13px; font-weight:700;">
             إعادة طلب نفس الأصناف
@@ -891,7 +888,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
         <div class="footer-col">
           <img src="assets/logo_white.png" style="height:44px; margin-bottom:16px;" alt="MESS TECH">
           <p style="font-size:13.5px; line-height:1.8; color:var(--slate-400); margin-bottom:16px;">
-            شركة <b>MESS TECH</b> رائدة في توريد وتجهيز حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات الأصلية المعتمدة بأسعار تنافسية ودعم فني هندسي متقدم.
+            شركة <b>MESS TECH</b> رائدة في تجهيز وتوفير حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات الأصلية المعتمدة بأسعار تنافسية ودعم فني هندسي متقدم.
           </p>
           <div style="display:flex; align-items:center; gap:12px;">
             <span class="badge-notice-header" style="font-size:12px;">أجهزة أصلية معتمدة 100%</span>
@@ -915,7 +912,6 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
           <h5>خدمات ومعلومات</h5>
           <ul class="footer-list">
             <li><a href="#">الشحن والتوصيل لجميع المحافظات</a></li>
-            <li><a href="#">الاستلام المباشر من مقر الشركة</a></li>
             <li><a href="#">الدعم الفني الهندسي والاستشارات</a></li>
             <li><a href="#">تحميل ملفات Datasheet المعتمدة</a></li>
             <li><a href="#">مقارنة مواصفات الموديلات</a></li>

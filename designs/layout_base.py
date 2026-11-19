@@ -310,7 +310,7 @@ def get_header_html(active_cat=""):
       <div style="display:flex; align-items:center; gap:16px;">
         <span class="badge-notice-header">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          توريد وشحن سريع لكافة محافظات مصر
+          شحن وتوصيل سريع لكافة محافظات مصر
         </span>
         <span style="color:var(--slate-400);">|</span>
         <span>أجهزة أصلية معتمدة | دعم فني هندسي مخصص للمشروعات</span>
@@ -320,7 +320,7 @@ def get_header_html(active_cat=""):
         <span>|</span>
         <a href="#" style="color:var(--cyan-400); text-decoration:none; font-weight:700;">English (LTR)</a>
         <span>|</span>
-        <a href="#" style="color:#fff; text-decoration:none;">حسابي / تتبع طلب</a>
+        <a href="#" style="color:#fff; text-decoration:none;">حسابي / طلباتي</a>
       </div>
     </div>
 
@@ -408,7 +408,7 @@ def get_footer_html():
         <div class="footer-col">
           <img src="assets/logo_white.png" style="height:44px; margin-bottom:16px;" alt="MESS TECH">
           <p style="font-size:13.5px; line-height:1.8; color:var(--slate-400); margin-bottom:16px;">
-            شركة <b>MESS TECH</b> رائدة في توريد وتجهيز حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات الأصلية المعتمدة بأسعار تنافسية ودعم فني هندسي متقدم.
+            شركة <b>MESS TECH</b> رائدة في تجهيز وتوفير حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات الأصلية المعتمدة بأسعار تنافسية ودعم فني هندسي متقدم.
           </p>
           <div style="display:flex; align-items:center; gap:12px;">
             <span class="badge-notice-header" style="font-size:12px;">أجهزة أصلية معتمدة 100%</span>
@@ -432,7 +432,6 @@ def get_footer_html():
           <h5>خدمات ومعلومات</h5>
           <ul class="footer-list">
             <li><a href="#">الشحن والتوصيل لجميع المحافظات</a></li>
-            <li><a href="#">الاستلام المباشر من مقر الشركة</a></li>
             <li><a href="#">الدعم الفني الهندسي والاستشارات</a></li>
             <li><a href="#">تحميل ملفات Datasheet المعتمدة</a></li>
             <li><a href="#">مقارنة مواصفات الموديلات</a></li>

@@ -310,7 +310,6 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       align-items: start;
     }
 
-    /* Sidebar Navigation */
     .portal-sidebar {
       background: #fff;
       border: 1px solid var(--slate-200);
@@ -362,7 +361,6 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       color: var(--cyan-600);
     }
 
-    /* Main Area */
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -459,7 +457,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       <div style="display:flex; align-items:center; gap:16px;">
         <span class="badge-notice-header">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          توريد وشحن سريع لكافة محافظات مصر
+          شحن وتوصيل سريع لكافة محافظات مصر
         </span>
         <span style="color:var(--slate-400);">|</span>
         <span>أجهزة أصلية معتمدة | دعم فني هندسي مخصص للمشروعات</span>
@@ -469,7 +467,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
         <span>|</span>
         <a href="#" style="color:var(--cyan-400); text-decoration:none; font-weight:700;">English (LTR)</a>
         <span>|</span>
-        <a href="#" style="color:#fff; text-decoration:none;">حسابي / تتبع طلب</a>
+        <a href="#" style="color:#fff; text-decoration:none;">حسابي / طلباتي</a>
       </div>
     </div>
 
@@ -551,12 +549,12 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
     
 
   <div class="portal-container">
-    <!-- Sidebar -->
+    <!-- Sidebar (Cleaned) -->
     <aside class="portal-sidebar">
       <div class="user-profile-summary">
         <div class="user-avatar-circle">م ش</div>
         <h3 style="font-size:16px; font-weight:800; margin-bottom:2px;">م. مصطفى الشافعي</h3>
-        <div style="font-size:12px; color:#94a3b8; margin-bottom:8px;">مدير تكنولوجيا المعلومات - IT Manager</div>
+        <div style="font-size:12px; color:#94a3b8; margin-bottom:8px;">حساب شركة معتمد</div>
         <div style="display:inline-block; background:rgba(0, 153, 229, 0.2); border:1px solid rgba(0, 153, 229, 0.4); color:var(--cyan-400); padding:3px 10px; border-radius:999px; font-size:11px; font-weight:700;">
           كود العميل: <span class="mono">MST-4402</span>
         </div>
@@ -564,11 +562,9 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
 
       <ul class="portal-nav-list">
         <li class="portal-nav-item active"><a href="#"><span>📊</span> نظرة عامة وبيانات الحساب</a></li>
-        <li class="portal-nav-item"><a href="12_سجل_الطلبات_السابقة_Desktop_Order_History.png"><span>📦</span> طلباتي السابقة (16)</a></li>
+        <li class="portal-nav-item"><a href="09_سجل_الطلبات_السابقة_Desktop_Order_History.png"><span>📦</span> سجل طلباتي (16 طلب)</a></li>
         <li class="portal-nav-item"><a href="#"><span>📍</span> دفتر العناوين المحفوظة</a></li>
-        <li class="portal-nav-item"><a href="#"><span>🔒</span> أجهزتي وسيريالات الضمان</a></li>
-        <li class="portal-nav-item"><a href="#"><span>📄</span> الفواتير الضريبية المعتمدة</a></li>
-        <li class="portal-nav-item"><a href="#"><span>⚙️</span> إعدادات الأمان وكلمة المرور</a></li>
+        <li class="portal-nav-item"><a href="#"><span>⚙️</span> إعدادات الحساب وكلمة المرور</a></li>
       </ul>
     </aside>
 
@@ -579,8 +575,8 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
         <div class="metric-card">
           <div class="metric-icon" style="background:#eff6ff; color:#2563eb;">🚚</div>
           <div>
-            <div style="font-size:12px; color:var(--slate-500);">الطلبات الجارية والتوصيل:</div>
-            <div style="font-size:20px; font-weight:900; color:var(--navy-900);">طلب واحد (قيد التوصيل)</div>
+            <div style="font-size:12px; color:var(--slate-500);">الطلبات قيد التوصيل:</div>
+            <div style="font-size:20px; font-weight:900; color:var(--navy-900);">طلب واحد نشط</div>
           </div>
         </div>
 
@@ -588,15 +584,15 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
           <div class="metric-icon" style="background:#ecfdf5; color:#059669;">✓</div>
           <div>
             <div style="font-size:12px; color:var(--slate-500);">الطلبات المكتملة والمستلمة:</div>
-            <div style="font-size:20px; font-weight:900; color:var(--navy-900);">15 طلب توريد</div>
+            <div style="font-size:20px; font-weight:900; color:var(--navy-900);">15 طلب مكتمل</div>
           </div>
         </div>
 
         <div class="metric-card">
           <div class="metric-icon" style="background:#fef3c7; color:#d97706;">🏢</div>
           <div>
-            <div style="font-size:12px; color:var(--slate-500);">فئة حساب الشركة:</div>
-            <div style="font-size:20px; font-weight:900; color:var(--navy-900);">شريك معتمد (Enterprise)</div>
+            <div style="font-size:12px; color:var(--slate-500);">حالة العضوية:</div>
+            <div style="font-size:20px; font-weight:900; color:var(--navy-900);">عميل مميز (VIP)</div>
           </div>
         </div>
       </div>
@@ -604,7 +600,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
       <!-- Account Info Section -->
       <div class="section-card">
         <h3>
-          <span>بيانات الحساب والشركة المعتمدة</span>
+          <span>بيانات الحساب الشخصية</span>
           <button style="background:var(--cyan-500); color:#fff; border:none; padding:7px 16px; border-radius:6px; font-size:12.5px; font-weight:700; cursor:pointer;">
             حفظ التعديلات
           </button>
@@ -616,8 +612,8 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
             <input type="text" class="portal-input" value="مصطفى كمال الشافعي">
           </div>
           <div>
-            <label style="font-size:12px; font-weight:700; color:var(--navy-900); display:block; margin-bottom:6px;">اسم الشركة أو المؤسسة</label>
-            <input type="text" class="portal-input" value="شركة الأفق للحلول الرقمية وتكنولوجيا المعلومات">
+            <label style="font-size:12px; font-weight:700; color:var(--navy-900); display:block; margin-bottom:6px;">اسم الشركة / المؤسسة (اختياري)</label>
+            <input type="text" class="portal-input" value="شركة الأفق للحلول الرقمية">
           </div>
         </div>
 
@@ -631,25 +627,14 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
             <input type="text" class="portal-input mono" value="+20 100 123 4567">
           </div>
         </div>
-
-        <div class="form-row-2">
-          <div>
-            <label style="font-size:12px; font-weight:700; color:var(--navy-900); display:block; margin-bottom:6px;">رقم السجل التجاري (لإصدار الفواتير الرسمية)</label>
-            <input type="text" class="portal-input mono" value="CR-984210-CAIRO">
-          </div>
-          <div>
-            <label style="font-size:12px; font-weight:700; color:var(--navy-900); display:block; margin-bottom:6px;">رقم البطاقة الضريبية</label>
-            <input type="text" class="portal-input mono" value="TR-748-291-002">
-          </div>
-        </div>
       </div>
 
       <!-- Address Book Section -->
       <div class="section-card">
         <h3>
-          <span>دفتر العناوين ومواقع التوريد المحفوظة</span>
+          <span>دفتر عناوين التوصيل المحفوظة</span>
           <button style="background:#fff; color:var(--cyan-600); border:1.5px solid var(--cyan-500); padding:6px 14px; border-radius:6px; font-size:12.5px; font-weight:800; cursor:pointer;">
-            + إضافة عنوان استلام جديد
+            + إضافة عنوان جديد
           </button>
         </h3>
 
@@ -659,7 +644,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
             <span class="address-badge default">المقر الرئيسي (الافتراضي للتسليم)</span>
             <div style="font-size:14px; font-weight:800; color:var(--navy-900); margin-bottom:4px;">مبنى تكنوبوليس الإداري - الدور 4</div>
             <div style="font-size:13px; color:var(--slate-600); line-height:1.6; margin-bottom:12px;">
-              شارع التسعين الشمالي، مجمع البنوك، التجمع الخامس، القاهرة الجديدة.
+              شارع التسعين الشمالي، مجمع البنوك، التجمع الخامس، القاهرة.
             </div>
             <div style="font-size:12px; color:var(--slate-500); display:flex; justify-content:space-between; align-items:center; border-top:1px solid #bfdbfe; padding-top:8px;">
               <span>المستلم: م. مصطفى الشافعي</span>
@@ -669,10 +654,10 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
 
           <!-- Second Address -->
           <div class="address-card">
-            <span class="address-badge" style="background:#f1f5f9; color:var(--slate-600);">مستودع المشروعات والتنفيذ</span>
-            <div style="font-size:14px; font-weight:800; color:var(--navy-900); margin-bottom:4px;">مستودع المنطقة الصناعية ب' - قطعة 14</div>
+            <span class="address-badge" style="background:#f1f5f9; color:var(--slate-600);">عنوان فرعي</span>
+            <div style="font-size:14px; font-weight:800; color:var(--navy-900); margin-bottom:4px;">مستودع مدينة العبور - قطعة 14</div>
             <div style="font-size:13px; color:var(--slate-600); line-height:1.6; margin-bottom:12px;">
-              مدينة العبور، المنطقة الصناعية الأولى، طريق مصر الإسماعيلية.
+              مدينة العبور، المنطقة الصناعية الأولى، القاهرة.
             </div>
             <div style="font-size:12px; color:var(--slate-500); display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--slate-100); padding-top:8px;">
               <span>المسؤول: مهندس الموقع م. طارق</span>
@@ -690,7 +675,7 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
         <div class="footer-col">
           <img src="assets/logo_white.png" style="height:44px; margin-bottom:16px;" alt="MESS TECH">
           <p style="font-size:13.5px; line-height:1.8; color:var(--slate-400); margin-bottom:16px;">
-            شركة <b>MESS TECH</b> رائدة في توريد وتجهيز حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات الأصلية المعتمدة بأسعار تنافسية ودعم فني هندسي متقدم.
+            شركة <b>MESS TECH</b> رائدة في تجهيز وتوفير حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات الأصلية المعتمدة بأسعار تنافسية ودعم فني هندسي متقدم.
           </p>
           <div style="display:flex; align-items:center; gap:12px;">
             <span class="badge-notice-header" style="font-size:12px;">أجهزة أصلية معتمدة 100%</span>
@@ -714,7 +699,6 @@ body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-
           <h5>خدمات ومعلومات</h5>
           <ul class="footer-list">
             <li><a href="#">الشحن والتوصيل لجميع المحافظات</a></li>
-            <li><a href="#">الاستلام المباشر من مقر الشركة</a></li>
             <li><a href="#">الدعم الفني الهندسي والاستشارات</a></li>
             <li><a href="#">تحميل ملفات Datasheet المعتمدة</a></li>
             <li><a href="#">مقارنة مواصفات الموديلات</a></li>
