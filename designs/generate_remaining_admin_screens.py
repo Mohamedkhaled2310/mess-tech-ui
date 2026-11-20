@@ -288,7 +288,7 @@ PAGE_15_HTML = f"""<!DOCTYPE html>
             <div style="font-size:12.5px; color:var(--slate-600); line-height:1.8;">
               <div>الهاتف: <b class="mono" style="color:var(--navy-900);">01001234567</b></div>
               <div>البريد: <span class="mono">m.elshafei@alofok-tech.com</span></div>
-              <div>كود العميل: <span class="mono">MST-4402</span> (شريك مميز)</div>
+              <div>كود العميل: <span class="mono">MST-4402</span> (حساب مشتري موثق)</div>
             </div>
           </div>
 
@@ -387,10 +387,10 @@ PAGE_16_HTML = f"""<!DOCTYPE html>
         </div>
         <div class="admin-card" style="margin-bottom:0; display:flex; justify-content:space-between; align-items:center;">
           <div>
-            <div style="font-size:12px; color:#2563eb;">حسابات شركات معتمدة:</div>
+            <div style="font-size:12px; color:#2563eb;">عملاء متكررو الشراء:</div>
             <div class="mono" style="font-size:24px; font-weight:900; color:#2563eb;">48</div>
           </div>
-          <span style="font-size:28px;">🏢</span>
+          <span style="font-size:28px;">🔁</span>
         </div>
       </div>
 
@@ -406,8 +406,8 @@ PAGE_16_HTML = f"""<!DOCTYPE html>
           </select>
           <select style="border:1.5px solid var(--slate-300); border-radius:8px; padding:8px 12px; font-size:12.5px; outline:none;">
             <option>جميع الحالات</option>
-            <option>نشط</option>
-            <option>مميز (VIP)</option>
+            <option>حساب نشط</option>
+            <option>حساب جديد</option>
           </select>
         </div>
       </div>
@@ -417,13 +417,13 @@ PAGE_16_HTML = f"""<!DOCTYPE html>
         <table class="customers-table">
           <thead>
             <tr>
-              <th>العميل / الشركة</th>
+              <th>اسم العميل</th>
               <th>بيانات الاتصال</th>
               <th>المحافظة</th>
               <th>عدد الطلبات</th>
               <th>إجمالي المشتريات</th>
               <th>تاريخ آخر طلب</th>
-              <th>حالة العميل</th>
+              <th>حالة الحساب</th>
               <th style="text-align:center;">الإجراءات</th>
             </tr>
           </thead>
@@ -441,7 +441,7 @@ PAGE_16_HTML = f"""<!DOCTYPE html>
               <td class="mono" style="font-weight:800;">16 طلب</td>
               <td class="mono" style="font-weight:900; color:var(--cyan-600);">148,500 ج.م</td>
               <td style="font-size:12px;">15 نوفمبر 2026</td>
-              <td><span style="background:#ecfdf5; color:#059669; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">عميل مميز</span></td>
+              <td><span style="background:#ecfdf5; color:#059669; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">حساب نشط ✓</span></td>
               <td style="text-align:center;">
                 <button style="background:var(--cyan-500); color:#fff; border:none; padding:5px 12px; border-radius:6px; font-size:11.5px; font-weight:700; cursor:pointer;">عرض الطلبات</button>
               </td>
@@ -460,7 +460,7 @@ PAGE_16_HTML = f"""<!DOCTYPE html>
               <td class="mono" style="font-weight:800;">8 طلبات</td>
               <td class="mono" style="font-weight:900; color:var(--cyan-600);">89,200 ج.م</td>
               <td style="font-size:12px;">15 نوفمبر 2026</td>
-              <td><span style="background:#eff6ff; color:#2563eb; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">حساب شركة</span></td>
+              <td><span style="background:#ecfdf5; color:#059669; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">حساب نشط ✓</span></td>
               <td style="text-align:center;">
                 <button style="background:var(--cyan-500); color:#fff; border:none; padding:5px 12px; border-radius:6px; font-size:11.5px; font-weight:700; cursor:pointer;">عرض الطلبات</button>
               </td>
@@ -479,7 +479,7 @@ PAGE_16_HTML = f"""<!DOCTYPE html>
               <td class="mono" style="font-weight:800;">4 طلبات</td>
               <td class="mono" style="font-weight:900; color:var(--cyan-600);">46,800 ج.م</td>
               <td style="font-size:12px;">15 نوفمبر 2026</td>
-              <td><span style="background:#f1f5f9; color:var(--slate-700); font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">نشط</span></td>
+              <td><span style="background:#ecfdf5; color:#059669; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">حساب نشط ✓</span></td>
               <td style="text-align:center;">
                 <button style="background:var(--cyan-500); color:#fff; border:none; padding:5px 12px; border-radius:6px; font-size:11.5px; font-weight:700; cursor:pointer;">عرض الطلبات</button>
               </td>
@@ -498,7 +498,7 @@ PAGE_16_HTML = f"""<!DOCTYPE html>
               <td class="mono" style="font-weight:800;">12 طلب</td>
               <td class="mono" style="font-weight:900; color:var(--cyan-600);">210,000 ج.م</td>
               <td style="font-size:12px;">15 نوفمبر 2026</td>
-              <td><span style="background:#ecfdf5; color:#059669; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">عميل مميز</span></td>
+              <td><span style="background:#ecfdf5; color:#059669; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;">حساب نشط ✓</span></td>
               <td style="text-align:center;">
                 <button style="background:var(--cyan-500); color:#fff; border:none; padding:5px 12px; border-radius:6px; font-size:11.5px; font-weight:700; cursor:pointer;">عرض الطلبات</button>
               </td>

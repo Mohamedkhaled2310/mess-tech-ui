@@ -381,10 +381,10 @@ p16_path = os.path.join(DESIGNS_DIR, "page_16_admin_customers.html")
 p16_code = read_file(p16_path)
 p16_code = p16_code.replace("إدارة ومتابعة حسابات العملاء والشركات", "إدارة ومتابعة بيانات العملاء والمشترين")
 p16_code = p16_code.replace("<span>🏢</span> العملاء والشركات", "<span>👥</span> إدارة العملاء")
-p16_code = p16_code.replace("حسابات شركات معتمدة:", "عملاء مميزين (VIP):")
+p16_code = p16_code.replace("حسابات شركات معتمدة:", "عملاء متكررو الشراء:")
 p16_code = p16_code.replace("شركة تقنية", "مشتري")
 p16_code = p16_code.replace("العميل / الشركة", "اسم العميل")
-p16_code = p16_code.replace("حساب شركة", "عميل مميز (VIP)")
+p16_code = p16_code.replace("حساب شركة", "حساب نشط ✓")
 write_file(p16_path, p16_code)
 
 # ==============================================================================
