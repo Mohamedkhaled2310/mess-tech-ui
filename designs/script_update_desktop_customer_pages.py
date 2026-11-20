@@ -12,7 +12,7 @@ DESIGNS_DIR = r"E:\mess\designs"
 # - Removed "ماذا يحدث بعد تأكيد الطلب"
 # - Removed "تتبع مسار الطلب"
 # - Removed "الفواتير الضريبية"
-# - Used "طلب" instead of "توريد"
+# - Used "طلب" instead of "طلب"
 # ==============================================================================
 PAGE_08_HTML = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
@@ -222,7 +222,7 @@ PAGE_08_HTML = f"""<!DOCTYPE html>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:13.5px;">
           <div>
             <div style="color:var(--slate-500); font-size:12px; margin-bottom:4px;">اسم العميل / الشركة:</div>
-            <div style="font-weight:800; color:var(--navy-900);">م. مصطفى الشافعي — شركة الأفق للحلول الذكية</div>
+            <div style="font-weight:800; color:var(--navy-900);">مصطفى كمال الشافعي — حساب شخصي</div>
           </div>
           <div>
             <div style="color:var(--slate-500); font-size:12px; margin-bottom:4px;">رقم الهاتف المسجل للتوصيل:</div>
@@ -343,7 +343,7 @@ PAGE_08_HTML = f"""<!DOCTYPE html>
 # PAGE 10: AUTHENTICATION / LOGIN / REGISTER (Cleaned Desktop)
 # - Removed OTP Box completely
 # - Removed "فواتير ضريبية"
-# - Replaced "توريد" with "طلب"
+# - Replaced "طلب" with "طلب"
 # ==============================================================================
 PAGE_10_HTML = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
@@ -500,7 +500,7 @@ PAGE_10_HTML = f"""<!DOCTYPE html>
     <!-- Left Showcase -->
     <div class="auth-brand-side">
       <img src="assets/logo_white.png" class="auth-brand-logo" alt="MESS TECH Logo">
-      <h1>بوابة العملاء والشركات<br><span style="color:var(--cyan-400);">لطلب حلول وتجهيزات الشبكات</span></h1>
+      <h1>تسجيل الدخول إلى حسابك<br><span style="color:var(--cyan-400);">أهلاً بك مجدداً في متجر MESS TECH</span></h1>
       <p>
         سجل دخولك الآن للوصول إلى أسعار المنتجات الخاصة، مراجعة طلباتك السابقة، وحفظ عناوين الشحن لتسريع عمليات الشراء القادمة.
       </p>
@@ -578,13 +578,13 @@ PAGE_10_HTML = f"""<!DOCTYPE html>
 # PAGE 11: CUSTOMER PROFILE & ADDRESS BOOK (Cleaned Desktop)
 # - Removed "الفواتير الضريبية"
 # - Removed "أجهزتي وسيريالات الضمان"
-# - Replaced "توريد" with "طلب"
+# - Replaced "طلب" with "طلب"
 # ==============================================================================
 PAGE_11_HTML = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
   <meta charset="utf-8">
-  <title>MESS TECH | لوحة حسابي ودفتر العناوين المحفوظة - م. مصطفى الشافعي</title>
+  <title>MESS TECH | لوحة حسابي ودفتر العناوين المحفوظة - مصطفى الشافعي</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -749,7 +749,7 @@ PAGE_11_HTML = f"""<!DOCTYPE html>
     <aside class="portal-sidebar">
       <div class="user-profile-summary">
         <div class="user-avatar-circle">م ش</div>
-        <h3 style="font-size:16px; font-weight:800; margin-bottom:2px;">م. مصطفى الشافعي</h3>
+        <h3 style="font-size:16px; font-weight:800; margin-bottom:2px;">مصطفى الشافعي</h3>
         <div style="font-size:12px; color:#94a3b8; margin-bottom:8px;">حساب شركة معتمد</div>
         <div style="display:inline-block; background:rgba(0, 153, 229, 0.2); border:1px solid rgba(0, 153, 229, 0.4); color:var(--cyan-400); padding:3px 10px; border-radius:999px; font-size:11px; font-weight:700;">
           كود العميل: <span class="mono">MST-4402</span>
@@ -808,7 +808,7 @@ PAGE_11_HTML = f"""<!DOCTYPE html>
             <input type="text" class="portal-input" value="مصطفى كمال الشافعي">
           </div>
           <div>
-            <label style="font-size:12px; font-weight:700; color:var(--navy-900); display:block; margin-bottom:6px;">اسم الشركة / المؤسسة (اختياري)</label>
+            <label style="font-size:12px; font-weight:700; color:var(--navy-900); display:block; margin-bottom:6px;">المدينة / الحي السكني</label>
             <input type="text" class="portal-input" value="شركة الأفق للحلول الرقمية">
           </div>
         </div>
@@ -843,7 +843,7 @@ PAGE_11_HTML = f"""<!DOCTYPE html>
               شارع التسعين الشمالي، مجمع البنوك، التجمع الخامس، القاهرة.
             </div>
             <div style="font-size:12px; color:var(--slate-500); display:flex; justify-content:space-between; align-items:center; border-top:1px solid #bfdbfe; padding-top:8px;">
-              <span>المستلم: م. مصطفى الشافعي</span>
+              <span>المستلم: مصطفى الشافعي</span>
               <span class="mono" style="font-weight:700;">01001234567</span>
             </div>
           </div>
@@ -874,7 +874,7 @@ PAGE_11_HTML = f"""<!DOCTYPE html>
 # PAGE 12: ORDER HISTORY (Cleaned Desktop)
 # - Removed "تتبع الشحنة" (tracking page removed)
 # - Removed "الفواتير الضريبية"
-# - Replaced "توريد" with "طلب"
+# - Replaced "طلب" with "طلب"
 # ==============================================================================
 PAGE_12_HTML = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
@@ -1026,7 +1026,7 @@ PAGE_12_HTML = f"""<!DOCTYPE html>
     <aside class="portal-sidebar">
       <div class="user-profile-summary">
         <div class="user-avatar-circle">م ش</div>
-        <h3 style="font-size:16px; font-weight:800; margin-bottom:2px;">م. مصطفى الشافعي</h3>
+        <h3 style="font-size:16px; font-weight:800; margin-bottom:2px;">مصطفى الشافعي</h3>
         <div style="font-size:12px; color:#94a3b8; margin-bottom:8px;">كود العميل: <span class="mono">MST-4402</span></div>
       </div>
 

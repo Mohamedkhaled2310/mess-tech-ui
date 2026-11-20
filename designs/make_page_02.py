@@ -497,19 +497,23 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- Datasheet Download Callout -->
-      <div class="datasheet-callout-box">
-        <div class="datasheet-info">
-          <div class="datasheet-icon-wrap">PDF</div>
-          <div>
-            <div style="font-size:14px; font-weight:800;">الداتاشيت الرسمية (Official Datasheet)</div>
-            <div style="font-size:12px; color:#94a3b8;">ملف المواصفات الفنية المعتمد من سيسكو • 3.4 MB</div>
-          </div>
+      <!-- B2C Confidence & Return Guarantee Box -->
+      <div style="margin-top:20px; background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border:1px solid #334155; border-radius:12px; padding:18px 20px; color:#fff; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-size:13.5px; font-weight:800; color:var(--cyan-400); border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:8px; display:flex; align-items:center; gap:8px;">
+          <span>🛡️</span> ضمان وثقة المشتري مع MESS TECH
         </div>
-        <a href="#" class="btn-download-ds">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          تحميل الملف
-        </a>
+        <div style="display:flex; align-items:center; gap:10px; font-size:12.5px;">
+          <span style="color:#10b981; font-weight:800;">✓</span>
+          <span><b>إرجاع واستبدال مجاني خلال 14 يوماً:</b> وفق حماية المستهلك مع استرداد نقدي كامل.</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:12.5px;">
+          <span style="color:#38bdf8; font-weight:800;">✓</span>
+          <span><b>شحن سريع لباب المنزل:</b> توصيل خلال 24 إلى 48 ساعة لكافة محافظات مصر.</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:12.5px;">
+          <span style="color:#f59e0b; font-weight:800;">✓</span>
+          <span><b>معاينة قبل الدفع:</b> افتح الشحنة وافحص جهازك ومشتملاته قبل سداد الكاش للمندوب.</span>
+        </div>
       </div>
     </div>
 
@@ -527,7 +531,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <div class="rating-row" style="margin-top:8px;">
           <span class="stars-gold">★★★★★</span>
           <span style="font-weight:700; color:var(--navy-900);">5.0</span>
-          <span>(24 تقييم مهندسي شبكات ومشروعات)</span>
+          <span>(4.9 ★ • 24 تقييم مشتري معتمد)</span>
           <span>•</span>
           <span style="color:#10b981; font-weight:700;">أصلي 100% معتمد</span>
         </div>
@@ -546,7 +550,22 @@ HTML_CONTENT = f"""<!DOCTYPE html>
             <span style="width:8px; height:8px; background:#10b981; border-radius:999px;"></span>
             متوفر فوراً بالمخزون (متبقي 6 قطع في فرع القاهرة)
           </span>
-          <span style="font-size:12px; color:#64748b;">أو خيار "اطلب للتوريد" للكميات الكبيرة</span>
+          <span style="font-size:12px; color:#64748b;">✓ توصيل سريع لباب المنزل مع المعاينة قبل الدفع</span>
+        </div>
+
+        <!-- Product Options / Variants -->
+        <div style="margin-bottom:18px;">
+          <div style="font-size:13px; font-weight:800; color:var(--navy-900); margin-bottom:8px;">اختر سعة المنافذ والموديل:</div>
+          <div style="display:flex; gap:12px;">
+            <div style="background:#f0f9ff; border:2px solid var(--cyan-500); border-radius:10px; padding:10px 16px; cursor:pointer; flex:1;">
+              <div style="font-size:13.5px; font-weight:800; color:var(--cyan-600);">24 بورت Gigabit PoE+</div>
+              <div style="font-size:11.5px; color:#64748b;">طاقة 370W • متوفر بالمخزون</div>
+            </div>
+            <div style="background:#f8fafc; border:1.5px solid var(--slate-200); border-radius:10px; padding:10px 16px; cursor:pointer; flex:1;">
+              <div style="font-size:13.5px; font-weight:700; color:#334155;">48 بورت Gigabit PoE+</div>
+              <div style="font-size:11.5px; color:#64748b;">طاقة 740W (+14,000 ج.م)</div>
+            </div>
+          </div>
         </div>
 
         <!-- Key Specs Matrix -->
@@ -579,23 +598,30 @@ HTML_CONTENT = f"""<!DOCTYPE html>
 
         <!-- Call to Actions -->
         <div class="cta-buttons-block">
-          <div class="action-row-main">
+          <div class="action-row-main" style="display:flex; gap:10px; align-items:center;">
             <div class="qty-picker">
               <button class="qty-btn">-</button>
               <div class="qty-display">1</div>
               <button class="qty-btn">+</button>
             </div>
-            <button class="btn-add-cart-primary" style="white-space:nowrap; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+
+            <!-- Add to Cart -->
+            <button class="btn-add-cart-primary" style="flex:1; white-space:nowrap; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              أضف للسلة
+              <span>أضف للسلة</span>
+            </button>
+
+            <!-- Buy Now Direct -->
+            <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" style="background:linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color:#fff; padding:13px 22px; border-radius:10px; font-size:14.5px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 14px rgba(245,158,11,0.35); white-space:nowrap;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>شراء الآن</span>
+            </a>
+
+            <!-- Wishlist Button -->
+            <button title="إضافة إلى المفضلة" style="width:48px; height:48px; background:#fff; border:1.5px solid #fecdd3; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; color:#f43f5e; box-shadow:0 2px 8px rgba(244,63,94,0.15);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#f43f5e" stroke="#f43f5e" stroke-width="1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </button>
           </div>
-
-          <!-- Direct WhatsApp Button (No Business API) -->
-          <a href="https://wa.me/201000000000?text=استفسار%20عن%20سويتش%20سيسكو%20WS-C2960X-24TD-L" class="btn-whatsapp-direct" style="white-space:nowrap; display:inline-flex;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.029.575 1.748.817 2.806.817 3.181 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0 10.37c-.894 0-1.67-.238-2.427-.69l-.174-.103-1.802.472.48-1.758-.113-.181c-.504-.805-.77-1.524-.769-2.544 0-2.535 2.062-4.597 4.597-4.597 2.536 0 4.598 2.063 4.598 4.598 0 2.535-2.063 4.597-4.597 4.597z"/></svg>
-            <span>تواصل مع مهندس المبيعات عبر واتساب (استفسار فوري عن الموديل)</span>
-          </a>
 
           <div style="display:flex; gap:12px;">
             <button class="btn-compare-action" style="flex:1; white-space:nowrap; display:inline-flex;">
@@ -617,8 +643,8 @@ HTML_CONTENT = f"""<!DOCTYPE html>
     <div class="tabs-header-bar">
       <a href="#" class="tab-btn active">المواصفات الفنية التفصيلية (Datasheet Specs)</a>
       <a href="#" class="tab-btn">نظرة عامة والبروتوكولات المدعومة</a>
-      <a href="#" class="tab-btn">الضمان وشروط الشحن والتوريد</a>
-      <a href="#" class="tab-btn">تقييمات مهندسي المشروعات (24)</a>
+      <a href="#" class="tab-btn">الضمان وشروط الشحن والطلب</a>
+      <a href="#" class="tab-btn">تقييمات ومراجعات المشترين (24)</a>
     </div>
 
     <div class="specs-table-box">

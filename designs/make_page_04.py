@@ -354,7 +354,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
             <td><a href="#" style="color:var(--cyan-600); font-weight:700;">تحميل Datasheet PDF</a></td>
           </tr>
           <tr>
-            <td class="cell-label">حالة التوريد والاعتماد</td>
+            <td class="cell-label">حالة التوفر والضمان</td>
             <td>أصلي جديد بالكرتونة (Sealed)</td>
             <td>أصلي جديد بالكرتونة (Sealed)</td>
             <td>أصلي جديد بالكرتونة (Sealed)</td>

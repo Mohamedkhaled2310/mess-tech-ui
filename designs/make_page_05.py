@@ -363,19 +363,19 @@ HTML_CONTENT = f"""<!DOCTYPE html>
 
         <div class="form-grid-2">
           <div class="form-group">
-            <label class="form-label">الاسم بالكامل أو اسم الشركة *</label>
-            <input type="text" class="form-input" value="م. أحمد فتحي (شركة دلتا للحلول المتكاملة)">
+            <label class="form-label">الاسم بالكامل (الاسم الأول واسم العائلة) *</label>
+            <input type="text" class="form-input" value="أحمد فتحي الكردي">
           </div>
           <div class="form-group">
-            <label class="form-label">رقم الهاتف الأساسي (مطلوب للتوصيل) *</label>
+            <label class="form-label">رقم الهاتف الأساسي (للتواصل والتوصيل) *</label>
             <input type="text" class="form-input mono" value="0100 234 5678">
           </div>
         </div>
 
         <div class="form-grid-2">
           <div class="form-group">
-            <label class="form-label">البريد الإلكتروني (لتلقي إشعار وبوليصة الطلب)</label>
-            <input type="email" class="form-input mono" value="ahmed.fathi@deltatech.com">
+            <label class="form-label">البريد الإلكتروني (لتأكيد استلام الطلب)</label>
+            <input type="email" class="form-input mono" value="ahmed.fathi@gmail.com">
           </div>
           <div class="form-group">
             <label class="form-label">رقم هاتف بديل (اختياري)</label>
@@ -397,10 +397,10 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <div class="delivery-options-grid" style="grid-template-columns:1fr;">
           <div class="delivery-radio-card active">
             <div class="delivery-title-row">
-              <span>توصيل وشحن سريع للمقر أو العنوان</span>
+              <span>توصيل وشحن سريع لباب المنزل</span>
               <span style="color:#059669; font-size:12px;">شحن مؤمن ومضمون</span>
             </div>
-            <div class="delivery-desc">تسليم عبر أسطول مندوبي MESS TECH خلال 24 إلى 48 ساعة لكافة محافظات مصر مع الفحص والمعاينة.</div>
+            <div class="delivery-desc">تسليم سريع حتى باب المنزل خلال 24-48 ساعة لكافة محافظات مصر مع الفحص والمعاينة قبل السداد.</div>
           </div>
         </div>
 
@@ -424,7 +424,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
 
         <div class="form-group" style="margin-bottom:16px;">
           <label class="form-label">العنوان التفصيلي (الشارع، رقم المبنى، الدور) *</label>
-          <input type="text" class="form-input" value="شارع النصر، عمارة 14، الدور الخامس، مقر الشركة">
+          <input type="text" class="form-input" value="شارع النصر، عمارة 14، شقة 5، المعادي الجديدة">
         </div>
 
         <div class="form-group">
@@ -450,7 +450,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
             <div class="cod-title">الدفع نقداً عند الاستلام (Cash on Delivery - COD) فقط</div>
           </div>
           <p class="cod-info-text">
-            حرصاً على أمان وموثوقية التعامل مع الشركات والمشروعات: <b>لا يتطلب المتجر أي بطاقات دفع إلكتروني أو فيزا</b>. ستقوم بمعاينة الأجهزة، التأكد من سريال الموديلات والفاتورة الضريبية، ثم سداد المبلغ نقداً لمندوب التسليم.
+            حرصاً على راحتك وأمان مشترياتك: <b>لا يتطلب المتجر أي بطاقات بنكية مسبقة أو دفع إلكتروني</b>. استلم شحنتك أولاً وافحص أجهزتك عند باب منزلك، ثم قم بسداد المبلغ نقداً لمندوب التوصيل.
           </p>
         </div>
       </div>
@@ -462,6 +462,18 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <div class="summary-title">
           <span>ملخص الأوردر (منتجين)</span>
           <a href="#" style="font-size:12px; color:var(--cyan-600); text-decoration:none;">تعديل السلة</a>
+        </div>
+
+        <!-- Free Shipping Progress Bar -->
+        <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:10px; padding:12px 14px; margin-bottom:18px;">
+          <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:800; color:#065f46; margin-bottom:6px;">
+            <span>🚚 شحن منزلي مجاني لكافة طلباتك</span>
+            <span>مؤهل 100%</span>
+          </div>
+          <div style="height:6px; background:#d1fae5; border-radius:999px; overflow:hidden;">
+            <div style="width:100%; height:100%; background:#10b981;"></div>
+          </div>
+          <div style="font-size:11.5px; color:#047857; margin-top:5px;">🎉 رائع! طلبك مؤهل للشحن السريع المجاني لباب المنزل.</div>
         </div>
 
         <!-- Items -->

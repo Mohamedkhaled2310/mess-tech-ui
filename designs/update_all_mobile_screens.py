@@ -146,7 +146,7 @@ def make_mob_06():
   <div class="device-header-title">
     <div class="device-header-tag">📱 Mobile Screen #06</div>
     <h2>صفحة نجاح الطلب (Thank You Page)</h2>
-    <p>تأكيد فوري لاختيار الدفع عند الاستلام والتوصيل المباشر لمقر العمل</p>
+    <p>تأكيد فوري لاختيار الدفع عند الاستلام والتوصيل المباشر لباب المنزل</p>
   </div>
 
   <div class="phone-device-container">

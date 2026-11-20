@@ -520,7 +520,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       <div>
         <div class="hero-badge-live">
           <span style="display:inline-block; width:8px; height:8px; background:#10b981; border-radius:999px;"></span>
-          الموزع المعتمد لحلول الشبكات والأمان للمشروعات والشركات
+          متجركم الأول لأحدث أجهزة الشبكات والإلكترونيات وأنظمة المراقبة الذكية
         </div>
         <h1 class="hero-title">
           تجهيز البنية التحتية والشبكات<br>
@@ -563,7 +563,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         </div>
         <div style="display:flex; justify-content:space-between; align-items:center; background:#172136; padding:12px 16px; border-radius:10px;">
           <div>
-            <div style="font-size:11px; color:#94a3b8;">سعر التوريد (شامل الضريبة)</div>
+            <div style="font-size:11px; color:#94a3b8;">السعر الحالي شامل الضريبة</div>
             <div style="font-size:18px; font-weight:800; color:#fff;">19,850 <small style="font-size:12px; color:#94a3b8;">ج.م</small></div>
           </div>
           <div style="display:flex; gap:8px;">
@@ -703,7 +703,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           <span class="card-brand" style="color:#ef4444;">Fortinet</span>
           <span class="card-model-sku">FG-60F</span>
         </div>
-        <h4 class="card-title">جدار حماية فورتينت FortiGate 60F للأمن السيبراني والشركات</h4>
+        <h4 class="card-title">جدار حماية فورتينت FortiGate 60F للأمن السيبراني وحماية الشبكات</h4>
         <div class="specs-pill-strip">
           <span class="specs-pill">10 Gbps Firewall</span>
           <span class="specs-pill">1 Gbps Threat</span>
@@ -735,7 +735,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
   <section class="categories-section">
     <div class="section-head">
       <div>
-        <h2 class="section-title">تصفح حلول التجهيزات والشبكات</h2>
+        <h2 class="section-title">تصفح أحدث أجهزة الشبكات والمراقبة</h2>
         <p class="section-subtitle">أقسام متكاملة تغطي كافة متطلبات الداتا سنتر، غرف السيرفرات، والشبكات السلكية واللاسلكية</p>
       </div>
       <a href="#" style="color:var(--cyan-600); font-weight:700; text-decoration:none; font-size:14px;">عرض جميع الأقسام (7) ←</a>
@@ -831,7 +831,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         </div>
         <div>
           <h4>دعم فني هندسي متقدم</h4>
-          <p>فريق مهندسي شبكات لمساعدتك في اختيار الموديل وضبط التكوينات والإعدادات.</p>
+          <p>فريق خدمة العملاء جاهز لمساعدتكم في اختيار ومطابقة أنسب الأجهزة طوال الأسبوع.</p>
         </div>
       </div>
     </div>

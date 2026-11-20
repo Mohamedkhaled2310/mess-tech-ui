@@ -502,7 +502,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           <li class="filter-checkbox-label">
             <span class="filter-check-wrap">
               <input type="checkbox">
-              <span>اطلب للتوريد (مشروعات)</span>
+              <span>أضف للسلة</span>
             </span>
             <span class="filter-count-badge">11</span>
           </li>
@@ -515,13 +515,13 @@ HTML_CONTENT = f"""<!DOCTYPE html>
       <!-- Top Sort Bar -->
       <div class="catalog-top-bar">
         <div class="catalog-heading">
-          <h1>سويتشات الشبكات المعتمدة للشركات والمشروعات</h1>
+          <h1>سويتشات وأجهزة الشبكات الأصلية المعتمدة</h1>
           <p>عرض 18 موديل مطابق للفلاتر التقنية المختارة</p>
         </div>
         <div class="catalog-sort-wrap">
           <span>ترتيب حسب:</span>
           <select class="sort-select">
-            <option>الأكثر طلباً وتوريداً</option>
+            <option>الأكثر مبيعاً وتقييماً</option>
             <option>الموديل (تصاعدي A-Z)</option>
             <option>السعر: من الأقل للأعلى</option>
             <option>السعر: من الأعلى للأقل</option>
@@ -681,7 +681,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
         <!-- 6. Cisco Catalyst 48 Port (Demonstrating Strikethrough or Custom RFQ) -->
         <div class="cat-product-card">
           <div class="card-top-badges">
-            <span class="badge-stock-dot" style="color:#f59e0b;"><span class="dot-green" style="background:#f59e0b;"></span> اطلب للتوريد</span>
+            <span class="badge-stock-dot" style="color:#f59e0b;"><span class="dot-green" style="background:#f59e0b;"></span> اطلب للطلب</span>
           </div>
           <div class="cat-img-box">{SVG_CISCO_SWITCH}</div>
           <div style="font-size:11px; font-weight:700; color:var(--cyan-600); text-transform:uppercase;">Cisco Systems</div>
@@ -696,7 +696,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
           <div class="cat-card-footer">
             <div>
               <div style="font-size:15px; font-weight:800; color:var(--cyan-600);">اسأل عن السعر</div>
-              <div style="font-size:11px; color:#64748b;">(متاح للتوريد الفوري)</div>
+              <div style="font-size:11px; color:#64748b;">(متاح للطلب الفوري)</div>
             </div>
             <div class="cat-card-actions">
               <button class="btn-icon-compare" title="مقارنة"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></button>

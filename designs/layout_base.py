@@ -310,17 +310,17 @@ def get_header_html(active_cat=""):
       <div style="display:flex; align-items:center; gap:16px;">
         <span class="badge-notice-header">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          شحن وتوصيل سريع لكافة محافظات مصر
+          شحن وتوصيل سريع لكافة المحافظات
         </span>
         <span style="color:var(--slate-400);">|</span>
-        <span>أجهزة أصلية معتمدة | دعم فني هندسي مخصص للمشروعات</span>
+        <span style="color:#e2e8f0; font-size:12px;">✓ أجهزة أصلية معتمدة 100% &nbsp;•&nbsp; ✓ إرجاع واستبدال مجاني خلال 14 يوماً &nbsp;•&nbsp; ✓ فحص ومعاينة عند الاستلام</span>
       </div>
       <div style="display:flex; align-items:center; gap:20px;">
-        <span>هاتف المبيعات: <b class="mono" style="color:#fff;">0100-MESS-TECH</b></span>
+        <span>خدمة العملاء: <b class="mono" style="color:#fff;">0100-MESS-TECH</b></span>
         <span>|</span>
         <a href="#" style="color:var(--cyan-400); text-decoration:none; font-weight:700;">English (LTR)</a>
         <span>|</span>
-        <a href="#" style="color:#fff; text-decoration:none;">حسابي / طلباتي</a>
+        <a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" style="color:#fff; text-decoration:none; font-weight:600;">حسابي / طلباتي</a>
       </div>
     </div>
 
@@ -337,47 +337,54 @@ def get_header_html(active_cat=""):
             <option>جميع الأقسام</option>
             <option>سويتشات الشبكات</option>
             <option>راوترات وسيرفرات</option>
-            <option>جدران الحماية Firewalls</option>
+            <option>كاميرات وأنظمة مراقبة</option>
             <option>أجهزة واي فاي وأكسس بوينت</option>
             <option>مغذيات الطاقة UPS</option>
             <option>راكات وكابلات</option>
           </select>
-          <input type="text" class="search-input-field" placeholder="ابحث برقم الموديل (مثل WS-C2960X، CCR2004، FG-60F) أو كود SKU...">
+          <input type="text" class="search-input-field" placeholder="ابحث باسم المنتج، الموديل (مثل WS-C2960X، CCR2004) أو كود SKU...">
           <button class="search-submit-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             بحث فوري
           </button>
         </div>
         <div class="search-quick-tags">
-          <span>شائع الآن:</span>
-          <a href="#" class="quick-tag">Cisco 24 Port PoE</a>
-          <a href="#" class="quick-tag">FortiGate 60F</a>
-          <a href="#" class="quick-tag">MikroTik 10G</a>
-          <a href="#" class="quick-tag">UniFi U6-Pro</a>
-          <a href="#" class="quick-tag">Rack 9U</a>
+          <span>الأكثر بحثاً:</span>
+          <a href="#" class="quick-tag">سويتش 24 بورت PoE</a>
+          <a href="#" class="quick-tag">راوتر مايكروتك 10G</a>
+          <a href="#" class="quick-tag">أكسس بوينت Wi-Fi 6</a>
+          <a href="#" class="quick-tag">كاميرات مراقبة IP</a>
+          <a href="#" class="quick-tag">كابينة راك 9U</a>
         </div>
       </div>
 
       <!-- Actions -->
       <div class="nav-actions">
+        <!-- Wishlist -->
+        <a href="#" class="nav-pill-btn" title="قائمة المفضلة">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>المفضلة</span>
+          <span class="pill-counter" style="background:#f43f5e;">4</span>
+        </a>
+
         <!-- Compare -->
-        <a href="#" class="nav-pill-btn" title="مقارنة الموديلات">
+        <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" class="nav-pill-btn" title="مقارنة المنتجات">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           <span>المقارنة</span>
-          <span class="pill-counter">3</span>
+          <span class="pill-counter">2</span>
         </a>
 
         <!-- Cart -->
-        <a href="#" class="nav-pill-btn" title="سلة المشتريات">
+        <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" class="nav-pill-btn" title="سلة المشتريات">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <span>السلة</span>
           <span class="pill-counter green">2</span>
         </a>
 
-        <!-- WhatsApp Direct Sales -->
-        <a href="https://wa.me/201000000000" class="whatsapp-direct-btn" title="تواصل مباشر عبر واتساب">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.029.575 1.748.817 2.806.817 3.181 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0 10.37c-.894 0-1.67-.238-2.427-.69l-.174-.103-1.802.472.48-1.758-.113-.181c-.504-.805-.77-1.524-.769-2.544 0-2.535 2.062-4.597 4.597-4.597 2.536 0 4.598 2.063 4.598 4.598 0 2.535-2.063 4.597-4.597 4.597z"/></svg>
-          <span>مبيعات الشركات</span>
+        <!-- User Profile -->
+        <a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" class="nav-pill-btn" style="background:var(--navy-700); border-color:var(--cyan-500);" title="حسابي">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>حسابي</span>
         </a>
       </div>
     </header>
@@ -386,17 +393,17 @@ def get_header_html(active_cat=""):
     <nav class="subnav-bar">
       <div class="all-departments-pill">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        <span>جميع حلول الشبكات</span>
+        <span>جميع أقسام المتجر</span>
       </div>
       <ul class="subnav-links">
-        <li><a href="#" class="{ 'active' if active_cat=='switches' else '' }">سويتشات (Switches)</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='switches' else '' }">سويتشات الشبكات</a></li>
         <li><a href="#" class="{ 'active' if active_cat=='routers' else '' }">راوترات وسيرفرات</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='firewalls' else '' }">جدران الحماية (Firewalls)</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='wifi' else '' }">أكسس بوينت (Wi-Fi)</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='ups' else '' }">مغذيات الطاقة (UPS)</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='racks' else '' }">راكات وكبائن (Racks)</a></li>
-        <li><a href="#" class="{ 'active' if active_cat=='cables' else '' }">كابلات وتوصيلات</a></li>
-        <li><a href="#" style="color:#38bdf8; font-weight:800;">🔥 العروض الحالية</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='firewalls' else '' }">كاميرات ومراقبة IP</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='wifi' else '' }">أكسس بوينت Wi-Fi 6</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='ups' else '' }">مغذيات الطاقة UPS</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='racks' else '' }">راكات وكبائن</a></li>
+        <li><a href="#" class="{ 'active' if active_cat=='cables' else '' }">كابلات وإكسسوارات</a></li>
+        <li><a href="#" style="color:#38bdf8; font-weight:800;">🔥 العروض والتخفيضات</a></li>
       </ul>
     </nav>
     """
@@ -408,58 +415,58 @@ def get_footer_html():
         <div class="footer-col">
           <img src="assets/logo_white.png" style="height:44px; margin-bottom:16px;" alt="MESS TECH">
           <p style="font-size:13.5px; line-height:1.8; color:var(--slate-400); margin-bottom:16px;">
-            شركة <b>MESS TECH</b> رائدة في تجهيز وتوفير حلول الشبكات، البنية التحتية، وأمن المعلومات للمشروعات والشركات. نوفر أحدث الموديلات الأصلية المعتمدة بأسعار تنافسية ودعم فني هندسي متقدم.
+            متجر <b>MESS TECH</b> وجهتكم الأولى لأحدث الأجهزة التقنية، مستلزمات الشبكات، أنظمة المراقبة والإلكترونيات الأصلية المعتمدة بأفضل الأسعار، مع ميزة الفحص والمعاينة قبل الدفع عند الاستلام.
           </p>
           <div style="display:flex; align-items:center; gap:12px;">
-            <span class="badge-notice-header" style="font-size:12px;">أجهزة أصلية معتمدة 100%</span>
-            <span style="color:#fff; font-size:13px;">تواصل مباشر: <b>sales@messtech.com</b></span>
+            <span class="badge-notice-header" style="font-size:12px;">منتجات أصلية معتمدة 100%</span>
+            <span style="color:#fff; font-size:13px;">الدعم: <b>support@messtech.com</b></span>
           </div>
         </div>
 
         <div class="footer-col">
-          <h5>أقسام التجهيزات</h5>
+          <h5>أقسام المتجر</h5>
           <ul class="footer-list">
-            <li><a href="#">سويتشات سيسكو كاتاليست</a></li>
-            <li><a href="#">راوترات مايكروتك السحابية</a></li>
-            <li><a href="#">أجهزة فايروول فورتينت FortiGate</a></li>
-            <li><a href="#">أكسس بوينت Ubiquiti UniFi 6</a></li>
-            <li><a href="#">وحدات مغذيات الطاقة APC UPS</a></li>
-            <li><a href="#">كبائن وراكات السيرفر 9U - 42U</a></li>
+            <li><a href="#">سويتشات الشبكات Gigabit & PoE</a></li>
+            <li><a href="#">راوترات وأجهزة التوجيه السحابية</a></li>
+            <li><a href="#">كاميرات المراقبة وأجهزة NVR</a></li>
+            <li><a href="#">أجهزة أكسس بوينت Wi-Fi 6</a></li>
+            <li><a href="#">مغذيات الطاقة الذكية UPS</a></li>
+            <li><a href="#">كبائن وراكات السيرفرات وملحقاتها</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>خدمات ومعلومات</h5>
+          <h5>خدمات المشترين</h5>
           <ul class="footer-list">
-            <li><a href="#">الشحن والتوصيل لجميع المحافظات</a></li>
-            <li><a href="#">الدعم الفني الهندسي والاستشارات</a></li>
-            <li><a href="#">تحميل ملفات Datasheet المعتمدة</a></li>
-            <li><a href="#">مقارنة مواصفات الموديلات</a></li>
-            <li><a href="#">سياسة الإرجاع والاستبدال</a></li>
+            <li><a href="#">الشحن والتوصيل لكافة المحافظات</a></li>
+            <li><a href="#">سياسة الإرجاع والاستبدال (14 يوماً)</a></li>
+            <li><a href="#">خدمة الدفع نقداً عند الاستلام (COD)</a></li>
+            <li><a href="#">الأسئلة الشائعة ومساعدة العملاء</a></li>
+            <li><a href="#">الشروط والأحكام وخصوصية البيانات</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>الدعم والمبيعات المباشرة</h5>
+          <h5>خدمة العملاء والدعم الفني</h5>
           <p style="font-size:13px; color:var(--slate-400); margin-bottom:12px;">
-            فريق المهندسين متاح للرد الفوري على استفسارات الموديلات والمواصفات الفنية:
+            فريق خدمة العملاء جاهز للرد على استفساراتكم ومساعدتكم طوال أيام الأسبوع:
           </p>
           <div style="background:var(--navy-800); border:1px solid var(--navy-700); padding:14px; border-radius:10px; margin-bottom:12px;">
-            <div style="font-size:12px; color:var(--slate-400);">رقم المبيعات المباشر:</div>
-            <div class="mono" style="font-size:18px; font-weight:700; color:var(--cyan-400); margin-top:2px;">+20 100 234 5678</div>
+            <div style="font-size:12px; color:var(--slate-400);">الخط الساخن المباشر:</div>
+            <div class="mono" style="font-size:18px; font-weight:700; color:var(--cyan-400); margin-top:2px;">19824 • 0100 234 5678</div>
           </div>
-          <a href="https://wa.me/201000000000" class="whatsapp-direct-btn" style="justify-content:center;">
-            محادثة فورية مع المبيعات عبر واتساب
-          </a>
+          <div style="font-size:12px; color:#94a3b8; display:flex; align-items:center; gap:6px;">
+            <span style="color:#10b981;">●</span> متاح يومياً من 9 صباحاً حتى 10 مساءً
+          </div>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <div>جميع الحقوق محفوظة © 2026 لشركة <b>MESS TECH</b> — Tech Solutions Global.</div>
+        <div>جميع الحقوق محفوظة © 2026 لمتجر <b>MESS TECH</b> — للتجارة الإلكترونية والتقنية.</div>
         <div style="display:flex; gap:20px; align-items:center;">
-          <span style="color:#38bdf8;">✓ أجهزة أصلية معتمدة</span>
-          <span>✓ فحص ومطابقة الأجهزة والمواصفات</span>
-          <span>✓ دعم فني هندسي مخصص</span>
+          <span style="color:#38bdf8;">✓ منتجات أصلية 100%</span>
+          <span>✓ استرجاع واستبدال مجاني 14 يوماً</span>
+          <span>✓ فحص ومعاينة قبل الدفع</span>
         </div>
       </div>
     </footer>
