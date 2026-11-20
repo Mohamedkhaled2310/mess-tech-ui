@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no">
-  <title>MESS TECH | Figma Interactive UI/UX Design Board (28 Screens)</title>
+  <title>MESS TECH | Figma Interactive UI/UX Design Board (29 Frames)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -601,7 +601,7 @@
       <div class="brand-title-wrap">
         <img src="assets/logo_white.png" class="brand-logo-img" alt="MESS TECH">
         <span class="project-name">MESS TECH UI/UX Board</span>
-        <span class="project-status">28 Frames</span>
+        <span class="project-status">29 Frames (Palette + UI)</span>
       </div>
     </div>
 
@@ -614,6 +614,9 @@
     </div>
 
     <div class="top-actions">
+      <button class="top-btn" onclick="openPaletteModal();" style="background:rgba(0,153,229,0.15); border:1px solid rgba(0,153,229,0.4); color:#38bdf8; font-weight:700;">
+        🎨 لوحة الألوان (Palette)
+      </button>
       <button class="top-btn" id="btn-fit-screen" title="احتواء كامل الشاشات في مساحة الرؤية">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         احتواء الكل
@@ -634,53 +637,58 @@
   <aside class="figma-sidebar" id="sidebar">
     <div class="sidebar-header">
       <h3>الطبقات والشاشات (Layers)</h3>
-      <span class="count-badge">28 Screens</span>
+      <span class="count-badge">29 Frames</span>
     </div>
 
     <ul class="sidebar-list">
       <div class="sidebar-group-title">💻 شاشات المتجر وتجربة العميل (Desktop - 9)</div>
       
           <li class="sidebar-item active" data-index="0">
+            <span class="item-icon">🎨</span>
+            <span class="item-title">00 · دليل الألوان ونظام التصميم (Design System & Color Tokens)</span>
+          </li>
+        
+          <li class="sidebar-item " data-index="1">
             <span class="item-icon">🏠</span>
             <span class="item-title">01 · الصفحة الرئيسية (Desktop Storefront)</span>
           </li>
         
-          <li class="sidebar-item " data-index="1">
+          <li class="sidebar-item " data-index="2">
             <span class="item-icon">📄</span>
             <span class="item-title">02 · صفحة تفاصيل المنتج والمواصفات (Product Details)</span>
           </li>
         
-          <li class="sidebar-item " data-index="2">
+          <li class="sidebar-item " data-index="3">
             <span class="item-icon">🔍</span>
             <span class="item-title">03 · الفلاتر والبحث التقني (Catalog & Filters)</span>
           </li>
         
-          <li class="sidebar-item " data-index="3">
+          <li class="sidebar-item " data-index="4">
             <span class="item-icon">⚖️</span>
             <span class="item-title">04 · جدول مقارنة المواصفات (Comparison Matrix)</span>
           </li>
         
-          <li class="sidebar-item " data-index="4">
+          <li class="sidebar-item " data-index="5">
             <span class="item-icon">🛒</span>
             <span class="item-title">05 · السلة وإتمام الطلب COD (One-Step Checkout)</span>
           </li>
         
-          <li class="sidebar-item " data-index="5">
+          <li class="sidebar-item " data-index="6">
             <span class="item-icon">✓</span>
             <span class="item-title">06 · صفحة تأكيد واستلام الطلب (Thank You Page)</span>
           </li>
         
-          <li class="sidebar-item " data-index="6">
+          <li class="sidebar-item " data-index="7">
             <span class="item-icon">🔑</span>
             <span class="item-title">07 · تسجيل الدخول وبوابة العملاء (Customer Auth)</span>
           </li>
         
-          <li class="sidebar-item " data-index="7">
+          <li class="sidebar-item " data-index="8">
             <span class="item-icon">👤</span>
             <span class="item-title">08 · لوحة حسابي ودفتر العناوين (Customer Profile)</span>
           </li>
         
-          <li class="sidebar-item " data-index="8">
+          <li class="sidebar-item " data-index="9">
             <span class="item-icon">📦</span>
             <span class="item-title">09 · سجل الطلبات السابقة (Order History)</span>
           </li>
@@ -688,42 +696,42 @@
 
       <div class="sidebar-group-title">🛠️ شاشات لوحة تحكم الإدارة الكاملة (Admin Suite - 8)</div>
       
-          <li class="sidebar-item " data-index="9">
+          <li class="sidebar-item " data-index="10">
             <span class="item-icon">📊</span>
             <span class="item-title">A01 · لوحة تحكم الإدارة العامة (Admin Overview)</span>
           </li>
         
-          <li class="sidebar-item " data-index="10">
+          <li class="sidebar-item " data-index="11">
             <span class="item-icon">📦</span>
             <span class="item-title">A02 · إضافة وتعديل منتج بالمستودع (Add/Edit Product)</span>
           </li>
         
-          <li class="sidebar-item " data-index="11">
+          <li class="sidebar-item " data-index="12">
             <span class="item-icon">🛒</span>
             <span class="item-title">A03 · جدول إدارة ومتابعة الطلبات (Orders Management Table)</span>
           </li>
         
-          <li class="sidebar-item " data-index="12">
+          <li class="sidebar-item " data-index="13">
             <span class="item-icon">📋</span>
             <span class="item-title">A04 · تفاصيل أمر الطلب الفردي (Admin Order Details)</span>
           </li>
         
-          <li class="sidebar-item " data-index="13">
+          <li class="sidebar-item " data-index="14">
             <span class="item-icon">🏢</span>
             <span class="item-title">A05 · إدارة العملاء والشركات (Customers Management)</span>
           </li>
         
-          <li class="sidebar-item " data-index="14">
+          <li class="sidebar-item " data-index="15">
             <span class="item-icon">📁</span>
             <span class="item-title">A06 · إدارة الأقسام والتصنيفات (Categories Management)</span>
           </li>
         
-          <li class="sidebar-item " data-index="15">
+          <li class="sidebar-item " data-index="16">
             <span class="item-icon">📈</span>
             <span class="item-title">A07 · تقارير المبيعات والتحليلات (Sales & Analytics)</span>
           </li>
         
-          <li class="sidebar-item " data-index="16">
+          <li class="sidebar-item " data-index="17">
             <span class="item-icon">⚙️</span>
             <span class="item-title">A08 · إعدادات المتجر والشحن وسياسة COD (Settings)</span>
           </li>
@@ -731,57 +739,57 @@
 
       <div class="sidebar-group-title">📱 شاشات وتجربة الهواتف الذكية (Mobile iOS - 11)</div>
       
-          <li class="sidebar-item " data-index="17">
+          <li class="sidebar-item " data-index="18">
             <span class="item-icon">📱</span>
             <span class="item-title">M01 · الرئيسية بالموبايل (Mobile Homepage)</span>
           </li>
         
-          <li class="sidebar-item " data-index="18">
+          <li class="sidebar-item " data-index="19">
             <span class="item-icon">📱</span>
             <span class="item-title">M02 · صفحة تفاصيل المنتج بالموبايل</span>
           </li>
         
-          <li class="sidebar-item " data-index="19">
+          <li class="sidebar-item " data-index="20">
             <span class="item-icon">📱</span>
             <span class="item-title">M03 · الفلاتر وتصفح الكتالوج بالموبايل</span>
           </li>
         
-          <li class="sidebar-item " data-index="20">
+          <li class="sidebar-item " data-index="21">
             <span class="item-icon">📱</span>
             <span class="item-title">M04 · السلة وإتمام الطلب COD بالموبايل</span>
           </li>
         
-          <li class="sidebar-item " data-index="21">
+          <li class="sidebar-item " data-index="22">
             <span class="item-icon">📱</span>
             <span class="item-title">M05 · مقارنة الموديلات بالسحب بالموبايل</span>
           </li>
         
-          <li class="sidebar-item " data-index="22">
+          <li class="sidebar-item " data-index="23">
             <span class="item-icon">📱</span>
             <span class="item-title">M06 · تأكيد واستلام الطلب بالموبايل (Thank You)</span>
           </li>
         
-          <li class="sidebar-item " data-index="23">
+          <li class="sidebar-item " data-index="24">
             <span class="item-icon">📱</span>
             <span class="item-title">M07 · تسجيل الدخول وبوابة العملاء بالموبايل</span>
           </li>
         
-          <li class="sidebar-item " data-index="24">
+          <li class="sidebar-item " data-index="25">
             <span class="item-icon">📱</span>
             <span class="item-title">M08 · لوحة حسابي ودفتر العناوين بالموبايل</span>
           </li>
         
-          <li class="sidebar-item " data-index="25">
+          <li class="sidebar-item " data-index="26">
             <span class="item-icon">📱</span>
             <span class="item-title">M09 · سجل الطلبات السابقة بالموبايل</span>
           </li>
         
-          <li class="sidebar-item " data-index="26">
+          <li class="sidebar-item " data-index="27">
             <span class="item-icon">📱</span>
             <span class="item-title">M10 · لوحة إدارة الطلبات بالموبايل (Admin Mobile)</span>
           </li>
         
-          <li class="sidebar-item " data-index="27">
+          <li class="sidebar-item " data-index="28">
             <span class="item-icon">🖼️</span>
             <span class="item-title">Showcase · بانوراما هواتف الموبايل المجمعة</span>
           </li>
@@ -803,8 +811,25 @@
 
         <div class="frames-row">
           
-          <!-- Frame 0: 01 -->
-          <div class="figma-frame desktop-frame selected" data-frame-index="0" id="frame-0">
+          <!-- Frame 0: 00 -->
+          <div class="figma-frame desktop-frame selected" data-frame-index="0" id="frame-palette">
+            <div class="frame-label">
+              <span class="frame-hash">#</span>
+              <span>00 · دليل الألوان ونظام التصميم (Design System & Color Tokens)</span>
+              <span class="frame-dims">1440 × 1100</span>
+            </div>
+            <div class="frame-card">
+              <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
+              <div class="frame-hover-actions">
+                <button class="frame-btn" onclick="openFocusModal(0); event.stopPropagation();">👁️ تكبير</button>
+                <a href="00_دليل_الألوان_وهوية_التصميم_Design_System_Color_Palette.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
+              </div>
+              <img src="00_دليل_الألوان_وهوية_التصميم_Design_System_Color_Palette.png" alt="00 دليل الألوان ونظام التصميم (Design System & Color Tokens)" loading="eager">
+            </div>
+          </div>
+        
+          <!-- Frame 1: 01 -->
+          <div class="figma-frame desktop-frame " data-frame-index="1" id="frame-0">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>01 · الصفحة الرئيسية (Desktop Storefront)</span>
@@ -813,15 +838,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(0); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(1); event.stopPropagation();">👁️ تكبير</button>
                 <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="01_الصفحة_الرئيسية_Desktop_Homepage.png" alt="01 الصفحة الرئيسية (Desktop Storefront)" loading="eager">
             </div>
           </div>
         
-          <!-- Frame 1: 02 -->
-          <div class="figma-frame desktop-frame " data-frame-index="1" id="frame-1">
+          <!-- Frame 2: 02 -->
+          <div class="figma-frame desktop-frame " data-frame-index="2" id="frame-1">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>02 · صفحة تفاصيل المنتج والمواصفات (Product Details)</span>
@@ -830,15 +855,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(1); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(2); event.stopPropagation();">👁️ تكبير</button>
                 <a href="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png" alt="02 صفحة تفاصيل المنتج والمواصفات (Product Details)" loading="eager">
             </div>
           </div>
         
-          <!-- Frame 2: 03 -->
-          <div class="figma-frame desktop-frame " data-frame-index="2" id="frame-2">
+          <!-- Frame 3: 03 -->
+          <div class="figma-frame desktop-frame " data-frame-index="3" id="frame-2">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>03 · الفلاتر والبحث التقني (Catalog & Filters)</span>
@@ -847,15 +872,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(2); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(3); event.stopPropagation();">👁️ تكبير</button>
                 <a href="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png" alt="03 الفلاتر والبحث التقني (Catalog & Filters)" loading="eager">
             </div>
           </div>
         
-          <!-- Frame 3: 04 -->
-          <div class="figma-frame desktop-frame " data-frame-index="3" id="frame-3">
+          <!-- Frame 4: 04 -->
+          <div class="figma-frame desktop-frame " data-frame-index="4" id="frame-3">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>04 · جدول مقارنة المواصفات (Comparison Matrix)</span>
@@ -864,15 +889,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(3); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(4); event.stopPropagation();">👁️ تكبير</button>
                 <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
-              <img src="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" alt="04 جدول مقارنة المواصفات (Comparison Matrix)" loading="eager">
+              <img src="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" alt="04 جدول مقارنة المواصفات (Comparison Matrix)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 4: 05 -->
-          <div class="figma-frame desktop-frame " data-frame-index="4" id="frame-4">
+          <!-- Frame 5: 05 -->
+          <div class="figma-frame desktop-frame " data-frame-index="5" id="frame-4">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>05 · السلة وإتمام الطلب COD (One-Step Checkout)</span>
@@ -881,15 +906,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(4); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(5); event.stopPropagation();">👁️ تكبير</button>
                 <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" alt="05 السلة وإتمام الطلب COD (One-Step Checkout)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 5: 06 -->
-          <div class="figma-frame desktop-frame " data-frame-index="5" id="frame-5">
+          <!-- Frame 6: 06 -->
+          <div class="figma-frame desktop-frame " data-frame-index="6" id="frame-5">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>06 · صفحة تأكيد واستلام الطلب (Thank You Page)</span>
@@ -898,15 +923,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(5); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(6); event.stopPropagation();">👁️ تكبير</button>
                 <a href="08_صفحة_نجاح_الطلب_Desktop_Order_Success.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="08_صفحة_نجاح_الطلب_Desktop_Order_Success.png" alt="06 صفحة تأكيد واستلام الطلب (Thank You Page)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 6: 07 -->
-          <div class="figma-frame desktop-frame " data-frame-index="6" id="frame-6">
+          <!-- Frame 7: 07 -->
+          <div class="figma-frame desktop-frame " data-frame-index="7" id="frame-6">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>07 · تسجيل الدخول وبوابة العملاء (Customer Auth)</span>
@@ -915,15 +940,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(6); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(7); event.stopPropagation();">👁️ تكبير</button>
                 <a href="10_تسجيل_الدخول_وإنشاء_حساب_Desktop_Auth_Login.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="10_تسجيل_الدخول_وإنشاء_حساب_Desktop_Auth_Login.png" alt="07 تسجيل الدخول وبوابة العملاء (Customer Auth)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 7: 08 -->
-          <div class="figma-frame desktop-frame " data-frame-index="7" id="frame-7">
+          <!-- Frame 8: 08 -->
+          <div class="figma-frame desktop-frame " data-frame-index="8" id="frame-7">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>08 · لوحة حسابي ودفتر العناوين (Customer Profile)</span>
@@ -932,15 +957,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(7); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(8); event.stopPropagation();">👁️ تكبير</button>
                 <a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" alt="08 لوحة حسابي ودفتر العناوين (Customer Profile)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 8: 09 -->
-          <div class="figma-frame desktop-frame " data-frame-index="8" id="frame-8">
+          <!-- Frame 9: 09 -->
+          <div class="figma-frame desktop-frame " data-frame-index="9" id="frame-8">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>09 · سجل الطلبات السابقة (Order History)</span>
@@ -949,7 +974,7 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(8); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(9); event.stopPropagation();">👁️ تكبير</button>
                 <a href="12_سجل_الطلبات_السابقة_Desktop_Order_History.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="12_سجل_الطلبات_السابقة_Desktop_Order_History.png" alt="09 سجل الطلبات السابقة (Order History)" loading="lazy">
@@ -969,8 +994,8 @@
 
         <div class="frames-row">
           
-          <!-- Frame 9: A01 -->
-          <div class="figma-frame desktop-frame " data-frame-index="9" id="frame-9">
+          <!-- Frame 10: A01 -->
+          <div class="figma-frame desktop-frame " data-frame-index="10" id="frame-9">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>A01 · لوحة تحكم الإدارة العامة (Admin Overview)</span>
@@ -979,15 +1004,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(9); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(10); event.stopPropagation();">👁️ تكبير</button>
                 <a href="07_لوحة_التحكم_Admin_Dashboard_Overview.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="07_لوحة_التحكم_Admin_Dashboard_Overview.png" alt="A01 لوحة تحكم الإدارة العامة (Admin Overview)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 10: A02 -->
-          <div class="figma-frame desktop-frame " data-frame-index="10" id="frame-10">
+          <!-- Frame 11: A02 -->
+          <div class="figma-frame desktop-frame " data-frame-index="11" id="frame-10">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>A02 · إضافة وتعديل منتج بالمستودع (Add/Edit Product)</span>
@@ -996,15 +1021,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(10); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(11); event.stopPropagation();">👁️ تكبير</button>
                 <a href="13_إضافة_وتعديل_منتج_Desktop_Admin_Add_Product.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="13_إضافة_وتعديل_منتج_Desktop_Admin_Add_Product.png" alt="A02 إضافة وتعديل منتج بالمستودع (Add/Edit Product)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 11: A03 -->
-          <div class="figma-frame desktop-frame " data-frame-index="11" id="frame-11">
+          <!-- Frame 12: A03 -->
+          <div class="figma-frame desktop-frame " data-frame-index="12" id="frame-11">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>A03 · جدول إدارة ومتابعة الطلبات (Orders Management Table)</span>
@@ -1013,15 +1038,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(11); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(12); event.stopPropagation();">👁️ تكبير</button>
                 <a href="14_جدول_إدارة_الطلبات_Desktop_Admin_Orders_Table.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="14_جدول_إدارة_الطلبات_Desktop_Admin_Orders_Table.png" alt="A03 جدول إدارة ومتابعة الطلبات (Orders Management Table)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 12: A04 -->
-          <div class="figma-frame desktop-frame " data-frame-index="12" id="frame-12">
+          <!-- Frame 13: A04 -->
+          <div class="figma-frame desktop-frame " data-frame-index="13" id="frame-12">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>A04 · تفاصيل أمر الطلب الفردي (Admin Order Details)</span>
@@ -1030,15 +1055,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(12); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(13); event.stopPropagation();">👁️ تكبير</button>
                 <a href="15_تفاصيل_الطلب_إدارة_Desktop_Admin_Order_Details.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="15_تفاصيل_الطلب_إدارة_Desktop_Admin_Order_Details.png" alt="A04 تفاصيل أمر الطلب الفردي (Admin Order Details)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 13: A05 -->
-          <div class="figma-frame desktop-frame " data-frame-index="13" id="frame-13">
+          <!-- Frame 14: A05 -->
+          <div class="figma-frame desktop-frame " data-frame-index="14" id="frame-13">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>A05 · إدارة العملاء والشركات (Customers Management)</span>
@@ -1047,15 +1072,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(13); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(14); event.stopPropagation();">👁️ تكبير</button>
                 <a href="16_إدارة_العملاء_والشركات_Desktop_Admin_Customers.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="16_إدارة_العملاء_والشركات_Desktop_Admin_Customers.png" alt="A05 إدارة العملاء والشركات (Customers Management)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 14: A06 -->
-          <div class="figma-frame desktop-frame " data-frame-index="14" id="frame-14">
+          <!-- Frame 15: A06 -->
+          <div class="figma-frame desktop-frame " data-frame-index="15" id="frame-14">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>A06 · إدارة الأقسام والتصنيفات (Categories Management)</span>
@@ -1064,15 +1089,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(14); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(15); event.stopPropagation();">👁️ تكبير</button>
                 <a href="17_إدارة_الأقسام_والتصنيفات_Desktop_Admin_Categories.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="17_إدارة_الأقسام_والتصنيفات_Desktop_Admin_Categories.png" alt="A06 إدارة الأقسام والتصنيفات (Categories Management)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 15: A07 -->
-          <div class="figma-frame desktop-frame " data-frame-index="15" id="frame-15">
+          <!-- Frame 16: A07 -->
+          <div class="figma-frame desktop-frame " data-frame-index="16" id="frame-15">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>A07 · تقارير المبيعات والتحليلات (Sales & Analytics)</span>
@@ -1081,15 +1106,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(15); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(16); event.stopPropagation();">👁️ تكبير</button>
                 <a href="18_تقارير_المبيعات_والتحليلات_Desktop_Admin_Reports.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="18_تقارير_المبيعات_والتحليلات_Desktop_Admin_Reports.png" alt="A07 تقارير المبيعات والتحليلات (Sales & Analytics)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 16: A08 -->
-          <div class="figma-frame desktop-frame " data-frame-index="16" id="frame-16">
+          <!-- Frame 17: A08 -->
+          <div class="figma-frame desktop-frame " data-frame-index="17" id="frame-16">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>A08 · إعدادات المتجر والشحن وسياسة COD (Settings)</span>
@@ -1098,7 +1123,7 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(16); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(17); event.stopPropagation();">👁️ تكبير</button>
                 <a href="19_إعدادات_المتجر_والشحن_Desktop_Admin_Settings.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="19_إعدادات_المتجر_والشحن_Desktop_Admin_Settings.png" alt="A08 إعدادات المتجر والشحن وسياسة COD (Settings)" loading="lazy">
@@ -1118,8 +1143,8 @@
 
         <div class="frames-row">
           
-          <!-- Frame 17: M01 -->
-          <div class="figma-frame mobile-frame " data-frame-index="17" id="frame-17">
+          <!-- Frame 18: M01 -->
+          <div class="figma-frame mobile-frame " data-frame-index="18" id="frame-17">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M01 · الرئيسية بالموبايل (Mobile Homepage)</span>
@@ -1128,15 +1153,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(17); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(18); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png" alt="M01 الرئيسية بالموبايل (Mobile Homepage)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 18: M02 -->
-          <div class="figma-frame mobile-frame " data-frame-index="18" id="frame-18">
+          <!-- Frame 19: M02 -->
+          <div class="figma-frame mobile-frame " data-frame-index="19" id="frame-18">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M02 · صفحة تفاصيل المنتج بالموبايل</span>
@@ -1145,15 +1170,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(18); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(19); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png" alt="M02 صفحة تفاصيل المنتج بالموبايل" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 19: M03 -->
-          <div class="figma-frame mobile-frame " data-frame-index="19" id="frame-19">
+          <!-- Frame 20: M03 -->
+          <div class="figma-frame mobile-frame " data-frame-index="20" id="frame-19">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M03 · الفلاتر وتصفح الكتالوج بالموبايل</span>
@@ -1162,15 +1187,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(19); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(20); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png" alt="M03 الفلاتر وتصفح الكتالوج بالموبايل" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 20: M04 -->
-          <div class="figma-frame mobile-frame " data-frame-index="20" id="frame-20">
+          <!-- Frame 21: M04 -->
+          <div class="figma-frame mobile-frame " data-frame-index="21" id="frame-20">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M04 · السلة وإتمام الطلب COD بالموبايل</span>
@@ -1179,15 +1204,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(20); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(21); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png" alt="M04 السلة وإتمام الطلب COD بالموبايل" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 21: M05 -->
-          <div class="figma-frame mobile-frame " data-frame-index="21" id="frame-21">
+          <!-- Frame 22: M05 -->
+          <div class="figma-frame mobile-frame " data-frame-index="22" id="frame-21">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M05 · مقارنة الموديلات بالسحب بالموبايل</span>
@@ -1196,15 +1221,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(21); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(22); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png" alt="M05 مقارنة الموديلات بالسحب بالموبايل" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 22: M06 -->
-          <div class="figma-frame mobile-frame " data-frame-index="22" id="frame-22">
+          <!-- Frame 23: M06 -->
+          <div class="figma-frame mobile-frame " data-frame-index="23" id="frame-22">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M06 · تأكيد واستلام الطلب بالموبايل (Thank You)</span>
@@ -1213,15 +1238,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(22); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(23); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_06_نجاح_الطلب_Mobile_Order_Success.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_06_نجاح_الطلب_Mobile_Order_Success.png" alt="M06 تأكيد واستلام الطلب بالموبايل (Thank You)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 23: M07 -->
-          <div class="figma-frame mobile-frame " data-frame-index="23" id="frame-23">
+          <!-- Frame 24: M07 -->
+          <div class="figma-frame mobile-frame " data-frame-index="24" id="frame-23">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M07 · تسجيل الدخول وبوابة العملاء بالموبايل</span>
@@ -1230,15 +1255,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(23); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(24); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_08_تسجيل_الدخول_وحساب_جديد_Mobile_Auth_Login.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_08_تسجيل_الدخول_وحساب_جديد_Mobile_Auth_Login.png" alt="M07 تسجيل الدخول وبوابة العملاء بالموبايل" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 24: M08 -->
-          <div class="figma-frame mobile-frame " data-frame-index="24" id="frame-24">
+          <!-- Frame 25: M08 -->
+          <div class="figma-frame mobile-frame " data-frame-index="25" id="frame-24">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M08 · لوحة حسابي ودفتر العناوين بالموبايل</span>
@@ -1247,15 +1272,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(24); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(25); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_09_لوحة_حسابي_والعناوين_Mobile_Customer_Profile.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_09_لوحة_حسابي_والعناوين_Mobile_Customer_Profile.png" alt="M08 لوحة حسابي ودفتر العناوين بالموبايل" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 25: M09 -->
-          <div class="figma-frame mobile-frame " data-frame-index="25" id="frame-25">
+          <!-- Frame 26: M09 -->
+          <div class="figma-frame mobile-frame " data-frame-index="26" id="frame-25">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M09 · سجل الطلبات السابقة بالموبايل</span>
@@ -1264,15 +1289,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(25); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(26); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_10_سجل_طلباتي_السابقة_Mobile_Order_History.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_10_سجل_طلباتي_السابقة_Mobile_Order_History.png" alt="M09 سجل الطلبات السابقة بالموبايل" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 26: M10 -->
-          <div class="figma-frame mobile-frame " data-frame-index="26" id="frame-26">
+          <!-- Frame 27: M10 -->
+          <div class="figma-frame mobile-frame " data-frame-index="27" id="frame-26">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>M10 · لوحة إدارة الطلبات بالموبايل (Admin Mobile)</span>
@@ -1281,15 +1306,15 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(26); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(27); event.stopPropagation();">👁️ تكبير</button>
                 <a href="Mobile_11_إدارة_الطلبات_والمنتجات_Mobile_Admin_Management.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="Mobile_11_إدارة_الطلبات_والمنتجات_Mobile_Admin_Management.png" alt="M10 لوحة إدارة الطلبات بالموبايل (Admin Mobile)" loading="lazy">
             </div>
           </div>
         
-          <!-- Frame 27: Showcase -->
-          <div class="figma-frame showcase-frame " data-frame-index="27" id="frame-27">
+          <!-- Frame 28: Showcase -->
+          <div class="figma-frame showcase-frame " data-frame-index="28" id="frame-27">
             <div class="frame-label">
               <span class="frame-hash">#</span>
               <span>Showcase · بانوراما هواتف الموبايل المجمعة</span>
@@ -1298,7 +1323,7 @@
             <div class="frame-card">
               <div class="handle tl"></div><div class="handle tr"></div><div class="handle bl"></div><div class="handle br"></div>
               <div class="frame-hover-actions">
-                <button class="frame-btn" onclick="openFocusModal(27); event.stopPropagation();">👁️ تكبير</button>
+                <button class="frame-btn" onclick="openFocusModal(28); event.stopPropagation();">👁️ تكبير</button>
                 <a href="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" download class="frame-btn" onclick="event.stopPropagation();">⬇️ تحميل</a>
               </div>
               <img src="06_نسخة_الموبايل_Mobile_Screens_Showcase.png" alt="Showcase بانوراما هواتف الموبايل المجمعة" loading="lazy">
@@ -1340,6 +1365,162 @@
     </button>
   </div>
 
+  <!-- Interactive Color Palette Modal -->
+  <div class="inspect-modal" id="palette-modal" onclick="closePaletteModal()">
+    <div class="modal-top-bar" onclick="event.stopPropagation()">
+      <div class="modal-title-box">
+        <span style="font-size:18px;">🎨</span>
+        <h2>لوحة ألوان متجر MESS TECH الرسمية (Design System Palette)</h2>
+      </div>
+      <div class="modal-actions">
+        <span style="font-size:12px; color:#94a3b8;">اضغط على أي كود لنسخه</span>
+        <button class="top-btn" onclick="closePaletteModal()">إغلاق ✕</button>
+      </div>
+    </div>
+    <div class="modal-body" style="padding:30px; display:block; max-width:1100px; margin:0 auto; cursor:default;" onclick="event.stopPropagation()">
+      
+      <!-- Brand Core -->
+      <h3 style="font-size:15px; color:#38bdf8; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+        🔷 ألوان العلامة التجارية الأساسية (Brand Core)
+      </h3>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:28px;">
+        
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#0099e5;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Electric Cyan (رئيسي)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">أزرار البحث، التحديدات، وأضف للسلة</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#38bdf8; font-weight:700;">#0099E5</code>
+              <button onclick="navigator.clipboard.writeText('#0099E5'); alert('تم نسخ: #0099E5');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#38bdf8;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Sky Glow (مضيء)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">النصوص المميزة والروابط النشطة</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#38bdf8; font-weight:700;">#38BDF8</code>
+              <button onclick="navigator.clipboard.writeText('#38BDF8'); alert('تم نسخ: #38BDF8');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#0b1120; border-bottom:1px solid #334155;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Deep Navy (كحلي تكنولوجي)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">الهيدر، العناوين، وبطاقات الديسكتوب</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#38bdf8; font-weight:700;">#0B1120</code>
+              <button onclick="navigator.clipboard.writeText('#0B1120'); alert('تم نسخ: #0B1120');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#070d18; border-bottom:1px solid #334155;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Midnight Black (الفوتر)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">الفوتر، الشريط العلوي، وإطار الآيفون</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#38bdf8; font-weight:700;">#070D18</code>
+              <button onclick="navigator.clipboard.writeText('#070D18'); alert('تم نسخ: #070D18');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Functional Accents -->
+      <h3 style="font-size:15px; color:#10b981; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+        ⚡ ألوان التفاعل والتجارة الإلكترونية (E-Commerce Accents)
+      </h3>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:28px;">
+        
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#10b981;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Emerald Green (الدفع والاستلام)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">الدفع عند الاستلام COD وشارات التوفر</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#34d399; font-weight:700;">#10B981</code>
+              <button onclick="navigator.clipboard.writeText('#10B981'); alert('تم نسخ: #10B981');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#f59e0b;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Warm Amber (شراء الآن)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">زر الشراء السريع ونجوم التقييم</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#fbbf24; font-weight:700;">#F59E0B</code>
+              <button onclick="navigator.clipboard.writeText('#F59E0B'); alert('تم نسخ: #F59E0B');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#f43f5e;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Crimson Rose (المفضلة)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">أيقونة المفضلة وشارات الخصومات</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#fb7185; font-weight:700;">#F43F5E</code>
+              <button onclick="navigator.clipboard.writeText('#F43F5E'); alert('تم نسخ: #F43F5E');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#ffffff;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Pure White (كروت المنتجات)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">خلفيات الكروت البيضاء والقوائم</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#fff; font-weight:700;">#FFFFFF</code>
+              <button onclick="navigator.clipboard.writeText('#FFFFFF'); alert('تم نسخ: #FFFFFF');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Neutrals -->
+      <h3 style="font-size:15px; color:#94a3b8; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+        🌫️ الرماديات والأسطح (Surfaces & Neutrals)
+      </h3>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;">
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
+          <div style="height:30px; background:#f8fafc; border-radius:4px; margin-bottom:6px;"></div>
+          <div style="font-size:12px; font-weight:700; color:#fff;">خلفية الصفحات</div>
+          <code style="font-size:11px; color:#94a3b8;">#F8FAFC</code>
+        </div>
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
+          <div style="height:30px; background:#e2e8f0; border-radius:4px; margin-bottom:6px;"></div>
+          <div style="font-size:12px; font-weight:700; color:#fff;">الحدود والفواصل</div>
+          <code style="font-size:11px; color:#94a3b8;">#E2E8F0</code>
+        </div>
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
+          <div style="height:30px; background:#64748b; border-radius:4px; margin-bottom:6px;"></div>
+          <div style="font-size:12px; font-weight:700; color:#fff;">النصوص الثانوية</div>
+          <code style="font-size:11px; color:#94a3b8;">#64748B</code>
+        </div>
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
+          <div style="height:30px; background:#1e293b; border-radius:4px; margin-bottom:6px;"></div>
+          <div style="font-size:12px; font-weight:700; color:#fff;">فواصل الثيم الداكن</div>
+          <code style="font-size:11px; color:#94a3b8;">#1E293B</code>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Fullscreen Inspection Modal -->
   <div class="inspect-modal" id="inspect-modal" onclick="closeFocusModal()">
     <div class="modal-top-bar" onclick="event.stopPropagation()">
@@ -1376,7 +1557,7 @@
     const sidebarItems = document.querySelectorAll('.sidebar-item');
 
     // Frames metadata
-    const framesMeta = [{'id': 'frame-0', 'title': '01 · الصفحة الرئيسية (Desktop Storefront)', 'src': '01_الصفحة_الرئيسية_Desktop_Homepage.png'}, {'id': 'frame-1', 'title': '02 · صفحة تفاصيل المنتج والمواصفات (Product Details)', 'src': '02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png'}, {'id': 'frame-2', 'title': '03 · الفلاتر والبحث التقني (Catalog & Filters)', 'src': '03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png'}, {'id': 'frame-3', 'title': '04 · جدول مقارنة المواصفات (Comparison Matrix)', 'src': '04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png'}, {'id': 'frame-4', 'title': '05 · السلة وإتمام الطلب COD (One-Step Checkout)', 'src': '05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png'}, {'id': 'frame-5', 'title': '06 · صفحة تأكيد واستلام الطلب (Thank You Page)', 'src': '08_صفحة_نجاح_الطلب_Desktop_Order_Success.png'}, {'id': 'frame-6', 'title': '07 · تسجيل الدخول وبوابة العملاء (Customer Auth)', 'src': '10_تسجيل_الدخول_وإنشاء_حساب_Desktop_Auth_Login.png'}, {'id': 'frame-7', 'title': '08 · لوحة حسابي ودفتر العناوين (Customer Profile)', 'src': '11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png'}, {'id': 'frame-8', 'title': '09 · سجل الطلبات السابقة (Order History)', 'src': '12_سجل_الطلبات_السابقة_Desktop_Order_History.png'}, {'id': 'frame-9', 'title': 'A01 · لوحة تحكم الإدارة العامة (Admin Overview)', 'src': '07_لوحة_التحكم_Admin_Dashboard_Overview.png'}, {'id': 'frame-10', 'title': 'A02 · إضافة وتعديل منتج بالمستودع (Add/Edit Product)', 'src': '13_إضافة_وتعديل_منتج_Desktop_Admin_Add_Product.png'}, {'id': 'frame-11', 'title': 'A03 · جدول إدارة ومتابعة الطلبات (Orders Management Table)', 'src': '14_جدول_إدارة_الطلبات_Desktop_Admin_Orders_Table.png'}, {'id': 'frame-12', 'title': 'A04 · تفاصيل أمر الطلب الفردي (Admin Order Details)', 'src': '15_تفاصيل_الطلب_إدارة_Desktop_Admin_Order_Details.png'}, {'id': 'frame-13', 'title': 'A05 · إدارة العملاء والشركات (Customers Management)', 'src': '16_إدارة_العملاء_والشركات_Desktop_Admin_Customers.png'}, {'id': 'frame-14', 'title': 'A06 · إدارة الأقسام والتصنيفات (Categories Management)', 'src': '17_إدارة_الأقسام_والتصنيفات_Desktop_Admin_Categories.png'}, {'id': 'frame-15', 'title': 'A07 · تقارير المبيعات والتحليلات (Sales & Analytics)', 'src': '18_تقارير_المبيعات_والتحليلات_Desktop_Admin_Reports.png'}, {'id': 'frame-16', 'title': 'A08 · إعدادات المتجر والشحن وسياسة COD (Settings)', 'src': '19_إعدادات_المتجر_والشحن_Desktop_Admin_Settings.png'}, {'id': 'frame-17', 'title': 'M01 · الرئيسية بالموبايل (Mobile Homepage)', 'src': 'Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png'}, {'id': 'frame-18', 'title': 'M02 · صفحة تفاصيل المنتج بالموبايل', 'src': 'Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png'}, {'id': 'frame-19', 'title': 'M03 · الفلاتر وتصفح الكتالوج بالموبايل', 'src': 'Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png'}, {'id': 'frame-20', 'title': 'M04 · السلة وإتمام الطلب COD بالموبايل', 'src': 'Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png'}, {'id': 'frame-21', 'title': 'M05 · مقارنة الموديلات بالسحب بالموبايل', 'src': 'Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png'}, {'id': 'frame-22', 'title': 'M06 · تأكيد واستلام الطلب بالموبايل (Thank You)', 'src': 'Mobile_06_نجاح_الطلب_Mobile_Order_Success.png'}, {'id': 'frame-23', 'title': 'M07 · تسجيل الدخول وبوابة العملاء بالموبايل', 'src': 'Mobile_08_تسجيل_الدخول_وحساب_جديد_Mobile_Auth_Login.png'}, {'id': 'frame-24', 'title': 'M08 · لوحة حسابي ودفتر العناوين بالموبايل', 'src': 'Mobile_09_لوحة_حسابي_والعناوين_Mobile_Customer_Profile.png'}, {'id': 'frame-25', 'title': 'M09 · سجل الطلبات السابقة بالموبايل', 'src': 'Mobile_10_سجل_طلباتي_السابقة_Mobile_Order_History.png'}, {'id': 'frame-26', 'title': 'M10 · لوحة إدارة الطلبات بالموبايل (Admin Mobile)', 'src': 'Mobile_11_إدارة_الطلبات_والمنتجات_Mobile_Admin_Management.png'}, {'id': 'frame-27', 'title': 'Showcase · بانوراما هواتف الموبايل المجمعة', 'src': '06_نسخة_الموبايل_Mobile_Screens_Showcase.png'}];
+    const framesMeta = [{'id': 'frame-palette', 'title': '00 · دليل الألوان ونظام التصميم (Design System & Color Tokens)', 'src': '00_دليل_الألوان_وهوية_التصميم_Design_System_Color_Palette.png'}, {'id': 'frame-0', 'title': '01 · الصفحة الرئيسية (Desktop Storefront)', 'src': '01_الصفحة_الرئيسية_Desktop_Homepage.png'}, {'id': 'frame-1', 'title': '02 · صفحة تفاصيل المنتج والمواصفات (Product Details)', 'src': '02_صفحة_المنتج_والمواصفات_Desktop_Product_Details.png'}, {'id': 'frame-2', 'title': '03 · الفلاتر والبحث التقني (Catalog & Filters)', 'src': '03_صفحة_الفلاتر_والبحث_Desktop_Catalog_Filters.png'}, {'id': 'frame-3', 'title': '04 · جدول مقارنة المواصفات (Comparison Matrix)', 'src': '04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png'}, {'id': 'frame-4', 'title': '05 · السلة وإتمام الطلب COD (One-Step Checkout)', 'src': '05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png'}, {'id': 'frame-5', 'title': '06 · صفحة تأكيد واستلام الطلب (Thank You Page)', 'src': '08_صفحة_نجاح_الطلب_Desktop_Order_Success.png'}, {'id': 'frame-6', 'title': '07 · تسجيل الدخول وبوابة العملاء (Customer Auth)', 'src': '10_تسجيل_الدخول_وإنشاء_حساب_Desktop_Auth_Login.png'}, {'id': 'frame-7', 'title': '08 · لوحة حسابي ودفتر العناوين (Customer Profile)', 'src': '11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png'}, {'id': 'frame-8', 'title': '09 · سجل الطلبات السابقة (Order History)', 'src': '12_سجل_الطلبات_السابقة_Desktop_Order_History.png'}, {'id': 'frame-9', 'title': 'A01 · لوحة تحكم الإدارة العامة (Admin Overview)', 'src': '07_لوحة_التحكم_Admin_Dashboard_Overview.png'}, {'id': 'frame-10', 'title': 'A02 · إضافة وتعديل منتج بالمستودع (Add/Edit Product)', 'src': '13_إضافة_وتعديل_منتج_Desktop_Admin_Add_Product.png'}, {'id': 'frame-11', 'title': 'A03 · جدول إدارة ومتابعة الطلبات (Orders Management Table)', 'src': '14_جدول_إدارة_الطلبات_Desktop_Admin_Orders_Table.png'}, {'id': 'frame-12', 'title': 'A04 · تفاصيل أمر الطلب الفردي (Admin Order Details)', 'src': '15_تفاصيل_الطلب_إدارة_Desktop_Admin_Order_Details.png'}, {'id': 'frame-13', 'title': 'A05 · إدارة العملاء والشركات (Customers Management)', 'src': '16_إدارة_العملاء_والشركات_Desktop_Admin_Customers.png'}, {'id': 'frame-14', 'title': 'A06 · إدارة الأقسام والتصنيفات (Categories Management)', 'src': '17_إدارة_الأقسام_والتصنيفات_Desktop_Admin_Categories.png'}, {'id': 'frame-15', 'title': 'A07 · تقارير المبيعات والتحليلات (Sales & Analytics)', 'src': '18_تقارير_المبيعات_والتحليلات_Desktop_Admin_Reports.png'}, {'id': 'frame-16', 'title': 'A08 · إعدادات المتجر والشحن وسياسة COD (Settings)', 'src': '19_إعدادات_المتجر_والشحن_Desktop_Admin_Settings.png'}, {'id': 'frame-17', 'title': 'M01 · الرئيسية بالموبايل (Mobile Homepage)', 'src': 'Mobile_01_الصفحة_الرئيسية_Mobile_Homepage.png'}, {'id': 'frame-18', 'title': 'M02 · صفحة تفاصيل المنتج بالموبايل', 'src': 'Mobile_02_صفحة_المنتج_والمواصفات_Mobile_Product_Details.png'}, {'id': 'frame-19', 'title': 'M03 · الفلاتر وتصفح الكتالوج بالموبايل', 'src': 'Mobile_03_الفلاتر_وتصفح_المنتجات_Mobile_Catalog_Filters.png'}, {'id': 'frame-20', 'title': 'M04 · السلة وإتمام الطلب COD بالموبايل', 'src': 'Mobile_04_السلة_واتمام_الطلب_COD_Mobile_Checkout.png'}, {'id': 'frame-21', 'title': 'M05 · مقارنة الموديلات بالسحب بالموبايل', 'src': 'Mobile_05_مقارنة_الموديلات_Mobile_Product_Comparison.png'}, {'id': 'frame-22', 'title': 'M06 · تأكيد واستلام الطلب بالموبايل (Thank You)', 'src': 'Mobile_06_نجاح_الطلب_Mobile_Order_Success.png'}, {'id': 'frame-23', 'title': 'M07 · تسجيل الدخول وبوابة العملاء بالموبايل', 'src': 'Mobile_08_تسجيل_الدخول_وحساب_جديد_Mobile_Auth_Login.png'}, {'id': 'frame-24', 'title': 'M08 · لوحة حسابي ودفتر العناوين بالموبايل', 'src': 'Mobile_09_لوحة_حسابي_والعناوين_Mobile_Customer_Profile.png'}, {'id': 'frame-25', 'title': 'M09 · سجل الطلبات السابقة بالموبايل', 'src': 'Mobile_10_سجل_طلباتي_السابقة_Mobile_Order_History.png'}, {'id': 'frame-26', 'title': 'M10 · لوحة إدارة الطلبات بالموبايل (Admin Mobile)', 'src': 'Mobile_11_إدارة_الطلبات_والمنتجات_Mobile_Admin_Management.png'}, {'id': 'frame-27', 'title': 'Showcase · بانوراما هواتف الموبايل المجمعة', 'src': '06_نسخة_الموبايل_Mobile_Screens_Showcase.png'}];
 
     function applyTransform() {
       scale = Math.min(Math.max(scale, 0.03), 2.2);

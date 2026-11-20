@@ -6,6 +6,19 @@ ROOT_DIR = r"E:\mess"
 
 FRAMES_DATA = [
     # ==========================
+    # 0. DESIGN SYSTEM & COLOR PALETTE
+    # ==========================
+    {
+        "id": "frame-palette",
+        "section": "storefront",
+        "num": "00",
+        "title": "دليل الألوان ونظام التصميم (Design System & Color Tokens)",
+        "dims": "1440 × 1100",
+        "src": "00_دليل_الألوان_وهوية_التصميم_Design_System_Color_Palette.png",
+        "icon": "🎨"
+    },
+
+    # ==========================
     # 1. STOREFRONT & CUSTOMER PORTAL (9 Screens)
     # ==========================
     {
@@ -327,7 +340,7 @@ def generate_index():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no">
-  <title>MESS TECH | Figma Interactive UI/UX Design Board (28 Screens)</title>
+  <title>MESS TECH | Figma Interactive UI/UX Design Board (29 Frames)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -925,7 +938,7 @@ def generate_index():
       <div class="brand-title-wrap">
         <img src="assets/logo_white.png" class="brand-logo-img" alt="MESS TECH">
         <span class="project-name">MESS TECH UI/UX Board</span>
-        <span class="project-status">28 Frames</span>
+        <span class="project-status">29 Frames (Palette + UI)</span>
       </div>
     </div>
 
@@ -938,6 +951,9 @@ def generate_index():
     </div>
 
     <div class="top-actions">
+      <button class="top-btn" onclick="openPaletteModal();" style="background:rgba(0,153,229,0.15); border:1px solid rgba(0,153,229,0.4); color:#38bdf8; font-weight:700;">
+        🎨 لوحة الألوان (Palette)
+      </button>
       <button class="top-btn" id="btn-fit-screen" title="احتواء كامل الشاشات في مساحة الرؤية">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         احتواء الكل
@@ -958,7 +974,7 @@ def generate_index():
   <aside class="figma-sidebar" id="sidebar">
     <div class="sidebar-header">
       <h3>الطبقات والشاشات (Layers)</h3>
-      <span class="count-badge">28 Screens</span>
+      <span class="count-badge">29 Frames</span>
     </div>
 
     <ul class="sidebar-list">
@@ -1046,6 +1062,162 @@ def generate_index():
     <button class="tool-btn" id="tool-reset" title="حجم طبيعي 100% (Reset 100%)">
       <span class="mono" style="font-size:11px; font-weight:800;">1:1</span>
     </button>
+  </div>
+
+  <!-- Interactive Color Palette Modal -->
+  <div class="inspect-modal" id="palette-modal" onclick="closePaletteModal()">
+    <div class="modal-top-bar" onclick="event.stopPropagation()">
+      <div class="modal-title-box">
+        <span style="font-size:18px;">🎨</span>
+        <h2>لوحة ألوان متجر MESS TECH الرسمية (Design System Palette)</h2>
+      </div>
+      <div class="modal-actions">
+        <span style="font-size:12px; color:#94a3b8;">اضغط على أي كود لنسخه</span>
+        <button class="top-btn" onclick="closePaletteModal()">إغلاق ✕</button>
+      </div>
+    </div>
+    <div class="modal-body" style="padding:30px; display:block; max-width:1100px; margin:0 auto; cursor:default;" onclick="event.stopPropagation()">
+      
+      <!-- Brand Core -->
+      <h3 style="font-size:15px; color:#38bdf8; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+        🔷 ألوان العلامة التجارية الأساسية (Brand Core)
+      </h3>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:28px;">
+        
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#0099e5;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Electric Cyan (رئيسي)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">أزرار البحث، التحديدات، وأضف للسلة</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#38bdf8; font-weight:700;">#0099E5</code>
+              <button onclick="navigator.clipboard.writeText('#0099E5'); alert('تم نسخ: #0099E5');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#38bdf8;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Sky Glow (مضيء)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">النصوص المميزة والروابط النشطة</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#38bdf8; font-weight:700;">#38BDF8</code>
+              <button onclick="navigator.clipboard.writeText('#38BDF8'); alert('تم نسخ: #38BDF8');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#0b1120; border-bottom:1px solid #334155;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Deep Navy (كحلي تكنولوجي)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">الهيدر، العناوين، وبطاقات الديسكتوب</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#38bdf8; font-weight:700;">#0B1120</code>
+              <button onclick="navigator.clipboard.writeText('#0B1120'); alert('تم نسخ: #0B1120');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#070d18; border-bottom:1px solid #334155;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Midnight Black (الفوتر)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">الفوتر، الشريط العلوي، وإطار الآيفون</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#38bdf8; font-weight:700;">#070D18</code>
+              <button onclick="navigator.clipboard.writeText('#070D18'); alert('تم نسخ: #070D18');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Functional Accents -->
+      <h3 style="font-size:15px; color:#10b981; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+        ⚡ ألوان التفاعل والتجارة الإلكترونية (E-Commerce Accents)
+      </h3>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:28px;">
+        
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#10b981;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Emerald Green (الدفع والاستلام)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">الدفع عند الاستلام COD وشارات التوفر</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#34d399; font-weight:700;">#10B981</code>
+              <button onclick="navigator.clipboard.writeText('#10B981'); alert('تم نسخ: #10B981');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#f59e0b;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Warm Amber (شراء الآن)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">زر الشراء السريع ونجوم التقييم</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#fbbf24; font-weight:700;">#F59E0B</code>
+              <button onclick="navigator.clipboard.writeText('#F59E0B'); alert('تم نسخ: #F59E0B');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#f43f5e;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Crimson Rose (المفضلة)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">أيقونة المفضلة وشارات الخصومات</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#fb7185; font-weight:700;">#F43F5E</code>
+              <button onclick="navigator.clipboard.writeText('#F43F5E'); alert('تم نسخ: #F43F5E');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
+          <div style="height:60px; background:#ffffff;"></div>
+          <div style="padding:10px 12px;">
+            <div style="font-size:13px; font-weight:800; color:#fff;">Pure White (كروت المنتجات)</div>
+            <div style="font-size:11px; color:#94a3b8; margin:2px 0 6px;">خلفيات الكروت البيضاء والقوائم</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+              <code style="color:#fff; font-weight:700;">#FFFFFF</code>
+              <button onclick="navigator.clipboard.writeText('#FFFFFF'); alert('تم نسخ: #FFFFFF');" style="background:#1e293b; color:#fff; border:none; padding:2px 6px; border-radius:4px; font-size:10px; cursor:pointer;">نسخ</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Neutrals -->
+      <h3 style="font-size:15px; color:#94a3b8; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+        🌫️ الرماديات والأسطح (Surfaces & Neutrals)
+      </h3>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;">
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
+          <div style="height:30px; background:#f8fafc; border-radius:4px; margin-bottom:6px;"></div>
+          <div style="font-size:12px; font-weight:700; color:#fff;">خلفية الصفحات</div>
+          <code style="font-size:11px; color:#94a3b8;">#F8FAFC</code>
+        </div>
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
+          <div style="height:30px; background:#e2e8f0; border-radius:4px; margin-bottom:6px;"></div>
+          <div style="font-size:12px; font-weight:700; color:#fff;">الحدود والفواصل</div>
+          <code style="font-size:11px; color:#94a3b8;">#E2E8F0</code>
+        </div>
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
+          <div style="height:30px; background:#64748b; border-radius:4px; margin-bottom:6px;"></div>
+          <div style="font-size:12px; font-weight:700; color:#fff;">النصوص الثانوية</div>
+          <code style="font-size:11px; color:#94a3b8;">#64748B</code>
+        </div>
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
+          <div style="height:30px; background:#1e293b; border-radius:4px; margin-bottom:6px;"></div>
+          <div style="font-size:12px; font-weight:700; color:#fff;">فواصل الثيم الداكن</div>
+          <code style="font-size:11px; color:#94a3b8;">#1E293B</code>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Fullscreen Inspection Modal -->
