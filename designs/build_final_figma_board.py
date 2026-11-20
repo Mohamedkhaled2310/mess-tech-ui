@@ -10,7 +10,7 @@ FRAMES_DATA = [
     # ==========================
     {
         "id": "frame-palette",
-        "section": "storefront",
+        "section": "palette",
         "num": "00",
         "title": "دليل الألوان ونظام التصميم (Design System & Color Tokens)",
         "dims": "1440 × 1100",
@@ -149,7 +149,7 @@ FRAMES_DATA = [
         "title": "إدارة العملاء والشركات (Customers Management)",
         "dims": "1440 × 1350",
         "src": "16_إدارة_العملاء_والشركات_Desktop_Admin_Customers.png",
-        "icon": "🏢"
+        "icon": "👥"
     },
     {
         "id": "frame-14",
@@ -284,17 +284,19 @@ FRAMES_DATA = [
 ]
 
 def generate_index():
+    palette_frames = ""
     storefront_frames = ""
     admin_frames = ""
     mobile_frames = ""
     
+    sidebar_palette = ""
     sidebar_storefront = ""
     sidebar_admin = ""
     sidebar_mobile = ""
 
     for idx, item in enumerate(FRAMES_DATA):
         sec = item["section"]
-        is_desktop = sec in ["storefront", "admin"]
+        is_desktop = sec in ["palette", "storefront", "admin"]
         frame_cls = "desktop-frame" if is_desktop else ("showcase-frame" if item["num"] == "Showcase" else "mobile-frame")
         selected_cls = "selected" if idx == 0 else ""
         active_sidebar = "active" if idx == 0 else ""
@@ -325,7 +327,10 @@ def generate_index():
           </li>
         """
 
-        if sec == "storefront":
+        if sec == "palette":
+            palette_frames += frame_markup
+            sidebar_palette += sidebar_markup
+        elif sec == "storefront":
             storefront_frames += frame_markup
             sidebar_storefront += sidebar_markup
         elif sec == "admin":
@@ -339,12 +344,11 @@ def generate_index():
 <html dir="rtl" lang="ar">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no">
-  <title>MESS TECH | Figma Interactive UI/UX Design Board (29 Frames)</title>
+  <title>MESS TECH | لوحة التصاميم التفاعلية (Figma Canvas Showcase)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {{
       --figma-bg: #1e1e1e;
@@ -389,7 +393,7 @@ def generate_index():
 
     #viewport {{
       position: absolute;
-      top: 0;
+      top: 48px;
       left: 0;
       right: 0;
       bottom: 0;
@@ -414,7 +418,7 @@ def generate_index():
       display: flex;
       flex-direction: column;
       gap: 120px;
-      padding: 140px 100px 300px 100px;
+      padding: 120px 100px 300px 100px;
       will-change: transform;
     }}
 
@@ -513,60 +517,82 @@ def generate_index():
       box-shadow: 0 0 0 3px var(--figma-blue), 0 25px 60px rgba(0,0,0,0.8);
     }}
 
-    .handle {{
+    .frame-card .handle {{
       position: absolute;
       width: 10px;
       height: 10px;
       background: #fff;
       border: 1.5px solid var(--figma-blue);
       border-radius: 2px;
-      display: none;
+      opacity: 0;
+      pointer-events: none;
       z-index: 10;
+      transition: opacity 0.15s ease;
     }}
-    .figma-frame.selected .handle {{ display: block; }}
+    .figma-frame.selected .handle {{ opacity: 1; }}
     .handle.tl {{ top: -5px; left: -5px; }}
     .handle.tr {{ top: -5px; right: -5px; }}
     .handle.bl {{ bottom: -5px; left: -5px; }}
     .handle.br {{ bottom: -5px; right: -5px; }}
 
-    .figma-frame.desktop-frame {{ width: 1440px; }}
-    .figma-frame.desktop-frame img {{ width: 1440px; height: auto; display: block; }}
+    .desktop-frame .frame-card {{
+      width: 1440px;
+    }}
+    .desktop-frame img {{
+      width: 1440px;
+      height: auto;
+      display: block;
+    }}
 
-    .figma-frame.mobile-frame {{ width: 540px; }}
-    .figma-frame.mobile-frame img {{ width: 540px; height: auto; display: block; }}
+    .mobile-frame .frame-card {{
+      width: 440px;
+      border-radius: 46px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.12);
+    }}
+    .mobile-frame img {{
+      width: 440px;
+      height: auto;
+      display: block;
+    }}
 
-    .figma-frame.showcase-frame {{ width: 1440px; }}
-    .figma-frame.showcase-frame img {{ width: 1440px; height: auto; display: block; }}
+    .showcase-frame .frame-card {{
+      width: 1440px;
+    }}
+    .showcase-frame img {{
+      width: 1440px;
+      height: auto;
+      display: block;
+    }}
 
     .frame-hover-actions {{
       position: absolute;
       top: 14px;
-      right: 14px;
+      left: 14px;
       display: flex;
       gap: 8px;
+      z-index: 15;
       opacity: 0;
-      transform: translateY(-6px);
+      transform: translateY(-4px);
       transition: all 0.2s ease;
-      z-index: 20;
     }}
     .figma-frame:hover .frame-hover-actions {{
       opacity: 1;
       transform: translateY(0);
     }}
     .frame-btn {{
-      background: rgba(30, 30, 30, 0.9);
+      background: rgba(30, 30, 30, 0.85);
+      border: 1px solid rgba(255,255,255,0.15);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 6px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
-      text-decoration: none;
+      backdrop-filter: blur(8px);
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      text-decoration: none;
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       transition: background 0.15s;
     }}
@@ -575,6 +601,9 @@ def generate_index():
       border-color: var(--figma-blue);
     }}
 
+    /* ========================================================= */
+    /* UPGRADED AUTHENTIC FIGMA TOPBAR                           */
+    /* ========================================================= */
     .figma-top-bar {{
       position: fixed;
       top: 0;
@@ -586,49 +615,54 @@ def generate_index():
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 16px;
+      padding: 0 14px;
       z-index: 100;
       box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      direction: ltr;
     }}
 
+    /* LEFT ZONE: Brand & Project */
     .top-left-brand {{
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }}
-
-    .figma-menu-icon {{
+    .figma-brand-mark {{
       width: 32px;
       height: 32px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 6px;
-      color: #fff;
       cursor: pointer;
-      background: rgba(255,255,255,0.06);
-      transition: background 0.15s;
+      transition: all 0.15s;
     }}
-    .figma-menu-icon:hover {{
+    .figma-brand-mark:hover {{
       background: var(--figma-hover-bg);
+      border-color: rgba(255, 255, 255, 0.15);
     }}
-
-    .brand-title-wrap {{
+    .file-info-group {{
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }}
-    .brand-logo-img {{
-      height: 24px;
-      width: auto;
-    }}
-    .project-name {{
-      font-size: 13.5px;
+    .file-name {{
+      font-size: 13px;
       font-weight: 700;
       color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
     }}
-    .project-status {{
-      font-size: 11px;
+    .file-dropdown-icon {{
+      font-size: 10px;
+      color: var(--figma-text-secondary);
+    }}
+    .file-badge-version {{
+      font-size: 10.5px;
       font-weight: 700;
       color: #34d399;
       background: rgba(16, 185, 129, 0.12);
@@ -636,39 +670,72 @@ def generate_index():
       padding: 2px 8px;
       border-radius: 999px;
     }}
+    .file-badge-frames {{
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }}
 
-    .canvas-hint-pill {{
-      font-size: 12px;
-      color: var(--figma-text-secondary);
+    /* CENTER ZONE: Segmented Section Switcher */
+    .top-nav-switcher {{
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.04);
-      padding: 4px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--figma-panel-border);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 3px;
     }}
-    .canvas-hint-pill kbd {{
-      background: rgba(255,255,255,0.12);
+    .switcher-tab {{
+      background: transparent;
+      border: none;
+      color: var(--figma-text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }}
+    .switcher-tab:hover {{
+      background: rgba(255, 255, 255, 0.06);
       color: #fff;
+    }}
+    .switcher-tab.active {{
+      background: var(--figma-hover-bg);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }}
+    .tab-count {{
+      font-size: 10px;
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      background: rgba(255, 255, 255, 0.12);
       padding: 1px 6px;
       border-radius: 4px;
+      color: #cbd5e1;
     }}
 
-    .top-actions {{
+    /* RIGHT ZONE: Pro Figma Tools */
+    .top-right-tools {{
       display: flex;
       align-items: center;
       gap: 8px;
     }}
-    .top-btn {{
+    .top-tool-btn {{
       background: transparent;
-      border: 1px solid transparent;
+      border: 1px solid var(--figma-panel-border);
       color: var(--figma-text-primary);
       padding: 6px 12px;
       border-radius: 6px;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
@@ -676,19 +743,79 @@ def generate_index():
       gap: 6px;
       transition: all 0.15s;
     }}
-    .top-btn:hover {{
+    .top-tool-btn:hover {{
       background: var(--figma-hover-bg);
-      border-color: var(--figma-panel-border);
+      border-color: rgba(255,255,255,0.2);
     }}
-    .top-btn.primary {{
-      background: var(--figma-blue);
-      color: #fff;
+    .top-tool-btn.palette-btn {{
+      background: rgba(0, 153, 229, 0.12);
+      border-color: rgba(0, 153, 229, 0.35);
+      color: #38bdf8;
       font-weight: 700;
     }}
-    .top-btn.primary:hover {{
+    .top-tool-btn.palette-btn:hover {{
+      background: rgba(0, 153, 229, 0.22);
+      border-color: var(--figma-blue);
+    }}
+    .palette-swatch-dots {{
+      display: inline-flex;
+      gap: 3px;
+      align-items: center;
+    }}
+    .palette-swatch-dots span {{
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }}
+
+    .top-present-btn {{
+      background: var(--figma-blue);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+      box-shadow: 0 2px 8px rgba(13, 153, 255, 0.35);
+    }}
+    .top-present-btn:hover {{
       background: var(--figma-blue-hover);
     }}
 
+    /* Floating Canvas Help Badge (Bottom Left) */
+    .canvas-help-badge {{
+      position: fixed;
+      bottom: 22px;
+      left: 24px;
+      background: rgba(35, 35, 35, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--figma-panel-border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      color: var(--figma-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 80;
+      pointer-events: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }}
+    .canvas-help-badge kbd {{
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }}
+
+    /* Sidebar */
     .figma-sidebar {{
       position: fixed;
       top: 48px;
@@ -703,6 +830,7 @@ def generate_index():
       transform: translateX(0);
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: -6px 0 24px rgba(0,0,0,0.3);
+      direction: rtl;
     }}
 
     .figma-sidebar.collapsed {{
@@ -762,60 +890,30 @@ def generate_index():
       color: #fff;
     }}
     .sidebar-item.active {{
-      background: rgba(13, 153, 255, 0.18);
+      background: rgba(13, 153, 255, 0.12);
       color: var(--figma-blue);
       font-weight: 700;
     }}
-    .sidebar-item .item-icon {{
-      font-size: 14px;
-      opacity: 0.8;
-      width: 18px;
-      text-align: center;
-    }}
-    .sidebar-item .item-title {{
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      flex: 1;
-    }}
+    .item-icon {{ font-size: 14px; }}
+    .item-title {{ flex: 1; }}
 
-    .sidebar-reopen-btn {{
-      position: fixed;
-      top: 60px;
-      right: 16px;
-      z-index: 80;
-      background: var(--figma-panel-bg);
-      color: #fff;
-      border: 1px solid var(--figma-panel-border);
-      border-radius: 8px;
-      padding: 8px 14px;
-      font-size: 12.5px;
-      font-weight: 700;
-      display: none;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    }}
-    .figma-sidebar.collapsed ~ .sidebar-reopen-btn {{
-      display: flex;
-    }}
-
+    /* Floating Toolbar (Dock) */
     .figma-toolbar {{
       position: fixed;
-      bottom: 24px;
+      bottom: 22px;
       left: 50%;
       transform: translateX(-50%);
-      height: 48px;
       background: var(--figma-panel-bg);
       border: 1px solid var(--figma-panel-border);
-      border-radius: 24px;
+      border-radius: 999px;
+      height: 44px;
       padding: 0 8px;
       display: flex;
       align-items: center;
       gap: 4px;
       z-index: 100;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      direction: ltr;
     }}
     .tool-btn {{
       width: 36px;
@@ -858,13 +956,14 @@ def generate_index():
       background: var(--figma-hover-bg);
     }}
 
+    /* Inspect & Palette Modals */
     .inspect-modal {{
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(10, 10, 10, 0.92);
+      background: rgba(10, 10, 10, 0.94);
       backdrop-filter: blur(12px);
       z-index: 200;
       display: none;
@@ -873,12 +972,13 @@ def generate_index():
     .inspect-modal.active {{ display: flex; }}
     .modal-top-bar {{
       height: 52px;
-      background: rgba(30, 30, 30, 0.9);
+      background: rgba(30, 30, 30, 0.95);
       border-bottom: 1px solid var(--figma-panel-border);
       padding: 0 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      direction: ltr;
     }}
     .modal-title-box {{
       display: flex;
@@ -886,7 +986,7 @@ def generate_index():
       gap: 12px;
     }}
     .modal-title-box h2 {{
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 800;
       color: #fff;
     }}
@@ -913,62 +1013,98 @@ def generate_index():
       cursor: default;
     }}
 
-    @media (max-width: 768px) {{
+    @media (max-width: 1024px) {{
+      .top-nav-switcher {{ display: none; }}
+      .canvas-help-badge {{ display: none; }}
       .figma-sidebar {{
         width: 100%;
         transform: translateX(100%);
-      }}
-      .canvas-hint-pill {{
-        display: none;
-      }}
-      .figma-toolbar {{
-        bottom: 16px;
       }}
     }}
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
+  <!-- UPGRADED FIGMA TOPBAR -->
   <header class="figma-top-bar">
+    
+    <!-- LEFT: Figma Brand & Project Info -->
     <div class="top-left-brand">
-      <div class="figma-menu-icon" id="toggle-sidebar" title="الطبقات والشاشات (Layers)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <div class="figma-brand-mark" title="Figma UI Experience">
+        <!-- Official Figma Logo Icon -->
+        <svg width="15" height="22" viewBox="0 0 38 57" fill="none">
+          <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+          <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+          <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+          <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+          <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+        </svg>
       </div>
-      <div class="brand-title-wrap">
-        <img src="assets/logo_white.png" class="brand-logo-img" alt="MESS TECH">
-        <span class="project-name">MESS TECH UI/UX Board</span>
-        <span class="project-status">29 Frames (Palette + UI)</span>
+
+      <div class="file-info-group">
+        <span class="file-name" title="اسم الملف والمشروع">
+          MESS TECH E-Commerce
+          <span class="file-dropdown-icon">▾</span>
+        </span>
+        <span class="file-badge-version">v2.4 Ready</span>
+        <span class="file-badge-frames">29 Frames</span>
       </div>
     </div>
 
-    <div class="canvas-hint-pill">
-      <span>🖱️ اسحب بالماوس للتحريك (Pan)</span>
-      <span>•</span>
-      <span>بكرة الماوس للتكبير والتصغير (Zoom)</span>
-      <span>•</span>
-      <span><kbd>Space</kbd> + سحب</span>
-    </div>
+    <!-- CENTER: Segmented Section Switcher (Fast Jump) -->
+    <nav class="top-nav-switcher">
+      <button class="switcher-tab" data-target="palette" onclick="jumpToSection('palette')">
+        <span>🎨</span>
+        <span>الهوية والألوان</span>
+      </button>
+      <button class="switcher-tab active" data-target="storefront" onclick="jumpToSection('storefront')">
+        <span>💻</span>
+        <span>المتجر والعميل</span>
+        <span class="tab-count">9</span>
+      </button>
+      <button class="switcher-tab" data-target="admin" onclick="jumpToSection('admin')">
+        <span>🛠️</span>
+        <span>لوحة الإدارة</span>
+        <span class="tab-count">8</span>
+      </button>
+      <button class="switcher-tab" data-target="mobile" onclick="jumpToSection('mobile')">
+        <span>📱</span>
+        <span>شاشات الموبايل</span>
+        <span class="tab-count">11</span>
+      </button>
+    </nav>
 
-    <div class="top-actions">
-      <button class="top-btn" onclick="openPaletteModal();" style="background:rgba(0,153,229,0.15); border:1px solid rgba(0,153,229,0.4); color:#38bdf8; font-weight:700;">
-        🎨 لوحة الألوان (Palette)
+    <!-- RIGHT: Pro Figma Tools -->
+    <div class="top-right-tools">
+      <!-- Color Palette Modal Trigger -->
+      <button class="top-tool-btn palette-btn" onclick="openPaletteModal();" title="فتح لوحة الألوان الرسمية ورموز Hex">
+        <span class="palette-swatch-dots">
+          <span style="background:#0099e5;"></span>
+          <span style="background:#10b981;"></span>
+          <span style="background:#f59e0b;"></span>
+        </span>
+        <span>الألوان</span>
       </button>
-      <button class="top-btn" id="btn-fit-screen" title="احتواء كامل الشاشات في مساحة الرؤية">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        احتواء الكل
+
+      <!-- Fit Screen -->
+      <button class="top-tool-btn" id="btn-fit-screen" title="احتواء كامل الكانفاس في الشاشة (Fit All)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        <span>احتواء</span>
       </button>
-      <button class="top-btn primary" id="btn-download-all" onclick="openFocusModal(activeFrameIdx)">
-        معاينة الشاشة بملء العرض ↗
+
+      <!-- Present Mode (Full Screen Preview) -->
+      <button class="top-present-btn" onclick="openFocusModal(activeFrameIdx)" title="معاينة الشاشة بملء العرض (Present Mode)">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>معاينة (Present)</span>
+      </button>
+
+      <!-- Layers Sidebar Toggle -->
+      <button class="top-tool-btn" id="toggle-sidebar" title="إظهار / إخفاء قائمة الطبقات والشاشات (Layers)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        <span>الطبقات</span>
       </button>
     </div>
   </header>
-
-  <!-- Reopen Sidebar Pill -->
-  <button class="sidebar-reopen-btn" id="reopen-sidebar">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    <span>قائمة الشاشات (Layers)</span>
-  </button>
 
   <!-- Left Sidebar (Layers Navigator) -->
   <aside class="figma-sidebar" id="sidebar">
@@ -978,20 +1114,45 @@ def generate_index():
     </div>
 
     <ul class="sidebar-list">
+      <div class="sidebar-group-title">🎨 دليل الألوان ونظام التصميم (Design System)</div>
+      {sidebar_palette}
+
       <div class="sidebar-group-title">💻 شاشات المتجر وتجربة العميل (Desktop - 9)</div>
       {sidebar_storefront}
 
       <div class="sidebar-group-title">🛠️ شاشات لوحة تحكم الإدارة الكاملة (Admin Suite - 8)</div>
       {sidebar_admin}
 
-      <div class="sidebar-group-title">📱 شاشات وتجربة الهواتف الذكية (Mobile iOS - 11)</div>
+      <div class="sidebar-group-title">📱 شاشات الهواتف الذكية (Mobile iOS - 11)</div>
       {sidebar_mobile}
     </ul>
   </aside>
 
-  <!-- Figma Infinite Viewport -->
+  <!-- Floating Canvas Help Badge -->
+  <div class="canvas-help-badge">
+    <span>🖱️ اسحب للتحريك (Pan)</span>
+    <span>•</span>
+    <span>بكرة الماوس للتكبير والتصغير (Zoom)</span>
+    <span>•</span>
+    <span><kbd>Space</kbd> + سحب</span>
+  </div>
+
+  <!-- Interactive Infinite Canvas Viewport -->
   <div id="viewport">
     <div id="canvas-world">
+
+      <!-- SECTION 0: DESIGN SYSTEM & PALETTE -->
+      <section class="board-section" id="section-palette">
+        <div class="section-header-tag">
+          <span style="font-size:20px;">🎨</span>
+          <span class="title">دليل الألوان ونظام التصميم (Design System & Color Tokens)</span>
+          <span class="meta">Visual Style Guide</span>
+        </div>
+
+        <div class="frames-row">
+          {palette_frames}
+        </div>
+      </section>
 
       <!-- SECTION 1: STOREFRONT & CUSTOMER PORTAL -->
       <section class="board-section" id="section-storefront">
@@ -1072,17 +1233,17 @@ def generate_index():
         <h2>لوحة ألوان متجر MESS TECH الرسمية (Design System Palette)</h2>
       </div>
       <div class="modal-actions">
-        <span style="font-size:12px; color:#94a3b8;">اضغط على أي كود لنسخه</span>
-        <button class="top-btn" onclick="closePaletteModal()">إغلاق ✕</button>
+        <span style="font-size:12px; color:#94a3b8;">انقر على أي كود لنسخه فوراً</span>
+        <button class="top-tool-btn" onclick="closePaletteModal()">إغلاق ✕</button>
       </div>
     </div>
     <div class="modal-body" style="padding:30px; display:block; max-width:1100px; margin:0 auto; cursor:default;" onclick="event.stopPropagation()">
       
       <!-- Brand Core -->
-      <h3 style="font-size:15px; color:#38bdf8; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+      <h3 style="font-size:15px; color:#38bdf8; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px; text-align:right;">
         🔷 ألوان العلامة التجارية الأساسية (Brand Core)
       </h3>
-      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:28px;">
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:28px; text-align:right;">
         
         <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
           <div style="height:60px; background:#0099e5;"></div>
@@ -1135,10 +1296,10 @@ def generate_index():
       </div>
 
       <!-- Functional Accents -->
-      <h3 style="font-size:15px; color:#10b981; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+      <h3 style="font-size:15px; color:#10b981; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px; text-align:right;">
         ⚡ ألوان التفاعل والتجارة الإلكترونية (E-Commerce Accents)
       </h3>
-      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:28px;">
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:28px; text-align:right;">
         
         <div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; overflow:hidden;">
           <div style="height:60px; background:#10b981;"></div>
@@ -1191,10 +1352,10 @@ def generate_index():
       </div>
 
       <!-- Neutrals -->
-      <h3 style="font-size:15px; color:#94a3b8; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px;">
+      <h3 style="font-size:15px; color:#94a3b8; margin-bottom:14px; font-weight:800; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:6px; text-align:right;">
         🌫️ الرماديات والأسطح (Surfaces & Neutrals)
       </h3>
-      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;">
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; text-align:right;">
         <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px;">
           <div style="height:30px; background:#f8fafc; border-radius:4px; margin-bottom:6px;"></div>
           <div style="font-size:12px; font-weight:700; color:#fff;">خلفية الصفحات</div>
@@ -1228,8 +1389,8 @@ def generate_index():
         <h2 id="modal-frame-title">اسم الشاشة</h2>
       </div>
       <div class="modal-actions">
-        <a id="modal-download-link" href="#" download class="top-btn primary">تحميل الصورة بدقة Full HD ⬇️</a>
-        <button class="top-btn" onclick="closeFocusModal()">إغلاق ✕</button>
+        <a id="modal-download-link" href="#" download class="top-present-btn">تحميل الصورة بدقة Full HD ⬇️</a>
+        <button class="top-tool-btn" onclick="closeFocusModal()">إغلاق ✕</button>
       </div>
     </div>
     <div class="modal-body" id="modal-body">
@@ -1251,7 +1412,7 @@ def generate_index():
     const world = document.getElementById('canvas-world');
     const zoomText = document.getElementById('zoom-text');
     const sidebar = document.getElementById('sidebar');
-    const reopenBtn = document.getElementById('reopen-sidebar');
+    const toggleSidebar = document.getElementById('toggle-sidebar');
     const frames = document.querySelectorAll('.figma-frame');
     const sidebarItems = document.querySelectorAll('.sidebar-item');
 
@@ -1301,7 +1462,7 @@ def generate_index():
       }}
     }}
 
-    function animateCamera(targetX, targetY, targetScale, duration = 350) {{
+    function animateCamera(targetX, targetY, targetScale, duration = 380) {{
       const startX = panX;
       const startY = panY;
       const startScale = scale;
@@ -1321,6 +1482,40 @@ def generate_index():
         }}
       }}
       requestAnimationFrame(step);
+    }}
+
+    // Jump to section smoothly
+    function jumpToSection(target) {{
+      document.querySelectorAll('.switcher-tab').forEach(tab => {{
+        tab.classList.toggle('active', tab.dataset.target === target);
+      }});
+
+      let elId = 'section-storefront';
+      if (target === 'palette') elId = 'section-palette';
+      else if (target === 'admin') elId = 'section-admin';
+      else if (target === 'mobile') elId = 'section-mobile';
+
+      const secEl = document.getElementById(elId);
+      if (!secEl) return;
+
+      const worldRect = world.getBoundingClientRect();
+      const secRect = secEl.getBoundingClientRect();
+
+      const secWorldX = (secRect.left - worldRect.left) / scale;
+      const secWorldY = (secRect.top - worldRect.top) / scale;
+      const secW = secRect.width / scale;
+      const secH = secRect.height / scale;
+
+      const viewW = window.innerWidth;
+      const viewH = window.innerHeight;
+
+      let targetScale = Math.min((viewW - 160) / secW, (viewH - 160) / secH);
+      targetScale = Math.min(Math.max(targetScale, 0.08), 0.35);
+
+      const targetPanX = (viewW / 2) - ((secWorldX + secW / 2) * targetScale);
+      const targetPanY = (viewH / 2) - ((secWorldY + secH / 2) * targetScale);
+
+      animateCamera(targetPanX, targetPanY, targetScale, 420);
     }}
 
     // Mouse drag
@@ -1348,7 +1543,8 @@ def generate_index():
     viewport.addEventListener('wheel', (e) => {{
       e.preventDefault();
       const zoomFactor = e.ctrlKey ? 1.05 : 1.15;
-      const delta = e.deltaY > 0 ? (1 / zoomFactor) : zoomFactor;
+      const delta = e.deltaY < 0 ? zoomFactor : 1 / zoomFactor;
+
       const mouseX = e.clientX;
       const mouseY = e.clientY;
 
@@ -1357,169 +1553,125 @@ def generate_index():
       panX = mouseX - (mouseX - panX) * (newScale / scale);
       panY = mouseY - (mouseY - panY) * (newScale / scale);
       scale = newScale;
+
       applyTransform();
     }}, {{ passive: false }});
 
-    // Touch support (pinch to zoom & drag)
-    let touchStartDist = 0;
-    let touchStartScale = 1;
-    viewport.addEventListener('touchstart', (e) => {{
-      if (e.touches.length === 1) {{
-        isDragging = true;
-        startX = e.touches[0].clientX - panX;
-        startY = e.touches[0].clientY - panY;
-      }} else if (e.touches.length === 2) {{
-        isDragging = false;
-        touchStartDist = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-        touchStartScale = scale;
-      }}
-    }}, {{ passive: true }});
-
-    viewport.addEventListener('touchmove', (e) => {{
-      if (e.touches.length === 1 && isDragging) {{
-        panX = e.touches[0].clientX - startX;
-        panY = e.touches[0].clientY - startY;
-        applyTransform();
-      }} else if (e.touches.length === 2) {{
-        const dist = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-        if (touchStartDist > 0) {{
-          const factor = dist / touchStartDist;
-          scale = Math.min(Math.max(touchStartScale * factor, 0.03), 2.2);
-          applyTransform();
-        }}
-      }}
-    }}, {{ passive: true }});
-
-    viewport.addEventListener('touchend', () => {{
-      isDragging = false;
-      touchStartDist = 0;
-    }});
-
     // Frame click
-    frames.forEach((frame, idx) => {{
-      frame.addEventListener('click', (e) => {{
-        selectFrame(idx, false);
-      }});
-      frame.addEventListener('dblclick', (e) => {{
-        openFocusModal(idx);
+    frames.forEach((f, idx) => {{
+      f.addEventListener('click', (e) => {{
+        selectFrame(idx, true);
       }});
     }});
 
-    // Sidebar items click
-    sidebarItems.forEach((item) => {{
+    // Sidebar item click
+    sidebarItems.forEach((item, idx) => {{
       item.addEventListener('click', () => {{
-        const idx = parseInt(item.getAttribute('data-index'), 10);
         selectFrame(idx, true);
-        if (window.innerWidth < 768) {{
+        if (window.innerWidth <= 768) {{
           sidebar.classList.add('collapsed');
         }}
       }});
     }});
 
-    // Toolbar actions
-    document.getElementById('tool-zoom-in').addEventListener('click', () => {{
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight / 2;
-      const newScale = Math.min(scale * 1.25, 2.2);
-      panX = cx - (cx - panX) * (newScale / scale);
-      panY = cy - (cy - panY) * (newScale / scale);
-      scale = newScale;
-      applyTransform();
-    }});
-
-    document.getElementById('tool-zoom-out').addEventListener('click', () => {{
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight / 2;
-      const newScale = Math.max(scale / 1.25, 0.03);
-      panX = cx - (cx - panX) * (newScale / scale);
-      panY = cy - (cy - panY) * (newScale / scale);
-      scale = newScale;
-      applyTransform();
-    }});
-
-    document.getElementById('tool-reset').addEventListener('click', () => {{
-      animateCamera((window.innerWidth - 1440) / 2, 100, 1.0);
-    }});
-
-    document.getElementById('tool-fit').addEventListener('click', () => {{
-      fitAll();
-    }});
-
-    document.getElementById('btn-fit-screen').addEventListener('click', () => {{
-      fitAll();
-    }});
-
+    // Fit view
     function fitAll() {{
       const viewW = window.innerWidth;
       const viewH = window.innerHeight;
-      const worldW = 16000;
+      const worldW = 14500;
       const worldH = 6500;
 
-      const fitScale = Math.min((viewW - 100) / worldW, (viewH - 120) / worldH);
-      const safeScale = Math.min(Math.max(fitScale, 0.04), 0.12);
+      let targetScale = Math.min((viewW - 120) / worldW, (viewH - 120) / worldH);
+      targetScale = Math.min(Math.max(targetScale, 0.04), 0.16);
 
-      animateCamera(40, 70, safeScale);
+      animateCamera(40, 50, targetScale, 450);
     }}
 
+    document.getElementById('tool-fit').addEventListener('click', fitAll);
+    document.getElementById('btn-fit-screen').addEventListener('click', fitAll);
+
+    document.getElementById('tool-reset').addEventListener('click', () => {{
+      animateCamera(window.innerWidth / 4, 100, 1.0, 300);
+    }});
+    zoomText.addEventListener('click', () => {{
+      animateCamera(window.innerWidth / 4, 100, 1.0, 300);
+    }});
+
+    document.getElementById('tool-zoom-in').addEventListener('click', () => {{
+      const newScale = Math.min(scale * 1.3, 2.2);
+      animateCamera(panX, panY, newScale, 200);
+    }});
+    document.getElementById('tool-zoom-out').addEventListener('click', () => {{
+      const newScale = Math.max(scale / 1.3, 0.03);
+      animateCamera(panX, panY, newScale, 200);
+    }});
+
     // Toggle sidebar
-    const toggleSidebar = document.getElementById('toggle-sidebar');
     toggleSidebar.addEventListener('click', () => {{
       sidebar.classList.toggle('collapsed');
-    }});
-    reopenBtn.addEventListener('click', () => {{
-      sidebar.classList.remove('collapsed');
+      toggleSidebar.classList.toggle('active', !sidebar.classList.contains('collapsed'));
     }});
 
-    // Modal Inspection
-    const modal = document.getElementById('inspect-modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalTitle = document.getElementById('modal-frame-title');
-    const modalDownload = document.getElementById('modal-download-link');
+    // Modal Focus
+    function openFocusModal(idx) {{
+      const item = framesMeta[idx];
+      if (!item) return;
+      document.getElementById('modal-frame-title').textContent = item.title;
+      document.getElementById('modal-img').src = item.src;
+      document.getElementById('modal-download-link').href = item.src;
+      document.getElementById('inspect-modal').classList.add('active');
+    }}
 
-    window.openFocusModal = function(index) {{
-      const meta = framesMeta[index];
-      if (!meta) return;
-      modalTitle.textContent = meta.title;
-      modalImg.src = meta.src;
-      modalDownload.href = meta.src;
-      modalDownload.setAttribute('download', meta.src);
-      modal.classList.add('active');
-    }};
+    function closeFocusModal() {{
+      document.getElementById('inspect-modal').classList.remove('active');
+    }}
 
-    window.closeFocusModal = function() {{
-      modal.classList.remove('active');
-    }};
+    // Palette Modal
+    function openPaletteModal() {{
+      document.getElementById('palette-modal').classList.add('active');
+    }}
+    function closePaletteModal() {{
+      document.getElementById('palette-modal').classList.remove('active');
+    }}
 
-    document.addEventListener('keydown', (e) => {{
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {{
       if (e.key === 'Escape') {{
         closeFocusModal();
-      }} else if (e.key === '0' && (e.ctrlKey || e.metaKey)) {{
-        e.preventDefault();
-        fitAll();
-      }} else if (e.key === '1' && (e.ctrlKey || e.metaKey)) {{
-        e.preventDefault();
-        animateCamera((window.innerWidth - 1440) / 2, 100, 1.0);
+        closePaletteModal();
+      }} else if (e.key === 'f' || e.key === 'F') {{
+        if (!e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {{
+          fitAll();
+        }}
+      }} else if (e.key === 'p' || e.key === 'P') {{
+        if (!e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {{
+          openFocusModal(activeFrameIdx);
+        }}
+      }} else if (e.key === 'ArrowRight') {{
+        if (activeFrameIdx > 0) selectFrame(activeFrameIdx - 1, true);
+      }} else if (e.key === 'ArrowLeft') {{
+        if (activeFrameIdx < frames.length - 1) selectFrame(activeFrameIdx + 1, true);
       }}
     }});
 
+    // Init
     applyTransform();
+    selectFrame(0, false);
   </script>
 </body>
 </html>
 """
-    with open(os.path.join(ROOT_DIR, "index.html"), "w", encoding="utf-8") as f:
-        f.write(html)
-    print("Updated root index.html")
-
-    with open(os.path.join(DESIGNS_DIR, "index.html"), "w", encoding="utf-8") as f:
-        f.write(html)
-    print("Updated designs/index.html")
+    return html
 
 if __name__ == "__main__":
-    generate_index()
+    html_out = generate_index()
+    
+    root_file = os.path.join(ROOT_DIR, "index.html")
+    with open(root_file, "w", encoding="utf-8") as f:
+        f.write(html_out)
+    print("Updated root index.html")
+
+    designs_file = os.path.join(DESIGNS_DIR, "index.html")
+    with open(designs_file, "w", encoding="utf-8") as f:
+        f.write(html_out)
+    print("Updated designs/index.html")
