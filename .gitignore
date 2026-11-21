@@ -10,6 +10,10 @@ out/
 build/
 dist/
 
+# Mockups, HTML designs & Screenshots
+screenshots/
+designs/
+
 # Environment files
 .env*.local
 .env
