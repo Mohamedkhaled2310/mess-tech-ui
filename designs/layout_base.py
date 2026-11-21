@@ -12,13 +12,13 @@ os.makedirs(ASSETS_DIR, exist_ok=True)
 
 SHARED_CSS = """
 :root {
-  --navy-950: #070d18;
-  --navy-900: #0b1120;
-  --navy-850: #0f172a;
-  --navy-800: #172136;
-  --navy-700: #1e293b;
-  --navy-600: #334155;
-  --navy-500: #475569;
+  --navy-950: #0a3254; /* Lightened deep marine petrol (NOT black) */
+  --navy-900: #0f436d; /* Vibrant primary petrol */
+  --navy-850: #135282; /* Luminous petrol blue */
+  --navy-800: #18639c; /* Vivid petrol ocean */
+  --navy-700: #2076b4; /* Slate petrol blue */
+  --navy-600: #358ecb; /* Bright petrol accent */
+  --navy-500: #5fa8db; /* Soft petrol tint */
   --cyan-500: #0099e5;
   --cyan-400: #38bdf8;
   --cyan-600: #0284c7;

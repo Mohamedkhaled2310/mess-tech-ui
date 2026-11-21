@@ -2,1658 +2,1237 @@
 <html dir="rtl" lang="ar">
 <head>
   <meta charset="utf-8">
-  <title>MESS TECH | الصفحة الرئيسية - حلول الشبكات والبنية التحتية وأمن المعلومات</title>
+  <title>MESS TECH | المتجر التقني الأول لأجهزة الشبكات والاتصالات والإلكترونيات الأصلية</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    
-:root {
-  --navy-950: #070d18;
-  --navy-900: #0b1120;
-  --navy-850: #0f172a;
-  --navy-800: #172136;
-  --navy-700: #1e293b;
-  --navy-600: #334155;
-  --navy-500: #475569;
-  --cyan-500: #0099e5;
-  --cyan-400: #38bdf8;
-  --cyan-600: #0284c7;
-  --emerald-500: #10b981;
-  --emerald-600: #059669;
-  --amber-500: #f59e0b;
-  --rose-500: #ef4444;
-  --slate-100: #f1f5f9;
-  --slate-200: #e2e8f0;
-  --slate-400: #94a3b8;
-  --slate-500: #64748b;
-  --bg-page: #f8fafc;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
-body { background: var(--bg-page); color: var(--navy-900); direction: rtl; text-align: right; }
-.mono { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; }
-
-/* Top Header Bar */
-.top-notice-bar {
-  background: var(--navy-950);
-  color: var(--slate-400);
-  font-size: 12.5px;
-  padding: 8px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.badge-notice-header {
-  background: rgba(0, 153, 229, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(0, 153, 229, 0.35);
-  padding: 3px 12px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 11.5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
-
-/* Main Navbar */
-.main-nav {
-  background: var(--navy-900);
-  padding: 16px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  border-bottom: 2px solid var(--navy-700);
-}
-.brand-logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-.brand-logo-img {
-  height: 48px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* Search Bar */
-.search-wrapper {
-  flex: 1;
-  max-width: 680px;
-  position: relative;
-}
-.search-input-box {
-  display: flex;
-  align-items: center;
-  background: var(--navy-800);
-  border: 1.5px solid #2d3b55;
-  border-radius: 10px;
-  padding: 3px 6px;
-  transition: all 0.2s;
-}
-.search-input-box:focus-within {
-  border-color: var(--cyan-500);
-  box-shadow: 0 0 0 3px rgba(0, 153, 229, 0.2);
-}
-.search-category-dd {
-  background: transparent;
-  border: none;
-  border-left: 1px solid #2d3b55;
-  color: var(--slate-400);
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 12px;
-  outline: none;
-  cursor: pointer;
-}
-.search-input-field {
-  flex: 1;
-  background: transparent;
-  border: none;
-  padding: 10px 14px;
-  color: #fff;
-  font-size: 14px;
-  outline: none;
-}
-.search-input-field::placeholder { color: var(--slate-500); font-size: 13px; }
-.search-submit-btn {
-  background: var(--cyan-500);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 9px 20px;
-  font-size: 13.5px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-}
-.search-quick-tags {
-  display: flex;
-  gap: 8px;
-  margin-top: 6px;
-  font-size: 11.5px;
-  color: var(--slate-400);
-}
-.quick-tag {
-  background: rgba(255,255,255,0.06);
-  padding: 1px 8px;
-  border-radius: 4px;
-  color: var(--cyan-400);
-  text-decoration: none;
-}
-
-/* Header Action Buttons */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.nav-pill-btn {
-  background: var(--navy-800);
-  border: 1px solid #2d3b55;
-  color: #fff;
-  padding: 9px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  position: relative;
-}
-.pill-counter {
-  background: var(--cyan-500);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 1px 7px;
-  border-radius: 999px;
-}
-.pill-counter.green { background: var(--emerald-500); }
-.whatsapp-direct-btn {
-  background: #22c55e;
-  color: #fff;
-  border: none;
-  padding: 9px 16px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
-}
-
-/* Category Subnav */
-.subnav-bar {
-  background: var(--navy-850);
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid var(--navy-700);
-  white-space: nowrap;
-  overflow-x: hidden;
-  flex-wrap: nowrap;
-}
-.all-departments-pill {
-  background: var(--cyan-600);
-  color: #fff;
-  padding: 10px 18px;
-  font-size: 13px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: 14px;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  border-radius: 6px;
-}
-.subnav-links {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  list-style: none;
-  white-space: nowrap;
-  flex-wrap: nowrap;
-  margin: 0;
-  padding: 0;
-}
-.subnav-links li {
-  display: inline-block;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-.subnav-links a {
-  color: #cbd5e1;
-  padding: 13px 12px;
-  font-size: 12.5px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  border-bottom: 2px solid transparent;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-.subnav-links a:hover, .subnav-links a.active {
-  color: var(--cyan-400);
-  border-bottom-color: var(--cyan-400);
-  background: rgba(56, 189, 248, 0.05);
-}
-
-/* Footer */
-.footer-wrap {
-  background: var(--navy-950);
-  color: var(--slate-400);
-  padding: 56px 48px 24px;
-  border-top: 1px solid var(--navy-700);
-  margin-top: 70px;
-}
-.footer-container {
-  max-width: 1340px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.3fr;
-  gap: 48px;
-}
-.footer-col h5 {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 800;
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 10px;
-}
-.footer-col h5::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 36px;
-  height: 2.5px;
-  background: var(--cyan-500);
-}
-.footer-list { list-style: none; display: flex; flex-direction: column; gap: 11px; font-size: 13.5px; }
-.footer-list a { color: var(--slate-400); text-decoration: none; }
-.footer-bottom-bar {
-  max-width: 1340px;
-  margin: 40px auto 0;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-}
-
-
-    /* Hero Banner */
-    .hero-section {
-      background: radial-gradient(circle at 85% 30%, #172a4d 0%, #0b1120 70%);
-      color: #fff;
-      padding: 60px 48px;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--navy-700);
+    :root {
+      /* Extra Lightened Fresh Petrol Marine Palette (Never Black) */
+      --petrol-950: #0a3658; /* Luminous deep marine petrol */
+      --petrol-900: #0e4c77; /* Primary vibrant petrol */
+      --petrol-850: #125c90; /* Marine blue */
+      --petrol-800: #176ea9; /* Fresh petrol */
+      --petrol-750: #1c80c2;
+      --petrol-700: #2b92d4;
+      --petrol-500: #0099e5; /* Signature electric cyan */
+      --petrol-400: #38bdf8; /* Bright cyan highlight */
+      --petrol-100: #e0f2fe;
+      --petrol-50:  #f0f9ff;
+      --cyan-500: #0099e5;
+      --cyan-400: #38bdf8;
+      --cyan-600: #0284c7;
+      --emerald-500: #10b981;
+      --amber-500: #f59e0b;
+      --rose-500: #ef4444;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --bg-page: #f6fafd;
+      --text-main: #0c3352;
+      --text-muted: #4e6b87;
     }
-    .hero-container {
-      max-width: 1340px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 48px;
-    }
-    .hero-badge-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0, 153, 229, 0.15);
-      border: 1px solid rgba(0, 153, 229, 0.4);
-      color: var(--cyan-400);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .hero-title {
-      font-size: 40px;
-      line-height: 1.3;
-      font-weight: 900;
-      margin-bottom: 18px;
-      letter-spacing: -0.5px;
-    }
-    .hero-title span {
-      color: var(--cyan-400);
-      text-shadow: 0 0 20px rgba(0, 153, 229, 0.4);
-    }
-    .hero-subtitle {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #94a3b8;
-      margin-bottom: 28px;
-      max-width: 600px;
-    }
-    .hero-actions {
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+    body { background: var(--bg-page); color: var(--text-main); direction: rtl; text-align: right; }
+    .mono { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; }
+
+    /* Top Notice Bar */
+    .top-notice-bar {
+      background: #082d49;
+      color: #bae6fd;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 10px 48px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
-    .btn-primary-hero {
-      background: var(--cyan-500);
-      color: #fff;
-      font-size: 15px;
-      font-weight: 800;
-      padding: 13px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      box-shadow: 0 4px 18px rgba(0, 153, 229, 0.35);
-    }
-    .btn-secondary-hero {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 13px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .hero-trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 24px;
-    }
-    .hero-trust-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .hero-trust-icon {
-      width: 32px;
-      height: 32px;
-      background: rgba(0, 153, 229, 0.15);
-      color: var(--cyan-400);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-    }
-    .hero-trust-text {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #e2e8f0;
-      line-height: 1.4;
-    }
-
-    /* Hero Hardware Visual */
-    .hero-hardware-box {
-      background: #0f172a;
-      border: 1px solid #1e293b;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.05);
-      position: relative;
-    }
-    .hardware-tag {
-      position: absolute;
-      top: -12px;
-      right: 24px;
-      background: #10b981;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
+    .badge-notice-header {
+      background: rgba(0, 153, 229, 0.25);
+      color: #38bdf8;
+      border: 1px solid rgba(0, 153, 229, 0.5);
       padding: 3px 12px;
       border-radius: 999px;
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
-    }
-
-    /* Brand Strip */
-    .brand-ribbon {
-      background: #fff;
-      border-bottom: 1px solid var(--slate-200);
-      padding: 24px 48px;
-    }
-    .brand-container {
-      max-width: 1340px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-    .brand-title-lead {
-      font-size: 13px;
       font-weight: 800;
-      color: var(--slate-500);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .brand-logo-item {
-      font-weight: 900;
-      font-size: 18px;
-      color: #475569;
-      opacity: 0.8;
-      display: flex;
+      font-size: 12.5px;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      letter-spacing: 1px;
     }
 
-    /* Weekly Deals Section with Countdown */
-    .weekly-deals-section {
-      max-width: 1340px;
-      margin: 48px auto 0;
-      padding: 0 48px;
-    }
-    .deals-banner-header {
-      background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
-      border: 1px solid #334155;
-      border-radius: 16px;
-      padding: 24px 32px;
+    /* Main Navbar */
+    .main-nav {
+      background: linear-gradient(135deg, #0e5282 0%, #0a3d64 100%);
+      padding: 18px 48px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      color: #fff;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      gap: 28px;
+      border-bottom: 2px solid #08304f;
     }
-    .deals-title-wrap h3 {
-      font-size: 22px;
-      font-weight: 800;
-      color: #fff;
+    .brand-logo-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      text-decoration: none;
     }
-    .deals-countdown-box {
+    .brand-logo-img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Search Bar */
+    .search-wrapper {
+      flex: 1;
+      max-width: 680px;
+      position: relative;
+    }
+    .search-input-box {
+      display: flex;
+      align-items: center;
+      background: #093c62;
+      border: 1.5px solid #1a6499;
+      border-radius: 10px;
+      padding: 4px 6px;
+      transition: all 0.2s;
+    }
+    .search-input-box:focus-within {
+      border-color: var(--cyan-400);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+    }
+    .search-category-dd {
+      background: transparent;
+      border: none;
+      border-left: 1px solid #1a6499;
+      color: #e0f2fe;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 8px 12px;
+      outline: none;
+      cursor: pointer;
+    }
+    .search-input-field {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+    }
+    .search-input-field::placeholder { color: #93c5fd; font-size: 14px; }
+    .search-submit-btn {
+      background: linear-gradient(135deg, var(--cyan-600) 0%, var(--cyan-500) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 24px;
+      font-size: 14.5px;
+      font-weight: 800;
       display: flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
     }
-    .countdown-unit {
-      background: #172136;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      padding: 6px 12px;
-      text-align: center;
-      min-width: 52px;
+    .search-quick-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 7px;
+      font-size: 12.5px;
+      color: #bae6fd;
     }
-    .countdown-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 20px;
-      font-weight: 800;
-      color: #f59e0b;
-      display: block;
-      line-height: 1.1;
-    }
-    .countdown-label {
-      font-size: 10.5px;
-      color: #94a3b8;
+    .quick-tag {
+      background: rgba(255,255,255,0.1);
+      padding: 2px 10px;
+      border-radius: 4px;
+      color: #e0f2fe;
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    /* Products Grid */
-    .products-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .deal-card {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: 14px;
-      padding: 20px;
-      transition: all 0.2s;
-      position: relative;
+    /* Actions */
+    .nav-actions {
       display: flex;
-      flex-direction: column;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      align-items: center;
+      gap: 14px;
     }
-    .deal-card:hover {
-      border-color: var(--cyan-500);
-      box-shadow: 0 8px 24px rgba(0, 153, 229, 0.12);
-      transform: translateY(-2px);
-    }
-    .badge-discount {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: var(--rose-500);
+    .nav-pill-btn {
+      background: #093c62;
+      border: 1.5px solid #1a6499;
       color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
-    .badge-cod-card {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: rgba(16, 185, 129, 0.12);
-      color: #059669;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      font-size: 11px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: 700;
-      padding: 3px 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      position: relative;
+    }
+    .pill-counter {
+      background: var(--cyan-500);
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .pill-counter.green { background: var(--emerald-500); }
+
+    /* Subnav */
+    .subnav-bar {
+      background: #0c456f;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1.5px solid #08304f;
+      white-space: nowrap;
+    }
+    .all-departments-pill {
+      background: var(--cyan-600);
+      color: #fff;
+      padding: 12px 22px;
+      font-size: 14.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 16px;
+      cursor: pointer;
       border-radius: 6px;
     }
-    .card-img-wrap {
-      height: 150px;
+    .subnav-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+    .subnav-links a {
+      color: #f0f9ff;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 2.5px solid transparent;
+      transition: all 0.2s;
+    }
+    .subnav-links a:hover, .subnav-links a.active {
+      color: #38bdf8;
+      border-bottom-color: #38bdf8;
+    }
+
+    /* ========================================================================
+       HERO CAROUSEL BANNER (Full 16:9 / Panoramic Slider like PETA)
+       ======================================================================== */
+    .hero-carousel-wrap {
+      max-width: 1380px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+      position: relative;
+    }
+    .carousel-slider-box {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(14, 82, 130, 0.16);
+      border: 1.5px solid #bfdbfe;
+      background: #fff;
+      height: 380px;
+    }
+    .carousel-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .carousel-overlay-cta {
+      position: absolute;
+      bottom: 24px;
+      right: 32px;
+      background: rgba(10, 54, 88, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      padding: 12px 24px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .carousel-overlay-text {
+      color: #fff;
+      font-size: 14.5px;
+      font-weight: 800;
+    }
+    .carousel-overlay-btn {
+      background: linear-gradient(135deg, var(--cyan-600) 0%, var(--cyan-500) 100%);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #bfdbfe;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 20px 0 12px;
-      background: #f8fafc;
-      border-radius: 10px;
-      padding: 10px;
+      cursor: pointer;
+      color: var(--petrol-950);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      z-index: 10;
+      font-size: 20px;
+      font-weight: 800;
     }
-    .card-brand-model {
+    .carousel-arrow.prev { right: 20px; }
+    .carousel-arrow.next { left: 20px; }
+    .carousel-dots {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      justify-content: space-between;
+      gap: 8px;
+      z-index: 10;
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(14, 82, 130, 0.35);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      width: 30px;
+      background: var(--cyan-600);
+    }
+
+    /* ========================================================================
+       TRUST STRIP
+       ======================================================================== */
+    .trust-strip-wrap {
+      max-width: 1380px;
+      margin: 22px auto 0;
+      padding: 0 24px;
+    }
+    .trust-strip-grid {
+      background: #fff;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 16px 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      box-shadow: 0 4px 15px rgba(14, 82, 130, 0.05);
+    }
+    .trust-strip-item {
+      display: flex;
       align-items: center;
-      margin-bottom: 6px;
+      gap: 14px;
     }
-    .card-brand {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--cyan-600);
-      text-transform: uppercase;
-    }
-    .card-model-sku {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: #334155;
-      background: #f1f5f9;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-    .card-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy-900);
-      line-height: 1.5;
-      margin-bottom: 12px;
-      height: 44px;
-      overflow: hidden;
-    }
-    .specs-pill-strip {
+    .trust-strip-icon {
+      width: 48px;
+      height: 48px;
+      background: #eff6ff;
+      border-radius: 12px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 16px;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      border: 1px solid #dbeafe;
     }
-    .specs-pill {
-      background: #f1f5f9;
-      color: #475569;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
+    .trust-strip-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--petrol-950);
+      margin-bottom: 2px;
     }
-    .deal-progress-bar-wrap {
-      margin-bottom: 16px;
-    }
-    .deal-progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11.5px;
-      color: #64748b;
-      margin-bottom: 4px;
+    .trust-strip-desc {
+      font-size: 12.5px;
+      color: var(--slate-500);
       font-weight: 600;
     }
-    .progress-track {
-      height: 6px;
-      background: #e2e8f0;
-      border-radius: 999px;
-      overflow: hidden;
+
+    /* ========================================================================
+       SECTIONS & CATEGORY BANNERS (Like PETA Store)
+       ======================================================================== */
+    .section-wrap {
+      max-width: 1380px;
+      margin: 36px auto 0;
+      padding: 0 24px;
     }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #f59e0b, #ef4444);
-      border-radius: 999px;
-    }
-    .card-price-row {
+    .section-header-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px solid var(--slate-100);
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 12px;
     }
-    .price-current {
-      font-size: 20px;
+    .section-title-main {
+      font-size: 25px;
       font-weight: 900;
-      color: var(--navy-900);
+      color: var(--petrol-950);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .price-current small {
+    .section-view-more {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--cyan-600);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cat-banners-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+    .cat-banner-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(14, 82, 130, 0.12);
+      position: relative;
+      display: block;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1.5px solid #bfdbfe;
+    }
+    .cat-banner-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(14, 82, 130, 0.2);
+    }
+    .cat-banner-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ========================================================================
+       PRODUCT SHOWCASE GRID (Refined comfortable fonts)
+       ======================================================================== */
+    .products-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .product-box {
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 18px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+    }
+    .product-box:hover {
+      border-color: var(--cyan-500);
+      box-shadow: 0 8px 24px rgba(0, 153, 229, 0.12);
+    }
+    .product-badge-discount {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #ef4444;
+      color: #fff;
       font-size: 12px;
-      font-weight: 600;
-      color: #64748b;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      z-index: 2;
     }
-    .price-old {
+    .product-badge-hot {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #f59e0b;
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      z-index: 2;
+    }
+    .product-img-wrap {
+      height: 165px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      margin-bottom: 12px;
+      background: #f8fafc;
+      border-radius: 10px;
+    }
+    .product-img-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .product-brand-tag {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--cyan-600);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .product-name-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--petrol-950);
+      line-height: 1.5;
+      margin-bottom: 8px;
+      flex: 1;
+    }
+    .product-specs-list {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .spec-pill {
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .product-price-action-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid #f1f5f9;
+      margin-top: auto;
+    }
+    .price-value-now {
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--cyan-600);
+    }
+    .price-value-now small {
+      font-size: 13.5px;
+      color: #64748b;
+      font-weight: 700;
+    }
+    .price-value-before {
       font-size: 13px;
       color: #94a3b8;
       text-decoration: line-through;
     }
-    .card-btn-action {
-      background: var(--cyan-500);
+    .btn-add-cart {
+      background: linear-gradient(135deg, var(--cyan-600) 0%, var(--cyan-500) 100%);
       color: #fff;
       border: none;
-      padding: 9px 16px;
+      padding: 9px 18px;
       border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 800;
       cursor: pointer;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 6px;
-      white-space: nowrap;
-      flex-shrink: 0;
     }
 
-    /* Solution Categories Grid */
-    .categories-section {
-      max-width: 1340px;
-      margin: 56px auto 0;
-      padding: 0 48px;
+    /* Flash Deals Section */
+    .flash-deals-box {
+      background: linear-gradient(135deg, #0e5282 0%, #0a3d64 100%);
+      border-radius: 18px;
+      padding: 26px 32px;
+      color: #fff;
+      margin-bottom: 36px;
+      box-shadow: 0 10px 30px rgba(14, 82, 130, 0.16);
     }
-    .section-head {
+    .deals-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 24px;
+      align-items: center;
+      margin-bottom: 22px;
     }
-    .section-title {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--navy-900);
+    .deals-timer-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .section-subtitle {
-      font-size: 14px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-    .category-grid-6 {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
-    }
-    .cat-box {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: 12px;
-      padding: 20px 14px;
+    .timer-unit {
+      background: #093455;
+      border: 1px solid #1c5e90;
+      padding: 6px 14px;
+      border-radius: 8px;
       text-align: center;
-      transition: all 0.2s;
-      text-decoration: none;
+    }
+    .timer-val { font-size: 18px; font-weight: 900; color: #38bdf8; display: block; }
+    .timer-lbl { font-size: 11px; color: #bae6fd; font-weight: 700; }
+
+    /* Certified Brands Ribbon */
+    .brands-ribbon {
+      background: #fff;
+      border-top: 1.5px solid #bfdbfe;
+      border-bottom: 1.5px solid #bfdbfe;
+      padding: 24px 48px;
+      margin-top: 40px;
+    }
+    .brands-container {
+      max-width: 1380px;
+      margin: 0 auto;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
     }
-    .cat-box:hover {
-      border-color: var(--cyan-500);
-      box-shadow: 0 8px 20px rgba(0, 153, 229, 0.1);
-      transform: translateY(-3px);
-    }
-    .cat-box-icon {
-      width: 52px;
-      height: 52px;
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cyan-600);
-      margin-bottom: 12px;
-    }
-    .cat-box-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy-900);
-      margin-bottom: 4px;
-    }
-    .cat-box-count {
-      font-size: 12px;
-      color: #64748b;
-      font-weight: 500;
+    .brand-name {
+      font-size: 19px;
+      font-weight: 900;
+      color: #475569;
+      letter-spacing: 0.5px;
     }
 
-    /* Value Proposition Strip */
-    .value-strip {
-      max-width: 1340px;
-      margin: 60px auto 0;
-      padding: 0 48px;
+    /* Footer */
+    .footer-wrap {
+      background: linear-gradient(180deg, #0a3658 0%, #07253d 100%);
+      color: #cbd5e1;
+      padding: 56px 48px 24px;
+      border-top: 3.5px solid var(--cyan-500);
+      margin-top: 50px;
     }
-    .value-strip-container {
-      background: #0f172a;
-      border-radius: 16px;
-      padding: 36px 40px;
-      color: #fff;
+    .footer-container {
+      max-width: 1380px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      border: 1px solid #1e293b;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 40px;
     }
-    .value-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .value-icon-circle {
-      width: 44px;
-      height: 44px;
-      background: rgba(0, 153, 229, 0.15);
-      color: var(--cyan-400);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .value-item h4 {
-      font-size: 15px;
-      font-weight: 800;
+    .footer-col h5 {
       color: #fff;
-      margin-bottom: 4px;
+      font-size: 16.5px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      position: relative;
+      padding-bottom: 8px;
     }
-    .value-item p {
-      font-size: 12.5px;
+    .footer-col h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--cyan-400);
+    }
+    .footer-list { list-style: none; }
+    .footer-list li { margin-bottom: 10px; }
+    .footer-list a {
       color: #94a3b8;
-      line-height: 1.6;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-list a:hover { color: #38bdf8; }
+    .footer-bottom-bar {
+      max-width: 1380px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      color: #94a3b8;
     }
   </style>
 </head>
 <body>
 
-  
-    <!-- Top utility bar -->
-    <div class="top-notice-bar">
-      <div style="display:flex; align-items:center; gap:16px;">
-        <span class="badge-notice-header">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          شحن وتوصيل سريع لكافة المحافظات
-        </span>
-        <span style="color:var(--slate-400);">|</span>
-        <span style="color:#e2e8f0; font-size:12px;">✓ أجهزة أصلية معتمدة 100% &nbsp;•&nbsp; ✓ إرجاع واستبدال مجاني خلال 14 يوماً &nbsp;•&nbsp; ✓ فحص ومعاينة عند الاستلام</span>
+  <!-- Top Notice Bar -->
+  <div class="top-notice-bar">
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span class="badge-notice-header">معاينة وفحص قبل الدفع</span>
+      <span>جميع الأجهزة التقنية أصلية 100% بالضمان مع إمكانية الفحص الكامل عند الاستلام (COD)</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <span>خدمة العملاء والدعم المباشر: <b class="mono" style="color:#fff;">19824</b></span>
+      <span style="color:#64748b;">|</span>
+      <a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" style="color:#fff; text-decoration:none; font-weight:700;">حسابي / طلباتي</a>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-nav">
+    <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" class="brand-logo-wrap">
+      <img src="assets/logo_white.png" class="brand-logo-img" alt="MESS TECH Logo">
+    </a>
+
+    <!-- Instant Search -->
+    <div class="search-wrapper">
+      <div class="search-input-box">
+        <select class="search-category-dd">
+          <option>جميع الأقسام</option>
+          <option>سويتشات الشبكات</option>
+          <option>حلول الواي فاي</option>
+          <option>وحدات التخزين NAS</option>
+          <option>مغذيات الطاقة UPS</option>
+          <option>كبائن وراكات</option>
+        </select>
+        <input type="text" class="search-input-field" placeholder="ابحث باسم الجهاز، الموديل (WS-C2960X، U6-Pro) أو كود SKU...">
+        <button class="search-submit-btn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          بحث فوري
+        </button>
       </div>
-      <div style="display:flex; align-items:center; gap:20px;">
-        <span>خدمة العملاء: <b class="mono" style="color:#fff;">0100-MESS-TECH</b></span>
-        <span>|</span>
-        <a href="#" style="color:var(--cyan-400); text-decoration:none; font-weight:700;">English (LTR)</a>
-        <span>|</span>
-        <a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" style="color:#fff; text-decoration:none; font-weight:600;">حسابي / طلباتي</a>
+      <div class="search-quick-tags">
+        <span>الأكثر طلباً:</span>
+        <a href="#" class="quick-tag">سويتش سيسكو 24 بورت</a>
+        <a href="#" class="quick-tag">أكسس بوينت Wi-Fi 6</a>
+        <a href="#" class="quick-tag">سيرفر تخزين Synology</a>
+        <a href="#" class="quick-tag">مغذي طاقة UPS 1000VA</a>
       </div>
     </div>
 
-    <!-- Main Header -->
-    <header class="main-nav">
-      <a href="01_الصفحة_الرئيسية_Desktop_Homepage.png" class="brand-logo-wrap">
-        <img src="assets/logo_white.png" class="brand-logo-img" alt="MESS TECH Logo">
+    <!-- Actions -->
+    <div class="nav-actions">
+      <!-- Wishlist -->
+      <a href="#" class="nav-pill-btn" title="قائمة المفضلة">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>المفضلة</span>
+        <span class="pill-counter" style="background:#f43f5e;">4</span>
       </a>
 
-      <!-- Instant Search by Model/SKU -->
-      <div class="search-wrapper">
-        <div class="search-input-box">
-          <select class="search-category-dd">
-            <option>جميع الأقسام</option>
-            <option>سويتشات الشبكات</option>
-            <option>راوترات وسيرفرات</option>
-            <option>كاميرات وأنظمة مراقبة</option>
-            <option>أجهزة واي فاي وأكسس بوينت</option>
-            <option>مغذيات الطاقة UPS</option>
-            <option>راكات وكابلات</option>
-          </select>
-          <input type="text" class="search-input-field" placeholder="ابحث باسم المنتج، الموديل (مثل WS-C2960X، CCR2004) أو كود SKU...">
-          <button class="search-submit-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            بحث فوري
-          </button>
+      <!-- Compare -->
+      <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" class="nav-pill-btn" title="مقارنة المنتجات">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>المقارنة</span>
+        <span class="pill-counter">2</span>
+      </a>
+
+      <!-- Cart -->
+      <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" class="nav-pill-btn" title="سلة المشتريات">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span>السلة</span>
+        <span class="pill-counter green">2</span>
+      </a>
+
+      <!-- Profile -->
+      <a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" class="nav-pill-btn" style="background:#0c416a; border-color:var(--cyan-400);" title="حسابي">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>حسابي</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Subnav -->
+  <nav class="subnav-bar">
+    <div class="all-departments-pill">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <span>جميع أقسام المتجر</span>
+    </div>
+    <ul class="subnav-links">
+      <li><a href="#" class="active">سويتشات الشبكات</a></li>
+      <li><a href="#">راوترات وسيرفرات</a></li>
+      <li><a href="#">كاميرات ومراقبة IP</a></li>
+      <li><a href="#">أكسس بوينت Wi-Fi 6 & 7</a></li>
+      <li><a href="#">مغذيات الطاقة UPS</a></li>
+      <li><a href="#">راكات وكبائن السيرفرات</a></li>
+      <li><a href="#">كابلات وإكسسوارات الشبكة</a></li>
+      <li><a href="#" style="color:#38bdf8; font-weight:800;">🔥 العروض والتخفيضات</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========================================================================
+       HERO CAROUSEL SLIDER (Panoramic 16:9 Banner)
+       ======================================================================== -->
+  <section class="hero-carousel-wrap">
+    <div class="carousel-slider-box">
+      <img src="assets/banner_huawei_ekit.jpg" alt="Huawei eKit Smart Networking Solutions" class="carousel-banner-img">
+
+      <!-- Overlay CTA for Quick Shopping -->
+      <div class="carousel-overlay-cta">
+        <span class="carousel-overlay-text">⚡ عروض حصرية على أجهزة الشبكات وسويتشات Gigabit & PoE</span>
+        <a href="#switches-showcase" class="carousel-overlay-btn">
+          تسوق الآن
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
+      <!-- Controls -->
+      <div class="carousel-arrow prev">›</div>
+      <div class="carousel-arrow next">‹</div>
+      <div class="carousel-dots">
+        <span class="carousel-dot active"></span>
+        <span class="carousel-dot"></span>
+        <span class="carousel-dot"></span>
+        <span class="carousel-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TRUST STRIP
+       ======================================================================== -->
+  <section class="trust-strip-wrap">
+    <div class="trust-strip-grid">
+      <div class="trust-strip-item">
+        <div class="trust-strip-icon">💵</div>
+        <div>
+          <div class="trust-strip-title">الدفع عند الاستلام (COD)</div>
+          <div class="trust-strip-desc">معاينة وفحص المنتج قبل السداد</div>
         </div>
-        <div class="search-quick-tags">
-          <span>الأكثر بحثاً:</span>
-          <a href="#" class="quick-tag">سويتش 24 بورت PoE</a>
-          <a href="#" class="quick-tag">راوتر مايكروتك 10G</a>
-          <a href="#" class="quick-tag">أكسس بوينت Wi-Fi 6</a>
-          <a href="#" class="quick-tag">كاميرات مراقبة IP</a>
-          <a href="#" class="quick-tag">كابينة راك 9U</a>
+      </div>
+      <div class="trust-strip-item">
+        <div class="trust-strip-icon">🚚</div>
+        <div>
+          <div class="trust-strip-title">شحن سريع ومؤمّن</div>
+          <div class="trust-strip-desc">توصيل لكافة المحافظات خلال 24-48 ساعة</div>
+        </div>
+      </div>
+      <div class="trust-strip-item">
+        <div class="trust-strip-icon">🔄</div>
+        <div>
+          <div class="trust-strip-title">استبدال واسترجاع 14 يوماً</div>
+          <div class="trust-strip-desc">سياسة إرجاع مرنة ومجانية للمستهلك</div>
+        </div>
+      </div>
+      <div class="trust-strip-item">
+        <div class="trust-strip-icon">🛡️</div>
+        <div>
+          <div class="trust-strip-title">أجهزة أصلية 100% معتمدة</div>
+          <div class="trust-strip-desc">بالكرتونة الأصلية مع ضمان التوريد</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 1: CATEGORY FEATURE BANNERS (Switches, WiFi, Storage)
+       ======================================================================== -->
+  <section class="section-wrap" id="switches-showcase">
+    <div class="section-header-row">
+      <div class="section-title-main">
+        <span>📁</span>
+        <span>الأقسام الرئيسية الأكثر طلباً</span>
+      </div>
+      <a href="#" class="section-view-more">عرض كل الأقسام ←</a>
+    </div>
+
+    <!-- 3 Category Banner Cards (PETA Layout) -->
+    <div class="cat-banners-grid-3">
+      <a href="#" class="cat-banner-card">
+        <img src="assets/cat_banner_switches.jpg" alt="Switches" class="cat-banner-img">
+      </a>
+      <a href="#" class="cat-banner-card">
+        <img src="assets/cat_banner_wifi.jpg" alt="WIFI Solutions" class="cat-banner-img">
+      </a>
+      <a href="#" class="cat-banner-card">
+        <img src="assets/cat_banner_storage.jpg" alt="Storage" class="cat-banner-img">
+      </a>
+    </div>
+
+    <!-- Product Showcase Under Category: Switches -->
+    <div class="section-header-row" style="margin-top:10px;">
+      <div class="section-title-main" style="font-size:20px;">
+        <span style="color:var(--cyan-600);">🔌</span>
+        <span>سويتشات الشبكات وموزعات البيانات (Gigabit & PoE+)</span>
+      </div>
+      <a href="#" class="section-view-more">تسوق المزيد من السويتشات (24 موديل) ←</a>
+    </div>
+
+    <div class="products-showcase-grid">
+      <!-- Product 1 -->
+      <div class="product-box">
+        <span class="product-badge-discount">-17%</span>
+        <span class="product-badge-hot">HOT</span>
+        <div class="product-img-wrap">
+          <img src="assets/prod_cisco_sw.jpg" alt="Cisco Catalyst 2960X">
+        </div>
+        <div class="product-brand-tag">Cisco Systems</div>
+        <div class="product-name-title">سويتش سيسكو كاتاليست 2960X بورت جيجابت + 2 منفذ 10G SFP</div>
+        <div class="product-specs-list">
+          <span class="spec-pill">24 Ports GbE</span>
+          <span class="spec-pill">PoE+ 370W</span>
+          <span class="spec-pill">10G Uplink</span>
+        </div>
+        <div class="product-price-action-row">
+          <div>
+            <div class="price-value-now">18,480 <small>ج.م</small></div>
+            <div class="price-value-before">22,170 ج.م</div>
+          </div>
+          <button class="btn-add-cart">أضف للسلة</button>
         </div>
       </div>
 
-      <!-- Actions -->
-      <div class="nav-actions">
-        <!-- Wishlist -->
-        <a href="#" class="nav-pill-btn" title="قائمة المفضلة">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          <span>المفضلة</span>
-          <span class="pill-counter" style="background:#f43f5e;">4</span>
-        </a>
-
-        <!-- Compare -->
-        <a href="04_صفحة_مقارنة_المواصفات_Desktop_Product_Comparison.png" class="nav-pill-btn" title="مقارنة المنتجات">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          <span>المقارنة</span>
-          <span class="pill-counter">2</span>
-        </a>
-
-        <!-- Cart -->
-        <a href="05_صفحة_السلة_واتمام_الطلب_Desktop_Cart_Checkout_COD.png" class="nav-pill-btn" title="سلة المشتريات">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          <span>السلة</span>
-          <span class="pill-counter green">2</span>
-        </a>
-
-        <!-- User Profile -->
-        <a href="11_لوحة_حسابي_ودفتر_العناوين_Desktop_Customer_Profile.png" class="nav-pill-btn" style="background:var(--navy-700); border-color:var(--cyan-500);" title="حسابي">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span>حسابي</span>
-        </a>
-      </div>
-    </header>
-
-    <!-- Subnav -->
-    <nav class="subnav-bar">
-      <div class="all-departments-pill">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        <span>جميع أقسام المتجر</span>
-      </div>
-      <ul class="subnav-links">
-        <li><a href="#" class="">سويتشات الشبكات</a></li>
-        <li><a href="#" class="">راوترات وسيرفرات</a></li>
-        <li><a href="#" class="">كاميرات ومراقبة IP</a></li>
-        <li><a href="#" class="">أكسس بوينت Wi-Fi 6</a></li>
-        <li><a href="#" class="">مغذيات الطاقة UPS</a></li>
-        <li><a href="#" class="">راكات وكبائن</a></li>
-        <li><a href="#" class="">كابلات وإكسسوارات</a></li>
-        <li><a href="#" style="color:#38bdf8; font-weight:800;">🔥 العروض والتخفيضات</a></li>
-      </ul>
-    </nav>
-    
-
-  <!-- Hero Banner -->
-  <section class="hero-section">
-    <div class="hero-container">
-      <div>
-        <div class="hero-badge-live">
-          <span style="display:inline-block; width:8px; height:8px; background:#10b981; border-radius:999px;"></span>
-          متجركم الأول لأحدث أجهزة الشبكات والإلكترونيات وأنظمة المراقبة الذكية
+      <!-- Product 2 -->
+      <div class="product-box">
+        <span class="product-badge-discount">-17%</span>
+        <div class="product-img-wrap">
+          <img src="assets/prod_poe_sw.jpg" alt="MikroTik CRS328">
         </div>
-        <h1 class="hero-title">
-          تجهيز البنية التحتية والشبكات<br>
-          بأعلى معايير <span>Enterprise المعتمدة</span>
-        </h1>
-        <p class="hero-subtitle">
-          نوفر أحدث أجهزة السويتشات، الفايروول، الراوترات وأكسس بوينت لأكبر الماركات العالمية (Cisco, Fortinet, MikroTik, Ubiquiti) بأسعار تنافسية وأجهزة أصلية 100% معتمدة.
+        <div class="product-brand-tag">MikroTik RouterOS</div>
+        <div class="product-name-title">راوتر وسويتش مايكروتك CRS328 ذكي 24 بورت PoE مع 4 منافذ SFP+</div>
+        <div class="product-specs-list">
+          <span class="spec-pill">24 PoE Out</span>
+          <span class="spec-pill">4x 10G SFP+</span>
+          <span class="spec-pill">Dual Boot</span>
+        </div>
+        <div class="product-price-action-row">
+          <div>
+            <div class="price-value-now">12,346 <small>ج.م</small></div>
+            <div class="price-value-before">14,815 ج.م</div>
+          </div>
+          <button class="btn-add-cart">أضف للسلة</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-box">
+        <div class="product-img-wrap">
+          <img src="assets/prod_cisco_sw.jpg" alt="Cisco Catalyst 48 Port">
+        </div>
+        <div class="product-brand-tag">Cisco Systems</div>
+        <div class="product-name-title">سويتش سيسكو إنتربرايز 48 بورت جيجابت مع تغذية PoE كاملة</div>
+        <div class="product-specs-list">
+          <span class="spec-pill">48 Ports PoE</span>
+          <span class="spec-pill">740W Power</span>
+          <span class="spec-pill">Stackable</span>
+        </div>
+        <div class="product-price-action-row">
+          <div>
+            <div class="price-value-now">27,940 <small>ج.م</small></div>
+            <div class="price-value-before">33,520 ج.م</div>
+          </div>
+          <button class="btn-add-cart">أضف للسلة</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-box">
+        <span class="product-badge-discount">-20%</span>
+        <div class="product-img-wrap">
+          <img src="assets/prod_poe_sw.jpg" alt="Ruijie Reyee Switch">
+        </div>
+        <div class="product-brand-tag">Ruijie Reyee</div>
+        <div class="product-name-title">سويتش رويجي سحابي 16 بورت جيجابت مع إدارة كاملة عبر الموبايل</div>
+        <div class="product-specs-list">
+          <span class="spec-pill">16 GbE</span>
+          <span class="spec-pill">Cloud App</span>
+          <span class="spec-pill">Surge 6KV</span>
+        </div>
+        <div class="product-price-action-row">
+          <div>
+            <div class="price-value-now">6,750 <small>ج.م</small></div>
+            <div class="price-value-before">8,450 ج.م</div>
+          </div>
+          <button class="btn-add-cart">أضف للسلة</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 2: SECONDARY CATEGORY BANNERS (UPS, Attendance, Interactive)
+       ======================================================================== -->
+  <section class="section-wrap">
+    <!-- 3 Category Banner Cards -->
+    <div class="cat-banners-grid-3">
+      <a href="#" class="cat-banner-card">
+        <img src="assets/cat_banner_ups.jpg" alt="UPS Power" class="cat-banner-img">
+      </a>
+      <a href="#" class="cat-banner-card">
+        <img src="assets/cat_banner_attendance.jpg" alt="Attendance" class="cat-banner-img">
+      </a>
+      <a href="#" class="cat-banner-card">
+        <img src="assets/cat_banner_screen.jpg" alt="Interactive Screens" class="cat-banner-img">
+      </a>
+    </div>
+
+    <!-- Product Showcase Under Category: WiFi & Storage -->
+    <div class="section-header-row" style="margin-top:10px;">
+      <div class="section-title-main" style="font-size:20px;">
+        <span style="color:var(--cyan-600);">📡</span>
+        <span>أجهزة الواي فاي وسيرفرات التخزين السحابية (Wi-Fi 6 & NAS)</span>
+      </div>
+      <a href="#" class="section-view-more">تسوق المزيد من حلول الواي فاي والتخزين ←</a>
+    </div>
+
+    <div class="products-showcase-grid">
+      <!-- Product 5 -->
+      <div class="product-box">
+        <span class="product-badge-discount">-17%</span>
+        <span class="product-badge-hot">HOT</span>
+        <div class="product-img-wrap">
+          <img src="assets/prod_wifi_ap1.jpg" alt="Grandstream GWN7664">
+        </div>
+        <div class="product-brand-tag">Grandstream</div>
+        <div class="product-name-title">أكسس بوينت جراند ستريم GWN7664 Wi-Fi 6 سقفية فائقة التغطية</div>
+        <div class="product-specs-list">
+          <span class="spec-pill">Wi-Fi 6 AX3500</span>
+          <span class="spec-pill">512 Clients</span>
+          <span class="spec-pill">PoE+</span>
+        </div>
+        <div class="product-price-action-row">
+          <div>
+            <div class="price-value-now">4,289 <small>ج.م</small></div>
+            <div class="price-value-before">5,147 ج.م</div>
+          </div>
+          <button class="btn-add-cart">أضف للسلة</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-box">
+        <span class="product-badge-discount">-12%</span>
+        <div class="product-img-wrap">
+          <img src="assets/prod_wifi_ap2.jpg" alt="Ubiquiti U6-Pro">
+        </div>
+        <div class="product-brand-tag">Ubiquiti UniFi</div>
+        <div class="product-name-title">أكسس بوينت يوبيكويتي UniFi U6-Pro بسرعات جيجابت مضاعفة</div>
+        <div class="product-specs-list">
+          <span class="spec-pill">5.3 Gbps</span>
+          <span class="spec-pill">300+ Clients</span>
+          <span class="spec-pill">IP54</span>
+        </div>
+        <div class="product-price-action-row">
+          <div>
+            <div class="price-value-now">5,890 <small>ج.م</small></div>
+            <div class="price-value-before">6,700 ج.م</div>
+          </div>
+          <button class="btn-add-cart">أضف للسلة</button>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-box">
+        <div class="product-img-wrap">
+          <img src="assets/prod_nas_5bay.jpg" alt="Synology DS620slim">
+        </div>
+        <div class="product-brand-tag">Synology NAS</div>
+        <div class="product-name-title">سيرفر تخزين سحابي سينولوجي DiskStation 6-Bay صغير الحجم</div>
+        <div class="product-specs-list">
+          <span class="spec-pill">6-Bay SSD/HDD</span>
+          <span class="spec-pill">RAID Support</span>
+          <span class="spec-pill">Private Cloud</span>
+        </div>
+        <div class="product-price-action-row">
+          <div>
+            <div class="price-value-now">8,599 <small>ج.م</small></div>
+            <div class="price-value-before">9,200 ج.م</div>
+          </div>
+          <button class="btn-add-cart">أضف للسلة</button>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-box">
+        <span class="product-badge-discount">-15%</span>
+        <div class="product-img-wrap">
+          <img src="assets/prod_nas_6bay.jpg" alt="Synology DS923+">
+        </div>
+        <div class="product-brand-tag">Synology NAS</div>
+        <div class="product-name-title">سيرفر تخزين سينولوجي DS923+ عالي الأداء للمكاتب والنسخ الاحتياطي</div>
+        <div class="product-specs-list">
+          <span class="spec-pill">4-Bay Hot Swap</span>
+          <span class="spec-pill">NVMe Cache</span>
+          <span class="spec-pill">10GbE Ready</span>
+        </div>
+        <div class="product-price-action-row">
+          <div>
+            <div class="price-value-now">21,505 <small>ج.م</small></div>
+            <div class="price-value-before">25,000 ج.م</div>
+          </div>
+          <button class="btn-add-cart">أضف للسلة</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FLASH DEALS / العروض الحالية
+       ======================================================================== -->
+  <section class="section-wrap">
+    <div class="flash-deals-box">
+      <div class="deals-header">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:25px; font-weight:900;">
+            <span style="color:#f59e0b;">⚡</span>
+            <span>العروض الحالية والتخفيضات الأسبوعية</span>
+          </div>
+          <p style="font-size:14.5px; color:#bae6fd; margin-top:4px;">
+            أسعار خاصة محدودة الكمية على أجهزة الشبكات ومغذيات الطاقة مع توصيل سريع لجميع المحافظات
+          </p>
+        </div>
+        <div class="deals-timer-wrap">
+          <span style="font-size:14px; font-weight:700; color:#bae6fd;">ينتهي العرض خلال:</span>
+          <div class="timer-unit">
+            <span class="timer-val mono">02</span>
+            <span class="timer-lbl">يوم</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-val mono">14</span>
+            <span class="timer-lbl">ساعة</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-val mono">38</span>
+            <span class="timer-lbl">دقيقة</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-val mono">50</span>
+            <span class="timer-lbl">ثانية</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Featured Deals in Flash Deals -->
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+        <!-- Deal 1: UPS -->
+        <div style="background:#fff; color:var(--text-main); border-radius:14px; padding:18px; display:flex; gap:16px; align-items:center;">
+          <div style="width:110px; height:110px; background:#f8fafc; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <img src="assets/prod_ups_tower.jpg" style="max-width:90%; max-height:90%; object-fit:contain;" alt="APC UPS">
+          </div>
+          <div>
+            <span style="background:#ef4444; color:#fff; font-size:11.5px; font-weight:800; padding:2px 7px; border-radius:4px;">خصم 20%</span>
+            <div style="font-size:15px; font-weight:800; color:var(--petrol-950); margin:6px 0 4px; line-height:1.4;">مغذي طاقة ذكي APC Easy UPS 1000VA لحماية السيرفرات</div>
+            <div style="font-size:19px; font-weight:900; color:var(--cyan-600);">7,450 <small style="font-size:12px; color:#64748b;">ج.م</small> <span style="font-size:12.5px; color:#94a3b8; text-decoration:line-through;">9,300 ج.م</span></div>
+          </div>
+        </div>
+
+        <!-- Deal 2: Powerstation -->
+        <div style="background:#fff; color:var(--text-main); border-radius:14px; padding:18px; display:flex; gap:16px; align-items:center;">
+          <div style="width:110px; height:110px; background:#f8fafc; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <img src="assets/prod_ups_powerstation.jpg" style="max-width:90%; max-height:90%; object-fit:contain;" alt="Portable Powerstation">
+          </div>
+          <div>
+            <span style="background:#f59e0b; color:#fff; font-size:11.5px; font-weight:800; padding:2px 7px; border-radius:4px;">الأكثر طلباً</span>
+            <div style="font-size:15px; font-weight:800; color:var(--petrol-950); margin:6px 0 4px; line-height:1.4;">محطة طاقة محمولة Powerstation 600W للراوترات والعمل الميداني</div>
+            <div style="font-size:19px; font-weight:900; color:var(--cyan-600);">13,800 <small style="font-size:12px; color:#64748b;">ج.م</small> <span style="font-size:12.5px; color:#94a3b8; text-decoration:line-through;">16,200 ج.م</span></div>
+          </div>
+        </div>
+
+        <!-- Deal 3: Interactive Screen -->
+        <div style="background:#fff; color:var(--text-main); border-radius:14px; padding:18px; display:flex; gap:16px; align-items:center;">
+          <div style="width:110px; height:110px; background:#f8fafc; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <img src="assets/prod_interactive_screen.jpg" style="max-width:90%; max-height:90%; object-fit:contain;" alt="Interactive Screen">
+          </div>
+          <div>
+            <span style="background:#10b981; color:#fff; font-size:11.5px; font-weight:800; padding:2px 7px; border-radius:4px;">معاينة عند الاستلام</span>
+            <div style="font-size:15px; font-weight:800; color:var(--petrol-950); margin:6px 0 4px; line-height:1.4;">شاشة اجتماعات تفاعلية 65 بوصة 4K تعمل باللمس بنظامين</div>
+            <div style="font-size:19px; font-weight:900; color:var(--cyan-600);">34,900 <small style="font-size:12px; color:#64748b;">ج.م</small> <span style="font-size:12.5px; color:#94a3b8; text-decoration:line-through;">39,500 ج.م</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CERTIFIED BRANDS RIBBON
+       ======================================================================== -->
+  <section class="brands-ribbon">
+    <div class="brands-container">
+      <div style="font-size:15.5px; font-weight:800; color:var(--petrol-900);">الماركات الأصلية المعتمدة:</div>
+      <div class="brand-name" style="color:#0284c7;">CISCO</div>
+      <div class="brand-name" style="color:#ef4444;">HUAWEI</div>
+      <div class="brand-name" style="color:#0f172a;">MIKROTIK</div>
+      <div class="brand-name" style="color:#0099e5;">UBIQUITI</div>
+      <div class="brand-name" style="color:#f97316;">GRANDSTREAM</div>
+      <div class="brand-name" style="color:#10b981;">SYNOLOGY</div>
+      <div class="brand-name" style="color:#334155;">SCHNEIDER APC</div>
+      <div class="brand-name" style="color:#2563eb;">FORTINET</div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer-wrap">
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="assets/logo_white.png" style="height:44px; margin-bottom:16px;" alt="MESS TECH">
+        <p style="font-size:14px; line-height:1.8; color:#cbd5e1; margin-bottom:16px;">
+          متجر <b>MESS TECH</b> وجهتكم الأولى لأحدث الأجهزة التقنية، مستلزمات الشبكات، أنظمة المراقبة والإلكترونيات الأصلية المعتمدة بأفضل الأسعار، مع ميزة الفحص والمعاينة قبل الدفع عند الاستلام.
         </p>
-        <div class="hero-actions">
-          <a href="#" class="btn-primary-hero">
-            تصفح السويتشات والمعدات
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
-        </div>
-        <div class="hero-trust-grid">
-          <div class="hero-trust-item">
-            <div class="hero-trust-icon">✓</div>
-            <div class="hero-trust-text">أجهزة أصلية معتمدة<br><span style="color:#94a3b8; font-weight:400;">وكلاء وموزعون رسميون</span></div>
-          </div>
-          <div class="hero-trust-item">
-            <div class="hero-trust-icon">PDF</div>
-            <div class="hero-trust-text">داتاشيت معتمدة<br><span style="color:#94a3b8; font-weight:400;">مواصفات دقيقة لكل موديل</span></div>
-          </div>
-          <div class="hero-trust-item">
-            <div class="hero-trust-icon">⚡</div>
-            <div class="hero-trust-text">شحن سريع للمحافظات<br><span style="color:#94a3b8; font-weight:400;">+ استلام مجاني من الفرع</span></div>
-          </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span class="badge-notice-header" style="font-size:12.5px;">منتجات أصلية معتمدة 100%</span>
+          <span style="color:#fff; font-size:13.5px;">الدعم: <b>support@messtech.com</b></span>
         </div>
       </div>
 
-      <!-- Hero Visual Equipment Showcase -->
-      <div class="hero-hardware-box">
-        <span class="hardware-tag">أحدث وصول للمخزون</span>
-        <div style="margin-bottom:12px;">
-          <div style="font-size:12px; color:var(--cyan-400); font-weight:700; text-transform:uppercase;">Cisco Systems • Catalyst 2960X</div>
-          <div style="font-size:18px; font-weight:800; color:#fff;">WS-C2960X-24TD-L Gigabit PoE+</div>
-        </div>
-        <div style="height:140px; margin-bottom:14px;">
-          
-<svg viewBox="0 0 400 160" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="sw-body" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#2d3748"/>
-      <stop offset="50%" stop-color="#1a202c"/>
-      <stop offset="100%" stop-color="#111827"/>
-    </linearGradient>
-    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#94a3b8"/>
-      <stop offset="50%" stop-color="#cbd5e1"/>
-      <stop offset="100%" stop-color="#64748b"/>
-    </linearGradient>
-  </defs>
-  <!-- 1U Chassis -->
-  <rect x="20" y="35" width="360" height="90" rx="4" fill="url(#sw-body)" stroke="#475569" stroke-width="1.5"/>
-  <!-- Rack Ears -->
-  <rect x="8" y="35" width="12" height="90" rx="2" fill="url(#metal)"/>
-  <circle cx="14" cy="45" r="2.5" fill="#1e293b"/>
-  <circle cx="14" cy="115" r="2.5" fill="#1e293b"/>
-  <rect x="380" y="35" width="12" height="90" rx="2" fill="url(#metal)"/>
-  <circle cx="386" cy="45" r="2.5" fill="#1e293b"/>
-  <circle cx="386" cy="115" r="2.5" fill="#1e293b"/>
-  <!-- Cisco Badge & Model -->
-  <rect x="35" y="48" width="50" height="14" rx="2" fill="#0284c7" opacity="0.8"/>
-  <text x="60" y="58" font-size="8" font-family="sans-serif" font-weight="900" fill="#ffffff" text-anchor="middle">CISCO</text>
-  <text x="35" y="72" font-size="7" font-family="monospace" fill="#94a3b8">WS-C2960X-24TD-L</text>
-  <!-- System LEDs -->
-  <circle cx="38" cy="88" r="2" fill="#10b981"/>
-  <circle cx="46" cy="88" r="2" fill="#10b981"/>
-  <circle cx="54" cy="88" r="2" fill="#10b981"/>
-  <circle cx="62" cy="88" r="2" fill="#38bdf8"/>
-  <text x="35" y="98" font-size="6" font-family="monospace" fill="#64748b">STAT  RPS  MAST  PoE</text>
-  <!-- 24 Ports Grid (2 rows of 12) -->
-  <g transform="translate(105, 52)">
-    <rect x="-4" y="-4" width="205" height="52" rx="3" fill="#0f172a" stroke="#334155"/>
-
-    <rect x="0" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="2" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="6" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="0" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="2" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="6" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="16" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="18" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="22" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="16" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="18" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="22" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="32" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="34" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="38" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="32" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="34" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="38" cy="47" r="1.5" fill="#64748b"/>
-
-    <rect x="48" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="50" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="54" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="48" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="50" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="54" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="64" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="66" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="70" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="64" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="66" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="70" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="80" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="82" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="86" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="80" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="82" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="86" cy="47" r="1.5" fill="#64748b"/>
-
-    <rect x="96" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="98" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="102" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="96" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="98" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="102" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="112" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="114" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="118" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="112" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="114" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="118" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="128" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="130" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="134" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="128" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="130" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="134" cy="47" r="1.5" fill="#64748b"/>
-
-    <rect x="144" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="146" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="150" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="144" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="146" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="150" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="160" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="162" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="166" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="160" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="162" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="166" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="176" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="178" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="182" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="176" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="178" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="182" cy="47" r="1.5" fill="#64748b"/>
-
-  </g>
-  <!-- 2x 10G SFP+ Uplink Slots -->
-  <g transform="translate(322, 54)">
-    <rect x="-4" y="-4" width="45" height="48" rx="3" fill="#0f172a" stroke="#334155"/>
-    <rect x="0" y="2" width="16" height="38" rx="2" fill="#334155" stroke="#94a3b8"/>
-    <rect x="20" y="2" width="16" height="38" rx="2" fill="#334155" stroke="#94a3b8"/>
-    <circle cx="8" cy="44" r="1.5" fill="#38bdf8"/>
-    <circle cx="28" cy="44" r="1.5" fill="#38bdf8"/>
-    <text x="18" y="-7" font-size="6" font-family="monospace" fill="#38bdf8" text-anchor="middle">10G SFP+</text>
-  </g>
-</svg>
-
-        </div>
-        <div style="display:flex; justify-content:space-between; align-items:center; background:#172136; padding:12px 16px; border-radius:10px;">
-          <div>
-            <div style="font-size:11px; color:#94a3b8;">السعر الحالي شامل الضريبة</div>
-            <div style="font-size:18px; font-weight:800; color:#fff;">19,850 <small style="font-size:12px; color:#94a3b8;">ج.م</small></div>
-          </div>
-          <div style="display:flex; gap:8px;">
-            <span style="background:rgba(16,185,129,0.15); color:#34d399; font-size:11px; font-weight:700; padding:6px 12px; border-radius:6px;">متوفر بالمخزون</span>
-          </div>
-        </div>
+      <div class="footer-col">
+        <h5>أقسام المتجر</h5>
+        <ul class="footer-list">
+          <li><a href="#">سويتشات الشبكات Gigabit & PoE</a></li>
+          <li><a href="#">أجهزة الراوتر والواي فاي Wi-Fi 6</a></li>
+          <li><a href="#">كاميرات المراقبة وأجهزة التسجيل</a></li>
+          <li><a href="#">وحدات التخزين السحابية NAS</a></li>
+          <li><a href="#">مغذيات الطاقة الذكية UPS</a></li>
+          <li><a href="#">كبائن وراكات السيرفرات وملحقاتها</a></li>
+        </ul>
       </div>
-    </div>
-  </section>
 
-  <!-- Certified Brands -->
-  <section class="brand-ribbon">
-    <div class="brand-container">
-      <div class="brand-title-lead">الماركات المعتمدة:</div>
-      <div class="brand-logo-item" style="color:#0284c7;">CISCO</div>
-      <div class="brand-logo-item" style="color:#ef4444;">FORTINET</div>
-      <div class="brand-logo-item" style="color:#0f172a;">MIKROTIK</div>
-      <div class="brand-logo-item" style="color:#0099e5;">UBIQUITI</div>
-      <div class="brand-logo-item" style="color:#f97316;">ARUBA</div>
-      <div class="brand-logo-item" style="color:#10b981;">SCHNEIDER APC</div>
-      <div class="brand-logo-item" style="color:#334155;">RUIJIE</div>
-    </div>
-  </section>
-
-  <!-- Current Deals with Timer -->
-  <section class="weekly-deals-section">
-    <div class="deals-banner-header">
-      <div class="deals-title-wrap">
-        <h3>
-          <span style="color:#f59e0b;">⚡</span>
-          العروض الحالية
-        </h3>
-        <p style="font-size:13px; color:#94a3b8; margin-top:4px;">أسعار خاصة لفترة محدودة على معدات الشبكات الأصلية مع شحن سريع لكافة المحافظات</p>
+      <div class="footer-col">
+        <h5>خدمات المشترين</h5>
+        <ul class="footer-list">
+          <li><a href="#">الشحن والتوصيل لكافة المحافظات</a></li>
+          <li><a href="#">سياسة الإرجاع والاستبدال (14 يوماً)</a></li>
+          <li><a href="#">خدمة الدفع نقداً عند الاستلام (COD)</a></li>
+          <li><a href="#">الأسئلة الشائعة ومساعدة العملاء</a></li>
+          <li><a href="#">الشروط والأحكام والضمان التجاري</a></li>
+        </ul>
       </div>
-      <div class="deals-countdown-box">
-        <span style="font-size:13px; font-weight:700; color:#cbd5e1; margin-left:8px;">ينتهي العرض خلال:</span>
-        <div class="countdown-unit">
-          <span class="countdown-num">02</span>
-          <span class="countdown-label">يوم</span>
+
+      <div class="footer-col">
+        <h5>خدمة العملاء والدعم الفني</h5>
+        <p style="font-size:13.5px; color:#cbd5e1; margin-bottom:12px;">
+          فريق خدمة العملاء جاهز للرد على استفساراتكم ومساعدتكم طوال أيام الأسبوع:
+        </p>
+        <div style="background:#093455; border:1px solid #1c5e90; padding:14px; border-radius:10px; margin-bottom:12px;">
+          <div style="font-size:12px; color:#94a3b8;">الخط الساخن المباشر:</div>
+          <div class="mono" style="font-size:19px; font-weight:800; color:#38bdf8; margin-top:2px;">19824 • 0100 234 5678</div>
         </div>
-        <div class="countdown-unit">
-          <span class="countdown-num">14</span>
-          <span class="countdown-label">ساعة</span>
-        </div>
-        <div class="countdown-unit">
-          <span class="countdown-num">28</span>
-          <span class="countdown-label">دقيقة</span>
-        </div>
-        <div class="countdown-unit">
-          <span class="countdown-num">45</span>
-          <span class="countdown-label">ثانية</span>
+        <div style="font-size:12.5px; color:#94a3b8; display:flex; align-items:center; gap:6px;">
+          <span style="color:#10b981;">●</span> متاح يومياً من 9 صباحاً حتى 10 مساءً
         </div>
       </div>
     </div>
 
-    <!-- 3 Deal Cards -->
-    <div class="products-grid-3">
-      <!-- Card 1: Cisco Switch -->
-      <div class="deal-card">
-        <span class="badge-discount">-15%</span>
-        <div class="card-img-wrap">
-          
-<svg viewBox="0 0 400 160" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="sw-body" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#2d3748"/>
-      <stop offset="50%" stop-color="#1a202c"/>
-      <stop offset="100%" stop-color="#111827"/>
-    </linearGradient>
-    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#94a3b8"/>
-      <stop offset="50%" stop-color="#cbd5e1"/>
-      <stop offset="100%" stop-color="#64748b"/>
-    </linearGradient>
-  </defs>
-  <!-- 1U Chassis -->
-  <rect x="20" y="35" width="360" height="90" rx="4" fill="url(#sw-body)" stroke="#475569" stroke-width="1.5"/>
-  <!-- Rack Ears -->
-  <rect x="8" y="35" width="12" height="90" rx="2" fill="url(#metal)"/>
-  <circle cx="14" cy="45" r="2.5" fill="#1e293b"/>
-  <circle cx="14" cy="115" r="2.5" fill="#1e293b"/>
-  <rect x="380" y="35" width="12" height="90" rx="2" fill="url(#metal)"/>
-  <circle cx="386" cy="45" r="2.5" fill="#1e293b"/>
-  <circle cx="386" cy="115" r="2.5" fill="#1e293b"/>
-  <!-- Cisco Badge & Model -->
-  <rect x="35" y="48" width="50" height="14" rx="2" fill="#0284c7" opacity="0.8"/>
-  <text x="60" y="58" font-size="8" font-family="sans-serif" font-weight="900" fill="#ffffff" text-anchor="middle">CISCO</text>
-  <text x="35" y="72" font-size="7" font-family="monospace" fill="#94a3b8">WS-C2960X-24TD-L</text>
-  <!-- System LEDs -->
-  <circle cx="38" cy="88" r="2" fill="#10b981"/>
-  <circle cx="46" cy="88" r="2" fill="#10b981"/>
-  <circle cx="54" cy="88" r="2" fill="#10b981"/>
-  <circle cx="62" cy="88" r="2" fill="#38bdf8"/>
-  <text x="35" y="98" font-size="6" font-family="monospace" fill="#64748b">STAT  RPS  MAST  PoE</text>
-  <!-- 24 Ports Grid (2 rows of 12) -->
-  <g transform="translate(105, 52)">
-    <rect x="-4" y="-4" width="205" height="52" rx="3" fill="#0f172a" stroke="#334155"/>
-
-    <rect x="0" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="2" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="6" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="0" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="2" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="6" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="16" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="18" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="22" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="16" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="18" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="22" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="32" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="34" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="38" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="32" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="34" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="38" cy="47" r="1.5" fill="#64748b"/>
-
-    <rect x="48" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="50" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="54" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="48" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="50" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="54" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="64" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="66" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="70" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="64" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="66" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="70" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="80" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="82" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="86" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="80" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="82" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="86" cy="47" r="1.5" fill="#64748b"/>
-
-    <rect x="96" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="98" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="102" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="96" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="98" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="102" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="112" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="114" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="118" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="112" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="114" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="118" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="128" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="130" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="134" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="128" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="130" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="134" cy="47" r="1.5" fill="#64748b"/>
-
-    <rect x="144" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="146" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="150" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="144" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="146" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="150" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="160" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="162" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="166" cy="21" r="1.5" fill="#10b981"/>
-    <rect x="160" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="162" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="166" cy="47" r="1.5" fill="#10b981"/>
-
-    <rect x="176" y="0" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="178" y="2" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="182" cy="21" r="1.5" fill="#0284c7"/>
-    <rect x="176" y="26" width="12" height="18" rx="2" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <rect x="178" y="28" width="8" height="5" fill="#0284c7" opacity="0.3"/>
-    <circle cx="182" cy="47" r="1.5" fill="#64748b"/>
-
-  </g>
-  <!-- 2x 10G SFP+ Uplink Slots -->
-  <g transform="translate(322, 54)">
-    <rect x="-4" y="-4" width="45" height="48" rx="3" fill="#0f172a" stroke="#334155"/>
-    <rect x="0" y="2" width="16" height="38" rx="2" fill="#334155" stroke="#94a3b8"/>
-    <rect x="20" y="2" width="16" height="38" rx="2" fill="#334155" stroke="#94a3b8"/>
-    <circle cx="8" cy="44" r="1.5" fill="#38bdf8"/>
-    <circle cx="28" cy="44" r="1.5" fill="#38bdf8"/>
-    <text x="18" y="-7" font-size="6" font-family="monospace" fill="#38bdf8" text-anchor="middle">10G SFP+</text>
-  </g>
-</svg>
-
-        </div>
-        <div class="card-brand-model">
-          <span class="card-brand">Cisco Systems</span>
-          <span class="card-model-sku">WS-C2960X-24TD-L</span>
-        </div>
-        <h4 class="card-title">سويتش سيسكو كاتاليست 24 بورت جيجابت PoE+ مع 2 منفذ 10G SFP+</h4>
-        <div class="specs-pill-strip">
-          <span class="specs-pill">24 Ports GbE</span>
-          <span class="specs-pill">PoE+ 370W</span>
-          <span class="specs-pill">2x 10G Uplink</span>
-          <span class="specs-pill">Layer 2/3</span>
-        </div>
-        <div class="deal-progress-bar-wrap">
-          <div class="deal-progress-label">
-            <span>تم حجز 74% من الكمية</span>
-            <span style="color:#ef4444; font-weight:700;">متبقي 5 قطع</span>
-          </div>
-          <div class="progress-track"><div class="progress-fill" style="width:74%;"></div></div>
-        </div>
-        <div class="card-price-row">
-          <div>
-            <div class="price-current">19,850 <small>ج.م</small></div>
-            <div class="price-old">23,200 ج.م</div>
-          </div>
-          <button class="card-btn-action">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            أضف للسلة
-          </button>
-        </div>
-      </div>
-
-      <!-- Card 2: MikroTik Router -->
-      <div class="deal-card">
-        <span class="badge-discount">-12%</span>
-        <div class="card-img-wrap">
-          
-<svg viewBox="0 0 400 160" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-  <rect x="25" y="35" width="350" height="90" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
-  <rect x="12" y="35" width="13" height="90" fill="#94a3b8" rx="2"/>
-  <rect x="375" y="35" width="13" height="90" fill="#94a3b8" rx="2"/>
-  <rect x="42" y="50" width="55" height="24" rx="3" fill="#0f172a"/>
-  <text x="69" y="66" font-size="9" font-family="monospace" font-weight="700" fill="#38bdf8" text-anchor="middle">RouterOS</text>
-  <text x="42" y="86" font-size="8" font-family="sans-serif" font-weight="800" fill="#1e293b">MikroTik</text>
-  <text x="42" y="98" font-size="7" font-family="monospace" fill="#64748b">CRS328-24P-4S+RM</text>
-  <!-- Port cluster -->
-  <g transform="translate(125, 52)">
-    <rect x="-4" y="-4" width="180" height="52" rx="3" fill="#e2e8f0" stroke="#94a3b8"/>
-
-    <rect x="0" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="5" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="0" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="5" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="14" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="19" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="14" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="19" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="28" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="33" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="28" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="33" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="42" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="47" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="42" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="47" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="56" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="61" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="56" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="61" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="70" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="75" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="70" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="75" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="84" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="89" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="84" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="89" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="98" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="103" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="98" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="103" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="112" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="117" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="112" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="117" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="126" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="131" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="126" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="131" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="140" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="145" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="140" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="145" cy="46" r="1.2" fill="#10b981"/>
-
-    <rect x="154" y="2" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="159" cy="22" r="1.2" fill="#10b981"/>
-    <rect x="154" y="26" width="11" height="18" rx="1.5" fill="#1e293b" stroke="#64748b"/>
-    <circle cx="159" cy="46" r="1.2" fill="#10b981"/>
-
-  </g>
-  <!-- 4 SFP+ cages -->
-  <g transform="translate(315, 52)">
-    <rect x="0" y="4" width="10" height="38" rx="1.5" fill="#334155" stroke="#0099e5"/>
-    <rect x="13" y="4" width="10" height="38" rx="1.5" fill="#334155" stroke="#0099e5"/>
-    <rect x="26" y="4" width="10" height="38" rx="1.5" fill="#334155" stroke="#0099e5"/>
-    <rect x="39" y="4" width="10" height="38" rx="1.5" fill="#334155" stroke="#0099e5"/>
-    <text x="25" y="-5" font-size="7" font-family="monospace" fill="#0284c7" text-anchor="middle">4x SFP+ 10G</text>
-  </g>
-</svg>
-
-        </div>
-        <div class="card-brand-model">
-          <span class="card-brand">MikroTik</span>
-          <span class="card-model-sku">CRS328-24P-4S+RM</span>
-        </div>
-        <h4 class="card-title">سويتش مايكروتك كلاود 24 بورت PoE ذكي مع 4 منافذ SFP+ 10G</h4>
-        <div class="specs-pill-strip">
-          <span class="specs-pill">24 Ports PoE</span>
-          <span class="specs-pill">500W Dual PSU</span>
-          <span class="specs-pill">4x 10G SFP+</span>
-          <span class="specs-pill">RouterOS L5</span>
-        </div>
-        <div class="deal-progress-bar-wrap">
-          <div class="deal-progress-label">
-            <span>تم حجز 85% من الكمية</span>
-            <span style="color:#ef4444; font-weight:700;">متبقي 3 قطع</span>
-          </div>
-          <div class="progress-track"><div class="progress-fill" style="width:85%;"></div></div>
-        </div>
-        <div class="card-price-row">
-          <div>
-            <div class="price-current">22,400 <small>ج.م</small></div>
-            <div class="price-old">25,500 ج.م</div>
-          </div>
-          <button class="card-btn-action">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            أضف للسلة
-          </button>
-        </div>
-      </div>
-
-      <!-- Card 3: Fortinet Firewall -->
-      <div class="deal-card">
-        <span class="badge-discount">-10%</span>
-        <div class="card-img-wrap">
-          
-<svg viewBox="0 0 320 160" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-  <rect x="30" y="40" width="260" height="80" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
-  <rect x="45" y="52" width="70" height="16" rx="2" fill="#ef4444"/>
-  <text x="80" y="63" font-size="9" font-family="sans-serif" font-weight="900" fill="#fff" text-anchor="middle">FORTINET</text>
-  <text x="45" y="80" font-size="8" font-family="monospace" font-weight="700" fill="#0f172a">FortiGate 60F</text>
-  <text x="45" y="92" font-size="7" font-family="sans-serif" fill="#64748b">Next-Gen Firewall</text>
-  <!-- Ports -->
-  <g transform="translate(140, 56)">
-    <rect x="0" y="0" width="14" height="22" rx="2" fill="#1e293b"/>
-    <text x="7" y="30" font-size="5" fill="#64748b" text-anchor="middle">WAN1</text>
-    <rect x="18" y="0" width="14" height="22" rx="2" fill="#1e293b"/>
-    <text x="25" y="30" font-size="5" fill="#64748b" text-anchor="middle">WAN2</text>
-    <rect x="36" y="0" width="14" height="22" rx="2" fill="#1e293b"/>
-    <text x="43" y="30" font-size="5" fill="#64748b" text-anchor="middle">DMZ</text>
-    <rect x="60" y="0" width="14" height="22" rx="2" fill="#0284c7"/>
-    <rect x="78" y="0" width="14" height="22" rx="2" fill="#0284c7"/>
-    <rect x="96" y="0" width="14" height="22" rx="2" fill="#0284c7"/>
-    <rect x="114" y="0" width="14" height="22" rx="2" fill="#0284c7"/>
-    <rect x="132" y="0" width="14" height="22" rx="2" fill="#0284c7"/>
-    <text x="103" y="30" font-size="6" fill="#0284c7" text-anchor="middle">Internal 1-5 (GbE)</text>
-  </g>
-</svg>
-
-        </div>
-        <div class="card-brand-model">
-          <span class="card-brand" style="color:#ef4444;">Fortinet</span>
-          <span class="card-model-sku">FG-60F</span>
-        </div>
-        <h4 class="card-title">جدار حماية فورتينت FortiGate 60F للأمن السيبراني وحماية الشبكات</h4>
-        <div class="specs-pill-strip">
-          <span class="specs-pill">10 Gbps Firewall</span>
-          <span class="specs-pill">1 Gbps Threat</span>
-          <span class="specs-pill">Dual WAN</span>
-          <span class="specs-pill">SD-WAN Built-in</span>
-        </div>
-        <div class="deal-progress-bar-wrap">
-          <div class="deal-progress-label">
-            <span>تم حجز 60% من الكمية</span>
-            <span style="color:#10b981; font-weight:700;">متوفر بالمخزون</span>
-          </div>
-          <div class="progress-track"><div class="progress-fill" style="width:60%;"></div></div>
-        </div>
-        <div class="card-price-row">
-          <div>
-            <div class="price-current">28,900 <small>ج.م</small></div>
-            <div class="price-old">32,000 ج.م</div>
-          </div>
-          <button class="card-btn-action">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            أضف للسلة
-          </button>
-        </div>
+    <div class="footer-bottom-bar">
+      <div>جميع الحقوق محفوظة © 2026 لمتجر <b>MESS TECH</b> — للتجارة الإلكترونية والتقنية.</div>
+      <div style="display:flex; gap:20px; align-items:center;">
+        <span style="color:#38bdf8;">✓ منتجات أصلية 100%</span>
+        <span>✓ استرجاع واستبدال مجاني 14 يوماً</span>
+        <span>✓ فحص ومعاينة قبل الدفع</span>
       </div>
     </div>
-  </section>
-
-  <!-- Categories Grid -->
-  <section class="categories-section">
-    <div class="section-head">
-      <div>
-        <h2 class="section-title">تصفح أحدث أجهزة الشبكات والمراقبة</h2>
-        <p class="section-subtitle">أقسام متكاملة تغطي كافة متطلبات الداتا سنتر، غرف السيرفرات، والشبكات السلكية واللاسلكية</p>
-      </div>
-      <a href="#" style="color:var(--cyan-600); font-weight:700; text-decoration:none; font-size:14px;">عرض جميع الأقسام (7) ←</a>
-    </div>
-
-    <div class="category-grid-6">
-      <a href="#" class="cat-box">
-        <div class="cat-box-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="6" cy="12" r="1.5"/><circle cx="10" cy="12" r="1.5"/><circle cx="14" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/></svg>
-        </div>
-        <div class="cat-box-title">سويتشات الشبكات</div>
-        <div class="cat-box-count">48 موديل معتمد</div>
-      </a>
-
-      <a href="#" class="cat-box">
-        <div class="cat-box-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-        </div>
-        <div class="cat-box-title">راوترات وسيرفرات</div>
-        <div class="cat-box-count">26 موديل للمشروعات</div>
-      </a>
-
-      <a href="#" class="cat-box">
-        <div class="cat-box-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="cat-box-title">جدران الحماية</div>
-        <div class="cat-box-count">19 جهاز أمني</div>
-      </a>
-
-      <a href="#" class="cat-box">
-        <div class="cat-box-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-        </div>
-        <div class="cat-box-title">أكسس بوينت وواي فاي</div>
-        <div class="cat-box-count">34 جهاز UniFi & Aruba</div>
-      </a>
-
-      <a href="#" class="cat-box">
-        <div class="cat-box-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/></svg>
-        </div>
-        <div class="cat-box-title">مغذيات الطاقة UPS</div>
-        <div class="cat-box-count">15 وحدة APC أصلية</div>
-      </a>
-
-      <a href="#" class="cat-box">
-        <div class="cat-box-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg>
-        </div>
-        <div class="cat-box-title">راكات وكبائن الخوادم</div>
-        <div class="cat-box-count">9U إلى 42U معتمدة</div>
-      </a>
-    </div>
-  </section>
-
-  <!-- Value Proposition Strip -->
-  <section class="value-strip">
-    <div class="value-strip-container">
-      <div class="value-item">
-        <div class="value-icon-circle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg>
-        </div>
-        <div>
-          <h4>أجهزة أصلية معتمدة</h4>
-          <p>أجهزة شبكات أصلية وجديدة بالكرتونة من الوكلاء والموزعين الرسميين.</p>
-        </div>
-      </div>
-
-      <div class="value-item">
-        <div class="value-icon-circle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div>
-          <h4>داتاشيت PDF معتمدة</h4>
-          <p>مواصفات فنية تفصيلية وDatasheet رسمية قابلة للتحميل لكل موديل بالموقع.</p>
-        </div>
-      </div>
-
-      <div class="value-item">
-        <div class="value-icon-circle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <div>
-          <h4>شحن لجميع المحافظات</h4>
-          <p>شحن سريع مؤمن لكافة محافظات مصر وخيار الاستلام المباشر من مقر الشركة.</p>
-        </div>
-      </div>
-
-      <div class="value-item">
-        <div class="value-icon-circle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-        </div>
-        <div>
-          <h4>دعم فني هندسي متقدم</h4>
-          <p>فريق خدمة العملاء جاهز لمساعدتكم في اختيار ومطابقة أنسب الأجهزة طوال الأسبوع.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-    <footer class="footer-wrap">
-      <div class="footer-container">
-        <div class="footer-col">
-          <img src="assets/logo_white.png" style="height:44px; margin-bottom:16px;" alt="MESS TECH">
-          <p style="font-size:13.5px; line-height:1.8; color:var(--slate-400); margin-bottom:16px;">
-            متجر <b>MESS TECH</b> وجهتكم الأولى لأحدث الأجهزة التقنية، مستلزمات الشبكات، أنظمة المراقبة والإلكترونيات الأصلية المعتمدة بأفضل الأسعار، مع ميزة الفحص والمعاينة قبل الدفع عند الاستلام.
-          </p>
-          <div style="display:flex; align-items:center; gap:12px;">
-            <span class="badge-notice-header" style="font-size:12px;">منتجات أصلية معتمدة 100%</span>
-            <span style="color:#fff; font-size:13px;">الدعم: <b>support@messtech.com</b></span>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h5>أقسام المتجر</h5>
-          <ul class="footer-list">
-            <li><a href="#">سويتشات الشبكات Gigabit & PoE</a></li>
-            <li><a href="#">راوترات وأجهزة التوجيه السحابية</a></li>
-            <li><a href="#">كاميرات المراقبة وأجهزة NVR</a></li>
-            <li><a href="#">أجهزة أكسس بوينت Wi-Fi 6</a></li>
-            <li><a href="#">مغذيات الطاقة الذكية UPS</a></li>
-            <li><a href="#">كبائن وراكات السيرفرات وملحقاتها</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>خدمات المشترين</h5>
-          <ul class="footer-list">
-            <li><a href="#">الشحن والتوصيل لكافة المحافظات</a></li>
-            <li><a href="#">سياسة الإرجاع والاستبدال (14 يوماً)</a></li>
-            <li><a href="#">خدمة الدفع نقداً عند الاستلام (COD)</a></li>
-            <li><a href="#">الأسئلة الشائعة ومساعدة العملاء</a></li>
-            <li><a href="#">الشروط والأحكام وخصوصية البيانات</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>خدمة العملاء والدعم الفني</h5>
-          <p style="font-size:13px; color:var(--slate-400); margin-bottom:12px;">
-            فريق خدمة العملاء جاهز للرد على استفساراتكم ومساعدتكم طوال أيام الأسبوع:
-          </p>
-          <div style="background:var(--navy-800); border:1px solid var(--navy-700); padding:14px; border-radius:10px; margin-bottom:12px;">
-            <div style="font-size:12px; color:var(--slate-400);">الخط الساخن المباشر:</div>
-            <div class="mono" style="font-size:18px; font-weight:700; color:var(--cyan-400); margin-top:2px;">19824 • 0100 234 5678</div>
-          </div>
-          <div style="font-size:12px; color:#94a3b8; display:flex; align-items:center; gap:6px;">
-            <span style="color:#10b981;">●</span> متاح يومياً من 9 صباحاً حتى 10 مساءً
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom-bar">
-        <div>جميع الحقوق محفوظة © 2026 لمتجر <b>MESS TECH</b> — للتجارة الإلكترونية والتقنية.</div>
-        <div style="display:flex; gap:20px; align-items:center;">
-          <span style="color:#38bdf8;">✓ منتجات أصلية 100%</span>
-          <span>✓ استرجاع واستبدال مجاني 14 يوماً</span>
-          <span>✓ فحص ومعاينة قبل الدفع</span>
-        </div>
-      </div>
-    </footer>
-    
+  </footer>
 
 </body>
 </html>
