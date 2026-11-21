@@ -3,6 +3,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Next.js & Node
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Environment files
+.env*.local
+.env
+
 # Windows
 Thumbs.db
 ehthumbs.db
@@ -10,4 +21,3 @@ Desktop.ini
 
 # MacOS
 .DS_Store
-
